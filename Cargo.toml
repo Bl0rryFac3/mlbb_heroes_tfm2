@@ -1,0 +1,11 @@
+[package]
+name = "mlbb_heroes"
+version = "1.0.0"
+edition = "2021"
+description = "Teamfight Manager 2 — MLBB Heroes Native Mod (Aldous v4.3.0 + Fanny v0.2.0 Wall Cable Edition)"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+mod-api-stable = { git = "https://github.com/teamsamoyed/TeamfightManager2Mod.git", package = "mod-api-stable" }

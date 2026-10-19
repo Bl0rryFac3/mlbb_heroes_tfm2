@@ -1,0 +1,157 @@
+{
+  "en": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "Aldous",
+        "attack": "Strikes with his giant molten gauntlet for <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>physical damage<>. Passive <#ffb900ff>Contract: Transform<> shields Aldous every <#ffb900ff>3rd<> strike for <#ffb900ff>60<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% AD<>.",
+        "skill": "<#ff9028ff>Contract: Soul Steal<>: Slams the ground with molten lava force for <#ff9028ff>85<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>145% AD<> AoE <#ff9028ff>physical damage<>, harvesting a <#5ad0e6ff>Soul Steal<> stack (<#ffb900ff>+12%<> Attack) and triggering <#ffb900ff>Contract: Transform<>.",
+        "skill2": "<#ffb900ff>Contract: Explosion<>: Summons a blazing rune barrier for <#ffb900ff>2s<> (<#ffb900ff>90<> Shield, <#ffb900ff>+25%<> Move Speed), then detonates to deal <#ff9028ff>70<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>physical damage<> and <#ef5350ff>stun<> nearby foes for <#ffb900ff>1s<>.",
+        "ult": "<#e64a6aff>Contract: Chase Fate<>: Locks the <#e64a6aff>Eye of Fate<> onto an enemy and drills across the arena as a molten meteor, crashing for <#ff9028ff>130<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160% AD<> <#ff9028ff>physical damage<> and <#ef5350ff>stunning<> for <#ffb900ff>1.2s<>."
+      },
+      "mlbb_fanny": {
+        "name": "Fanny",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
+        "skill": "<#ff9028ff>Tornado Strike<>: Deals <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% AD<> in a <#ffb900ff>22,000<> radius. During Steel Cable flight, colliding with an enemy automatically triggers a mid-air Tornado Strike for <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70% AD<> and applies a Prey Mark to enemy champions.",
+        "skill2": "<#ff9028ff>Steel Cable<>: Throws a cable (<#ffb900ff>165,000<> reach) at the best wall or outer lane boundary and swings Fanny past the obstacle toward her target, chaining multiple wall hops across the map with <#ffb900ff>0<> energy cost. Prioritizes visible enemy champions first, or nearby jungle monsters when no enemy champions are visible.",
+        "ult": "<#ff9028ff>Cut Throat<>: Dashes to the target enemy and deals <#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125% AD<>; each Prey Mark adds <#ff9028ff>35% AD<> (up to 2 marks). A successful hit consumes the marks.",
+        "passive": "<#ff9028ff>Air Superiority<>: While cable-flying, Fanny gains <#ffb900ff>10–25%<> bonus damage based on her flight speed. Hitting an enemy champion during flight applies or upgrades a <#ff9028ff>Prey Mark<> (max 2 stacks, <#ffb900ff>5s<>) and triggers Tornado Strike."
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "Contract: Soul Steal",
+        "skill2": "Contract: Explosion",
+        "ult": "Contract: Chase Fate"
+      },
+      "mlbb_fanny": {
+        "skill1": "Tornado Strike",
+        "skill2": "Steel Cable",
+        "ult": "Cut Throat"
+      }
+    }
+  },
+  "zh-hans": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "奥尔德斯",
+        "attack": "挥舞熔岩巨拳造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<><#ff9028ff>物理伤害<>。被动<#ffb900ff>契约：蜕变<>每第<#ffb900ff>3<>击获得<#ffb900ff>60<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻击力<>护盾。",
+        "skill": "<#ff9028ff>契约：夺魂<>：巨拳砸地引发火山裂隙，造成<#ff9028ff>85<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>145%攻击力<>范围<#ff9028ff>物理伤害<>，汲取<#5ad0e6ff>夺魂<>层数（<#ffb900ff>+12%<>攻击力）并触发护盾。",
+        "skill2": "<#ffb900ff>契约：爆裂<>：展开符文护盾<#ffb900ff>2秒<>（<#ffb900ff>90<>护盾与<#ffb900ff>+25%<>移速），随后引爆造成<#ff9028ff>70<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<><#ff9028ff>物理伤害<>并<#ef5350ff>眩晕<>周围敌人<#ffb900ff>1秒<>。",
+        "ult": "<#e64a6aff>契约：追命<>：在敌方头顶凝结<#e64a6aff>命运之眼<>并化作熔岩钻头冲撞目标，造成<#ff9028ff>130<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160%攻击力<><#ff9028ff>物理伤害<>与<#ffb900ff>1.2秒<><#ef5350ff>眩晕<>。"
+      },
+      "mlbb_fanny": {
+        "name": "芬妮",
+        "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<>的物理伤害。",
+        "skill": "<#ff9028ff>飓风突刺<>：造成<#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻击力<>伤害，范围<#ffb900ff>22,000<>。钢索飞行时撞到敌人会自动触发空中飓风突刺，造成<#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70%攻击力<>伤害。",
+        "skill2": "<#ff9028ff>钢索<>：向最佳墙体或边路外墙射出钢索（射程<#ffb900ff>165,000<>），无能量消耗连续多段荡墙追击或撤退。优先锁定可见敌方英雄，无敌方英雄视野时可荡墙清理野怪。",
+        "ult": "<#ff9028ff>割喉<>：冲向目标，造成<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125%攻击力<>伤害；每层猎物印记额外造成<#ff9028ff>35%攻击力<>（最多2层）。命中后消耗印记。",
+        "passive": "<#ff9028ff>空中优势<>：钢索飞行时，芬妮根据飞行速度获得<#ffb900ff>10–25%<>伤害加成。飞行中命中敌方英雄会施加或升级<#ff9028ff>猎物印记<>（最多2层，持续<#ffb900ff>5秒<>），并触发飓风突刺。"
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "契约：夺魂",
+        "skill2": "契约：爆裂",
+        "ult": "契约：追命"
+      },
+      "mlbb_fanny": {
+        "skill1": "飓风突刺",
+        "skill2": "钢索",
+        "ult": "割喉"
+      }
+    }
+  },
+  "zh-hant": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "奧爾德斯",
+        "attack": "揮舞熔岩巨拳造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<><#ff9028ff>物理傷害<>。被動<#ffb900ff>契約：蛻變<>每第<#ffb900ff>3<>擊獲得<#ffb900ff>60<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻擊力<>護盾。",
+        "skill": "<#ff9028ff>契約：奪魂<>：巨拳砸地引發火山裂隙，造成<#ff9028ff>85<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>145%攻擊力<>範圍<#ff9028ff>物理傷害<>，汲取<#5ad0e6ff>奪魂<>層數（<#ffb900ff>+12%<>攻擊力）並觸發護盾。",
+        "skill2": "<#ffb900ff>契約：爆裂<>：展開符文護盾<#ffb900ff>2秒<>（<#ffb900ff>90<>護盾與<#ffb900ff>+25%<>移速），隨後引爆造成<#ff9028ff>70<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<><#ff9028ff>物理傷害<>並<#ef5350ff>眩暈<>周圍敵人<#ffb900ff>1秒<>。",
+        "ult": "<#e64a6aff>契約：追命<>：在敵方頭頂凝結<#e64a6aff>命運之眼<>並化作熔岩鑽頭衝撞目標，造成<#ff9028ff>130<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160%攻擊力<><#ff9028ff>物理傷害<>與<#ffb900ff>1.2秒<><#ef5350ff>眩暈<>。"
+      },
+      "mlbb_fanny": {
+        "name": "芬妮",
+        "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<>的物理傷害。",
+        "skill": "<#ff9028ff>颶風突刺<>：造成<#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻擊力<>傷害，範圍<#ffb900ff>22,000<>。鋼索飛行時撞到敵人會自動觸發空中颶風突刺，造成<#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70%攻擊力<>傷害。",
+        "skill2": "<#ff9028ff>鋼索<>：向最佳牆體或邊路外牆射出鋼索（射程<#ffb900ff>165,000<>），無能量消耗連續多段盪牆追擊或撤退。優先鎖定可見敵方英雄，無敵方英雄視野時可盪牆清理野怪。",
+        "ult": "<#ff9028ff>割喉<>：衝向目標，造成<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125%攻擊力<>傷害；每層獵物印記額外造成<#ff9028ff>35%攻擊力<>（最多2層）。命中後消耗印記。",
+        "passive": "<#ff9028ff>空中優勢<>：鋼索飛行時，芬妮根據飛行速度獲得<#ffb900ff>10–25%<>傷害加成。飛行中命中敵方英雄會施加或升級<#ff9028ff>獵物印記<>（最多2層，持續<#ffb900ff>5秒<>），並觸發颶風突刺。"
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "契約：奪魂",
+        "skill2": "契約：爆裂",
+        "ult": "契約：追命"
+      },
+      "mlbb_fanny": {
+        "skill1": "颶風突刺",
+        "skill2": "鋼索",
+        "ult": "割喉"
+      }
+    }
+  },
+  "ko": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "올더스",
+        "attack": "거대한 용암 건틀릿으로 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% 공격력<>의 <#ff9028ff>물리 피해<>를 입힙니다. <#ffb900ff>3번째<> 공격마다 <#ffb900ff>60<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% 공격력<> 보호막을 얻습니다.",
+        "skill": "<#ff9028ff>계약: 영혼 탈취<>: 지면을 강타해 <#ff9028ff>85<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>145% 공격력<>의 광역 <#ff9028ff>물리 피해<>를 입히고 <#5ad0e6ff>영혼<> 중첩(<#ffb900ff>+12%<> 공격력)과 보호막을 획득합니다.",
+        "skill2": "<#ffb900ff>계약: 폭발<>: <#ffb900ff>2초<>간 보호막(<#ffb900ff>90<>)과 이동 속도(<#ffb900ff>+25%<>)를 얻은 뒤 폭발하여 <#ff9028ff>70<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% 공격력<>의 <#ff9028ff>물리 피해<>와 <#ffb900ff>1초<> <#ef5350ff>기절<>을 부여합니다.",
+        "ult": "<#e64a6aff>계약: 운명 추적<>: 적에게 <#e64a6aff>운명의 눈<>을 각인하고 용암 운석으로 돌진해 <#ff9028ff>130<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160% 공격력<>의 <#ff9028ff>물리 피해<>와 <#ffb900ff>1.2초<> <#ef5350ff>기절<>을 입힙니다."
+      },
+      "mlbb_fanny": {
+        "name": "파니",
+        "attack": "기본 공격은 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 100%<> 물리 피해를 줍니다.",
+        "skill": "<#ff9028ff>토네이도 스트라이크<>: 반경<#ffb900ff>22,000<> 안의 적에게 <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 80%<> 피해를 줍니다. 케이블 비행 중 적과 충돌하면 <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 70%<> 토네이도 스트라이크를 자동 발동합니다.",
+        "skill2": "<#ff9028ff>스틸 케이블<>: 최적의 벽이나 외곽 라인 경계로 케이블(사거리 <#ffb900ff>165,000<>)을 발사해 에너지 소모 없이 연속 다중 벽 타기로 추격하거나 탈출합니다. 시야 내 적 영웅을 최우선으로 조준하며, 적 영웅이 없을 때만 정글 몬스터에게 케이블을 사용합니다.",
+        "ult": "<#ff9028ff>컷 스로트<>: 대상에게 돌진해<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 125%<> 피해를 줍니다. 먹잇감 표식마다<#ff9028ff>공격력의 35%<> 추가 피해 (최대 2중첩). 적중하면 표식을 소모합니다.",
+        "passive": "<#ff9028ff>공중 우세<>: 케이블 비행 중 이동 속도에 따라<#ffb900ff>10–25%<> 피해가 증가합니다. 비행 중 적 영웅을 맞히면<#ff9028ff>먹잇감 표식<>을 적용/강화(최대 2중첩,<#ffb900ff>5초<>)하고 토네이도 스트라이크를 발동합니다."
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "계약: 영혼 탈취",
+        "skill2": "계약: 폭발",
+        "ult": "계약: 운명 추적"
+      },
+      "mlbb_fanny": {
+        "skill1": "토네이도 스트라이크",
+        "skill2": "스틸 케이블",
+        "ult": "컷 스로트"
+      }
+    }
+  },
+  "ja": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "オルダス",
+        "attack": "溶岩の巨拳で<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻撃力<>の<#ff9028ff>物理ダメージ<>を与える。<#ffb900ff>3回目<>の攻撃ごとに<#ffb900ff>60<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻撃力<>のシールドを得る。",
+        "skill": "<#ff9028ff>契約：ソウルスティール<>：大地を砕き<#ff9028ff>85<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>145%攻撃力<>の範囲<#ff9028ff>物理ダメージ<>を与え、魂スタック（<#ffb900ff>+12%<>攻撃力）とシールドを得る。",
+        "skill2": "<#ffb900ff>契約：エクスプロージョン<>：<#ffb900ff>2秒<>間シールド（<#ffb900ff>90<>）と移動速度（<#ffb900ff>+25%<>）を得てから爆発し、周囲に<#ff9028ff>70<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻撃力<>の<#ff9028ff>物理ダメージ<>と<#ffb900ff>1秒<><#ef5350ff>スタン<>を与える。",
+        "ult": "<#e64a6aff>契約：チェイスフェイト<>：敵に<#e64a6aff>運命の眼<>を刻み溶岩ドリルとなって突撃、<#ff9028ff>130<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160%攻撃力<>の<#ff9028ff>物理ダメージ<>と<#ffb900ff>1.2秒<><#ef5350ff>スタン<>を与える。"
+      },
+      "mlbb_fanny": {
+        "name": "Fanny",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
+        "skill": "<#ff9028ff>Tornado Strike<>: Deals <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% AD<> in a <#ffb900ff>22,000<> radius. During Steel Cable flight, colliding with an enemy automatically triggers a mid-air Tornado Strike for <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70% AD<> and applies a Prey Mark to enemy champions.",
+        "skill2": "<#ff9028ff>Steel Cable<>: Throws a cable (<#ffb900ff>165,000<> reach) at the best wall or outer lane boundary and swings Fanny past the obstacle toward her target, chaining multiple wall hops across the map with <#ffb900ff>0<> energy cost. Prioritizes visible enemy champions first, or nearby jungle monsters when no enemy champions are visible.",
+        "ult": "<#ff9028ff>Cut Throat<>: Dashes to the target enemy and deals <#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125% AD<>; each Prey Mark adds <#ff9028ff>35% AD<> (up to 2 marks). A successful hit consumes the marks.",
+        "passive": "<#ff9028ff>Air Superiority<>: While cable-flying, Fanny gains <#ffb900ff>10–25%<> bonus damage based on her flight speed. Hitting an enemy champion during flight applies or upgrades a <#ff9028ff>Prey Mark<> (max 2 stacks, <#ffb900ff>5s<>) and triggers Tornado Strike."
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "契約：ソウルスティール",
+        "skill2": "契約：エクスプロージョン",
+        "ult": "契約：チェイスフェイト"
+      },
+      "mlbb_fanny": {
+        "skill1": "Tornado Strike",
+        "skill2": "Steel Cable",
+        "ult": "Cut Throat"
+      }
+    }
+  }
+}

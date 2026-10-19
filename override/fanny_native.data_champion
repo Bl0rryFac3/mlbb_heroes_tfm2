@@ -1,0 +1,287 @@
+{
+  "id": "mlbb_fanny",
+  "category": "Assassin",
+  "tags": [
+    "AD",
+    "Melee"
+  ],
+  "sprite": "asset/mlbb_heroes/sprite/fanny",
+  "anim_prefix": "",
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/fanny_skill",
+    "asset/mlbb_heroes/icons/fanny_skill2",
+    "asset/mlbb_heroes/icons/fanny_ult"
+  ],
+  "stat": {
+    "attack": 100,
+    "magic_power": 0,
+    "hp": 900,
+    "defence": 28,
+    "magic_resistance": 22,
+    "move_speed": 1100,
+    "hp_regen": 0,
+    "stack": 4,
+    "crit_chance": 0
+  },
+  "growth": {
+    "attack": 17,
+    "magic_power": 0,
+    "hp": 88,
+    "defence": 6,
+    "magic_resistance": 4,
+    "move_speed": 10,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_fanny.attack",
+    "duration": 20,
+    "cooltime": 65,
+    "start_timing": 10,
+    "cancelable": true,
+    "range": 24000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "BaseAttack",
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Sfx",
+          "name": "fighter_attack"
+        },
+        {
+          "type": "Attack",
+          "damage": 0,
+          "attack_ratio": 100
+        }
+      ]
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_fanny.skill",
+    "duration": 18,
+    "cooltime": 150,
+    "start_timing": 6,
+    "cancelable": false,
+    "range": 36000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Sfx",
+          "name": "fighter_skill"
+        },
+        {
+          "type": "ViewEffect",
+          "name": "mlbb_fanny_tornado"
+        },
+        {
+          "type": "RangeEffect",
+          "shape": {
+            "Circle": {
+              "radius": 34000
+            }
+          },
+          "target": "EnemyWithoutTower",
+          "apply_type": "AroundCaster",
+          "effects": [
+            {
+              "type": "Attack",
+              "damage": 95,
+              "attack_ratio": 135
+            },
+            {
+              "type": "TargetSfx",
+              "name": "fighter_skill_hit"
+            }
+          ]
+        }
+      ]
+    },
+    "can_use_with_move": true
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_fanny.skill2",
+    "duration": 10,
+    "cooltime": 18,
+    "start_timing": 1,
+    "cancelable": false,
+    "range": 1350000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:cable"
+    }
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_fanny.ult",
+    "duration": 24,
+    "cooltime": 1320,
+    "start_timing": 4,
+    "cancelable": false,
+    "range": 65000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyChampion",
+    "attack_type": "Skill",
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Native",
+          "effect_ref": "mlbb_heroes:cut_throat"
+        },
+        {
+          "type": "ViewEffect",
+          "name": "mlbb_fanny_cut_throat"
+        }
+      ]
+    }
+  },
+  "view_effects": [
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_tornado",
+      "anim": "asset/mlbb_heroes/effects/fanny_tornado",
+      "tag": "skill"
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cut_throat",
+      "anim": "asset/mlbb_heroes/effects/fanny_cut_throat",
+      "tag": "ult",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_impact",
+      "anim": "asset/mlbb_heroes/effects/fanny_cable_impact",
+      "tag": "impact"
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_prey_mark_1",
+      "anim": "asset/mlbb_heroes/effects/fanny_prey_mark",
+      "tag": "mark_1"
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_prey_mark_2",
+      "anim": "asset/mlbb_heroes/effects/fanny_prey_mark",
+      "tag": "mark_2"
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_start",
+      "anim": "asset/mlbb_heroes/effects/fanny_cable_start",
+      "tag": "skill"
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_hook",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "hook",
+      "z": 1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_0",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_0",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_1",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_1",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_2",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_2",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_3",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_3",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_4",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_4",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_5",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_5",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_6",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_6",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_7",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_7",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_8",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_8",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_9",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_9",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_10",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_10",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_fanny_cable_wire_11",
+      "anim": "asset/mlbb_heroes/effects/fanny_hook",
+      "tag": "wire_11",
+      "z": -1
+    }
+  ],
+  "passive": {
+    "passive_ref": "mlbb_heroes:air_superiority",
+    "params": {}
+  },
+  "stack_skill_index": 1
+}

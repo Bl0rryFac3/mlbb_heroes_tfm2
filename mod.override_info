@@ -1,0 +1,46 @@
+{
+  "asset/base/text/champion": {
+    "remapping": "asset/mlbb_heroes/text/champion",
+    "type": "merge"
+  },
+  "asset/base/style/champion_view": {
+    "remapping": "asset/mlbb_heroes/style/champion_view",
+    "type": "merge"
+  },
+  "asset/base/sound/sfx/mlbb_aldous_atk_hit": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_aldous_atk_hit",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_aldous_sfx_atk": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_aldous_sfx_atk",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_aldous_s1_cast": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_aldous_s1_cast",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_aldous_sfx_s1": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_aldous_sfx_s1",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_aldous_s2_cast": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_aldous_s2_cast",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_aldous_sfx_s2": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_aldous_sfx_s2",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_aldous_ult_cast": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_aldous_ult_cast",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_aldous_sfx_ult": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_aldous_sfx_ult",
+    "type": "override"
+  },
+  "asset/mlbb_fanny/champion/fanny": {
+    "remapping": "asset/mlbb_heroes/champion/fanny",
+    "type": "override"
+  }
+}

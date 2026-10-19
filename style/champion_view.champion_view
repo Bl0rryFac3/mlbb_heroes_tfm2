@@ -1,0 +1,28 @@
+{
+  "entries": {
+    "mlbb_aldous": {
+      "face": {
+        "x": 3,
+        "y": -37
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_fanny": {
+      "face": {
+        "x": 0,
+        "y": -45
+      },
+      "center": {
+        "x": 0,
+        "y": -16
+      }
+    }
+  }
+}

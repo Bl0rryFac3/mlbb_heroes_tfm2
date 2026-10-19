@@ -1,0 +1,551 @@
+{
+  "id": "mlbb_aldous",
+  "category": "Melee",
+  "tags": [
+    "AD",
+    "Melee",
+    "Tank",
+    "Shield",
+    "CC"
+  ],
+  "sprite": "asset/mlbb_heroes/champions/mlbb_aldous",
+  "anim_prefix": "",
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/mlbb_aldous_skill",
+    "asset/mlbb_heroes/icons/mlbb_aldous_skill2",
+    "asset/mlbb_heroes/icons/mlbb_aldous_ult"
+  ],
+  "stat": {
+    "attack": 78,
+    "magic_power": 0,
+    "hp": 1080,
+    "defence": 38,
+    "magic_resistance": 34,
+    "move_speed": 1060,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 10
+  },
+  "growth": {
+    "attack": 22,
+    "magic_power": 0,
+    "hp": 115,
+    "defence": 7,
+    "magic_resistance": 6,
+    "move_speed": 10,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_aldous.attack",
+    "duration": 14,
+    "cooltime": 45,
+    "start_timing": 2,
+    "cancelable": false,
+    "range": 30000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "BaseAttack",
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Sfx",
+          "name": "mlbb_aldous_atk_hit"
+        },
+        {
+          "type": "Attack",
+          "damage": 0,
+          "attack_ratio": 100,
+          "attack_effect_type": "Target"
+        },
+        {
+          "type": "SwitchByBuff",
+          "buff_name": "mlbb_aldous_p_stack2",
+          "effect_buff": {
+            "type": "Combine",
+            "effects": [
+              {
+                "type": "RemoveCasterBuff",
+                "name": "mlbb_aldous_p_stack2"
+              },
+              {
+                "type": "Combine",
+                "effects": [
+                  {
+                    "type": "RangeEffect",
+                    "apply_type": "AroundCaster",
+                    "shape": {
+                      "Circle": {
+                        "radius": 1000
+                      }
+                    },
+                    "target": "AllyOnlySelf",
+                    "effects": [
+                      {
+                        "type": "Shield",
+                        "amount": 60,
+                        "attack_ratio": 80,
+                        "ap_ratio": 0,
+                        "tick": 180
+                      }
+                    ]
+                  },
+                  {
+                    "type": "AddCasterBuff",
+                    "only_to_enemy": false,
+                    "buff_state": {
+                      "name": "mlbb_aldous_p_shield",
+                      "duration": {
+                        "Time": {
+                          "tick": 180
+                        }
+                      },
+                      "defence": 8
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "effect_none": {
+            "type": "SwitchByBuff",
+            "buff_name": "mlbb_aldous_p_stack1",
+            "effect_buff": {
+              "type": "Combine",
+              "effects": [
+                {
+                  "type": "RemoveCasterBuff",
+                  "name": "mlbb_aldous_p_stack1"
+                },
+                {
+                  "type": "AddCasterBuff",
+                  "only_to_enemy": false,
+                  "buff_state": {
+                    "name": "mlbb_aldous_p_stack2",
+                    "duration": {
+                      "Time": {
+                        "tick": 480
+                      }
+                    },
+                    "attack": 2
+                  }
+                }
+              ]
+            },
+            "effect_none": {
+              "type": "AddCasterBuff",
+              "only_to_enemy": false,
+              "buff_state": {
+                "name": "mlbb_aldous_p_stack1",
+                "duration": {
+                  "Time": {
+                    "tick": 480
+                  }
+                },
+                "attack": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_aldous.skill",
+    "duration": 18,
+    "cooltime": 240,
+    "start_timing": 1,
+    "cancelable": false,
+    "can_use_with_move": true,
+    "range": 55000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "Skill",
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Sfx",
+          "name": "mlbb_aldous_s1_cast"
+        },
+        {
+          "type": "AddCasterBuff",
+          "only_to_enemy": false,
+          "buff_state": {
+            "name": "mlbb_aldous_s1_ready",
+            "duration": {
+              "Time": {
+                "tick": 210
+              }
+            },
+            "move_speed_mult": 45,
+            "attack": 18
+          }
+        },
+        {
+          "type": "MoveToTarget",
+          "speed": 5500,
+          "range": 65000,
+          "end_effects": [
+            {
+              "type": "ViewEffect",
+              "name": "mlbb_aldous_s1_slam"
+            },
+            {
+              "type": "Attack",
+              "damage": 95,
+              "attack_ratio": 155,
+              "attack_effect_type": "Target"
+            },
+            {
+              "type": "RangeEffect",
+              "apply_type": "AroundCaster",
+              "shape": {
+                "Circle": {
+                  "radius": 30000
+                }
+              },
+              "target": "EnemyWithoutTower",
+              "effects": [
+                {
+                  "type": "Attack",
+                  "damage": 55,
+                  "attack_ratio": 90,
+                  "attack_effect_type": "Target"
+                }
+              ]
+            },
+            {
+              "type": "CasterViewEffect",
+              "name": "mlbb_aldous_s1_orb"
+            },
+            {
+              "type": "AddCasterBuff",
+              "only_to_enemy": false,
+              "buff_state": {
+                "name": "mlbb_aldous_soul_steal",
+                "duration": {
+                  "Time": {
+                    "tick": 2400
+                  }
+                },
+                "attack_mult": 12
+              }
+            },
+            {
+              "type": "Combine",
+              "effects": [
+                {
+                  "type": "RangeEffect",
+                  "apply_type": "AroundCaster",
+                  "shape": {
+                    "Circle": {
+                      "radius": 1000
+                    }
+                  },
+                  "target": "AllyOnlySelf",
+                  "effects": [
+                    {
+                      "type": "Shield",
+                      "amount": 60,
+                      "attack_ratio": 80,
+                      "ap_ratio": 0,
+                      "tick": 180
+                    }
+                  ]
+                },
+                {
+                  "type": "AddCasterBuff",
+                  "only_to_enemy": false,
+                  "buff_state": {
+                    "name": "mlbb_aldous_p_shield",
+                    "duration": {
+                      "Time": {
+                        "tick": 180
+                      }
+                    },
+                    "defence": 8
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_aldous.skill2",
+    "duration": 10,
+    "cooltime": 420,
+    "start_timing": 1,
+    "cancelable": false,
+    "range": 30000,
+    "casting_type": "None",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Sfx",
+          "name": "mlbb_aldous_s2_cast"
+        },
+        {
+          "type": "RangeEffect",
+          "apply_type": "AroundCaster",
+          "shape": {
+            "Circle": {
+              "radius": 1000
+            }
+          },
+          "target": "AllyOnlySelf",
+          "effects": [
+            {
+              "type": "Shield",
+              "amount": 90,
+              "attack_ratio": 60,
+              "ap_ratio": 0,
+              "tick": 120
+            }
+          ]
+        },
+        {
+          "type": "AddCasterBuff",
+          "only_to_enemy": false,
+          "buff_state": {
+            "name": "mlbb_aldous_s2_guard",
+            "duration": {
+              "Time": {
+                "tick": 120
+              }
+            },
+            "move_speed_mult": 25,
+            "damaged_reduce": 20
+          }
+        },
+        {
+          "type": "Delayed",
+          "tick": 120,
+          "effects": [
+            {
+              "type": "CasterViewEffect",
+              "name": "mlbb_aldous_s2_detonate"
+            },
+            {
+              "type": "RangeEffect",
+              "apply_type": "AroundCaster",
+              "shape": {
+                "Circle": {
+                  "radius": 30000
+                }
+              },
+              "target": "EnemyWithoutTower",
+              "effects": [
+                {
+                  "type": "Attack",
+                  "damage": 70,
+                  "attack_ratio": 100,
+                  "attack_effect_type": "Target"
+                },
+                {
+                  "type": "Stun",
+                  "duration": 60
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "can_use_with_move": true
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_aldous.ult",
+    "duration": 58,
+    "cooltime": 1800,
+    "start_timing": 1,
+    "cancelable": false,
+    "range": 350000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyChampion",
+    "attack_type": "Skill",
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Sfx",
+          "name": "mlbb_aldous_ult_cast"
+        },
+        {
+          "type": "AddBuff",
+          "buff_state": {
+            "name": "mlbb_aldous_eye_mark",
+            "duration": {
+              "Time": {
+                "tick": 150
+              }
+            },
+            "defence": -10
+          }
+        },
+        {
+          "type": "CasterViewEffect",
+          "name": "mlbb_aldous_ult_trail"
+        },
+        {
+          "type": "MoveToTarget",
+          "speed": 6200,
+          "range": 500000,
+          "end_effects": [
+            {
+              "type": "ViewEffect",
+              "name": "mlbb_aldous_ult_crash"
+            },
+            {
+              "type": "RangeEffect",
+              "apply_type": "AroundCaster",
+              "shape": {
+                "Circle": {
+                  "radius": 28000
+                }
+              },
+              "target": "EnemyWithoutTower",
+              "effects": [
+                {
+                  "type": "Attack",
+                  "damage": 130,
+                  "attack_ratio": 160,
+                  "attack_effect_type": "Target"
+                },
+                {
+                  "type": "Stun",
+                  "duration": 72
+                }
+              ]
+            },
+            {
+              "type": "Combine",
+              "effects": [
+                {
+                  "type": "RangeEffect",
+                  "apply_type": "AroundCaster",
+                  "shape": {
+                    "Circle": {
+                      "radius": 1000
+                    }
+                  },
+                  "target": "AllyOnlySelf",
+                  "effects": [
+                    {
+                      "type": "Shield",
+                      "amount": 60,
+                      "attack_ratio": 80,
+                      "ap_ratio": 0,
+                      "tick": 180
+                    }
+                  ]
+                },
+                {
+                  "type": "AddCasterBuff",
+                  "only_to_enemy": false,
+                  "buff_state": {
+                    "name": "mlbb_aldous_p_shield",
+                    "duration": {
+                      "Time": {
+                        "tick": 180
+                      }
+                    },
+                    "defence": 8
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "growth_range": 50000
+  },
+  "view_projectiles": [],
+  "view_effects": [
+    {
+      "type": "Animation",
+      "name": "mlbb_aldous_s1_slam",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "tag": "s1_slam",
+      "z": -1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_aldous_s1_orb",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "tag": "s1_orb",
+      "z": 1,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_aldous_s2_detonate",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "tag": "s2_detonate",
+      "z": -1,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_aldous_ult_trail",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "tag": "ult_trail",
+      "z": 1,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_aldous_ult_crash",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "tag": "ult_crash",
+      "z": -2,
+      "is_follow": false
+    }
+  ],
+  "view_buffs": [
+    {
+      "type": "Animated",
+      "name": "mlbb_aldous_p_shield",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "tag": "p_shield",
+      "z": 1
+    },
+    {
+      "type": "ThreePhase",
+      "name": "mlbb_aldous_s2_guard",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "pre_tag": "s2_in",
+      "loop_tag": "s2_loop",
+      "remove_tag": "s2_out",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_aldous_eye_mark",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "tag": "eye_mark",
+      "z": 3
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_aldous_s1_ready",
+      "anim": "asset/mlbb_heroes/effects/mlbb_aldous_fx",
+      "tag": "s1_charge",
+      "z": -1
+    }
+  ]
+}

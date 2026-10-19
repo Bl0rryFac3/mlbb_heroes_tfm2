@@ -1,0 +1,16 @@
+{
+  "mod_id": "mlbb_heroes",
+  "name": "MLBB Heroes",
+  "author": "Bl0rryFac3",
+  "version": "1.0.0",
+  "mod_type": "native",
+  "contains_code": true,
+  "last_updated": "2026-10-19",
+  "description": "Mobile Legends: Bang Bang (MLBB) Heroes Pack for Teamfight Manager 2 \u2014 featuring Default Aldous (v4.3.0) and Fanny (v0.2.0 Native Wall Cable Edition).",
+  "dependencies": [
+    {
+      "mod_id": "base",
+      "version": ">=0.4.11"
+    }
+  ]
+}
