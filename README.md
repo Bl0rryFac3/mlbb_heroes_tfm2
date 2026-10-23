@@ -2,21 +2,22 @@
 
 ![Game Version](https://img.shields.io/badge/TFM2-v0.6.4%2B-orange)
 ![Mod Type](https://img.shields.io/badge/Mod_Type-Native_Rust_%2B_Data-blue)
-![Version](https://img.shields.io/badge/Version-1.0.3-brightgreen)
+![Version](https://img.shields.io/badge/Version-1.0.4-brightgreen)
 ![Author](https://img.shields.io/badge/Author-Bl0rryFac3-crimson)
 
 A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfight Manager 2 (`v0.6.4+`)**, combining custom pixel-art sprites, multi-frame VFX, custom SFX, localization (`EN`, `KO`, `JA`, `ZH-Hans`, `ZH-Hant`), and native Rust (`mod-api-stable`) gameplay mechanics into a single modular package (`mods/mlbb_heroes/`).
 
 ---
 
-## Roster (`v1.0.3`)
+## Roster (`v1.0.4`)
 
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
-| **Aldous** *(Soul Contractor)* | `mlbb_aldous` | Warrior / Assassin (`Melee`, `AD`, `Shield`, `CC`) | Data-Driven + Native Companion (`v4.3.0`) | Permanent **Soul Steal** stacking (`+2` on hit, `+9` on kill, max `1,000`, hits Towers), **3D Crimson Shield** passive, AoE stun barrier, and global **Chase Fate** spiral drill dash. |
+| **Aldous** *(Soul Contractor)* | `mlbb_aldous` | Warrior / Assassin (`Melee`, `AD`, `Shield`, `CC`) | Data-Driven + Native Companion (`v4.3.0`) | **Soul Steal** stacks (max `1,000`) add `+2.5` raw damage each to Skill 1 (`+2,500` at cap), **3D Crimson Shield** passive, AoE stun barrier, and global **Chase Fate** spiral drill dash. |
 | **Fanny** *(Blade Dancer)* | `mlbb_fanny` | Assassin (`Melee`, `AD`) | Native Rust Wall-Cable Engine (`v0.2.0`) | Raycasted **Steel Cable** wall-grappling (`165,000` range, 2-hop lookahead chaining, outer lane + jungle walls), **4-Charge Stack System** on Skill 2 badge, mid-flight **Tornado Strike**, **Prey Marks** (`+1` charge refund & `5% Max HP` heal), and **Cut Throat** finisher. |
 | **Lancelot** | `mlbb_lancelot` | Assassin (`Melee`, `AD`) | Data-Driven + Native AI/Effects | **Soul Cutter** timed stacks (`+7.5%` damage each, up to `+30%`); target-following **Puncture** and **Phantom Execution**; three-wave **Thorned Rose**. |
 | **Estes** *(Moon Elf King)* | `mlbb_estes` | Support (`AP`, `Heal`, `Shield`, `Range`) | Data-Driven + Native Tether Renderer | **Moonlight Immersion** healing link, **Domain of Moon Goddess** area effect, and **Blessing of Moon Goddess** team healing. |
+| **Gusion** *(Dagger Specialist)* | `mlbb_gusion` | Assassin (`AP`, `Melee`) | Data-Driven + Native Rust Passive/Effects | Four-rune empowered hit; **Sword Spike** mark and recast dash; five-dagger **Shadowblade Slaughter**; two-phase **Incandescence**. |
 
 ---
 
@@ -25,8 +26,8 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 ### 1. Aldous — Soul Contractor (`mlbb_aldous`)
 - **Passive — `Contract: Transform`**: Every 2 basic attacks, Aldous converts the energy of his gauntlet into a **3D Crimson Shield** that scales with his **Soul Steal** stacks.
 - **Skill 1 — `Contract: Soul Steal`**:
-  - Enhances his next strike (`can_use_with_move: true`, `cancelable: false`, targets enemies **including Towers**) to slam the ground with molten force.
-  - Grants permanent **Soul Steal** stacks (`+2` per hit, `+9` bonus on kill), capped at **1,000**, that permanently boost his Attack Damage.
+  - Casts a targeted molten-force slam (`can_use_with_move: true`, `cancelable: false`) on enemy champions and units; Towers/Base are excluded by the native damage effect.
+  - Soul Steal stacks are capped at **1,000** and add **2.5 raw Skill 1 damage per stack** (`+2,500` at cap). At level 15, the 1,000-stack primary hit is **2,762 raw damage before defense**, enough for the level-15 squishy benchmark under the standard defense model; TFM2 runtime behavior remains unverified.
 - **Skill 2 — `Contract: Explosion`**:
   - Assumes a defensive crimson stance for `2s` (`35%` incoming damage reduction + Move Speed boost), then detonates to deal physical AoE damage and **stun** nearby enemies.
 - **Ultimate — `Contract: Chase Fate`**:
@@ -79,13 +80,30 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ---
 
+### 5. Gusion — Dagger Specialist (`mlbb_gusion`)
+- **Passive — `Dagger Specialist`**:
+  - Gusion builds up to **4 Rune stacks** through his skill phases. At 4 stacks, his next basic attack is empowered, deals bonus magic damage based on the target's max HP, heals Gusion, and consumes the stacks.
+- **Skill 1 — `Sword Spike`**:
+  - Throws a target-tracking dagger. On hit it deals magic damage, marks the target, and opens the recast. The recast dashes through the marked enemy and deals additional damage.
+- **Skill 2 — `Shadowblade Slaughter`**:
+  - Throws **five daggers** in a fan with separate trails. The recast sends them back toward Gusion; each dagger can hit on the outward and return paths.
+- **Ultimate — `Incandescence`**:
+  - A two-phase targeted dash with an arrival effect on each phase. The first cast also resets Gusion's other skill cooldowns in the mod data.
+- **Basic attack**:
+  - Uses one strike arc from seven retained poses (0.08 seconds per pose); action duration is 28 ticks, hit timing is tick 8, and cooldown is 60 ticks.
+- **Art, icons & audio**:
+  - Uses the default Gusion Skill 1, Skill 2, and Ultimate icons, custom skill VFX, four default-English voice clips, original action SFX, and localized descriptions.
+
+
+---
+
 ## Installation
 
 1. Download the release ZIP and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
    ```text
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
-2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, or Estes mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
+2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, Estes, or Gusion mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
 3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**.
 
 ---
@@ -104,10 +122,12 @@ mlbb_heroes/
 │   ├── mlbb_aldous.data_champion
 │   ├── fanny.data_champion
 │   ├── mlbb_lancelot.data_champion
-│   └── mlbb_estes.data_champion
+│   ├── mlbb_estes.data_champion
+│   └── mlbb_gusion.data_champion
 ├── champions/                       # Aldous champion animation
-├── sprite/                          # Estes, Fanny, and Lancelot sprite atlases
-├── effects/                         # Hero skill effects, including Estes tether sprites
+├── sprite/                          # Fanny, Lancelot, Estes, and Gusion atlases
+├── effects/                         # Hero skill effects, including Estes tether and Gusion VFX
+├── previews/gusion/                 # Looping asset-staged Gusion showcase
 ├── icons/                           # Skill and passive icons
 ├── sound/sfx/                       # Installed SFX/voice clips and sound_info mappings
 ├── style/                           # Champion portrait and ban/pick framing
@@ -119,14 +139,12 @@ mlbb_heroes/
 
 ---
 
-## v1.0.3 Notes & Validation
+## v1.0.4 Notes & Validation
 
-- Added **Estes** with custom sprites, skills, effects, SFX, official skill icons, and localized descriptions.
-- Reworked the Skill 1 tether to use directional sprites that follow the live caster-to-ally positions.
-- Rebuilt the Windows x64 `mlbb_heroes.dll` with the Estes tether-rendering code.
-- Cleaned the install ZIP by excluding development-only files and verified-unused tether experiments; no source files were deleted.
-- Includes Lancelot alongside Aldous and Fanny; Aldous's Soul Steal stack cap is **1,000**.
-- Bundles the available default voice clips for Lancelot, Fanny, Aldous, and Estes. Missing source lines are not fabricated; see `source/audio/README.md` and `source/audio/audio_manifest.json` for mappings and gaps.
+- Refreshed Gusion's default skill icons, voice bindings, passive/skill effects, and localized descriptions. Raised the passive rune and Skill 1 mark framing, reduced the Ultimate arrival effect to Gusion's scale, and added a looping asset-staged showcase preview.
+- Aldous Skill 1 gains **2.5 raw damage per Soul Steal stack**, capped at **1,000 stacks** (+2,500 raw damage at cap). Aldous's original basic-attack timing was restored: four poses at 0.065 seconds each, 14-tick action, hit at tick 2, and 60-tick cooldown.
+- Lancelot's damage coefficients were tuned against Fanny as a burst benchmark; the coefficient tests are included in the Rust suite.
+- Updated champion-view framing for Fanny, Lancelot, Gusion, and Estes using Aldous as the reference; Aldous's existing entry remains unchanged.
 
 
 ## Adding More MLBB Heroes
@@ -148,7 +166,7 @@ Because `mlbb_heroes` is structured as a multi-hero pack, you can add new MLBB h
 
 ## Building From Source (Optional)
 
-`mlbb_heroes.dll` comes precompiled for Windows x64 (`x86_64-pc-windows-msvc`). To rebuild after editing `src/lib.rs`:
+`mlbb_heroes.dll` is included as a precompiled Windows x64 library; the current release candidate uses the GNU toolchain build. To rebuild after editing `src/lib.rs`:
 
 - **Windows (PowerShell)**:
   ```powershell
@@ -160,6 +178,7 @@ Because `mlbb_heroes` is structured as a multi-hero pack, you can add new MLBB h
   ```
 
 ---
+
 
 ## Credits & Disclaimer
 
