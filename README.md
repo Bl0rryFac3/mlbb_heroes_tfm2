@@ -2,20 +2,21 @@
 
 ![Game Version](https://img.shields.io/badge/TFM2-v0.6.4%2B-orange)
 ![Mod Type](https://img.shields.io/badge/Mod_Type-Native_Rust_%2B_Data-blue)
-![Version](https://img.shields.io/badge/Version-1.0.2-brightgreen)
+![Version](https://img.shields.io/badge/Version-1.0.3-brightgreen)
 ![Author](https://img.shields.io/badge/Author-Bl0rryFac3-crimson)
 
 A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfight Manager 2 (`v0.6.4+`)**, combining custom pixel-art sprites, multi-frame VFX, custom SFX, localization (`EN`, `KO`, `JA`, `ZH-Hans`, `ZH-Hant`), and native Rust (`mod-api-stable`) gameplay mechanics into a single modular package (`mods/mlbb_heroes/`).
 
 ---
 
-## Roster (`v1.0.2`)
+## Roster (`v1.0.3`)
 
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
 | **Aldous** *(Soul Contractor)* | `mlbb_aldous` | Warrior / Assassin (`Melee`, `AD`, `Shield`, `CC`) | Data-Driven + Native Companion (`v4.3.0`) | Permanent **Soul Steal** stacking (`+2` on hit, `+9` on kill, max `1,000`, hits Towers), **3D Crimson Shield** passive, AoE stun barrier, and global **Chase Fate** spiral drill dash. |
 | **Fanny** *(Blade Dancer)* | `mlbb_fanny` | Assassin (`Melee`, `AD`) | Native Rust Wall-Cable Engine (`v0.2.0`) | Raycasted **Steel Cable** wall-grappling (`165,000` range, 2-hop lookahead chaining, outer lane + jungle walls), **4-Charge Stack System** on Skill 2 badge, mid-flight **Tornado Strike**, **Prey Marks** (`+1` charge refund & `5% Max HP` heal), and **Cut Throat** finisher. |
 | **Lancelot** | `mlbb_lancelot` | Assassin (`Melee`, `AD`) | Data-Driven + Native AI/Effects | **Soul Cutter** timed stacks (`+7.5%` damage each, up to `+30%`); target-following **Puncture** and **Phantom Execution**; three-wave **Thorned Rose**. |
+| **Estes** *(Moon Elf King)* | `mlbb_estes` | Support (`AP`, `Heal`, `Shield`, `Range`) | Data-Driven + Native Tether Renderer | **Moonlight Immersion** healing link, **Domain of Moon Goddess** area effect, and **Blessing of Moon Goddess** team healing. |
 
 ---
 
@@ -47,7 +48,6 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 - **Ultimate — `Cut Throat` (`mlbb_heroes:cut_throat`)**:
   - High-priority (`Priority 0`) lunging execution within `65,000` range dealing `180 + 190% AD` physical damage (`+45% AD` per Prey Mark, consuming marks on hit).
 
-
 ---
 
 ### 3. Lancelot (`mlbb_lancelot`)
@@ -64,13 +64,28 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ---
 
+### 4. Estes — Moon Elf King (`mlbb_estes`)
+- **Passive — `Scripture of the Moon Elf`**:
+  - Builds up to **100 Scripture stacks** over time, charging faster while Estes has an active link. A fully charged basic attack deals bonus damage, can ricochet to nearby enemies, and slows its targets.
+- **Skill 1 — `Moonlight Immersion`**:
+  - Heals a targeted ally on cast and periodically afterward, grants the ally bonus defenses, and gives Estes a movement-speed bonus.
+  - The tether uses Estes-inspired artwork rendered as overlapping directional sprites between the live caster and ally positions. The new renderer is included in this release; **its visibility and continuity still need in-game testing**.
+- **Skill 2 — `Domain of Moon Goddess`**:
+  - Creates a stationary area that periodically damages and slows enemies inside it.
+- **Ultimate — `Blessing of Moon Goddess`**:
+  - Heals Estes and nearby allies, continues healing over time, grants bonus defenses, and displays the Moon Goddess aura.
+- **Art, icons & audio**:
+  - Includes custom Estes sprites and skill effects, official skill icons, localized descriptions, and the available default voice/SFX clips.
+
+---
+
 ## Installation
 
-1. Download or clone this repository into your **Teamfight Manager 2** `mods/` directory so the folder path is:
+1. Download the release ZIP and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
    ```text
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
-2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, or Lancelot mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
+2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, or Estes mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
 3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**.
 
 ---
@@ -79,59 +94,40 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ```text
 mlbb_heroes/
-├── mod.mod_info                     # Unified mod metadata (mod_id: "mlbb_heroes", mod_type: "native")
-├── mod.override_info                # Merges champion text/view data and package audio overrides
-├── mlbb_heroes.dll                  # Precompiled Windows x64 native Rust module (TFM2 0.6.4+)
-├── Cargo.toml                       # Rust crate manifest for mlbb_heroes.dll
-├── build.ps1 / build.sh             # Windows PowerShell & Linux/macOS build scripts
+├── mod.mod_info                     # Unified mod metadata
+├── mod.override_info                # Text/view merges and audio overrides
+├── mlbb_heroes.dll                  # Precompiled Windows x64 native Rust module
+├── Cargo.toml / Cargo.lock          # Rust crate manifest and lockfile
+├── build.ps1 / build.sh             # Windows PowerShell and Linux/macOS build scripts
 ├── thumbnail.png                    # Workshop / Mod Manager preview icon
 ├── champion/
-│   ├── mlbb_aldous.data_champion    # Aldous champion definition
-│   ├── fanny.data_champion          # Fanny champion definition (id: "mlbb_fanny")
-│   └── mlbb_lancelot.data_champion  # Lancelot champion definition
-├── champions/
-│   └── mlbb_aldous#{sheet.png,anim.fanim}
-├── sprite/
-│   ├── fanny#{sheet.png,anim.fanim}
-│   ├── lancelot#{sheet.png,anim.fanim}
-│   └── source/                      # Raw action strips for Fanny
-├── effects/
-│   ├── mlbb_aldous_fx#{sheet.png,anim.fanim}
-│   ├── fanny_hook#{sheet.png,anim.fanim}       # 416x32 Claw Hook + 12-angle Thin Steel Wire
-│   ├── fanny_cable_wire#{sheet.png,anim.fanim}
-│   ├── fanny_cable_start#{sheet.png,anim.fanim}
-│   ├── fanny_cable_impact#{sheet.png,anim.fanim}
-│   ├── fanny_tornado#{sheet.png,anim.fanim}
-│   ├── fanny_cut_throat#{sheet.png,anim.fanim}
-│   ├── fanny_prey_mark#{sheet.png,anim.fanim}
-│   └── lancelot_*#{sheet.png,anim.fanim} # Puncture, Skill 2, Ultimate, and attack VFX
-├── icons/
-│   ├── mlbb_aldous_{skill,skill2,ult}.png
-│   ├── fanny_{skill,skill2,ult}.png
-│   └── lancelot_{passive,skill,skill2,ult}.png
-├── sound/sfx/
-│   └── MLBB action SFX and available voice clips + sound_info mappings
-├── style/
-│   └── champion_view.champion_view  # Portrait & ban/pick framing for the roster
-├── text/
-│   └── champion.i18n                # Localized names & skill tooltips (en, ko, ja, zh-hans, zh-hant)
-├── source/
-│   ├── audio/                       # Voice source clips, manifest, and mappings
-│   └── lancelot/                    # Lancelot source art and frame manifests
-└── src/
-    ├── lib.rs                       # Native Rust gameplay logic and registrations
-    ├── lancelot.rs                  # Lancelot native AI/effect callbacks
-    ├── maps.rs                      # Arena & MOBA wall obstacle grids
-    ├── aldous_companion.rs          # Aldous companion passive source
-    └── crt_shim.rs                  # Windows x64 CRT / PE TLS directory shim
+│   ├── mlbb_aldous.data_champion
+│   ├── fanny.data_champion
+│   ├── mlbb_lancelot.data_champion
+│   └── mlbb_estes.data_champion
+├── champions/                       # Aldous champion animation
+├── sprite/                          # Estes, Fanny, and Lancelot sprite atlases
+├── effects/                         # Hero skill effects, including Estes tether sprites
+├── icons/                           # Skill and passive icons
+├── sound/sfx/                       # Installed SFX/voice clips and sound_info mappings
+├── style/                           # Champion portrait and ban/pick framing
+├── text/                            # Localized names and skill tooltips
+├── source/                          # Source art, audio, and asset manifests
+├── src/                             # Native Rust gameplay and registrations
+└── tools/                            # Asset generation and clean release ZIP scripts
 ```
 
 ---
 
-## v1.0.2 Notes & Validation
+## v1.0.3 Notes & Validation
 
-- Includes Lancelot alongside Aldous and Fanny; Aldous's Soul Steal cap is **1,000**.
-- Bundles the available default voice clips for Lancelot, Fanny, and Aldous. Missing source lines are not fabricated; see `source/audio/README.md` and `source/audio/audio_manifest.json` for the mappings and gaps.
+- Added **Estes** with custom sprites, skills, effects, SFX, official skill icons, and localized descriptions.
+- Reworked the Skill 1 tether to use directional sprites that follow the live caster-to-ally positions.
+- Rebuilt the Windows x64 `mlbb_heroes.dll` with the Estes tether-rendering code.
+- Cleaned the install ZIP by excluding development-only files and verified-unused tether experiments; no source files were deleted.
+- Includes Lancelot alongside Aldous and Fanny; Aldous's Soul Steal stack cap is **1,000**.
+- Bundles the available default voice clips for Lancelot, Fanny, Aldous, and Estes. Missing source lines are not fabricated; see `source/audio/README.md` and `source/audio/audio_manifest.json` for mappings and gaps.
+
 
 ## Adding More MLBB Heroes
 
