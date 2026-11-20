@@ -1,0 +1,437 @@
+{
+ "id": "mlbb_uranus",
+ "category": "Tank",
+ "tags": [
+  "AP",
+  "Melee",
+  "Tank",
+  "Shield",
+  "CC"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/uranus",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/uranus_skill1",
+  "asset/mlbb_heroes/icons/uranus_skill2",
+  "asset/mlbb_heroes/icons/uranus_ult"
+ ],
+ "stat": {
+  "attack": 96,
+  "magic_power": 25,
+  "hp": 800,
+  "defence": 38,
+  "magic_resistance": 30,
+  "move_speed": 1040,
+  "hp_regen": 9,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 4,
+  "magic_power": 5,
+  "hp": 105,
+  "defence": 4,
+  "magic_resistance": 3,
+  "move_speed": 0,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_uranus.attack",
+  "duration": 20,
+  "cooltime": 54,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 14000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:uranus_basic_attack"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_uranus.skill",
+  "duration": 20,
+  "cooltime": 240,
+  "start_timing": 2,
+  "cancelable": false,
+  "range": 52000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:uranus_skill1_ai_hint"
+    },
+    {
+     "type": "SwitchByBuff",
+     "buff_name": "mlbb_heroes_uranus_s1_voice_gate",
+     "effect_none": {
+      "type": "Combine",
+      "effects": [
+       {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:audio_voice_uranus_skill1"
+       },
+       {
+        "type": "AddCasterBuff",
+        "only_to_enemy": false,
+        "buff_state": {
+         "name": "mlbb_heroes_uranus_s1_voice_gate",
+         "duration": {
+          "Time": {
+           "tick": 480
+          }
+         }
+        }
+       },
+       {
+        "type": "CasterViewEffect",
+        "name": "uranus_skill1_orbit"
+       },
+       {
+        "type": "ApplyInProjectile",
+        "name": "uranus_ionic_edge_wave_near",
+        "follow_caster": true,
+        "tick": 2,
+        "shape": {
+         "Circle": {
+          "radius": 42000
+         }
+        },
+        "applied_target": "Enemy",
+        "applied_effects": [
+         {
+          "effect": {
+           "type": "Native",
+           "effect_ref": "mlbb_heroes:uranus_skill1_hit"
+          },
+          "casting_type": "Targeting"
+         }
+        ]
+       },
+       {
+        "type": "ApplyInProjectile",
+        "name": "uranus_ionic_edge_wave_far",
+        "follow_caster": true,
+        "tick": 13,
+        "shape": {
+         "Circle": {
+          "radius": 52000
+         }
+        },
+        "applied_target": "Enemy",
+        "applied_effects": [
+         {
+          "effect": {
+           "type": "Native",
+           "effect_ref": "mlbb_heroes:uranus_skill1_hit"
+          },
+          "casting_type": "Targeting"
+         }
+        ]
+       }
+      ]
+     },
+     "effect_buff": {
+      "type": "Combine",
+      "effects": [
+       {
+        "type": "CasterViewEffect",
+        "name": "uranus_skill1_orbit"
+       },
+       {
+        "type": "ApplyInProjectile",
+        "name": "uranus_ionic_edge_wave_near",
+        "follow_caster": true,
+        "tick": 2,
+        "shape": {
+         "Circle": {
+          "radius": 42000
+         }
+        },
+        "applied_target": "Enemy",
+        "applied_effects": [
+         {
+          "effect": {
+           "type": "Native",
+           "effect_ref": "mlbb_heroes:uranus_skill1_hit"
+          },
+          "casting_type": "Targeting"
+         }
+        ]
+       },
+       {
+        "type": "ApplyInProjectile",
+        "name": "uranus_ionic_edge_wave_far",
+        "follow_caster": true,
+        "tick": 13,
+        "shape": {
+         "Circle": {
+          "radius": 52000
+         }
+        },
+        "applied_target": "Enemy",
+        "applied_effects": [
+         {
+          "effect": {
+           "type": "Native",
+           "effect_ref": "mlbb_heroes:uranus_skill1_hit"
+          },
+          "casting_type": "Targeting"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_uranus.skill2",
+  "duration": 24,
+  "cooltime": 600,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 90000,
+  "casting_type": "Position",
+  "casting_target": "Enemy",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:uranus_skill2_start"
+    },
+    {
+     "type": "MoveTo",
+     "speed": 6000,
+     "range": 90000,
+     "end_effects": [
+      {
+       "type": "RangeEffect",
+       "shape": {
+        "Circle": {
+         "radius": 40000
+        }
+       },
+       "target": "Enemy",
+       "apply_type": "AroundCaster",
+       "effects": [
+        {
+         "type": "Native",
+         "effect_ref": "mlbb_heroes:uranus_skill2_arrival_hit"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "ApplyInProjectile",
+     "name": "uranus_ward_path_2",
+     "follow_caster": true,
+     "tick": 2,
+     "shape": {
+      "Circle": {
+       "radius": 32000
+      }
+     },
+     "applied_target": "Enemy",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:uranus_skill2_path_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    },
+    {
+     "type": "ApplyInProjectile",
+     "name": "uranus_ward_path_6",
+     "follow_caster": true,
+     "tick": 6,
+     "shape": {
+      "Circle": {
+       "radius": 32000
+      }
+     },
+     "applied_target": "Enemy",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:uranus_skill2_path_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    },
+    {
+     "type": "ApplyInProjectile",
+     "name": "uranus_ward_path_10",
+     "follow_caster": true,
+     "tick": 10,
+     "shape": {
+      "Circle": {
+       "radius": 32000
+      }
+     },
+     "applied_target": "Enemy",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:uranus_skill2_path_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    },
+    {
+     "type": "ApplyInProjectile",
+     "name": "uranus_ward_path_14",
+     "follow_caster": true,
+     "tick": 14,
+     "shape": {
+      "Circle": {
+       "radius": 32000
+      }
+     },
+     "applied_target": "Enemy",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:uranus_skill2_path_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_uranus.ult",
+  "duration": 24,
+  "cooltime": 2520,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 95000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_uranus_ult"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:uranus_ultimate"
+    }
+   ]
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:uranus_radiance",
+  "params": {}
+ },
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "uranus_skill1_orbit",
+   "anim": "asset/mlbb_heroes/effects/uranus_skill1_orbit",
+   "tag": "orbit",
+   "z": 2,
+   "is_follow": true
+  },
+  {
+   "type": "Animation",
+   "name": "uranus_skill2_dash_trail",
+   "anim": "asset/mlbb_heroes/effects/uranus_skill2_dash_trail",
+   "tag": "trail",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "uranus_skill2_shield_burst",
+   "anim": "asset/mlbb_heroes/effects/uranus_skill2_burst",
+   "tag": "burst",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "uranus_ultimate_flare",
+   "anim": "asset/mlbb_heroes/effects/uranus_ultimate_effect",
+   "tag": "flare",
+   "z": 2,
+   "is_follow": true
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_uranus_ionic_edge_mark_1_2",
+   "anim": "asset/mlbb_heroes/effects/uranus_skill1_marks",
+   "tag": "mark_1",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_uranus_ionic_edge_mark_3_4",
+   "anim": "asset/mlbb_heroes/effects/uranus_skill1_marks",
+   "tag": "mark_2",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_uranus_ionic_edge_mark_5_6",
+   "anim": "asset/mlbb_heroes/effects/uranus_skill1_marks",
+   "tag": "mark_3",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_uranus_ionic_edge_mark_7_8",
+   "anim": "asset/mlbb_heroes/effects/uranus_skill1_marks",
+   "tag": "mark_4",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_uranus_s2_shield",
+   "anim": "asset/mlbb_heroes/effects/uranus_skill2_shield",
+   "tag": "loop",
+   "z": 2
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_uranus_ult",
+   "anim": "asset/mlbb_heroes/effects/uranus_radiance_aura",
+   "tag": "loop",
+   "z": 2
+  }
+ ]
+}

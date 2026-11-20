@@ -1,0 +1,2807 @@
+{
+ "id": "mlbb_julian",
+ "category": "Melee",
+ "sprite": "asset/mlbb_heroes/sprite/julian",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/julian_skill",
+  "asset/mlbb_heroes/icons/julian_skill2",
+  "asset/mlbb_heroes/icons/julian_ult"
+ ],
+ "stat": {
+  "attack": 82,
+  "magic_power": 62,
+  "hp": 760,
+  "defence": 26,
+  "magic_resistance": 22,
+  "move_speed": 1080,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 4,
+  "magic_power": 8,
+  "hp": 100,
+  "defence": 3,
+  "magic_resistance": 3,
+  "move_speed": 4,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "tags": [
+  "AP",
+  "Magic",
+  "Melee",
+  "CC"
+ ],
+ "view_projectiles": [],
+ "view_effects": [
+  {
+   "name": "julian_scythe_0_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_0_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_0_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_0_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_0_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_0_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_0_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_0_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_0_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_0_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_1_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_1_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_2_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_2_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_3_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_3_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_4_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_4_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_5_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_5_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_6_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_6_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_7_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_7_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_8_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_8_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_9_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_9_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_10_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_10_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_11_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_11_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_12_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_12_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_13_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_13_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_14_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_14_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_15_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe",
+   "tag": "dir_15_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_0_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_0_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_1_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_1_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_2_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_2_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_3_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_3_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_4_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_4_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_5_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_5_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_6_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_6_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_7_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_7_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_8_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_8_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_9_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_9_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_10_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_10_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_11_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_11_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_12_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_12_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_13_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_13_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_14_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_14_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_enhanced_15_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_enhanced",
+   "tag": "dir_15_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_9",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_9",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_10",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_10",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_11",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_11",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_12",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_12",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_13",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_13",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_14",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_14",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_15",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword",
+   "tag": "dir_15",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_9",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_9",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_10",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_10",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_11",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_11",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_12",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_12",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_13",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_13",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_14",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_14",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_sword_enhanced_15",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_sword_enhanced",
+   "tag": "dir_15",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_0",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_1",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_2",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_3",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_4",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_5",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_6",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_7",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_scythe_spin_8",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_scythe_spin",
+   "tag": "phase_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_chain_warning",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_chain_warning",
+   "tag": "play",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_chain_bind",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_chain_bind",
+   "tag": "play",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_chain_enhanced",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_chain_enhanced",
+   "tag": "play",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "name": "julian_chain_launch",
+   "type": "Animation",
+   "anim": "asset/mlbb_heroes/effects/julian_chain_launch",
+   "tag": "play",
+   "z": 1,
+   "is_follow": false
+  }
+ ],
+ "view_buffs": [],
+ "passive": {
+  "passive_ref": "mlbb_heroes:julian_legacy",
+  "params": {}
+ },
+ "stack_skill_index": 0,
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_julian.attack",
+  "duration": 24,
+  "cooltime": 60,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 28000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:julian_basic"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_julian.skill",
+  "duration": 18,
+  "cooltime": 360,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 70000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_julian_skill01"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:julian_scythe"
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_julian.skill2",
+  "duration": 18,
+  "cooltime": 360,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 70000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_julian_skill02"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:julian_sword"
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_julian.ult",
+  "duration": 20,
+  "cooltime": 360,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 70000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_julian_ult01"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:julian_chain"
+    }
+   ]
+  }
+ }
+}

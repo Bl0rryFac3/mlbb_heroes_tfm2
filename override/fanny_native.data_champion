@@ -13,23 +13,23 @@
     "asset/mlbb_heroes/icons/fanny_ult"
   ],
   "stat": {
-    "attack": 100,
+    "attack": 62,
     "magic_power": 0,
-    "hp": 900,
+    "hp": 720,
     "defence": 28,
-    "magic_resistance": 22,
+    "magic_resistance": 26,
     "move_speed": 1100,
-    "hp_regen": 0,
-    "stack": 4,
+    "hp_regen": 6,
+    "stack": 5,
     "crit_chance": 0
   },
   "growth": {
-    "attack": 17,
+    "attack": 5,
     "magic_power": 0,
-    "hp": 88,
-    "defence": 6,
-    "magic_resistance": 4,
-    "move_speed": 10,
+    "hp": 98,
+    "defence": 5,
+    "magic_resistance": 3,
+    "move_speed": 5,
     "hp_regen": 0,
     "stack": 0,
     "crit_chance": 0
@@ -64,7 +64,7 @@
     "action_name": "skill",
     "description": "#asset/base/text/champion?description.mlbb_fanny.skill",
     "duration": 18,
-    "cooltime": 150,
+    "cooltime": 165,
     "start_timing": 6,
     "cancelable": false,
     "range": 36000,
@@ -94,8 +94,8 @@
           "effects": [
             {
               "type": "Attack",
-              "damage": 95,
-              "attack_ratio": 135
+              "damage": 48,
+              "attack_ratio": 85
             },
             {
               "type": "TargetSfx",
@@ -128,7 +128,7 @@
     "action_name": "ult",
     "description": "#asset/base/text/champion?description.mlbb_fanny.ult",
     "duration": 24,
-    "cooltime": 1320,
+    "cooltime": 1560,
     "start_timing": 4,
     "cancelable": false,
     "range": 65000,

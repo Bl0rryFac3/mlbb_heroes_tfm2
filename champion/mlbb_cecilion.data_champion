@@ -1,0 +1,2517 @@
+{
+ "id": "mlbb_cecilion",
+ "category": "Magician",
+ "tags": [
+  "AP",
+  "Magic",
+  "Range",
+  "CC"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/cecilion",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/cecilion_skill",
+  "asset/mlbb_heroes/icons/cecilion_skill2",
+  "asset/mlbb_heroes/icons/cecilion_ult"
+ ],
+ "stat": {
+  "attack": 80,
+  "magic_power": 60,
+  "hp": 680,
+  "defence": 20,
+  "magic_resistance": 22,
+  "move_speed": 1040,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 3,
+  "magic_power": 8,
+  "hp": 95,
+  "defence": 3,
+  "magic_resistance": 3,
+  "move_speed": 4,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_cecilion.attack",
+  "duration": 20,
+  "cooltime": 60,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 62000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:cecilion_basic_attack"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_cecilion.skill",
+  "duration": 24,
+  "cooltime": 90,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 62000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_cecilion_skill1"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "skill",
+     "tick": 6
+    },
+    {
+     "type": "AddCasterBuff",
+     "only_to_enemy": false,
+     "buff_state": {
+      "name": "mlbb_heroes_cecilion_bat_speed",
+      "duration": {
+       "Time": {
+        "tick": 60
+       }
+      },
+      "move_speed_mult": 30
+     }
+    },
+    {
+     "type": "Delayed",
+     "tick": 6,
+     "effects": [
+      {
+       "type": "LineRangeProjectile",
+       "name": "cecilion_bat",
+       "width": 20000,
+       "length": 62000,
+       "delay": 18,
+       "apply": 1,
+       "applied_target": "EnemyWithoutTower",
+       "applied_effects": [
+        {
+         "effect": {
+          "type": "ApAttack",
+          "damage": 30,
+          "attack_ratio": 25,
+          "hp_ratio": 0,
+          "attack_effect_type": "Target"
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "Native",
+          "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "ViewEffect",
+          "name": "cecilion_bat_impact"
+         },
+         "casting_type": "Targeting"
+        }
+       ]
+      },
+      {
+       "type": "LinearProjectile",
+       "name": "cecilion_bat",
+       "speed": 3100,
+       "range": 62000,
+       "penetrate": true,
+       "shape": {
+        "Circle": {
+         "radius": 20000
+        }
+       },
+       "applied_target": "EnemyWithoutTower",
+       "applied_effects": [],
+       "end_effects": [
+        {
+         "type": "ViewEffect",
+         "name": "cecilion_bat_impact"
+        },
+        {
+         "type": "RangeProjectile",
+         "name": "cecilion_bat",
+         "delay": 1,
+         "apply": 1,
+         "shape": {
+          "Circle": {
+           "radius": 16000
+          }
+         },
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 55,
+            "attack_ratio": 50,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_cecilion.skill2",
+  "duration": 30,
+  "cooltime": 720,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 55000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_cecilion_skill2"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "skill2",
+     "tick": 6
+    },
+    {
+     "type": "Delayed",
+     "tick": 6,
+     "effects": [
+      {
+       "type": "RangePeriodProjectile",
+       "name": "cecilion_claws_with_boundary",
+       "tick": 150,
+       "period": 150,
+       "first_delay": 30,
+       "shape": {
+        "Circle": {
+         "radius": 28000
+        }
+       },
+       "applied_target": "EnemyWithoutTower",
+       "applied_effects": [
+        {
+         "effect": {
+          "type": "ApAttack",
+          "damage": 60,
+          "attack_ratio": 60,
+          "hp_ratio": 0,
+          "attack_effect_type": "Target"
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "Native",
+          "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "Stun",
+          "duration": 60
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "Pull",
+          "speed": 1400,
+          "tick": 10
+         },
+         "casting_type": "Targeting"
+        }
+       ],
+       "end_effects": []
+      },
+      {
+       "type": "ViewEffect",
+       "name": "cecilion_claws_with_boundary"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_cecilion.ult",
+  "duration": 180,
+  "cooltime": 2160,
+  "start_timing": 1,
+  "cancelable": false,
+  "range": 60000,
+  "casting_type": "None",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_cecilion_ult"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 16
+    },
+    {
+     "type": "AddCasterBuff",
+     "only_to_enemy": false,
+     "buff_state": {
+      "name": "mlbb_heroes_cecilion_feast",
+      "duration": {
+       "Time": {
+        "tick": 180
+       }
+      }
+     }
+    },
+    {
+     "type": "AddCasterBuff",
+     "only_to_enemy": false,
+     "buff_state": {
+      "name": "mlbb_heroes_cecilion_feast_speed",
+      "duration": {
+       "Time": {
+        "tick": 90
+       }
+      },
+      "move_speed_mult": 60
+     }
+    },
+    {
+     "type": "Delayed",
+     "tick": 10,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 18,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 26,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 34,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 42,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 50,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 58,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 66,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 74,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 82,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 90,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 98,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 106,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 114,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 122,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 130,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 138,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 146,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 154,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 162,
+     "effects": [
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "type": "RandomTarget",
+       "range": 60000,
+       "casting_target": "EnemyChampion",
+       "from_projectile": false,
+       "effects": [
+        {
+         "type": "TargetProjectile",
+         "name": "cecilion_blood_bolt",
+         "speed": 9000,
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 5,
+            "attack_ratio": 8,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:cecilion_overflowing_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "cecilion_blood_bolt_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Heal",
+            "amount": 8,
+            "attack_ratio": 0,
+            "ap_ratio": 0,
+            "heal_type": "Caster"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "cecilion_bat",
+   "anim": "asset/mlbb_heroes/effects/cecilion_bat",
+   "tag": "bat",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "cecilion_blood_bolt",
+   "anim": "asset/mlbb_heroes/effects/cecilion_blood_bolt",
+   "tag": "bolt",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "cecilion_basic_bolt",
+   "anim": "asset/mlbb_heroes/effects/cecilion_basic_bolt",
+   "tag": "bolt",
+   "z": 1,
+   "repeat": true
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "cecilion_bat_impact",
+   "anim": "asset/mlbb_heroes/effects/cecilion_bat_impact",
+   "tag": "impact",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "cecilion_blood_bolt_hit",
+   "anim": "asset/mlbb_heroes/effects/cecilion_blood_bolt_hit",
+   "tag": "hit",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "cecilion_claws_with_boundary",
+   "anim": "asset/mlbb_heroes/effects/cecilion_claws_with_boundary",
+   "tag": "claws",
+   "z": -1,
+   "is_follow": false
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_cecilion_feast",
+   "anim": "asset/mlbb_heroes/effects/cecilion_feast_aura",
+   "tag": "feast",
+   "z": -1
+  }
+ ],
+ "passive": {
+  "passive_ref": "mlbb_heroes:cecilion_overflowing",
+  "params": {
+   "max_stack": 99999,
+   "magic_power_per_stack": 3,
+   "gain_cooldown_ticks": 60,
+   "max_procs_skill": 3,
+   "max_procs_skill2": 1,
+   "max_procs_ult": 5
+  }
+ },
+ "stack_skill_index": 0
+}

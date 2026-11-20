@@ -1,0 +1,240 @@
+{
+  "character_id": "mlbb_gusion",
+  "staged_from": "/home/user/uploads",
+  "originals": [
+    {
+      "file": "gusion_atlas.png",
+      "description": "Original combined 8-row, 28-column hero animation atlas",
+      "size": [
+        2016,
+        576
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "gusion_atlas.json",
+      "description": "Original frame-to-cell manifest",
+      "bytes": 9487
+    },
+    {
+      "file": "gusion-daggerprojectile.png",
+      "description": "Skill 1 projectile / reusable dagger visual",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "gusion-skill1mark.png",
+      "description": "Skill 1 target mark / reticle visual",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "gusion-skill1vfxdash.png",
+      "description": "Skill 1 recast dash trail",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "gusion-skill2streak.png",
+      "description": "Skill 2 dagger streak / recall trail",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "gusion-ultvfx.png",
+      "description": "Ultimate arrival / teleport-like effect",
+      "size": [
+        1445,
+        1088
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "passive runeflash.png",
+      "description": "Passive rune stack visual",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "empowered hitflash.png",
+      "description": "Empowered basic-attack hit flash",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    }
+  ],
+  "derived_files": [
+    "gusion_atlas_split.png",
+    "gusion_atlas_split.json"
+  ],
+  "notes": [
+    "Original user uploads remain unchanged in this source directory.",
+    "The split character atlas preserves the supplied 72x72, 28-column cells and exposes separate skill/skill_recast and skill2/skill2_recall rows.",
+    "Active VFX are alpha-cropped, reduced, and nearest-neighbor scaled from the original uploads; originals remain available here.",
+    "Skill 2 spawns one dagger and an independent slower streak per dagger; a 36-tick cooldown unlock delay prevents immediate AI recall.",
+    "Animation timings and VFX anchoring are provisional; in-game verification is still needed.",
+    "Static checks, cargo fmt --check, all 16 Rust tests, and the Windows x64 GNU cross-build candidate pass. The project-root MSVC DLL remains unchanged; the candidate is not tested in TFM2.",
+    "On 2026-10-23, the three runtime skill icons were replaced with the actual default Gusion icons from Mobile Legends Wiki; originals and source URLs are preserved under source/gusion/wiki_skill_icons/. A pre-correction backup of replaced visuals is preserved under source/gusion/visual_before_followup_2026-10-23/.",
+    "Intermediate 2026-10-23 step, superseded by the later frame trim: Gusion basic attack was first changed to 17 poses at 0.04 seconds each before repeated thrust poses were removed. Current settings are recorded in basic_attack_animation.",
+    "Follow-up visual adjustment on 2026-10-23: passive rune art reduced from 28x28 to 24x24 and raised an additional 16 px; Skill 1 mark art preserved and raised an additional 8 px.",
+    "On 2026-10-23, the shared champion_view map was aligned to Aldous for Fanny, Lancelot, Gusion, and Estes; Aldous was untouched. An explicit Estes entry was added because he previously inherited the default view. Runtime UI verification remains pending.",
+    "On 2026-10-23, Gusion basic attack cooltime increased from 52 to 60 ticks after comparing pack values (Fanny 65, Aldous 60, Estes 60, Lancelot 55). The 17-frame/0.68-second animation and damage remained unchanged.",
+    "On 2026-10-23, Gusion basic attack was trimmed from 17 to 7 referenced poses (source cells 1-5 and 16-17), retimed to 0.08 seconds each, and given a 28-tick action duration. Hit timing remains tick 8 and cooldown remains 60 ticks."
+  ],
+  "runtime_integration": {
+    "champion": "champion/mlbb_gusion.data_champion",
+    "character_sprite": [
+      "sprite/gusion#sheet.png",
+      "sprite/gusion#anim.fanim"
+    ],
+    "projectile_and_effects": [
+      "effects/gusion_s1_projectile.png",
+      "effects/gusion_s1_projectile#sheet.png",
+      "effects/gusion_s1_projectile#anim.fanim",
+      "effects/gusion_s1_mark#sheet.png",
+      "effects/gusion_s1_mark#anim.fanim",
+      "effects/gusion_dash_trail#sheet.png",
+      "effects/gusion_dash_trail#anim.fanim",
+      "effects/gusion_s2_streak.png",
+      "effects/gusion_s2_streak#sheet.png",
+      "effects/gusion_s2_streak#anim.fanim",
+      "effects/gusion_ult_arrival#sheet.png",
+      "effects/gusion_ult_arrival#anim.fanim",
+      "effects/gusion_passive_rune#sheet.png",
+      "effects/gusion_passive_rune#anim.fanim",
+      "effects/gusion_empowered_hit#sheet.png",
+      "effects/gusion_empowered_hit#anim.fanim"
+    ],
+    "icons": [
+      "icons/gusion_passive.png",
+      "icons/gusion_skill.png",
+      "icons/gusion_skill2.png",
+      "icons/gusion_ult.png"
+    ],
+    "native_logic": "src/gusion.rs; registered by src/lib.rs",
+    "localization": "text/champion.i18n"
+  },
+  "visual_adjustments": {
+    "passive_rune_frame_px": [
+      40,
+      112
+    ],
+    "skill1_mark_frame_px": [
+      40,
+      80
+    ],
+    "skill1_mark_additional_upward_shift_px": 16,
+    "ultimate_arrival_frame_px": [
+      64,
+      41
+    ],
+    "ultimate_arrival_scale_percent_of_previous": 50,
+    "note": "Passive rune art is reduced to 24x24 and the taller bottom-anchored frame adds a further 16 px upward shift versus the prior candidate. Skill 1 mark art is unchanged and has a further 8 px transparent-bottom increase (16 px total rise from its original 40x64 framing). The Ultimate arrival remains 64x41. Actual game placement is unverified.",
+    "passive_rune_additional_upward_shift_px": 16,
+    "passive_rune_art_scale_percent_of_previous": 86
+  },
+  "wiki_skill_icons": [
+    {
+      "source": "wiki_skill_icons/Sword_Spike.webp",
+      "runtime": "icons/gusion_skill.png",
+      "ability": "Skill 1 Sword Spike",
+      "source_page": "https://mobile-legends.fandom.com/wiki/Gusion"
+    },
+    {
+      "source": "wiki_skill_icons/Shadowblade_Slaughter.webp",
+      "runtime": "icons/gusion_skill2.png",
+      "ability": "Skill 2 Shadowblade Slaughter",
+      "source_page": "https://mobile-legends.fandom.com/wiki/Gusion"
+    },
+    {
+      "source": "wiki_skill_icons/Incandescence.webp",
+      "runtime": "icons/gusion_ult.png",
+      "ability": "Ultimate Incandescence",
+      "source_page": "https://mobile-legends.fandom.com/wiki/Gusion"
+    }
+  ],
+  "basic_attack_animation": {
+    "source_frames_kept": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      16,
+      17
+    ],
+    "frame_count": 7,
+    "duration_per_frame_seconds": 0.08,
+    "total_cycle_seconds": 0.56,
+    "action_duration_ticks": 28,
+    "start_timing_tick": 8,
+    "cooltime_ticks": 60,
+    "repeated_thrust_phases_removed": true,
+    "note": "Frames were inspected; all 17 source cells were unique, but repeated thrust phases were removed from the playback list. The underlying atlas is unchanged. TFM2 runtime timing is unverified."
+  },
+  "champion_view_followup": {
+    "reference_hero": "mlbb_aldous",
+    "aldous_entry_changed": false,
+    "explicit_entries": [
+      "mlbb_aldous",
+      "mlbb_fanny",
+      "mlbb_lancelot",
+      "mlbb_gusion",
+      "mlbb_estes"
+    ],
+    "estes_previous_state": "No explicit entry; game default framing applied.",
+    "runtime_verified": false,
+    "backup": "source/ui_view/champion_view_before_aldous_reference_2026-10-23.champion_view"
+  },
+  "basic_attack_cadence": {
+    "previous_cooltime_ticks": 52,
+    "new_cooltime_ticks": 60,
+    "attack_animation_frames": 17,
+    "attack_animation_duration_per_frame_seconds": 0.04,
+    "attack_animation_total_seconds": 0.68,
+    "damage_changed": false,
+    "attack_stat_changed": false,
+    "note": "Cooldown was the shortest among the current hero pack; increase slows repeated basic attacks while preserving the visual clip and hit damage. In-game cadence is unverified."
+  }
+}

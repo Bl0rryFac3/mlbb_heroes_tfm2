@@ -1,0 +1,19 @@
+{
+  "anims": {
+    "moon_top": {
+      "frames": [
+        {
+          "duration": 1.0,
+          "data": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 80
+          }
+        }
+      ]
+    }
+  },
+  "anchor_x": 0.5,
+  "anchor_y": 1.0
+}

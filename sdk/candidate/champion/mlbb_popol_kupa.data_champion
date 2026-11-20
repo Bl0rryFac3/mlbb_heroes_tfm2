@@ -1,0 +1,794 @@
+{
+ "id": "mlbb_popol_kupa",
+ "category": "Range",
+ "tags": [
+  "AD",
+  "Range",
+  "CC"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/popol_probe_carrier",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/popol_probe_skill",
+  "asset/mlbb_heroes/icons/popol_probe_skill2",
+  "asset/mlbb_heroes/icons/popol_probe_ult"
+ ],
+ "stat": {
+  "attack": 82,
+  "magic_power": 0,
+  "hp": 660,
+  "defence": 20,
+  "magic_resistance": 20,
+  "move_speed": 1080,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 4,
+  "magic_power": 0,
+  "hp": 90,
+  "defence": 3,
+  "magic_resistance": 2,
+  "move_speed": 4,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_popol_kupa.attack",
+  "duration": 20,
+  "cooltime": 66,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 72000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:popol_probe_basic"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_popol_kupa.skill",
+  "duration": 18,
+  "cooltime": 420,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 80000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:popol_probe_command"
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_popol_kupa.skill2",
+  "duration": 12,
+  "cooltime": 600,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 0,
+  "casting_type": "Targeting",
+  "casting_target": "AllyOnlySelf",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:popol_probe_ride"
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_popol_kupa.ult",
+  "duration": 18,
+  "cooltime": 1800,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 0,
+  "casting_type": "Targeting",
+  "casting_target": "AllyOnlySelf",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:popol_probe_alpha"
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:popol_probe"
+ },
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_once_popol_dead",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_dead",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_once_popol_dead_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_dead_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_once_kupa_dead",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_dead",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_once_kupa_dead_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_dead_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_once_kupa_alpha_transform",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_transform",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_once_kupa_alpha_transform_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_transform_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_once_revival",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_revival",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_once_revival_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_revival_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_0",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_1",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_2",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_3",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_4",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_5",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_6",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_7",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_idle_8",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_idle",
+   "tag": "lease_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_trigger",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_trigger",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_0",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_1",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_2",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_3",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_4",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_5",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_6",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_7",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_pk_trap_frost_loop_8",
+   "anim": "asset/mlbb_heroes/effects/popol_trap_frost_loop",
+   "tag": "lease_8",
+   "z": 0,
+   "is_follow": false
+  }
+ ],
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_spear",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_spear",
+   "tag": "main",
+   "z": 1,
+   "repeat": true
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_popol_probe_body",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_idle",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_popol_probe_body_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_idle_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_run",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_run",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_run_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_run_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_attack",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_attack",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_attack_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_attack_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_skill",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_skill",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_skill_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_skill_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_skill2",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_skill2",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_skill2_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_skill2_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_ult",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_ult",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_ult_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_ult_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_hit",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_hit",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_hit_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_hit_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_dead",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_dead",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_dead_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_dead_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_pray",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_pray",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_popol_pray_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_popol_pray_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_kupa_probe_body",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_idle",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_kupa_probe_body_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_idle_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_run",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_run",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_run_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_run_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_attack",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_attack",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_attack_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_attack_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_skill",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_skill",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_skill_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_skill_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_hit",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_hit",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_hit_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_hit_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_dead",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_dead",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_dead_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_dead_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_kupa_probe_alpha",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_idle",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_kupa_probe_alpha_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_idle_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_alpha_run",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_run",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_alpha_run_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_run_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_alpha_attack",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_attack",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_alpha_attack_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_attack_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_alpha_skill",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_skill",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_alpha_skill_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_skill_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_alpha_transform",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_transform",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_kupa_alpha_transform_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_kupa_alpha_transform_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_popol_probe_ride",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_idle",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_popol_probe_ride_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_idle_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_run",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_run",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_run_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_run_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_start",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_start",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_start_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_start_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_end",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_end",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_end_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_end_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_hit",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_hit",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_hit_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_hit_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_idle",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_idle",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_idle_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_idle_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_run",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_run",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_run_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_run_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_start",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_start",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_start_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_start_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_end",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_end",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_end_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_end_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_hit",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_hit",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_mount_alpha_hit_left",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_mount_alpha_hit_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_fx_shield_start",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_shield_start",
+   "tag": "main",
+   "z": 2
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_fx_shield_loop",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_shield_loop",
+   "tag": "main",
+   "z": 2
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_fx_recall",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_recall",
+   "tag": "main",
+   "z": 2
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_fx_prayer",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_prayer",
+   "tag": "main",
+   "z": 2
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_pk_fx_revival",
+   "anim": "asset/mlbb_heroes/effects/popol_anim_revival",
+   "tag": "main",
+   "z": 2
+  }
+ ]
+}

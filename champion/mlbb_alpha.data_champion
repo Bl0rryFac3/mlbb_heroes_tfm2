@@ -1,0 +1,445 @@
+{
+ "id": "mlbb_alpha",
+ "category": "Melee",
+ "tags": [
+  "AD",
+  "Melee",
+  "Tank"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/alpha",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/alpha_skill",
+  "asset/mlbb_heroes/icons/alpha_skill2",
+  "asset/mlbb_heroes/icons/alpha_ult"
+ ],
+ "stat": {
+  "attack": 107,
+  "magic_power": 0,
+  "hp": 800,
+  "defence": 33,
+  "magic_resistance": 26,
+  "move_speed": 1080,
+  "hp_regen": 8,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 5,
+  "magic_power": 0,
+  "hp": 102,
+  "defence": 4,
+  "magic_resistance": 3,
+  "move_speed": 3,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_alpha.attack",
+  "duration": 20,
+  "cooltime": 54,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 24000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Attack",
+   "damage": 0,
+   "attack_ratio": 100,
+   "attack_effect_type": "Target"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_alpha.skill",
+  "duration": 30,
+  "cooltime": 360,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 90000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "skill",
+     "tick": 6
+    },
+    {
+     "type": "LineRangeProjectile",
+     "name": "alpha_s1_wave",
+     "width": 30000,
+     "length": 90000,
+     "delay": 18,
+     "apply": 18,
+     "applied_target": "Enemy",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Attack",
+        "damage": 70,
+        "attack_ratio": 80,
+        "attack_effect_type": "Target"
+       },
+       "casting_type": "Targeting"
+      },
+      {
+       "effect": {
+        "type": "AddBuff",
+        "buff_state": {
+         "name": "mlbb_alpha_s1_slow",
+         "duration": {
+          "Time": {
+           "tick": 60
+          }
+         },
+         "move_speed_mult": -40
+        }
+       },
+       "casting_type": "Targeting"
+      },
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:alpha_beta_strafe"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_alpha.skill2",
+  "duration": 24,
+  "cooltime": 420,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 35000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "skill2",
+     "tick": 8
+    },
+    {
+     "type": "RangeEffect",
+     "shape": {
+      "Circle": {
+       "radius": 35000
+      }
+     },
+     "target": "Enemy",
+     "effects": [
+      {
+       "type": "Attack",
+       "damage": 120,
+       "attack_ratio": 80,
+       "attack_effect_type": "Target"
+      },
+      {
+       "type": "Native",
+       "effect_ref": "mlbb_heroes:alpha_beta_strafe"
+      }
+     ],
+     "apply_type": {
+      "Forward": {
+       "offset": 20000
+      }
+     }
+    },
+    {
+     "type": "Heal",
+     "amount": 100,
+     "attack_ratio": 20,
+     "ap_ratio": 0,
+     "heal_type": "Caster"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:alpha_s2_fan_bin"
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_alpha.ult",
+  "duration": 90,
+  "cooltime": 1200,
+  "start_timing": 3,
+  "cancelable": false,
+  "range": 95000,
+  "casting_type": "Position",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 30
+    },
+    {
+     "type": "CasterViewEffect",
+     "name": "alpha_ult_crescent"
+    },
+    {
+     "type": "LineRangeProjectile",
+     "name": "alpha_beta_dive",
+     "width": 20000,
+     "length": 95000,
+     "delay": 6,
+     "apply": 1,
+     "applied_target": "Enemy",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Attack",
+        "damage": 70,
+        "attack_ratio": 20,
+        "attack_effect_type": "Target"
+       },
+       "casting_type": "Targeting"
+      },
+      {
+       "effect": {
+        "type": "Stun",
+        "duration": 60
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    },
+    {
+     "type": "MoveTo",
+     "speed": 6000,
+     "range": 95000,
+     "end_effects": [
+      {
+       "type": "RangeEffect",
+       "shape": {
+        "Circle": {
+         "radius": 30000
+        }
+       },
+       "target": "Enemy",
+       "apply_type": "AroundCaster",
+       "effects": [
+        {
+         "type": "Airborne",
+         "duration": 40
+        },
+        {
+         "type": "Attack",
+         "damage": 130,
+         "attack_ratio": 80,
+         "attack_effect_type": "Target"
+        },
+        {
+         "type": "AddBuff",
+         "buff_state": {
+          "name": "mlbb_alpha_ult_slow",
+          "duration": {
+           "Time": {
+            "tick": 75
+           }
+          },
+          "move_speed_mult": -30
+         }
+        },
+        {
+         "type": "CasterViewEffect",
+         "name": "alpha_ult_burst"
+        },
+        {
+         "type": "Native",
+         "effect_ref": "mlbb_heroes:alpha_beta_strafe_ult"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:alpha_beta_advance",
+  "params": {}
+ },
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_0",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_1",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_2",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_3",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_4",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_5",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_6",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_7",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_8",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_9",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_9",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_10",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_10",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_s2_fan_11",
+   "anim": "asset/mlbb_heroes/effects/alpha_s2_zone",
+   "tag": "zone_11",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_ult_crescent",
+   "anim": "asset/mlbb_heroes/effects/alpha_ult_crescent",
+   "tag": "sweep",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_ult_burst",
+   "anim": "asset/mlbb_heroes/effects/alpha_ult_burst",
+   "tag": "burst",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "alpha_beta_strike",
+   "anim": "asset/mlbb_heroes/effects/alpha_beta_drone",
+   "tag": "fly",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "LoopAnimation",
+   "name": "alpha_beta_mark",
+   "anim": "asset/mlbb_heroes/effects/alpha_beta_drone",
+   "tag": "fly",
+   "z": 2,
+   "is_follow": true
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_alpha_lockon_mark",
+   "anim": "asset/mlbb_heroes/effects/alpha_lockon",
+   "tag": "locked",
+   "z": 3
+  }
+ ],
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "alpha_s1_wave",
+   "anim": "asset/mlbb_heroes/effects/alpha_s1_line",
+   "tag": "beam",
+   "z": 1,
+   "repeat": false
+  },
+  {
+   "type": "Animated",
+   "name": "alpha_beta_dive",
+   "anim": "asset/mlbb_heroes/effects/alpha_s1_line",
+   "tag": "dive",
+   "z": 1,
+   "repeat": true
+  }
+ ]
+}

@@ -1,0 +1,141 @@
+# Balmond v7 incremental text diff (base: v6 candidate)
+# Binary PNG replacements are included in this patch archive; see PATCH_MANIFEST.json.
+--- a/candidate/mod.mod_info
++++ b/candidate/mod.mod_info
+@@ -6,7 +6,7 @@
+   "mod_type": "native",
+   "contains_code": true,
+   "last_updated": "2026-10-31",
+-  "description": "Balmond v6 test candidate targeting TFM2 0.7.0. Lets S2 move after a short 12-tick entry animation; preserves native 3-second spin/damage. Ultimate keeps its working damage fan but moves an 80%-scale slash VFX to each hit target, following the BoDUD Miss Fortune target-impact pattern. Native S2 diagnostic logging added. Not in-game verified.",
++  "description": "Balmond v7 test candidate for TFM2 0.7.0. Preserves v6 S2 animation timing and diagnostics, reduces S2 VFX content by 10%, and replaces repeated per-target Ult slashes with one directional visual-only line. Ult DirDot damage fan/native execute unchanged. Not in-game verified.",
+   "dependencies": [
+     {
+       "mod_id": "base",
+--- a/candidate/README.md
++++ b/candidate/README.md
+@@ -1,9 +1,9 @@
+-# MLBB Heroes — Balmond v6 test candidate
++# MLBB Heroes — Balmond v7 test candidate
+ 
+-Distinct v6 test revision based on preserved v5 source-with-SDK. V1–v5 archives are unchanged.
++Distinct v7 follow-up based on the preserved v6 source-with-SDK candidate. V1–v6 archives remain unchanged.
+ 
+-- **S2 movement:** the forced `skill2` body animation is shortened from 180 to 12 ticks. The native active buff, spin VFX, movement-speed buff, three-second duration, 14-hit schedule, radius and damage formula remain intact.
+-- **S2 diagnostics:** the newly built DLL logs the native-start event, passive activation and each pulse's target count during a watched live match. These lines are tagged `[BALMOND_S2]` in the existing `mlbb_heroes.log`; they help distinguish a native callback issue from an out-of-radius/no-target pulse.
+-- **Ultimate visual:** keeps Balmond's existing directional damage fan and native execute unchanged. The hit slash is now a target-position `ViewEffect` inside the fan, follows hit targets briefly, and uses an 80%-scale atlas (161x98 vs. 201x122). The pattern is adapted from BoDUD Miss Fortune's separation of cone hit selection and target-position hit visual; it does not copy Miss Fortune's 40° gameplay cone or multi-wave channel.
++- **Ultimate visual:** the v6 per-target slash was removed after the user’s screenshot showed repeated large slashes. One visual-only directional `LineRangeProjectile` now uses the cast direction and Balmond’s original wide slash art. The existing DirDot hit fan, damage, native execute, range, and audio are unchanged.
++- **S2:** visible spin art is 10% smaller; the v6 12-tick entry animation and native 180-tick spin/damage behavior remain unchanged.
++- **S1:** untouched.
+ 
+-The v6 static audit and 75 Rust unit tests pass; a fresh Windows x86-64 release DLL was cross-built. **No TFM2 in-game test has been run.** Please test S2 movement and its `[BALMOND_S2]` log lines, then verify the Ultimate slash placement/size on both sides.
++75 Rust tests, a fresh Windows x86-64 build, the v7 static audit, and the runtime package audit passed. **No TFM2 in-game test has been run.** The directional VFX orientation/size and S2 visible scale require client confirmation.
+--- a/candidate/RELEASE_README.md
++++ b/candidate/RELEASE_README.md
+@@ -1,13 +1,13 @@
+-# MLBB Heroes — Balmond v6 Windows runtime test candidate
++# MLBB Heroes — Balmond v7 Windows runtime test candidate
+ 
+ Install the extracted `mlbb_heroes` folder intact through the TFM2 mod loader. This runtime ZIP includes runtime data/assets and the compiled Windows x86-64 DLL only; it does not include Rust source, the stable SDK, patch files, or build tools.
+ 
+-## Changes from v5
++## Changes from v6
+ 
+-- S2 body `skill2` animation now lasts 12 ticks rather than locking Balmond in place for all 180 ticks. The native cyclone remains 180 ticks, with the existing 14 damage pulses, radius, movement buff and spin VFX.
+-- New live-match diagnostics write `[BALMOND_S2] native_start`, `passive_active`, and per-pulse `targets=` counts to `mlbb_heroes.log`.
+-- Ultimate damage geometry and native execute are unchanged. The slash is now a target-following `ViewEffect` on targets selected by the fan, and its sheet is reduced to 161x98 (80% of the v5 201x122). Inspired by BoDUD Miss Fortune's separate fan-hit geometry and target impact visual.
++- Ultimate visuals now use one visual-only direction-aligned line instead of a repeated slash per enemy. The existing damage fan and native execute are unchanged.
++- The original 201×122 Balmond slash art is used with the narrow point intended at Balmond and the broad end toward the far target. The visible result must still be checked in-game.
++- S2 spin VFX pixels are 10% smaller; the action animation, native spin duration, and damage logic are unchanged from v6.
+ 
+-## Validation
++## Verification boundary
+ 
+-The full Rust unit suite passed (75 tests), the v6 static audit passed, and a fresh Windows x86-64 release DLL was built. The runtime packager validates JSON/FAnim/assets/audio references, PE header and source/SDK exclusion. **No TFM2 load or in-game verification was performed.** Verify that S2 movement resumes after its short entry animation, that S2 damage pulses reach nearby enemies (use the log counts), and that the smaller Ultimate visual appears at each enemy hit as intended.
++75 Rust tests, a Windows x86-64 DLL build, the v7 static audit, and runtime ZIP packaging passed. No in-game match test was performed.
+--- a/candidate/BALMOND_IMPLEMENTATION_NOTES.md
++++ b/candidate/BALMOND_IMPLEMENTATION_NOTES.md
+@@ -73,3 +73,10 @@
+ The Ultimate still uses Balmond's prior directional `DirDot` damage fan and native execute. The caster-bound slash trigger is replaced by a target-position `ViewEffect` nested in the fan's per-target effects; its binding follows the struck target for the brief hit. The existing one-frame slash is resized to 161x98 (80% of v5's 201x122); timing is unchanged. This adapts BoDUD Miss Fortune's separation of fan hit selection and target hit visual; it does not copy her 40-degree gameplay cone or 12-wave channel.
+ 
+ V6's Rust unit tests (75) and Windows x86-64 build passed, and the v6/package static audits passed. No TFM2 match test was performed, so the S2 movement/damage and target-following VFX remain to be checked in game.
++
++
++## v7 follow-up — directional Ultimate visual
++
++The v6 target-position `ViewEffect` nested under the DirDot fan is no longer used: the user’s screenshot showed repeated large slashes, one for each selected enemy. V7 instead registers one visual-only `LineRangeProjectile` using the cast direction and an `Animated` `view_projectiles` binding. The line applies no effects; the original DirDot hit selection and native lethal-counter remain intact. The line is 110,000 units long and 60,000 units wide; it reuses the original 201×122 Balmond slash art from v5, with the narrow point intended at Balmond and the broader flame toward the far end. These client visuals still require an in-game test.
++
++The visible S2 spin pixels are shrunk by 10% within each frame; the frame canvas, animation crop metadata, and combat logic are unchanged. See `docs/BALMOND_V7_VISUAL_AND_MOVEMENT_RESEARCH.md` for the Sion-Q and Garen movement findings.
+--- a/candidate/champion/mlbb_balmond.data_champion
++++ b/candidate/champion/mlbb_balmond.data_champion
+@@ -144,6 +144,16 @@
+           "tick": 30
+         },
+         {
++          "type": "LineRangeProjectile",
++          "name": "mlbb_balmond_ult_line",
++          "width": 60000,
++          "length": 110000,
++          "delay": 0,
++          "apply": 30,
++          "applied_target": "EnemyWithoutTower",
++          "applied_effects": []
++        },
++        {
+           "type": "RangeEffect",
+           "shape": {
+             "DirDot": {
+@@ -154,10 +164,6 @@
+           "target": "EnemyWithoutTower",
+           "effects": [
+             {
+-              "type": "ViewEffect",
+-              "name": "mlbb_balmond_ult_slash"
+-            },
+-            {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:balmond_lethal_counter"
+             }
+@@ -182,14 +188,6 @@
+       "tag": "dash",
+       "z": -1,
+       "is_follow": true
+-    },
+-    {
+-      "type": "Animation",
+-      "name": "mlbb_balmond_ult_slash",
+-      "anim": "asset/mlbb_heroes/effects/balmond_ult_fx",
+-      "tag": "slash",
+-      "z": -1,
+-      "is_follow": true
+     }
+   ],
+   "view_buffs": [
+@@ -200,5 +198,15 @@
+       "tag": "spin",
+       "z": -1
+     }
++  ],
++  "view_projectiles": [
++    {
++      "type": "Animated",
++      "name": "mlbb_balmond_ult_line",
++      "anim": "asset/mlbb_heroes/effects/balmond_ult_fx",
++      "tag": "slash",
++      "z": -1,
++      "repeat": true
++    }
+   ]
+ }
+--- a/candidate/effects/balmond_ult_fx#anim.fanim
++++ b/candidate/effects/balmond_ult_fx#anim.fanim
+@@ -7,8 +7,8 @@
+           "data": {
+             "x": 0.0,
+             "y": 0,
+-            "w": 161.0,
+-            "h": 98
++            "w": 201.0,
++            "h": 122
+           }
+         }
+       ]

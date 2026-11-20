@@ -1,0 +1,304 @@
+{
+  "id": "mlbb_gusion",
+  "category": "Assassin",
+  "tags": [
+    "AP",
+    "Melee"
+  ],
+  "sprite": "asset/mlbb_heroes/sprite/gusion",
+  "anim_prefix": "",
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/gusion_skill",
+    "asset/mlbb_heroes/icons/gusion_skill2",
+    "asset/mlbb_heroes/icons/gusion_ult"
+  ],
+  "stat": {
+    "attack": 58,
+    "magic_power": 78,
+    "hp": 710,
+    "defence": 20,
+    "magic_resistance": 20,
+    "move_speed": 1180,
+    "hp_regen": 6,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "growth": {
+    "attack": 4,
+    "magic_power": 8,
+    "hp": 96,
+    "defence": 3,
+    "magic_resistance": 2,
+    "move_speed": 5,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_gusion.attack",
+    "duration": 20,
+    "cooltime": 52,
+    "start_timing": 8,
+    "cancelable": true,
+    "range": 24000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "BaseAttack",
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Sfx",
+          "name": "mlbb_gusion_sfx_attack"
+        },
+        {
+          "type": "Native",
+          "effect_ref": "mlbb_heroes:gusion_basic_attack"
+        }
+      ]
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_gusion.skill",
+    "duration": 22,
+    "cooltime": 450,
+    "start_timing": 3,
+    "cancelable": false,
+    "range": 95000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "SwitchByBuff",
+      "buff_name": "mlbb_heroes_gusion_s1_recast",
+      "effect_none": {
+        "type": "Combine",
+        "effects": [
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_sfx_s1_throw"
+          },
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_voice_skill1"
+          },
+          {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:gusion_s1_throw"
+          }
+        ]
+      },
+      "effect_buff": {
+        "type": "Combine",
+        "effects": [
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_sfx_s1_recast"
+          },
+          {
+            "type": "CasterAnimation",
+            "name": "skill_recast",
+            "tick": 24
+          },
+          {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:gusion_s1_recast"
+          }
+        ]
+      }
+    }
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_gusion.skill2",
+    "duration": 26,
+    "cooltime": 600,
+    "start_timing": 2,
+    "cancelable": false,
+    "range": 78000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "SwitchByBuff",
+      "buff_name": "mlbb_heroes_gusion_s2_recast",
+      "effect_none": {
+        "type": "Combine",
+        "effects": [
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_sfx_s2_throw"
+          },
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_voice_skill2"
+          },
+          {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:gusion_s2_throw"
+          }
+        ]
+      },
+      "effect_buff": {
+        "type": "Combine",
+        "effects": [
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_sfx_s2_recall"
+          },
+          {
+            "type": "CasterAnimation",
+            "name": "skill2_recall",
+            "tick": 24
+          },
+          {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:gusion_s2_recall"
+          }
+        ]
+      }
+    }
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_gusion.ult",
+    "duration": 30,
+    "cooltime": 1440,
+    "start_timing": 3,
+    "cancelable": false,
+    "range": 90000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "SwitchByBuff",
+      "buff_name": "mlbb_heroes_gusion_ult_recast",
+      "effect_none": {
+        "type": "Combine",
+        "effects": [
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_sfx_ult"
+          },
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_voice_ult"
+          },
+          {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:gusion_ult_start"
+          },
+          {
+            "type": "RushMoveToBack",
+            "speed": 7600,
+            "applied_effects": [
+              {
+                "type": "ViewEffect",
+                "name": "mlbb_gusion_ult_arrival"
+              }
+            ]
+          }
+        ]
+      },
+      "effect_buff": {
+        "type": "Combine",
+        "effects": [
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_sfx_ult_recast"
+          },
+          {
+            "type": "Sfx",
+            "name": "mlbb_gusion_voice_ult_recast"
+          },
+          {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:gusion_ult_second"
+          },
+          {
+            "type": "RushMoveToBack",
+            "speed": 8200,
+            "applied_effects": [
+              {
+                "type": "ViewEffect",
+                "name": "mlbb_gusion_ult_arrival"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "view_projectiles": [
+    {
+      "type": "Sprite",
+      "name": "mlbb_gusion_s1_dagger",
+      "sprite": "asset/mlbb_heroes/effects/gusion_s1_projectile",
+      "z": 1
+    },
+    {
+      "type": "Sprite",
+      "name": "mlbb_gusion_s2_dagger",
+      "sprite": "asset/mlbb_heroes/effects/gusion_s1_projectile",
+      "z": 2
+    },
+    {
+      "type": "Sprite",
+      "name": "mlbb_gusion_s2_trail",
+      "sprite": "asset/mlbb_heroes/effects/gusion_s2_streak",
+      "z": -1
+    }
+  ],
+  "view_effects": [
+    {
+      "type": "Animation",
+      "name": "mlbb_gusion_dash_trail",
+      "anim": "asset/mlbb_heroes/effects/gusion_dash_trail",
+      "tag": "effect",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_gusion_ult_arrival",
+      "anim": "asset/mlbb_heroes/effects/gusion_ult_arrival",
+      "tag": "effect",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_gusion_empowered_hit",
+      "anim": "asset/mlbb_heroes/effects/gusion_empowered_hit",
+      "tag": "effect",
+      "z": 1,
+      "is_follow": false
+    }
+  ],
+  "view_buffs": [
+    {
+      "type": "Animated",
+      "name": "mlbb_heroes_gusion_rune",
+      "anim": "asset/mlbb_heroes/effects/gusion_passive_rune",
+      "tag": "effect",
+      "z": 3
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_heroes_gusion_s1_mark",
+      "anim": "asset/mlbb_heroes/effects/gusion_s1_mark",
+      "tag": "effect",
+      "z": 3
+    }
+  ],
+  "passive": {
+    "passive_ref": "mlbb_heroes:gusion_passive",
+    "params": {}
+  },
+  "stack_skill_index": 0
+}

@@ -1,0 +1,525 @@
+{
+ "cell_width": 72,
+ "cell_height": 72,
+ "columns": 20,
+ "rows": [
+  "idle",
+  "run",
+  "attack",
+  "skill",
+  "skill2",
+  "ult",
+  "hit",
+  "dead"
+ ],
+ "pivot": {
+  "feet_x": 34.0,
+  "ground_y": 55.0,
+  "note": "boots on y=55 inside every 72x72 cell (same ground line as Fanny); head aligned across rows"
+ },
+ "animations": {
+  "idle": {
+   "source": "hanabi-idle.png",
+   "frame_count": 7,
+   "frames": [
+    {
+     "col": 0,
+     "src": "idle 1,2",
+     "hold": 2
+    },
+    {
+     "col": 1,
+     "src": "idle 3",
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": "idle 4",
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": "idle 5",
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": "idle 6",
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": "idle 7",
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": "idle 8",
+     "hold": 1
+    }
+   ]
+  },
+  "run": {
+   "source": "hanabi-walk.png",
+   "frame_count": 7,
+   "frames": [
+    {
+     "col": 0,
+     "src": "run 1",
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": "run 2",
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": "run 3",
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": "run 4",
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": "run 5",
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": "run 6",
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": "run 7",
+     "hold": 1
+    }
+   ]
+  },
+  "attack": {
+   "source": "hanabi-basic.png",
+   "frame_count": 16,
+   "frames": [
+    {
+     "col": 0,
+     "src": "attack 1,2",
+     "hold": 2
+    },
+    {
+     "col": 1,
+     "src": "attack 3,4",
+     "hold": 2
+    },
+    {
+     "col": 2,
+     "src": "attack 5,6",
+     "hold": 2
+    },
+    {
+     "col": 3,
+     "src": "attack 7,8",
+     "hold": 2
+    },
+    {
+     "col": 4,
+     "src": "attack 9,10",
+     "hold": 2
+    },
+    {
+     "col": 5,
+     "src": "attack 11",
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": "attack 12",
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": "attack 13",
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": "attack 14",
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": "attack 15",
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": "attack 16",
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": "attack 17",
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": "attack 18",
+     "hold": 1
+    },
+    {
+     "col": 13,
+     "src": "attack 19,20",
+     "hold": 2
+    },
+    {
+     "col": 14,
+     "src": "attack 21",
+     "hold": 1
+    },
+    {
+     "col": 15,
+     "src": "attack 22",
+     "hold": 1
+    }
+   ]
+  },
+  "skill": {
+   "source": "hanabi-skill1.png",
+   "frame_count": 9,
+   "frames": [
+    {
+     "col": 0,
+     "src": "skill 1,2,3,4,5",
+     "hold": 5
+    },
+    {
+     "col": 1,
+     "src": "skill 6",
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": "skill 7",
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": "skill 8",
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": "skill 9,10",
+     "hold": 2
+    },
+    {
+     "col": 5,
+     "src": "skill 11,12,13,14,15,16,17,18,19",
+     "hold": 9
+    },
+    {
+     "col": 6,
+     "src": "skill 20",
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": "skill 21",
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": "skill 22,23,24,25",
+     "hold": 4
+    }
+   ]
+  },
+  "skill2": {
+   "source": "hanabi-skill2.png",
+   "frame_count": 16,
+   "frames": [
+    {
+     "col": 0,
+     "src": "skill2 1,2,3",
+     "hold": 3
+    },
+    {
+     "col": 1,
+     "src": "skill2 4,5,6",
+     "hold": 3
+    },
+    {
+     "col": 2,
+     "src": "skill2 7",
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": "skill2 8",
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": "skill2 9",
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": "skill2 10",
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": "skill2 11",
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": "skill2 12",
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": "skill2 13,14",
+     "hold": 2
+    },
+    {
+     "col": 9,
+     "src": "skill2 15",
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": "skill2 16",
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": "skill2 17",
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": "skill2 18",
+     "hold": 1
+    },
+    {
+     "col": 13,
+     "src": "skill2 19,20,21",
+     "hold": 3
+    },
+    {
+     "col": 14,
+     "src": "skill2 22,23",
+     "hold": 2
+    },
+    {
+     "col": 15,
+     "src": "skill2 24,25",
+     "hold": 2
+    }
+   ]
+  },
+  "ult": {
+   "source": "hanabi-ult.png",
+   "frame_count": 20,
+   "frames": [
+    {
+     "col": 0,
+     "src": "ult 1,2,3,4",
+     "hold": 4
+    },
+    {
+     "col": 1,
+     "src": "ult 5",
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": "ult 6",
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": "ult 7",
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": "ult 8",
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": "ult 9",
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": "ult 10",
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": "ult 11",
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": "ult 12",
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": "ult 13",
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": "ult 14",
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": "ult 15",
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": "ult 16",
+     "hold": 1
+    },
+    {
+     "col": 13,
+     "src": "ult 17",
+     "hold": 1
+    },
+    {
+     "col": 14,
+     "src": "ult 18",
+     "hold": 1
+    },
+    {
+     "col": 15,
+     "src": "ult 19",
+     "hold": 1
+    },
+    {
+     "col": 16,
+     "src": "ult 20",
+     "hold": 1
+    },
+    {
+     "col": 17,
+     "src": "ult 21,22",
+     "hold": 2
+    },
+    {
+     "col": 18,
+     "src": "ult 23,24",
+     "hold": 2
+    },
+    {
+     "col": 19,
+     "src": "ult 25",
+     "hold": 1
+    }
+   ]
+  },
+  "hit": {
+   "source": "hanabi-death.png (frames 2,3,4,5,6,7 reused)",
+   "frame_count": 6,
+   "frames": [
+    {
+     "col": 0,
+     "src": "dead 2",
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": "dead 3",
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": "dead 4",
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": "dead 5",
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": "dead 6",
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": "dead 7",
+     "hold": 1
+    }
+   ]
+  },
+  "dead": {
+   "source": "hanabi-death.png",
+   "frame_count": 10,
+   "frames": [
+    {
+     "col": 0,
+     "src": "dead 1,2",
+     "hold": 2
+    },
+    {
+     "col": 1,
+     "src": "dead 3",
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": "dead 4",
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": "dead 5",
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": "dead 6",
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": "dead 7,8,9,10,11,12,13,14",
+     "hold": 8
+    },
+    {
+     "col": 6,
+     "src": "dead 15",
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": "dead 16",
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": "dead 17",
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": "dead 18,19,20,21,22,23,24,25",
+     "hold": 8
+    }
+   ]
+  }
+ }
+}

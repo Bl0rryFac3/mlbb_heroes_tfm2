@@ -1,0 +1,233 @@
+{
+ "id": "mlbb_karrie",
+ "category": "Range",
+ "tags": [
+  "AD",
+  "Range"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/karrie",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/karrie_skill1",
+  "asset/mlbb_heroes/icons/karrie_skill2",
+  "asset/mlbb_heroes/icons/karrie_ult"
+ ],
+ "stat": {
+  "attack": 96,
+  "magic_power": 0,
+  "hp": 720,
+  "defence": 23,
+  "magic_resistance": 21,
+  "move_speed": 1110,
+  "hp_regen": 7,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 5,
+  "magic_power": 0,
+  "hp": 96,
+  "defence": 3,
+  "magic_resistance": 2,
+  "move_speed": 5,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_karrie.attack",
+  "duration": 20,
+  "cooltime": 54,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 72000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:karrie_basic_attack"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_karrie.skill",
+  "duration": 22,
+  "cooltime": 480,
+  "start_timing": 2,
+  "cancelable": false,
+  "range": 95000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_karrie_skill01"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:karrie_skill1_cast"
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_karrie.skill2",
+  "duration": 16,
+  "cooltime": 240,
+  "start_timing": 1,
+  "cancelable": false,
+  "range": 65000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_karrie_skill02"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:karrie_skill2"
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_karrie.ult",
+  "duration": 20,
+  "cooltime": 1200,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 95000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_karrie_ult"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:karrie_ultimate"
+    }
+   ]
+  }
+ },
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "karrie_lightwheel",
+   "anim": "asset/mlbb_heroes/effects/karrie_basic_lightwheel_game_small",
+   "tag": "basic_projectile",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "karrie_skill1_wheel",
+   "anim": "asset/mlbb_heroes/effects/karrie_skill1_projectile_game_larger",
+   "tag": "effect",
+   "z": 1,
+   "repeat": true
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "karrie_skill1_impact",
+   "anim": "asset/mlbb_heroes/effects/karrie_skill1_impact_game",
+   "tag": "effect",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "karrie_lightwheel_proc",
+   "anim": "asset/mlbb_heroes/effects/karrie_passive_proc_game",
+   "tag": "effect",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "karrie_ult_activation_pulse",
+   "anim": "asset/mlbb_heroes/effects/karrie_ult_activation_pulse_game",
+   "tag": "effect",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "karrie_skill1_slow_zone",
+   "anim": "asset/mlbb_heroes/effects/karrie_skill1_slow_zone_prominent",
+   "tag": "zone",
+   "z": 1,
+   "is_follow": false,
+   "repeat": true
+  }
+ ],
+ "passive": {
+  "passive_ref": "mlbb_heroes:karrie_lightwheel_mark",
+  "params": {}
+ },
+ "stack_skill_index": 0,
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_karrie_lightwheel_mark_1",
+   "anim": "asset/mlbb_heroes/effects/karrie_passive_marks_head_smaller",
+   "tag": "mark_1",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_karrie_lightwheel_mark_2",
+   "anim": "asset/mlbb_heroes/effects/karrie_passive_marks_head_smaller",
+   "tag": "mark_2",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_karrie_lightwheel_mark_3",
+   "anim": "asset/mlbb_heroes/effects/karrie_passive_marks_head_smaller",
+   "tag": "mark_3",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_karrie_lightwheel_mark_4",
+   "anim": "asset/mlbb_heroes/effects/karrie_passive_marks_head_smaller",
+   "tag": "mark_4",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_karrie_lightwheel_mark_5",
+   "anim": "asset/mlbb_heroes/effects/karrie_passive_marks_head_smaller",
+   "tag": "mark_5",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_karrie_lightwheel_mark_ready",
+   "anim": "asset/mlbb_heroes/effects/karrie_passive_marks_head_smaller",
+   "tag": "mark_6",
+   "z": 3
+  }
+ ]
+}

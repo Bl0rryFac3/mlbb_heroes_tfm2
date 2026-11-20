@@ -1,0 +1,84 @@
+{
+  "note": "Raw theoretical magic damage before resistances, shield, item procs or vamp; full pulse contact assumed. Not in-game DPS.",
+  "profiles": {
+    "SCYTHE": [
+      95,
+      45
+    ],
+    "ENH_SCYTHE": [
+      125,
+      55
+    ],
+    "SPIN": [
+      10,
+      5
+    ],
+    "SWORD": [
+      85,
+      35
+    ],
+    "BLADE": [
+      16,
+      8
+    ],
+    "CHAIN": [
+      70,
+      35
+    ],
+    "CHAIN_PULSE": [
+      5,
+      3
+    ],
+    "LAUNCH": [
+      130,
+      55
+    ]
+  },
+  "samples": {
+    "50": {
+      "profiles": {
+        "SCYTHE": 117,
+        "ENH_SCYTHE": 152,
+        "SPIN": 12,
+        "SWORD": 102,
+        "BLADE": 20,
+        "CHAIN": 87,
+        "CHAIN_PULSE": 6,
+        "LAUNCH": 157
+      },
+      "chain_sword_enhanced_scythe": 437,
+      "scythe_sword_enhanced_chain": 400,
+      "scythe_chain_enhanced_sword": 324
+    },
+    "200": {
+      "profiles": {
+        "SCYTHE": 185,
+        "ENH_SCYTHE": 235,
+        "SPIN": 20,
+        "SWORD": 155,
+        "BLADE": 32,
+        "CHAIN": 140,
+        "CHAIN_PULSE": 11,
+        "LAUNCH": 240
+      },
+      "chain_sword_enhanced_scythe": 690,
+      "scythe_sword_enhanced_chain": 624,
+      "scythe_chain_enhanced_sword": 517
+    },
+    "400": {
+      "profiles": {
+        "SCYTHE": 275,
+        "ENH_SCYTHE": 345,
+        "SPIN": 30,
+        "SWORD": 225,
+        "BLADE": 48,
+        "CHAIN": 210,
+        "CHAIN_PULSE": 17,
+        "LAUNCH": 350
+      },
+      "chain_sword_enhanced_scythe": 1020,
+      "scythe_sword_enhanced_chain": 918,
+      "scythe_chain_enhanced_sword": 773
+    }
+  }
+}

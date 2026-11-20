@@ -1,0 +1,730 @@
+{
+ "cell_width": 104,
+ "cell_height": 72,
+ "columns": 21,
+ "rows": [
+  "idle",
+  "run",
+  "attack",
+  "skill",
+  "skill2",
+  "ult",
+  "hit",
+  "dead"
+ ],
+ "pivot": {
+  "feet_x": 50.0,
+  "ground_y": 55.0,
+  "note": "feet centre at x=50; bottom edge of boots at y=55 within each cell (Fanny: cell centre -2 / +19)"
+ },
+ "animations": {
+  "idle": {
+   "source": "lance-idle.png",
+   "frame_count": 8,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      8
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "run": {
+   "source": "lance-run.png",
+   "frame_count": 16,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      10
+     ],
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": [
+      11
+     ],
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": [
+      12
+     ],
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": [
+      13
+     ],
+     "hold": 1
+    },
+    {
+     "col": 13,
+     "src": [
+      14
+     ],
+     "hold": 1
+    },
+    {
+     "col": 14,
+     "src": [
+      15
+     ],
+     "hold": 1
+    },
+    {
+     "col": 15,
+     "src": [
+      16
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "attack": {
+   "source": "lance-basic.png",
+   "frame_count": 11,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7,
+      8,
+      9,
+      10
+     ],
+     "hold": 4
+    },
+    {
+     "col": 7,
+     "src": [
+      11
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      12
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      13
+     ],
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": [
+      14,
+      15
+     ],
+     "hold": 2
+    }
+   ]
+  },
+  "skill": {
+   "source": "lance-skill1.png",
+   "frame_count": 10,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1,
+      2
+     ],
+     "hold": 2
+    },
+    {
+     "col": 1,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      7,
+      8,
+      9,
+      10
+     ],
+     "hold": 4
+    },
+    {
+     "col": 6,
+     "src": [
+      11
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      12
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      13
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      14
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "skill2": {
+   "source": "lance-skill2.png",
+   "frame_count": 21,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1,
+      2,
+      3
+     ],
+     "hold": 3
+    },
+    {
+     "col": 1,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      10
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      11
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      12
+     ],
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": [
+      13
+     ],
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": [
+      14
+     ],
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": [
+      15
+     ],
+     "hold": 1
+    },
+    {
+     "col": 13,
+     "src": [
+      16
+     ],
+     "hold": 1
+    },
+    {
+     "col": 14,
+     "src": [
+      17
+     ],
+     "hold": 1
+    },
+    {
+     "col": 15,
+     "src": [
+      18
+     ],
+     "hold": 1
+    },
+    {
+     "col": 16,
+     "src": [
+      19
+     ],
+     "hold": 1
+    },
+    {
+     "col": 17,
+     "src": [
+      20
+     ],
+     "hold": 1
+    },
+    {
+     "col": 18,
+     "src": [
+      21
+     ],
+     "hold": 1
+    },
+    {
+     "col": 19,
+     "src": [
+      22
+     ],
+     "hold": 1
+    },
+    {
+     "col": 20,
+     "src": [
+      23,
+      24
+     ],
+     "hold": 2
+    }
+   ]
+  },
+  "ult": {
+   "source": "lance-ult.png",
+   "frame_count": 8,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "hold": 5
+    },
+    {
+     "col": 1,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      10,
+      11
+     ],
+     "hold": 2
+    },
+    {
+     "col": 6,
+     "src": [
+      12,
+      13
+     ],
+     "hold": 2
+    },
+    {
+     "col": 7,
+     "src": [
+      14
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "hit": {
+   "source": "none - placeholder built from idle frame 1",
+   "frame_count": 6,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      "idle 1 (shifted -1,0)"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      "idle 1 (shifted -2,0)"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      "idle 1 (shifted -3,0)"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      "idle 1 (shifted -2,0)"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      "idle 1 (shifted -1,0)"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      "idle 1 (shifted 0,0)"
+     ],
+     "hold": 1
+    }
+   ],
+   "placeholder": true
+  },
+  "dead": {
+   "source": "lance-dead.png",
+   "frame_count": 11,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      10,
+      11
+     ],
+     "hold": 2
+    },
+    {
+     "col": 10,
+     "src": [
+      12,
+      13,
+      14,
+      15,
+      16
+     ],
+     "hold": 5
+    }
+   ]
+  }
+ }
+}

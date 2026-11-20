@@ -1,0 +1,43 @@
+{
+  "drive_folder_id": "1mQ547CY88fl9AmU2Vo9MB5UymtU3wpCX",
+  "candidate": "Balmond TFM2 0.7.0 v4 targeting/animation/VFX follow-up based on v3",
+  "uploads": [
+    {
+      "name": "MLBB_Heroes_Balmond_TFM2_0.7.0_v4_source_patch.zip",
+      "id": "10O-UDl2KRwKzYq2ElnddKt_f7ZSQ7i8x",
+      "url": "https://drive.google.com/file/d/10O-UDl2KRwKzYq2ElnddKt_f7ZSQ7i8x/view?usp=drivesdk",
+      "bytes": 22735,
+      "status": "original v4 upload; code/data unchanged in corrected r1 archive"
+    },
+    {
+      "name": "MLBB_Heroes_Balmond_TFM2_0.7.0_v4r1_source_patch.zip",
+      "id": "1CnqP3GCe_3P8qHv8UkM1NRJ-7BPYp_M_",
+      "url": "https://drive.google.com/file/d/1CnqP3GCe_3P8qHv8UkM1NRJ-7BPYp_M_/view?usp=drivesdk",
+      "bytes": 22909,
+      "sha256": "b05fba64f67e54a539f0967145c10b381bcc9de25265bacd881ac8d6fe1e9c81",
+      "status": "recommended source patch archive"
+    },
+    {
+      "name": "Balmond_TFM2_Implementation_Check_v4_2026-10-31.md",
+      "id": "1DitOqoH1WXy4FsjcdLjmjk0NgUvxalNc",
+      "url": "https://drive.google.com/file/d/1DitOqoH1WXy4FsjcdLjmjk0NgUvxalNc/view?usp=drivesdk",
+      "bytes": 2149
+    },
+    {
+      "name": "mlbb_balmond_v4.data_champion",
+      "id": "1jwIY57VPnFhjatTX-2Z2wj0vlbPhh7pM",
+      "url": "https://drive.google.com/file/d/1jwIY57VPnFhjatTX-2Z2wj0vlbPhh7pM/view?usp=drivesdk",
+      "bytes": 4796
+    }
+  ],
+  "runtime_zip": null,
+  "validation": {
+    "static_audit": "78 passed, 0 failed",
+    "patch_application": "dry-run clean and applied cleanly against a copy of the v3 tree",
+    "full_build": "not run; full source/SDK baseline is not integrated in this workspace",
+    "tfm2_in_game_validation": "not run",
+    "s1_trail_size": "asset unchanged; requires calibrated in-game tuning",
+    "s2_target_scope": "EnemyWithoutTower includes possible jungle targets; hero/minion preference not guaranteed",
+    "ultimate_fan_orientation": "caster anchoring set; direction orientation remains unverified"
+  }
+}

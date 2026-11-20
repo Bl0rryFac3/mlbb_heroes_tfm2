@@ -1,0 +1,206 @@
+[
+  {
+    "id": "idle",
+    "kind": "character",
+    "file": "character/idle.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 1.2
+  },
+  {
+    "id": "run",
+    "kind": "character",
+    "file": "character/run.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 0.6
+  },
+  {
+    "id": "attack",
+    "kind": "character",
+    "file": "character/attack.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 0.4
+  },
+  {
+    "id": "skill",
+    "kind": "character",
+    "file": "character/skill.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 0.3
+  },
+  {
+    "id": "skill2",
+    "kind": "character",
+    "file": "character/skill2.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 0.3
+  },
+  {
+    "id": "ult",
+    "kind": "character",
+    "file": "character/ult.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 0.333333333
+  },
+  {
+    "id": "hit",
+    "kind": "character",
+    "file": "character/hit.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 0.2
+  },
+  {
+    "id": "dead",
+    "kind": "character",
+    "file": "character/dead.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 0.9
+  },
+  {
+    "id": "scythe",
+    "kind": "vfx",
+    "file": "vfx/scythe.png",
+    "cell": [
+      72,
+      48
+    ],
+    "frames": 9,
+    "seconds": 0.3,
+    "directional": true
+  },
+  {
+    "id": "scythe_enhanced",
+    "kind": "vfx",
+    "file": "vfx/scythe_enhanced.png",
+    "cell": [
+      72,
+      48
+    ],
+    "frames": 9,
+    "seconds": 0.3,
+    "directional": true
+  },
+  {
+    "id": "scythe_spin",
+    "kind": "vfx",
+    "file": "vfx/scythe_spin.png",
+    "cell": [
+      72,
+      48
+    ],
+    "frames": 9,
+    "seconds": 0.6,
+    "directional": false
+  },
+  {
+    "id": "sword",
+    "kind": "vfx",
+    "file": "vfx/sword.png",
+    "cell": [
+      96,
+      48
+    ],
+    "frames": 9,
+    "seconds": 0.3,
+    "directional": true,
+    "origin": [
+      12,
+      24
+    ]
+  },
+  {
+    "id": "sword_enhanced",
+    "kind": "vfx",
+    "file": "vfx/sword_enhanced.png",
+    "cell": [
+      96,
+      48
+    ],
+    "frames": 9,
+    "seconds": 0.6,
+    "directional": true,
+    "origin": [
+      12,
+      24
+    ]
+  },
+  {
+    "id": "chain_warning",
+    "kind": "vfx",
+    "file": "vfx/chain_warning.png",
+    "cell": [
+      72,
+      48
+    ],
+    "frames": 9,
+    "seconds": 0.3,
+    "directional": false
+  },
+  {
+    "id": "chain_bind",
+    "kind": "vfx",
+    "file": "vfx/chain_bind.png",
+    "cell": [
+      72,
+      48
+    ],
+    "frames": 9,
+    "seconds": 1.0,
+    "directional": false
+  },
+  {
+    "id": "chain_enhanced",
+    "kind": "vfx",
+    "file": "vfx/chain_enhanced.png",
+    "cell": [
+      72,
+      48
+    ],
+    "frames": 9,
+    "seconds": 0.8,
+    "directional": false
+  },
+  {
+    "id": "chain_launch",
+    "kind": "vfx",
+    "file": "vfx/chain_launch.png",
+    "cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "seconds": 0.4,
+    "directional": false
+  }
+]

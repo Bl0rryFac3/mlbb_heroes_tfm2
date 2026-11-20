@@ -1,0 +1,5 @@
+/target/
+/sdk/candidate/target/
+__pycache__/
+*.pyc
+mlbb_heroes.log

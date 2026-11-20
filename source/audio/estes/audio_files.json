@@ -1,0 +1,66 @@
+{
+  "source_page": "https://mobile-legends.fandom.com/wiki/Estes/Audio",
+  "section": "Default",
+  "clips": [
+    {
+      "file": "Estes.select.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/e/eb/Estes.select.ogg/revision/latest?cb=20210820170333",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.select.ogg"
+    },
+    {
+      "file": "Estes.move01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/62/Estes.move01.ogg/revision/latest?cb=20220209110205",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.move01.ogg"
+    },
+    {
+      "file": "Estes.move02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/2/2b/Estes.move02.ogg/revision/latest?cb=20220209110208",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.move02.ogg"
+    },
+    {
+      "file": "Estes.move03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/7/71/Estes.move03.ogg/revision/latest?cb=20220209110211",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.move03.ogg"
+    },
+    {
+      "file": "Estes.move04.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/5/53/Estes.move04.ogg/revision/latest?cb=20220209110214",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.move04.ogg"
+    },
+    {
+      "file": "Estes.move05.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/6c/Estes.move05.ogg/revision/latest?cb=20220209110217",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.move05.ogg"
+    },
+    {
+      "file": "Estes.move06.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/b4/Estes.move06.ogg/revision/latest?cb=20220209110356",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.move06.ogg"
+    },
+    {
+      "file": "Estes.skill.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/7/75/Estes.skill.ogg/revision/latest?cb=20210824114945",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.skill.ogg"
+    },
+    {
+      "file": "Estes.ult.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/b1/Estes.ult.ogg/revision/latest?cb=20220209110508",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.ult.ogg"
+    },
+    {
+      "file": "Estes.death01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/32/Estes.death01.ogg/revision/latest?cb=20220209110359",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.death01.ogg"
+    },
+    {
+      "file": "Estes.death02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/7/7e/Estes.death02.ogg/revision/latest?cb=20220209110402",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.death02.ogg"
+    },
+    {
+      "file": "Estes.death03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/41/Estes.death03.ogg/revision/latest?cb=20220209110507",
+      "description_page": "https://mobile-legends.fandom.com/wiki/File:Estes.death03.ogg"
+    }
+  ]
+}

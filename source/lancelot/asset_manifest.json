@@ -1,0 +1,49 @@
+{
+  "mod_id": "mlbb_heroes",
+  "champion_id": "mlbb_lancelot",
+  "source": {
+    "character_atlas_manifest": "source/lancelot/lancelot_atlas.json",
+    "puncture_mark_original": "source/lancelot/target ring mark.png",
+    "skill1_character_source": "source/lancelot/lance-skill1_source.png",
+    "high_resolution_vfx": "source/lancelot/vfx_originals/"
+  },
+  "runtime_assets": {
+    "character": {
+      "asset_path": "asset/mlbb_heroes/sprite/lancelot",
+      "sheet": "sprite/lancelot#sheet.png",
+      "animation": "sprite/lancelot#anim.fanim",
+      "sheet_px": [
+        2184,
+        576
+      ],
+      "cell_px": [
+        104,
+        72
+      ],
+      "rows": [
+        "idle",
+        "run",
+        "attack",
+        "skill",
+        "skill2",
+        "ult",
+        "hit",
+        "dead"
+      ],
+      "hit_row_note": "Six idle-derived placeholder frames; not a true hit reaction."
+    },
+    "effects": {
+      "basic_attack": "asset/mlbb_heroes/effects/lancelot_basic_attack_fx",
+      "puncture_mark": "asset/mlbb_heroes/effects/lancelot_puncture_mark",
+      "thorned_rose": "asset/mlbb_heroes/effects/lancelot_skill2_fx",
+      "phantom_execution": "asset/mlbb_heroes/effects/lancelot_ult_fx",
+      "phantom_execution_reverse": "asset/mlbb_heroes/effects/lancelot_ult_fx_reverse (horizontal mirror of supplied ult VFX)"
+    },
+    "icons": {
+      "passive_source": "icons/lancelot_passive.png",
+      "skill1": "asset/mlbb_heroes/icons/lancelot_skill",
+      "skill2": "asset/mlbb_heroes/icons/lancelot_skill2",
+      "ultimate": "asset/mlbb_heroes/icons/lancelot_ult"
+    }
+  }
+}

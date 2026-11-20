@@ -1,0 +1,312 @@
+{
+ "id": "mlbb_zhask",
+ "category": "Magician",
+ "tags": [
+  "AP",
+  "Magic",
+  "Range",
+  "Dot",
+  "CC"
+ ],
+ "sprite": "asset/mlbb_heroes/champions/mlbb_zhask",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/mlbb_zhask_skill",
+  "asset/mlbb_heroes/icons/mlbb_zhask_skill2",
+  "asset/mlbb_heroes/icons/mlbb_zhask_ult"
+ ],
+ "stat": {
+  "attack": 82,
+  "magic_power": 62,
+  "hp": 690,
+  "defence": 22,
+  "magic_resistance": 24,
+  "move_speed": 1040,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 3,
+  "magic_power": 9,
+  "hp": 92,
+  "defence": 3,
+  "magic_resistance": 3,
+  "move_speed": 0,
+  "hp_regen": 1,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_zhask.attack",
+  "duration": 18,
+  "cooltime": 60,
+  "start_timing": 6,
+  "cancelable": true,
+  "range": 46000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "BaseAttack",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:zhask_attack"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_zhask.skill",
+  "duration": 20,
+  "cooltime": 720,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 70000,
+  "growth_range": 0,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:zhask_skill1"
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_zhask.skill2",
+  "duration": 18,
+  "cooltime": 480,
+  "start_timing": 4,
+  "cancelable": false,
+  "range": 78000,
+  "growth_range": 0,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "LineRangeProjectile",
+   "width": 18000,
+   "length": 78000,
+   "delay": 0,
+   "apply": 1,
+   "name": "mlbb_zhask_mind_eater",
+   "applied_target": "EnemyWithoutTower",
+   "applied_effects": [
+    {
+     "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:zhask_skill2_hit"
+     },
+     "casting_type": "Targeting"
+    },
+    {
+     "effect": {
+      "type": "Stun",
+      "duration": 30
+     },
+     "casting_type": "Targeting"
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_zhask.ult",
+  "duration": 26,
+  "cooltime": 2880,
+  "start_timing": 8,
+  "cancelable": false,
+  "range": 85000,
+  "growth_range": 0,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "SwitchByBuff",
+   "buff_name": "mlbb_zhask_ult_recast",
+   "effect_buff": {
+    "type": "Combine",
+    "effects": [
+     {
+      "type": "CasterAnimation",
+      "name": "ult",
+      "tick": 26
+     },
+     {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:zhask_ult_recast"
+     }
+    ]
+   },
+   "effect_none": {
+    "type": "Combine",
+    "effects": [
+     {
+      "type": "CasterAnimation",
+      "name": "ult",
+      "tick": 26
+     },
+     {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:zhask_ult"
+     },
+     {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:audio_voice_zhask_ult"
+     }
+    ]
+   }
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:zhask_swarm",
+  "params": {
+   "leash": 120000,
+   "spawn_life": 720,
+   "frenzy_life": 360,
+   "ray_range": 52000,
+   "ray_base": 30,
+   "ray_ap_pct": 25,
+   "ray_slow_pct": 30,
+   "ray_slow_ticks": 36,
+   "fused_scale": 180,
+   "fused_ticks": 600,
+   "inherit_l1": 55,
+   "inherit_l12": 100,
+   "repin_ticks": 1,
+   "ray_channel_ticks": 60,
+   "ray_tick_ticks": 15,
+   "decimation_inherit": 100,
+   "decimation_ray_bonus": 60,
+   "ult_hide": 1,
+   "ult_reset_skill1": 1,
+   "ult_range_bonus": 12000,
+   "s1_disable_after_loss": 120
+  }
+ },
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_0",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_1",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_2",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_3",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_4",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_5",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_6",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_7",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_8",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_9",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_9",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_10",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_10",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_spawn_beam_11",
+   "anim": "asset/mlbb_heroes/effects/zhask_spawn_beam",
+   "tag": "beam_11",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_heroes_zhask_mind_eater_impact",
+   "anim": "asset/mlbb_heroes/effects/zhask_mind_eater_impact",
+   "tag": "impact",
+   "z": 3,
+   "is_follow": false
+  }
+ ],
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "mlbb_zhask_basic_bolt",
+   "anim": "asset/mlbb_heroes/effects/zhask_basic_bolt",
+   "tag": "fly",
+   "z": 2
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_zhask_mind_eater",
+   "anim": "asset/mlbb_heroes/effects/zhask_mind_eater",
+   "tag": "fly",
+   "z": 2
+  }
+ ]
+}

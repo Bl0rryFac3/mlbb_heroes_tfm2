@@ -1,0 +1,319 @@
+{
+ "id": "mlbb_johnson",
+ "category": "Tank",
+ "tags": [
+  "Tank",
+  "CC",
+  "Magic",
+  "Shield"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/johnson",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/johnson_skill",
+  "asset/mlbb_heroes/icons/johnson_skill2",
+  "asset/mlbb_heroes/icons/johnson_ult"
+ ],
+ "stat": {
+  "attack": 92,
+  "magic_power": 0,
+  "hp": 860,
+  "defence": 42,
+  "magic_resistance": 24,
+  "move_speed": 1040,
+  "hp_regen": 11,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 3,
+  "magic_power": 0,
+  "hp": 115,
+  "defence": 5,
+  "magic_resistance": 3,
+  "move_speed": 0,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_johnson.attack",
+  "duration": 20,
+  "cooltime": 55,
+  "start_timing": 8,
+  "cancelable": true,
+  "range": 24000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:johnson_basic_attack"
+    }
+   ]
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_johnson.skill",
+  "duration": 30,
+  "cooltime": 480,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 96000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "skill",
+     "tick": 30
+    },
+    {
+     "type": "LinearProjectile",
+     "name": "johnson_wrench",
+     "speed": 11000,
+     "range": 96000,
+     "shape": {
+      "Circle": {
+       "radius": 12000
+      }
+     },
+     "penetrate": true,
+     "applied_target": "EnemyWithoutTower",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:johnson_s1_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ],
+     "end_effects": [
+      {
+       "type": "ViewEffect",
+       "name": "johnson_wrench_impact"
+      },
+      {
+       "type": "RangeProjectile",
+       "name": "johnson_wrench_landing",
+       "delay": 1,
+       "apply": 1,
+       "shape": {
+        "Circle": {
+         "radius": 26000
+        }
+       },
+       "applied_target": "EnemyWithoutTower",
+       "applied_effects": [
+        {
+         "effect": {
+          "type": "Stun",
+          "duration": 48
+         },
+         "casting_type": "Targeting"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_johnson.skill2",
+  "duration": 90,
+  "cooltime": 600,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 52000,
+  "casting_type": "None",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_johnson_skill2"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "skill2",
+     "tick": 12
+    },
+    {
+     "type": "RangeEffect",
+     "shape": {
+      "Circle": {
+       "radius": 40000
+      }
+     },
+     "target": "Enemy",
+     "apply_type": "AroundCaster",
+     "effects": [
+      {
+       "type": "Native",
+       "effect_ref": "mlbb_heroes:johnson_s2_tick"
+      }
+     ]
+    },
+    {
+     "type": "CasterViewEffect",
+     "name": "johnson_s2_field"
+    },
+    {
+     "type": "RangePeriodProjectile",
+     "name": "johnson_em_field",
+     "tick": 90,
+     "period": 30,
+     "first_delay": 1,
+     "shape": {
+      "Circle": {
+       "radius": 40000
+      }
+     },
+     "applied_target": "EnemyWithoutTower",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:johnson_s2_tick"
+       },
+       "casting_type": "Targeting"
+      }
+     ],
+     "end_effects": [],
+     "apply_type": "AroundCaster"
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_johnson.ult",
+  "duration": 60,
+  "cooltime": 2160,
+  "start_timing": 1,
+  "cancelable": false,
+  "range": 1350000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_johnson_ult"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 16
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:johnson_full_throttle"
+    }
+   ]
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:johnson_drive",
+  "params": {}
+ },
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "johnson_wrench",
+   "anim": "asset/mlbb_heroes/effects/johnson_wrench",
+   "tag": "main",
+   "z": 1,
+   "repeat": true
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "johnson_wrench_impact",
+   "anim": "asset/mlbb_heroes/effects/johnson_wrench_impact",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "johnson_wrench_landing",
+   "anim": "asset/mlbb_heroes/effects/johnson_electrified_zone",
+   "tag": "main",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "johnson_crash",
+   "anim": "asset/mlbb_heroes/effects/johnson_crash",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "johnson_hopin",
+   "anim": "asset/mlbb_heroes/effects/johnson_hopin",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "johnson_s2_field",
+   "anim": "asset/mlbb_heroes/effects/johnson_s2_field",
+   "tag": "main",
+   "z": -1,
+   "is_follow": false
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_johnson_car",
+   "anim": "asset/mlbb_heroes/effects/johnson_car",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_johnson_car_boost",
+   "anim": "asset/mlbb_heroes/effects/johnson_car_boost",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_johnson_em_slow",
+   "anim": "asset/mlbb_heroes/effects/johnson_em_debuff",
+   "tag": "main",
+   "z": 2
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_johnson_airbag",
+   "anim": "asset/mlbb_heroes/effects/johnson_airbag",
+   "tag": "main",
+   "z": 2
+  }
+ ]
+}

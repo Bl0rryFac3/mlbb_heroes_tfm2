@@ -1,0 +1,369 @@
+{
+  "size": [
+    800,
+    450
+  ],
+  "fps": 20,
+  "frames": 644,
+  "duration": 32.2,
+  "scenes": [
+    {
+      "title": "THE DEATH CHANTER",
+      "seconds": 3.0
+    },
+    {
+      "title": "RHAPSODY",
+      "seconds": 4.8
+    },
+    {
+      "title": "RONDO",
+      "seconds": 3.5
+    },
+    {
+      "title": "DEATH SONATA",
+      "seconds": 4.8
+    },
+    {
+      "title": "CAST THROUGH THE BARRAGE",
+      "seconds": 5.3
+    },
+    {
+      "title": "CAPRICCIO",
+      "seconds": 5.0
+    },
+    {
+      "title": "DEFEAT & RETURN",
+      "seconds": 3.4
+    },
+    {
+      "title": "THE FINAL NOTE",
+      "seconds": 2.4
+    }
+  ],
+  "staged_not_capture": true,
+  "asset_facts": {
+    "run": {
+      "frames": 9,
+      "anchor": [
+        0.4166666666666667,
+        0.8333333333333334
+      ],
+      "duration": 0.6,
+      "sheet_sha256": "72b66384b745bb3cec4f37f24dd5567d208d7d81a74ba3cc624e7fffe0939f73",
+      "fanim_sha256": "8291aec54d790d22ee24d22d8c32582faac5a7b78027fb41d86358e6f16be407"
+    },
+    "idle": {
+      "frames": 9,
+      "anchor": [
+        0.4166666666666667,
+        0.8333333333333334
+      ],
+      "duration": 1.2,
+      "sheet_sha256": "1b869a57e100c97a172d2f32dbe73c131634248deba6bf8b435bff89dbdac4b4",
+      "fanim_sha256": "ad4c890e3eb4dadd0fb9e7a39961d6dd7074f2f41f8fd01fb2f7c137a0a71eef"
+    },
+    "fire": {
+      "frames": 9,
+      "anchor": [
+        0.4166666666666667,
+        0.8333333333333334
+      ],
+      "duration": 0.3,
+      "sheet_sha256": "ad0ce29bff980c1832cecc00ba3d08bddccabce6c14b467961514e1a072e9920",
+      "fanim_sha256": "4bb06354e298bb77829641030bfa8a06796feb1134cc6f1cc73b12abbbd48ba6"
+    },
+    "gun_projectile": {
+      "frames": 9,
+      "anchor": [
+        0.5,
+        2.0
+      ],
+      "duration": 0.3,
+      "sheet_sha256": "7c38b85cd07e78156cef588c50eae721d8dece9789aae9285498578ba5f9c9b8",
+      "fanim_sha256": "0cae26514be1dad5b88dc23a3e28ec6e2d108d0ec291e513444e63f5cbcbe863"
+    },
+    "gun_muzzle": {
+      "frames": 9,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "duration": 0.15,
+      "sheet_sha256": "48a7fde9c163aea01faae8b742eced9ebdb20a5b395bbd7857cd27f1313f3457",
+      "fanim_sha256": "8418ed194f80ff3a1c5eddbc53b7b92ecdb0a67d6e535aaed866f4800afca9d8"
+    },
+    "gun_hit": {
+      "frames": 9,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "duration": 0.18,
+      "sheet_sha256": "6c4840b13197d613471881751178220d3d944cfc602bc4816279ee7a6af77f01",
+      "fanim_sha256": "3f78999f17ddef85a7c5f2ca4d850cdafb8ac554f57695e6c4f4abdbf4bbc772"
+    },
+    "sixth_projectile": {
+      "frames": 9,
+      "anchor": [
+        0.5,
+        1.5
+      ],
+      "duration": 0.3,
+      "sheet_sha256": "acd0ff39f870a84e7e70817fea864fbd25aeef9c264ede6209fee13b511cfa74",
+      "fanim_sha256": "fe7ff668bf7eaba7a188329df58646280bc2c4b5216f8e69484b3b3eb7a1d7a5"
+    },
+    "sixth_hit": {
+      "frames": 9,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "duration": 0.24,
+      "sheet_sha256": "824f0445045cbab93b7f41bed2ff07c623cc55f4c7c797c1d7664c9fab4f5cc7",
+      "fanim_sha256": "c104b51512fcbea8f757f56be8de23f0719c3cf6805357f7ab25768200476419"
+    },
+    "rondo": {
+      "frames": 9,
+      "anchor": [
+        0.4166666666666667,
+        0.8333333333333334
+      ],
+      "duration": 0.2,
+      "sheet_sha256": "f239b783ac6a4396110c940fd9cabcad9677ca765674f834fa161eabc401ba25",
+      "fanim_sha256": "c8db8776bb26d20ec36799bd1acc2a61a4db3d03bba25700cf3dea60c1d9c95b"
+    },
+    "cannon": {
+      "frames": 9,
+      "anchor": [
+        0.4166666666666667,
+        0.8333333333333334
+      ],
+      "duration": 0.2,
+      "sheet_sha256": "6f8affedec930822b6e5e5e11a4b6587ebd50349c410341142fabf9aaeca1bfd",
+      "fanim_sha256": "c8db8776bb26d20ec36799bd1acc2a61a4db3d03bba25700cf3dea60c1d9c95b"
+    },
+    "cannon_projectile": {
+      "frames": 9,
+      "anchor": [
+        0.5,
+        1.25
+      ],
+      "duration": 0.3,
+      "sheet_sha256": "9b0d4a704170150e862f57a2f81bd9272e235db980d3a6535968a7ea92192ade",
+      "fanim_sha256": "5ee6f80471f4ea8b91db601b8e9a7b603b017b642c5d7f60d4ed2f71840304c7"
+    },
+    "roll": {
+      "frames": 9,
+      "anchor": [
+        0.4166666666666667,
+        0.8333333333333334
+      ],
+      "duration": 0.2,
+      "sheet_sha256": "0353603cdd9781203a7f25d34b4c9729f696d7ee9fb6bdb6e654c2b15eb1f71d",
+      "fanim_sha256": "c8db8776bb26d20ec36799bd1acc2a61a4db3d03bba25700cf3dea60c1d9c95b"
+    },
+    "cannon_impact": {
+      "frames": 9,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "duration": 0.4,
+      "sheet_sha256": "7e4312b63b9ad3a6550ef9edae67144217f1387f92e25d5d81d12144160d075b",
+      "fanim_sha256": "4729b7f9afce72b78029ac3d0c58c1d86c4364070bcdc2d61e0869ad47c06314"
+    },
+    "hit": {
+      "frames": 9,
+      "anchor": [
+        0.4166666666666667,
+        0.8333333333333334
+      ],
+      "duration": 0.2,
+      "sheet_sha256": "341cbc64d03de994fa235ae03589a0875b84cab9d39e9e9571da9c1bdff96538",
+      "fanim_sha256": "c8db8776bb26d20ec36799bd1acc2a61a4db3d03bba25700cf3dea60c1d9c95b"
+    },
+    "dead": {
+      "frames": 13,
+      "anchor": [
+        0.4166666666666667,
+        0.8333333333333334
+      ],
+      "duration": 0.9,
+      "sheet_sha256": "301008eec9869cdb0160a4293c1323d614fe5966ea7987d8a879753662f5c44d",
+      "fanim_sha256": "21166142b380bbc8d67e3aa94d38cd402a993d1a4dbbc18d61680b2362e9f8d3"
+    }
+  },
+  "frames_used": {
+    "run": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "idle": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "fire": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "gun_projectile": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "gun_muzzle": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "gun_hit": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "sixth_projectile": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "sixth_hit": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "rondo": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "cannon": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "cannon_projectile": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "roll": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "cannon_impact": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "hit": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "dead": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  "dummy_hp": "illustrative contact feedback, not a native damage or crit measurement",
+  "energy": "60-tick resource clocks; chapters reset presets; motion/flight clips retimed for readability"
+}

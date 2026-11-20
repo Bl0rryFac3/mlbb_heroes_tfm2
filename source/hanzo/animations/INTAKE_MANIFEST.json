@@ -1,0 +1,299 @@
+[
+  {
+    "file": "parked_body.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "6394a3652d7366d8d0a9ed0dc062ee6fb2015bb71b83c02a1c18c8e2c8dd7eb9"
+  },
+  {
+    "file": "human_feast.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "973161a7920769f08c469df9e76d62d763026b23a33c2670ddbd774e15d890ab"
+  },
+  {
+    "file": "spirit_idle.png",
+    "size": [
+      288,
+      128
+    ],
+    "mode": "RGBA",
+    "sha256": "339e5d2184331b85bcf1c5c6d7042f261b6a1a49b87e8e829ea86c02eadfbbed"
+  },
+  {
+    "file": "human_attack.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "506d663fec29e49af416e75f72bcb0e589085ebea7353157b04e7e0c8ea20346"
+  },
+  {
+    "file": "hanzo_body_ward.png",
+    "size": [
+      192,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "b125efb07412a05646417253d2dc50b33d0634e8eed853a53d694c10ee21c49f"
+  },
+  {
+    "file": "spirit_attack.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "10a7aaa7a0f245873d575f7a6e3b54fa0f68972c68f780a78e92d62794412df9"
+  },
+  {
+    "file": "spirit_move.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "e05bd89c397aea87bd18db472b3d10117ad6d300d526d81133c4a9a2fa018153"
+  },
+  {
+    "file": "human_run.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "acc30e34cfe8f255ee367495504adf34d794e641689228e493aba6696b97e7ba"
+  },
+  {
+    "file": "hanzo_mist_pulse.png",
+    "size": [
+      384,
+      96
+    ],
+    "mode": "RGBA",
+    "sha256": "717864b0cbb70998989c4376006dd469e7ff8bc3de77266a720830922dfb5259"
+  },
+  {
+    "file": "hanzo_projection_flare.png",
+    "size": [
+      240,
+      240
+    ],
+    "mode": "RGBA",
+    "sha256": "a7f2794b683b568e91127df623bca3cc38de95c95c1b8cd9487fa31affc9e164"
+  },
+  {
+    "file": "hanzo_mist_ground_human.png",
+    "size": [
+      384,
+      96
+    ],
+    "mode": "RGBA",
+    "sha256": "65c44615dc627bc25c42de28c0c76ff79241fcb9ca7b318847a97ba478b9d103"
+  },
+  {
+    "file": "hanzo_mist_ground_spirit.png",
+    "size": [
+      384,
+      96
+    ],
+    "mode": "RGBA",
+    "sha256": "aebd4a2b964a0a93404967605dfd1136af07d236795d45ecb89967e84db65be7"
+  },
+  {
+    "file": "human_dash.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "30fdad00f764dbc46b00b192d6fcf179a59af51a410ee593a9826b2b61cdede6"
+  },
+  {
+    "file": "spirit_snatch.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "2b8e5d083b0391a93991f4faec6d3814ebb1fd16bebd1c0b22017c13f832d3e6"
+  },
+  {
+    "file": "hanzo_airborne_contact.png",
+    "size": [
+      144,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "ca9176c06bfd01fff15179a2750fe61a98fc3f7102238d66d4e257075b579e00"
+  },
+  {
+    "file": "hanzo_spirit_maw.png",
+    "size": [
+      240,
+      288
+    ],
+    "mode": "RGBA",
+    "sha256": "73050f88844d6dbd65ac4c31400422edfeacada75c6c98caa2cf908865fd8569"
+  },
+  {
+    "file": "hanzo_feast_bite.png",
+    "size": [
+      192,
+      240
+    ],
+    "mode": "RGBA",
+    "sha256": "c32069470195dd4dc5fbd3c2d3d1717dbbd086493962e057b9669fcded137dfb"
+  },
+  {
+    "file": "hanzo_dark_marks.png",
+    "size": [
+      96,
+      64
+    ],
+    "mode": "RGBA",
+    "sha256": "af0f557e512d384406e05599e5df4b06466d7234e9f6a206a47fb8e86f1aa6f6"
+  },
+  {
+    "file": "spirit_break.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "11ff09d683cc0dfdf76f5fb1c0b85e671cfcd218eb3eff0c8ca807a0ae614439"
+  },
+  {
+    "file": "human_death.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "2cac2509f83636c476f4bac931c49a34398ac4861441bd83fe6726642622b2d9"
+  },
+  {
+    "file": "hanzo_spirit_failure.png",
+    "size": [
+      192,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "0ab8020622dd98f036da82eb8546224a3bac6be5c97e849feb9d6d08c145c597"
+  },
+  {
+    "file": "hanzo_return_merge.png",
+    "size": [
+      192,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "c5e19803770119f2df93ba69a34e300139a0f3429e1962317aabe7141dd7ed30"
+  },
+  {
+    "file": "human_idle.png",
+    "size": [
+      192,
+      96
+    ],
+    "mode": "RGBA",
+    "sha256": "e2c418d044a4492d4dc776796e0becc40d7f0e1fc9e6e2b6a70b42eea1b8c189"
+  },
+  {
+    "file": "spirit_hit.png",
+    "size": [
+      288,
+      128
+    ],
+    "mode": "RGBA",
+    "sha256": "5c09d517ca91696ccbce75fe9fe2922dc22eb44b11b891a08c229ae0858b0915"
+  },
+  {
+    "file": "body_merge.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "4055e57b802e35fff83dd6bbdf3bb972f9438a4389cc113f6274eeba90ab0ad4"
+  },
+  {
+    "file": "spirit_return.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "f0739a1c38522e6feadccdac71a1f3ceaefbc1b5a42c3de32d727d4b1556a7cc"
+  },
+  {
+    "file": "spirit_dash.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "024ebc5ce2d6557e175f13fd8763e0d646b4bb67b3d0fbba5dbe4a882460619b"
+  },
+  {
+    "file": "hanzo_basic_slash.png",
+    "size": [
+      192,
+      144
+    ],
+    "mode": "RGBA",
+    "sha256": "46e3a6f0ed80482e081fe18cf9ec5fb4e69845228d39c47366e9658755e5b962"
+  },
+  {
+    "file": "human_hit.png",
+    "size": [
+      288,
+      128
+    ],
+    "mode": "RGBA",
+    "sha256": "e4e33ab5f243add5e36367e3a5fd6ded5465fae56db1988c159fc14306ffc277"
+  },
+  {
+    "file": "hanzo_heal_return.png",
+    "size": [
+      144,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "780f4222901ca3e69194e98ecc1b6f7f96e244d27cccc0877df6c8c1e71de18c"
+  },
+  {
+    "file": "hanzo_spirit_link.png",
+    "size": [
+      192,
+      48
+    ],
+    "mode": "RGBA",
+    "sha256": "caba09cde8c9696d672cb21c6ceb61277756223800fbf26f2d3e45ab61b6e9cc"
+  },
+  {
+    "file": "hanzo_dash_streak.png",
+    "size": [
+      288,
+      144
+    ],
+    "mode": "RGBA",
+    "sha256": "d0f1bed387d37096cdecb3aca663e9a5d5398080508217ae381f29c8425d38c9"
+  },
+  {
+    "file": "human_project.png",
+    "size": [
+      288,
+      192
+    ],
+    "mode": "RGBA",
+    "sha256": "a10a17549983769e949863ae2218298c5d0b8e5e27fee4ab86da8073bde8507f"
+  }
+]

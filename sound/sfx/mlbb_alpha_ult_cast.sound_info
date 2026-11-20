@@ -1,0 +1,14 @@
+{
+  "plays": [
+    {
+      "delay": 0.0,
+      "clip": "mlbb_alpha_sfx_vo_ult",
+      "volume": 0.75
+    },
+    {
+      "delay": 1.4,
+      "clip": "mlbb_alpha_sfx_vo_ult_b",
+      "volume": 0.7
+    }
+  ]
+}

@@ -1,0 +1,367 @@
+{
+  "en": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "Aldous",
+        "attack": "Strikes with his giant molten gauntlet for <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>physical damage<>. Passive <#ffb900ff>Contract: Transform<> shields Aldous every <#ffb900ff>3rd<> strike for <#ffb900ff>60<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% AD<>.",
+        "skill": "<#ff9028ff>Contract: Soul Steal<>: The primary target takes <#ff9028ff>40 + level scaling + 100% AD + 2.5 damage per Soul Steal stack<> as physical damage; nearby enemies take <#ff9028ff>40%<> splash. At <#ffb900ff>1,000<> stacks, the stack bonus is <#ffb900ff>+2,500 raw damage<> before defense.",
+        "skill2": "<#ffb900ff>Contract: Explosion<>: Summons a blazing rune barrier for <#ffb900ff>2s<> (<#ffb900ff>90<> Shield, <#ffb900ff>+25%<> Move Speed), then detonates to deal <#ff9028ff>70<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>physical damage<> and <#ef5350ff>stun<> nearby foes for <#ffb900ff>1s<>.",
+        "ult": "<#e64a6aff>Contract: Chase Fate<>: Locks the <#e64a6aff>Eye of Fate<> onto an enemy and drills across the arena as a molten meteor, crashing for <#ff9028ff>130<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160% AD<> <#ff9028ff>physical damage<> and <#ef5350ff>stunning<> for <#ffb900ff>1.2s<>."
+      },
+      "mlbb_fanny": {
+        "name": "Fanny",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
+        "skill": "<#ff9028ff>Tornado Strike<>: Deals <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% AD<> in a <#ffb900ff>22,000<> radius. During Steel Cable flight, colliding with an enemy automatically triggers a mid-air Tornado Strike for <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70% AD<> and applies a Prey Mark to enemy champions.",
+        "skill2": "<#ff9028ff>Steel Cable<>: Throws a cable (<#ffb900ff>165,000<> reach) at the best wall or outer lane boundary and swings Fanny past the obstacle toward her target, chaining multiple wall hops across the map with <#ffb900ff>0<> energy cost. Prioritizes visible enemy champions first, or nearby jungle monsters when no enemy champions are visible.",
+        "ult": "<#ff9028ff>Cut Throat<>: Dashes to the target enemy and deals <#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125% AD<>; each Prey Mark adds <#ff9028ff>35% AD<> (up to 2 marks). A successful hit consumes the marks.",
+        "passive": "<#ff9028ff>Air Superiority<>: While cable-flying, Fanny gains <#ffb900ff>10–25%<> bonus damage based on her flight speed. Hitting an enemy champion during flight applies or upgrades a <#ff9028ff>Prey Mark<> (max 2 stacks, <#ffb900ff>5s<>) and triggers Tornado Strike."
+      },
+      "mlbb_lancelot": {
+        "name": "Lancelot",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage. <#5ad0e6ff>Soul Cutter<> increases all damage by <#ffb900ff>7.5% per stack<> for <#ffb900ff>4s<> (up to <#ffb900ff>4 stacks / 30%<>).",
+        "skill": "<#ff9028ff>Puncture<>: Dashes to the selected enemy, dealing <#ff9028ff>80–178 + 40% AD<> physical damage. The first unmarked enemy hit receives a <#5ad0e6ff>Sword Mark<>; applying a new mark resets Puncture. Each cast grants a <#ffb900ff>Soul Cutter<> stack.",
+        "skill2": "<#ffb900ff>Thorned Rose<>: Strikes in three waves, each dealing <#ff9028ff>85–155 + 30% AD<> physical damage and slowing enemies hit by <#ffb900ff>20%<> for <#ffb900ff>0.5s<>. Lancelot is damage- and CC-immune during the sequence; overlapping hits use the crowd-hit penalty.",
+        "ult": "<#e64a6aff>Phantom Execution<>: Dashes to the selected enemy champion and deals <#ff9028ff>100–156 + 100% AD<> physical damage on arrival. Lancelot is damage- and CC-immune during the dash and gains a <#ffb900ff>Soul Cutter<> stack.",
+        "passive": "<#5ad0e6ff>Soul Cutter<>: Puncture and Phantom Execution grant <#ffb900ff>7.5%<> increased damage for <#ffb900ff>4s<> per stack, up to <#ffb900ff>4 stacks (30%)<>."
+      },
+      "mlbb_estes": {
+        "name": "Estes",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage. <#5ad0e6ff>Scripture of the Moon Elf<> charges over time; at <#ffb900ff>100<> stacks, the next basic attack adds <#a974ffff>magic damage<>, ricochets to up to <#ffb900ff>2<> nearby enemies and slows them by <#ffb900ff>40%<> for <#ffb900ff>1.5s<>.",
+        "passive": "<#5ad0e6ff>Scripture of the Moon Elf<>: gains <#ffb900ff>1<> charge per second, or <#ffb900ff>2<> while Moonlight Immersion is linked. At 100 charges, the next basic attack is empowered: <#a974ffff>magic damage<> plus up to 2 nearby ricochets and a <#ffb900ff>40%<> slow for <#ffb900ff>1.5s<>. The meter is displayed on Skill 1.",
+        "skill": "<#5ad0e6ff>Moonlight Immersion<>: heals an allied hero for <#5bd18aff>115<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>85% AP<> immediately, then <#5bd18aff>24<> + <#a974ffff>18% AP<> every <#ffb900ff>0.5s<> for <#ffb900ff>5s<>. Grants the ally <#ffb900ff>+7<> physical and magic defense and Estes <#ffb900ff>+15%<> move speed. The tether and passive charge bonus stop beyond <#ffb900ff>120,000<> range; the data-driven heal-over-time completes its duration.",
+        "skill2": "<#5ad0e6ff>Domain of Moon Goddess<>: places a <#5ad0e6ff>stationary<> moonlight zone for <#ffb900ff>2.5s<>. Every <#ffb900ff>0.5s<>, enemies in the <#ffb900ff>52,000<> radius take <#a974ffff>15<> + <#a974ffff>45% AP<> magic damage and are slowed by <#ffb900ff>35%<> for <#ffb900ff>0.75s<>. TFM2 version slows within the zone rather than detecting only the outer edge.",
+        "ult": "<#5ad0e6ff>Blessing of Moon Goddess<>: immediately heals nearby allies within <#ffb900ff>105,000<> for <#5bd18aff>150<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>65% AP<>; then restores <#5bd18aff>20<> + <#a974ffff>12% AP<> every <#ffb900ff>0.5s<> for <#ffb900ff>8s<> and grants <#ffb900ff>+8<> physical and magic defense."
+      },
+      "mlbb_gusion": {
+        "name": "Gusion",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage. At <#ffb900ff>4 Rune<> stacks, the next attack consumes all 4, dealing <#a974ffff>12% of the target’s max HP<> as magic damage and restoring <#5bd18aff>200 + 100% AP<> HP.",
+        "passive": "<#5ad0e6ff>Dagger Specialist<>: Each skill cast grants <#ffb900ff>1 Rune<>, up to <#ffb900ff>4<>. The next Basic Attack consumes all Runes; each deals <#a974ffff>3% of the target’s max HP<> as magic damage and restores <#5bd18aff>50 + 25% AP<> HP (up to 12% max HP damage and 200 + 100% AP healing).",
+        "skill": "<#5ad0e6ff>Sword Spike<>: Throw a dagger that deals <#a974ffff>200 + 50% AP<> magic damage to the first enemy hit and marks them for <#ffb900ff>5s<>. Recast to dash behind the marked target and deal <#a974ffff>200 + 100% AP<> magic damage.",
+        "skill2": "<#a974ffff>Shadowblade Slaughter<>: Throw <#ffb900ff>5 daggers<> in a fan; each hit deals <#a974ffff>65 + 40% AP<> magic damage. Recast to recall them; each returning hit deals the same damage. Each dagger and its thin trail use separate visuals.",
+        "ult": "<#e64a6aff>Incandescence<>: Dash behind the selected enemy and refresh Skills 1 and 2. Recast within <#ffb900ff>2.5s<> to dash behind another selected enemy."
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "Contract: Soul Steal",
+        "skill2": "Contract: Explosion",
+        "ult": "Contract: Chase Fate"
+      },
+      "mlbb_fanny": {
+        "skill1": "Tornado Strike",
+        "skill2": "Steel Cable",
+        "ult": "Cut Throat"
+      },
+      "mlbb_lancelot": {
+        "passive": "Soul Cutter",
+        "skill1": "Puncture",
+        "skill2": "Thorned Rose",
+        "ult": "Phantom Execution"
+      },
+      "mlbb_estes": {
+        "passive": "Scripture of the Moon Elf",
+        "skill1": "Moonlight Immersion",
+        "skill2": "Domain of Moon Goddess",
+        "ult": "Blessing of Moon Goddess"
+      },
+      "mlbb_gusion": {
+        "passive": "Dagger Specialist",
+        "skill1": "Sword Spike",
+        "skill2": "Shadowblade Slaughter",
+        "ult": "Incandescence"
+      }
+    }
+  },
+  "zh-hans": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "奥尔德斯",
+        "attack": "挥舞熔岩巨拳造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<><#ff9028ff>物理伤害<>。被动<#ffb900ff>契约：蜕变<>每第<#ffb900ff>3<>击获得<#ffb900ff>60<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻击力<>护盾。",
+        "skill": "<#ff9028ff>契约：夺魂<>：主目标受到<#ff9028ff>40 + 等级加成 + 100%攻击力 + 每层夺魂2.5点<>物理伤害；附近敌人受到<#ff9028ff>40%<>溅射伤害。达到<#ffb900ff>1,000<>层时，层数额外提供<#ffb900ff>+2,500<>点原始伤害（护甲减免前）。",
+        "skill2": "<#ffb900ff>契约：爆裂<>：展开符文护盾<#ffb900ff>2秒<>（<#ffb900ff>90<>护盾与<#ffb900ff>+25%<>移速），随后引爆造成<#ff9028ff>70<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<><#ff9028ff>物理伤害<>并<#ef5350ff>眩晕<>周围敌人<#ffb900ff>1秒<>。",
+        "ult": "<#e64a6aff>契约：追命<>：在敌方头顶凝结<#e64a6aff>命运之眼<>并化作熔岩钻头冲撞目标，造成<#ff9028ff>130<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160%攻击力<><#ff9028ff>物理伤害<>与<#ffb900ff>1.2秒<><#ef5350ff>眩晕<>。"
+      },
+      "mlbb_fanny": {
+        "name": "芬妮",
+        "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<>的物理伤害。",
+        "skill": "<#ff9028ff>飓风突刺<>：造成<#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻击力<>伤害，范围<#ffb900ff>22,000<>。钢索飞行时撞到敌人会自动触发空中飓风突刺，造成<#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70%攻击力<>伤害。",
+        "skill2": "<#ff9028ff>钢索<>：向最佳墙体或边路外墙射出钢索（射程<#ffb900ff>165,000<>），无能量消耗连续多段荡墙追击或撤退。优先锁定可见敌方英雄，无敌方英雄视野时可荡墙清理野怪。",
+        "ult": "<#ff9028ff>割喉<>：冲向目标，造成<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125%攻击力<>伤害；每层猎物印记额外造成<#ff9028ff>35%攻击力<>（最多2层）。命中后消耗印记。",
+        "passive": "<#ff9028ff>空中优势<>：钢索飞行时，芬妮根据飞行速度获得<#ffb900ff>10–25%<>伤害加成。飞行中命中敌方英雄会施加或升级<#ff9028ff>猎物印记<>（最多2层，持续<#ffb900ff>5秒<>），并触发飓风突刺。"
+      },
+      "mlbb_lancelot": {
+        "name": "兰斯洛特",
+        "attack": "普通攻击造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<>的物理伤害。<#5ad0e6ff>灵魂切割<>使所有伤害每层提高<#ffb900ff>7.5%<>，持续<#ffb900ff>4秒<>，最多<#ffb900ff>4层（30%）<>。",
+        "skill": "<#ff9028ff>穿刺<>：突进至指定敌人，造成<#ff9028ff>80–178 + 40%攻击力<>物理伤害。命中的第一个未标记敌人获得<#5ad0e6ff>剑印<>；施加新剑印会重置穿刺冷却。每次施放获得一层<#ffb900ff>灵魂切割<>。",
+        "skill2": "<#ffb900ff>刺玫瑰<>：连续攻击三次，每次造成<#ff9028ff>85–155 + 30%攻击力<>物理伤害，并使命中的敌人减速<#ffb900ff>20%<>，持续<#ffb900ff>0.5秒<>。连招期间免疫伤害与控制；多目标重叠命中会受到群体伤害折减。",
+        "ult": "<#e64a6aff>幻影处决<>：突进至指定敌方英雄，抵达时造成<#ff9028ff>100–156 + 100%攻击力<>物理伤害。突进期间免疫伤害与控制，并获得一层<#ffb900ff>灵魂切割<>。",
+        "passive": "<#5ad0e6ff>灵魂切割<>：穿刺和幻影处决会使伤害每层提高<#ffb900ff>7.5%<>，持续<#ffb900ff>4秒<>，最多<#ffb900ff>4层（30%）<>。"
+      },
+      "mlbb_estes": {
+        "name": "埃斯特斯",
+        "attack": "普通攻击造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<>物理伤害。<#5ad0e6ff>月精灵之书<>随时间充能；达到<#ffb900ff>100<>层后，下次普攻追加<#a974ffff>魔法伤害<>，最多弹射至<#ffb900ff>2<>名附近敌人并使其减速<#ffb900ff>40%<>，持续<#ffb900ff>1.5秒<>。",
+        "passive": "<#5ad0e6ff>月精灵之书<>：每秒获得<#ffb900ff>1<>层充能；连接队友时每秒获得<#ffb900ff>2<>层。达到100层后，下次普攻强化，造成<#a974ffff>魔法伤害<>并弹射至最多2名附近敌人，同时减速40%，持续1.5秒。层数显示在一技能图标上。",
+        "skill": "<#5ad0e6ff>月光浸礼<>：立即为一名友方英雄回复<#5bd18aff>115<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>85%法术强度<>生命值，随后每<#ffb900ff>0.5秒<>回复<#5bd18aff>24<> + <#a974ffff>18%法术强度<>，持续<#ffb900ff>5秒<>。友军获得<#ffb900ff>+7<>物理与法术防御，埃斯特斯获得<#ffb900ff>+15%<>移速。超过120,000时，视觉连接与被动充能加成停止；数据驱动的持续治疗仍会完成。",
+        "skill2": "<#5ad0e6ff>月之女神领域<>：放置一个<#5ad0e6ff>固定<>月光区域，持续<#ffb900ff>2.5秒<>。每<#ffb900ff>0.5秒<>对<#ffb900ff>52,000<>范围内的敌人造成<#a974ffff>15<> + <#a974ffff>45%法术强度<>魔法伤害，并减速<#ffb900ff>35%<>，持续<#ffb900ff>0.75秒<>。此版本在区域内减速，而非仅检测外圈。",
+        "ult": "<#5ad0e6ff>月之女神祝福<>：立即为<#ffb900ff>105,000<>范围内的友军回复<#5bd18aff>150<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>65%法术强度<>；随后每<#ffb900ff>0.5秒<>回复<#5bd18aff>20<> + <#a974ffff>12%法术强度<>，持续<#ffb900ff>8秒<>，并获得<#ffb900ff>+8<>物理与法术防御。"
+      },
+      "mlbb_gusion": {
+        "name": "古辛",
+        "attack": "普通攻击造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<>物理伤害。达到<#ffb900ff>4<>层符文后，下次普攻消耗全部符文，造成目标最大生命值<#a974ffff>12%<>的魔法伤害，并回复<#5bd18aff>200 + 100%法术强度<>生命值。",
+        "passive": "<#5ad0e6ff>匕首专精<>：每次施放技能获得<#ffb900ff>1<>层符文，最多<#ffb900ff>4<>层。下次普攻消耗全部符文；每层造成目标最大生命值<#a974ffff>3%<>的魔法伤害，并回复<#5bd18aff>50 + 25%法术强度<>生命值。",
+        "skill": "<#5ad0e6ff>剑锋<>：投掷匕首，对首个命中的敌人造成<#a974ffff>200 + 50%法术强度<>魔法伤害，并标记<#ffb900ff>5秒<>。再次施放可突进至标记目标身后，造成<#a974ffff>200 + 100%法术强度<>魔法伤害。",
+        "skill2": "<#a974ffff>幻影剑舞<>：扇形投出<#ffb900ff>5把匕首<>，每次命中造成<#a974ffff>65 + 40%法术强度<>魔法伤害。再次施放召回匕首，每把返回命中造成相同伤害；匕首与细长轨迹使用独立视觉素材。",
+        "ult": "<#e64a6aff>刀锋冲击<>：突进至指定敌人身后并刷新一、二技能。可在<#ffb900ff>2.5秒<>内再次施放，突进至另一名指定敌人身后。"
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "契约：夺魂",
+        "skill2": "契约：爆裂",
+        "ult": "契约：追命"
+      },
+      "mlbb_fanny": {
+        "skill1": "飓风突刺",
+        "skill2": "钢索",
+        "ult": "割喉"
+      },
+      "mlbb_lancelot": {
+        "passive": "灵魂切割",
+        "skill1": "穿刺",
+        "skill2": "刺玫瑰",
+        "ult": "幻影处决"
+      },
+      "mlbb_estes": {
+        "passive": "月精灵之书",
+        "skill1": "月光浸礼",
+        "skill2": "月之女神领域",
+        "ult": "月之女神祝福"
+      },
+      "mlbb_gusion": {
+        "passive": "匕首专精",
+        "skill1": "剑锋",
+        "skill2": "幻影剑舞",
+        "ult": "刀锋冲击"
+      }
+    }
+  },
+  "zh-hant": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "奧爾德斯",
+        "attack": "揮舞熔岩巨拳造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<><#ff9028ff>物理傷害<>。被動<#ffb900ff>契約：蛻變<>每第<#ffb900ff>3<>擊獲得<#ffb900ff>60<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻擊力<>護盾。",
+        "skill": "<#ff9028ff>契約：奪魂<>：主要目標受到<#ff9028ff>40 + 等級加成 + 100%攻擊力 + 每層奪魂2.5點<>物理傷害；附近敵人受到<#ff9028ff>40%<>濺射傷害。達到<#ffb900ff>1,000<>層時，層數額外提供<#ffb900ff>+2,500<>點原始傷害（護甲減免前）。",
+        "skill2": "<#ffb900ff>契約：爆裂<>：展開符文護盾<#ffb900ff>2秒<>（<#ffb900ff>90<>護盾與<#ffb900ff>+25%<>移速），隨後引爆造成<#ff9028ff>70<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<><#ff9028ff>物理傷害<>並<#ef5350ff>眩暈<>周圍敵人<#ffb900ff>1秒<>。",
+        "ult": "<#e64a6aff>契約：追命<>：在敵方頭頂凝結<#e64a6aff>命運之眼<>並化作熔岩鑽頭衝撞目標，造成<#ff9028ff>130<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160%攻擊力<><#ff9028ff>物理傷害<>與<#ffb900ff>1.2秒<><#ef5350ff>眩暈<>。"
+      },
+      "mlbb_fanny": {
+        "name": "芬妮",
+        "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<>的物理傷害。",
+        "skill": "<#ff9028ff>颶風突刺<>：造成<#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻擊力<>傷害，範圍<#ffb900ff>22,000<>。鋼索飛行時撞到敵人會自動觸發空中颶風突刺，造成<#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70%攻擊力<>傷害。",
+        "skill2": "<#ff9028ff>鋼索<>：向最佳牆體或邊路外牆射出鋼索（射程<#ffb900ff>165,000<>），無能量消耗連續多段盪牆追擊或撤退。優先鎖定可見敵方英雄，無敵方英雄視野時可盪牆清理野怪。",
+        "ult": "<#ff9028ff>割喉<>：衝向目標，造成<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125%攻擊力<>傷害；每層獵物印記額外造成<#ff9028ff>35%攻擊力<>（最多2層）。命中後消耗印記。",
+        "passive": "<#ff9028ff>空中優勢<>：鋼索飛行時，芬妮根據飛行速度獲得<#ffb900ff>10–25%<>傷害加成。飛行中命中敵方英雄會施加或升級<#ff9028ff>獵物印記<>（最多2層，持續<#ffb900ff>5秒<>），並觸發颶風突刺。"
+      },
+      "mlbb_lancelot": {
+        "name": "藍斯洛特",
+        "attack": "普通攻擊造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<>的物理傷害。<#5ad0e6ff>靈魂切割<>使所有傷害每層提高<#ffb900ff>7.5%<>，持續<#ffb900ff>4秒<>，最多<#ffb900ff>4層（30%）<>。",
+        "skill": "<#ff9028ff>穿刺<>：突進至指定敵人，造成<#ff9028ff>80–178 + 40%攻擊力<>物理傷害。命中的第一個未標記敵人獲得<#5ad0e6ff>劍印<>；施加新劍印會重置穿刺冷卻。每次施放獲得一層<#ffb900ff>靈魂切割<>。",
+        "skill2": "<#ffb900ff>刺玫瑰<>：連續攻擊三次，每次造成<#ff9028ff>85–155 + 30%攻擊力<>物理傷害，並使命中的敵人緩速<#ffb900ff>20%<>，持續<#ffb900ff>0.5秒<>。連招期間免疫傷害與控制；多目標重疊命中會受到群體傷害折減。",
+        "ult": "<#e64a6aff>幻影處決<>：突進至指定敵方英雄，抵達時造成<#ff9028ff>100–156 + 100%攻擊力<>物理傷害。突進期間免疫傷害與控制，並獲得一層<#ffb900ff>靈魂切割<>。",
+        "passive": "<#5ad0e6ff>靈魂切割<>：穿刺和幻影處決會使傷害每層提高<#ffb900ff>7.5%<>，持續<#ffb900ff>4秒<>，最多<#ffb900ff>4層（30%）<>。"
+      },
+      "mlbb_estes": {
+        "name": "埃斯特斯",
+        "attack": "普通攻擊造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<>物理傷害。<#5ad0e6ff>月精靈之書<>隨時間充能；達到<#ffb900ff>100<>層後，下次普攻追加<#a974ffff>魔法傷害<>，最多彈射至<#ffb900ff>2<>名附近敵人並使其緩速<#ffb900ff>40%<>，持續<#ffb900ff>1.5秒<>。",
+        "passive": "<#5ad0e6ff>月精靈之書<>：每秒獲得<#ffb900ff>1<>層充能；連結隊友時每秒獲得<#ffb900ff>2<>層。達到100層後，下次普攻強化，造成<#a974ffff>魔法傷害<>並彈射至最多2名附近敵人，同時緩速40%，持續1.5秒。層數顯示於一技能圖示。",
+        "skill": "<#5ad0e6ff>月光浸禮<>：立即為一名友方英雄恢復<#5bd18aff>115<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>85%法術強度<>生命值，之後每<#ffb900ff>0.5秒<>恢復<#5bd18aff>24<> + <#a974ffff>18%法術強度<>，持續<#ffb900ff>5秒<>。友軍獲得<#ffb900ff>+7<>物理與法術防禦，埃斯特斯獲得<#ffb900ff>+15%<>移速。超過120,000時，視覺連結與被動充能加成停止；資料驅動的持續治療仍會完成。",
+        "skill2": "<#5ad0e6ff>月之女神領域<>：放置一個<#5ad0e6ff>固定<>月光區域，持續<#ffb900ff>2.5秒<>。每<#ffb900ff>0.5秒<>對<#ffb900ff>52,000<>範圍內敵人造成<#a974ffff>15<> + <#a974ffff>45%法術強度<>魔法傷害，並緩速<#ffb900ff>35%<>，持續<#ffb900ff>0.75秒<>。此版本在區域內緩速，而非只偵測外圈。",
+        "ult": "<#5ad0e6ff>月之女神祝福<>：立即為<#ffb900ff>105,000<>範圍內友軍恢復<#5bd18aff>150<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>65%法術強度<>；之後每<#ffb900ff>0.5秒<>恢復<#5bd18aff>20<> + <#a974ffff>12%法術強度<>，持續<#ffb900ff>8秒<>，並獲得<#ffb900ff>+8<>物理與法術防禦。"
+      },
+      "mlbb_gusion": {
+        "name": "古辛",
+        "attack": "普通攻擊造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<>物理傷害。達到<#ffb900ff>4<>層符文後，下次普攻消耗全部符文，造成目標最大生命值<#a974ffff>12%<>的魔法傷害，並回復<#5bd18aff>200 + 100%法術強度<>生命值。",
+        "passive": "<#5ad0e6ff>匕首專精<>：每次施放技能獲得<#ffb900ff>1<>層符文，最多<#ffb900ff>4<>層。下次普攻消耗全部符文；每層造成目標最大生命值<#a974ffff>3%<>的魔法傷害，並回復<#5bd18aff>50 + 25%法術強度<>生命值。",
+        "skill": "<#5ad0e6ff>劍鋒<>：投擲匕首，對首個命中的敵人造成<#a974ffff>200 + 50%法術強度<>魔法傷害，並標記<#ffb900ff>5秒<>。再次施放可突進至標記目標身後，造成<#a974ffff>200 + 100%法術強度<>魔法傷害。",
+        "skill2": "<#a974ffff>幻影劍舞<>：扇形投出<#ffb900ff>5把匕首<>，每次命中造成<#a974ffff>65 + 40%法術強度<>魔法傷害。再次施放召回匕首，每把返回命中造成相同傷害；匕首與細長軌跡使用獨立視覺素材。",
+        "ult": "<#e64a6aff>刀鋒衝擊<>：突進至指定敵人身後並刷新一、二技能。可在<#ffb900ff>2.5秒<>內再次施放，突進至另一名指定敵人身後。"
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "契約：奪魂",
+        "skill2": "契約：爆裂",
+        "ult": "契約：追命"
+      },
+      "mlbb_fanny": {
+        "skill1": "颶風突刺",
+        "skill2": "鋼索",
+        "ult": "割喉"
+      },
+      "mlbb_lancelot": {
+        "passive": "靈魂切割",
+        "skill1": "穿刺",
+        "skill2": "刺玫瑰",
+        "ult": "幻影處決"
+      },
+      "mlbb_estes": {
+        "passive": "月精靈之書",
+        "skill1": "月光浸禮",
+        "skill2": "月之女神領域",
+        "ult": "月之女神祝福"
+      },
+      "mlbb_gusion": {
+        "passive": "匕首專精",
+        "skill1": "劍鋒",
+        "skill2": "幻影劍舞",
+        "ult": "刀鋒衝擊"
+      }
+    }
+  },
+  "ko": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "올더스",
+        "attack": "거대한 용암 건틀릿으로 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% 공격력<>의 <#ff9028ff>물리 피해<>를 입힙니다. <#ffb900ff>3번째<> 공격마다 <#ffb900ff>60<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% 공격력<> 보호막을 얻습니다.",
+        "skill": "<#ff9028ff>계약: 영혼 탈취<>: 주 대상에게 <#ff9028ff>40 + 레벨 보정 + 공격력의 100% + 영혼 탈취 중첩당 2.5<>의 물리 피해를 줍니다. 주변 적은 <#ff9028ff>40%<>의 광역 피해를 받습니다. <#ffb900ff>1,000<>중첩에서는 중첩 보너스가 방어력 적용 전 <#ffb900ff>+2,500<>입니다.",
+        "skill2": "<#ffb900ff>계약: 폭발<>: <#ffb900ff>2초<>간 보호막(<#ffb900ff>90<>)과 이동 속도(<#ffb900ff>+25%<>)를 얻은 뒤 폭발하여 <#ff9028ff>70<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% 공격력<>의 <#ff9028ff>물리 피해<>와 <#ffb900ff>1초<> <#ef5350ff>기절<>을 부여합니다.",
+        "ult": "<#e64a6aff>계약: 운명 추적<>: 적에게 <#e64a6aff>운명의 눈<>을 각인하고 용암 운석으로 돌진해 <#ff9028ff>130<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160% 공격력<>의 <#ff9028ff>물리 피해<>와 <#ffb900ff>1.2초<> <#ef5350ff>기절<>을 입힙니다."
+      },
+      "mlbb_fanny": {
+        "name": "파니",
+        "attack": "기본 공격은 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 100%<> 물리 피해를 줍니다.",
+        "skill": "<#ff9028ff>토네이도 스트라이크<>: 반경<#ffb900ff>22,000<> 안의 적에게 <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 80%<> 피해를 줍니다. 케이블 비행 중 적과 충돌하면 <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 70%<> 토네이도 스트라이크를 자동 발동합니다.",
+        "skill2": "<#ff9028ff>스틸 케이블<>: 최적의 벽이나 외곽 라인 경계로 케이블(사거리 <#ffb900ff>165,000<>)을 발사해 에너지 소모 없이 연속 다중 벽 타기로 추격하거나 탈출합니다. 시야 내 적 영웅을 최우선으로 조준하며, 적 영웅이 없을 때만 정글 몬스터에게 케이블을 사용합니다.",
+        "ult": "<#ff9028ff>컷 스로트<>: 대상에게 돌진해<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 125%<> 피해를 줍니다. 먹잇감 표식마다<#ff9028ff>공격력의 35%<> 추가 피해 (최대 2중첩). 적중하면 표식을 소모합니다.",
+        "passive": "<#ff9028ff>공중 우세<>: 케이블 비행 중 이동 속도에 따라<#ffb900ff>10–25%<> 피해가 증가합니다. 비행 중 적 영웅을 맞히면<#ff9028ff>먹잇감 표식<>을 적용/강화(최대 2중첩,<#ffb900ff>5초<>)하고 토네이도 스트라이크를 발동합니다."
+      },
+      "mlbb_lancelot": {
+        "name": "랜슬롯",
+        "attack": "기본 공격은 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 100%<> 물리 피해를 줍니다. <#5ad0e6ff>소울 커터<>는 중첩당 모든 피해를 <#ffb900ff>7.5%<> 증가시키며 <#ffb900ff>4초<> 동안 지속됩니다(최대 <#ffb900ff>4중첩, 30%<>).",
+        "skill": "<#ff9028ff>펑처<>: 지정한 적에게 돌진해 <#ff9028ff>80–178 + 공격력의 40%<> 물리 피해를 줍니다. 처음 적중한 미표식 적에게 <#5ad0e6ff>검 표식<>을 남기며, 새 표식을 적용하면 펑처의 재사용 대기시간이 초기화됩니다. 시전할 때마다 <#ffb900ff>소울 커터<> 중첩을 얻습니다.",
+        "skill2": "<#ffb900ff>가시 장미<>: 세 번 공격하며, 각 타격은 <#ff9028ff>85–155 + 공격력의 30%<> 물리 피해를 주고 적중한 적의 이동 속도를 <#ffb900ff>20%<> 낮춥니다(<#ffb900ff>0.5초<>). 연속 공격 중 피해와 군중 제어에 면역이며, 다수 적중 시 광역 피해 감소가 적용됩니다.",
+        "ult": "<#e64a6aff>팬텀 처형<>: 지정한 적 영웅에게 돌진해 도착 시 <#ff9028ff>100–156 + 공격력의 100%<> 물리 피해를 줍니다. 돌진 중 피해와 군중 제어에 면역이며 <#ffb900ff>소울 커터<> 중첩을 얻습니다.",
+        "passive": "<#5ad0e6ff>소울 커터<>: 펑처와 팬텀 처형은 중첩당 피해를 <#ffb900ff>7.5%<> 증가시키며 <#ffb900ff>4초<> 동안 지속됩니다. 최대 <#ffb900ff>4중첩(30%)<>입니다."
+      },
+      "mlbb_estes": {
+        "name": "에스테스",
+        "attack": "기본 공격은 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 100%<> 물리 피해를 줍니다. <#5ad0e6ff>달의 요정 서약<>은 시간에 따라 충전되며, <#ffb900ff>100<>중첩에서 다음 기본 공격이 강화되어 <#a974ffff>마법 피해<>를 추가하고 최대 2명의 주변 적에게 튕기며 <#ffb900ff>40%<> 둔화시킵니다(<#ffb900ff>1.5초<>).",
+        "passive": "<#5ad0e6ff>달의 요정 서약<>: 초당<#ffb900ff>1<>중첩, 아군 연결 중 초당<#ffb900ff>2<>중첩을 얻습니다. 100중첩에서 다음 기본 공격이 강화되어 마법 피해를 주고 최대 2명의 주변 적에게 튕기며 40% 둔화(1.5초)를 부여합니다. 중첩은 스킬 1 아이콘에 표시됩니다.",
+        "skill": "<#5ad0e6ff>달빛의 강림<>: 아군 영웅 하나를 즉시<#5bd18aff>115<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>주문력의 85%<>만큼 치유하고, 이후<#ffb900ff>0.5초<>마다<#5bd18aff>24<> + <#a974ffff>주문력의 18%<>를 5초간 회복시킵니다. 아군은 물리/마법 방어력<#ffb900ff>+7<>을, 에스테스는 이동 속도<#ffb900ff>+15%<>를 얻습니다. 거리가 120,000을 넘으면 시각 연결과 패시브 충전 보너스가 멈추며, 데이터 기반 지속 치유는 남은 시간 동안 계속됩니다.",
+        "skill2": "<#5ad0e6ff>달의 여신 영역<>: <#ffb900ff>2.5초<> 동안 고정된 달빛 영역을 생성합니다. 매<#ffb900ff>0.5초<>마다 반경<#ffb900ff>52,000<> 안의 적에게<#a974ffff>15<> + <#a974ffff>주문력의 45%<> 마법 피해를 주고<#ffb900ff>35%<> 둔화시킵니다(0.75초). TFM2 버전은 바깥 가장자리만이 아니라 영역 안에서 둔화를 적용합니다.",
+        "ult": "<#5ad0e6ff>달의 여신의 축복<>: 반경<#ffb900ff>105,000<> 안의 아군을 즉시<#5bd18aff>150<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>주문력의 65%<> 치유하고, 이후 8초 동안 매 0.5초마다<#5bd18aff>20<> + <#a974ffff>주문력의 12%<>를 회복시키며 물리/마법 방어력<#ffb900ff>+8<>을 부여합니다."
+      },
+      "mlbb_gusion": {
+        "name": "구시온",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage. At <#ffb900ff>4 Rune<> stacks, the next basic attack consumes them to deal <#a974ffff>3% of the target’s max HP<> as magic damage per stack and heal Gusion for <#5bd18aff>50 + 25% AP<> per stack.",
+        "passive": "<#5ad0e6ff>Dagger Specialist<>: Each skill cast grants a <#ffb900ff>Rune<> stack, up to <#ffb900ff>4<>. The next basic attack consumes all stacks, dealing <#a974ffff>3% of the target’s max HP<> as magic damage per stack and restoring <#5bd18aff>50 + 25% Total Magic Power<> HP per stack.",
+        "skill": "<#5ad0e6ff>Sword Spike<>: Throws a dagger that deals <#a974ffff>200 + 50% AP<> magic damage and marks the first enemy hit. Recast to dash behind the marked target for <#a974ffff>200 + 100% AP<> magic damage.",
+        "skill2": "<#a974ffff>Shadowblade Slaughter<>: Throws <#ffb900ff>5 daggers<> in a fan; each deals <#a974ffff>65 + 40% AP<> magic damage. Recast to recall them; each returning dagger deals the same damage. The dagger and thin streak are separate visual projectiles.",
+        "ult": "<#e64a6aff>Incandescence<>: Dashes behind the selected enemy and refreshes Skills 1 and 2. Recast briefly to dash behind a selected enemy again."
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "계약: 영혼 탈취",
+        "skill2": "계약: 폭발",
+        "ult": "계약: 운명 추적"
+      },
+      "mlbb_fanny": {
+        "skill1": "토네이도 스트라이크",
+        "skill2": "스틸 케이블",
+        "ult": "컷 스로트"
+      },
+      "mlbb_lancelot": {
+        "passive": "소울 커터",
+        "skill1": "펑처",
+        "skill2": "가시 장미",
+        "ult": "팬텀 처형"
+      },
+      "mlbb_estes": {
+        "passive": "달의 요정 서약",
+        "skill1": "달빛의 강림",
+        "skill2": "달의 여신 영역",
+        "ult": "달의 여신의 축복"
+      },
+      "mlbb_gusion": {
+        "passive": "단검 전문가",
+        "skill1": "소드 스파이크",
+        "skill2": "섀도블레이드 슬로터",
+        "ult": "인캔던스"
+      }
+    }
+  },
+  "ja": {
+    "description": {
+      "mlbb_aldous": {
+        "name": "オルダス",
+        "attack": "溶岩の巨拳で<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻撃力<>の<#ff9028ff>物理ダメージ<>を与える。<#ffb900ff>3回目<>の攻撃ごとに<#ffb900ff>60<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻撃力<>のシールドを得る。",
+        "skill": "<#ff9028ff>契約：ソウルスティール<>：主対象に<#ff9028ff>40 + レベル補正 + 攻撃力の100% + ソウルスティール1スタックごとに2.5<>の物理ダメージを与えます。周囲の敵は<#ff9028ff>40%<>の範囲ダメージを受けます。<#ffb900ff>1,000<>スタック時、スタックボーナスは防御適用前で<#ffb900ff>+2,500<>です。",
+        "skill2": "<#ffb900ff>契約：エクスプロージョン<>：<#ffb900ff>2秒<>間シールド（<#ffb900ff>90<>）と移動速度（<#ffb900ff>+25%<>）を得てから爆発し、周囲に<#ff9028ff>70<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻撃力<>の<#ff9028ff>物理ダメージ<>と<#ffb900ff>1秒<><#ef5350ff>スタン<>を与える。",
+        "ult": "<#e64a6aff>契約：チェイスフェイト<>：敵に<#e64a6aff>運命の眼<>を刻み溶岩ドリルとなって突撃、<#ff9028ff>130<>+<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>160%攻撃力<>の<#ff9028ff>物理ダメージ<>と<#ffb900ff>1.2秒<><#ef5350ff>スタン<>を与える。"
+      },
+      "mlbb_fanny": {
+        "name": "Fanny",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
+        "skill": "<#ff9028ff>Tornado Strike<>: Deals <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% AD<> in a <#ffb900ff>22,000<> radius. During Steel Cable flight, colliding with an enemy automatically triggers a mid-air Tornado Strike for <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70% AD<> and applies a Prey Mark to enemy champions.",
+        "skill2": "<#ff9028ff>Steel Cable<>: Throws a cable (<#ffb900ff>165,000<> reach) at the best wall or outer lane boundary and swings Fanny past the obstacle toward her target, chaining multiple wall hops across the map with <#ffb900ff>0<> energy cost. Prioritizes visible enemy champions first, or nearby jungle monsters when no enemy champions are visible.",
+        "ult": "<#ff9028ff>Cut Throat<>: Dashes to the target enemy and deals <#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125% AD<>; each Prey Mark adds <#ff9028ff>35% AD<> (up to 2 marks). A successful hit consumes the marks.",
+        "passive": "<#ff9028ff>Air Superiority<>: While cable-flying, Fanny gains <#ffb900ff>10–25%<> bonus damage based on her flight speed. Hitting an enemy champion during flight applies or upgrades a <#ff9028ff>Prey Mark<> (max 2 stacks, <#ffb900ff>5s<>) and triggers Tornado Strike."
+      },
+      "mlbb_lancelot": {
+        "name": "ランスロット",
+        "attack": "通常攻撃は<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>攻撃力の100%<>の物理ダメージを与えます。<#5ad0e6ff>ソウルカッター<>はスタックごとに全ダメージを<#ffb900ff>7.5%<>増加させ、<#ffb900ff>4秒<>持続します（最大<#ffb900ff>4スタック、30%<>）。",
+        "skill": "<#ff9028ff>パンクチャー<>：指定した敵へ突進し、<#ff9028ff>80–178 + 攻撃力の40%<>の物理ダメージを与えます。最初に命中した未マークの敵に<#5ad0e6ff>剣の印<>を付与し、新しい印を付けるとクールダウンがリセットされます。発動ごとに<#ffb900ff>ソウルカッター<>を1スタック得ます。",
+        "skill2": "<#ffb900ff>ソーンローズ<>：3回攻撃し、各攻撃は<#ff9028ff>85–155 + 攻撃力の30%<>の物理ダメージを与え、命中した敵の移動速度を<#ffb900ff>20%<>低下させます（<#ffb900ff>0.5秒<>）。連続攻撃中はダメージと行動妨害を無効化し、複数命中には範囲ダメージ減衰が適用されます。",
+        "ult": "<#e64a6aff>ファントムエグゼキューション<>：指定した敵ヒーローへ突進し、到達時に<#ff9028ff>100–156 + 攻撃力の100%<>の物理ダメージを与えます。突進中はダメージと行動妨害を無効化し、<#ffb900ff>ソウルカッター<>を1スタック得ます。",
+        "passive": "<#5ad0e6ff>ソウルカッター<>：パンクチャーとファントムエグゼキューションで、スタックごとに与ダメージが<#ffb900ff>7.5%<>増加し、<#ffb900ff>4秒<>持続します。最大<#ffb900ff>4スタック（30%）<>です。"
+      },
+      "mlbb_estes": {
+        "name": "エステス",
+        "attack": "通常攻撃は<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>攻撃力の100%<>の物理ダメージを与えます。<#5ad0e6ff>月のエルフの書<>は時間でチャージされ、<#ffb900ff>100<>スタックで次の通常攻撃が強化されて<#a974ffff>魔法ダメージ<>を追加し、最大2体の近くの敵に跳ね返って<#ffb900ff>40%<>スロウを与えます（<#ffb900ff>1.5秒<>）。",
+        "passive": "<#5ad0e6ff>月のエルフの書<>：毎秒<#ffb900ff>1<>スタック、味方とリンク中は毎秒<#ffb900ff>2<>スタックを獲得。100スタックで次の通常攻撃が強化され、魔法ダメージを与えて最大2体の近くの敵に跳ね返り、40%スロウ（1.5秒）を与えます。スタックはスキル1のアイコンに表示されます。",
+        "skill": "<#5ad0e6ff>月光の浸礼<>：味方ヒーロー1体を即座に<#5bd18aff>115<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>魔力の85%<>回復し、その後<#ffb900ff>0.5秒<>ごとに<#5bd18aff>24<> + <#a974ffff>魔力の18%<>を5秒間回復します。味方は物理・魔法防御<#ffb900ff>+7<>、エステスは移動速度<#ffb900ff>+15%<>を得ます。距離が120,000を超えると視覚的なリンクとパッシブのチャージボーナスは止まりますが、データ設定の継続回復は残り時間中続きます。",
+        "skill2": "<#5ad0e6ff>月の女神の領域<>：<#ffb900ff>2.5秒<>間、固定された月光領域を作ります。<#ffb900ff>0.5秒<>ごとに半径<#ffb900ff>52,000<>内の敵に<#a974ffff>15<> + <#a974ffff>魔力の45%<>魔法ダメージを与え、<#ffb900ff>35%<>スロウを与えます（0.75秒）。TFM2版では外周だけでなく領域内でスロウが発生します。",
+        "ult": "<#5ad0e6ff>月の女神の祝福<>：半径<#ffb900ff>105,000<>内の味方を即座に<#5bd18aff>150<> + <i#asset/base/ui/banpick/champion_stat_icon:ap_0><#a974ffff>魔力の65%<>回復し、8秒間<#ffb900ff>0.5秒<>ごとに<#5bd18aff>20<> + <#a974ffff>魔力の12%<>を回復。物理・魔法防御<#ffb900ff>+8<>も付与します。"
+      },
+      "mlbb_gusion": {
+        "name": "グシオン",
+        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage. At <#ffb900ff>4 Rune<> stacks, the next basic attack consumes them to deal <#a974ffff>3% of the target’s max HP<> as magic damage per stack and heal Gusion for <#5bd18aff>50 + 25% AP<> per stack.",
+        "passive": "<#5ad0e6ff>Dagger Specialist<>: Each skill cast grants a <#ffb900ff>Rune<> stack, up to <#ffb900ff>4<>. The next basic attack consumes all stacks, dealing <#a974ffff>3% of the target’s max HP<> as magic damage per stack and restoring <#5bd18aff>50 + 25% Total Magic Power<> HP per stack.",
+        "skill": "<#5ad0e6ff>Sword Spike<>: Throws a dagger that deals <#a974ffff>200 + 50% AP<> magic damage and marks the first enemy hit. Recast to dash behind the marked target for <#a974ffff>200 + 100% AP<> magic damage.",
+        "skill2": "<#a974ffff>Shadowblade Slaughter<>: Throws <#ffb900ff>5 daggers<> in a fan; each deals <#a974ffff>65 + 40% AP<> magic damage. Recast to recall them; each returning dagger deals the same damage. The dagger and thin streak are separate visual projectiles.",
+        "ult": "<#e64a6aff>Incandescence<>: Dashes behind the selected enemy and refreshes Skills 1 and 2. Recast briefly to dash behind a selected enemy again."
+      }
+    },
+    "skill_name": {
+      "mlbb_aldous": {
+        "skill1": "契約：ソウルスティール",
+        "skill2": "契約：エクスプロージョン",
+        "ult": "契約：チェイスフェイト"
+      },
+      "mlbb_fanny": {
+        "skill1": "Tornado Strike",
+        "skill2": "Steel Cable",
+        "ult": "Cut Throat"
+      },
+      "mlbb_lancelot": {
+        "passive": "ソウルカッター",
+        "skill1": "パンクチャー",
+        "skill2": "ソーンローズ",
+        "ult": "ファントムエグゼキューション"
+      },
+      "mlbb_estes": {
+        "passive": "月のエルフの書",
+        "skill1": "月光の浸礼",
+        "skill2": "月の女神の領域",
+        "ult": "月の女神の祝福"
+      },
+      "mlbb_gusion": {
+        "passive": "短剣の達人",
+        "skill1": "ソードスパイク",
+        "skill2": "シャドウブレードスローター",
+        "ult": "インカンデッセンス"
+      }
+    }
+  }
+}

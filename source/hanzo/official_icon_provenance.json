@@ -1,0 +1,44 @@
+[
+  {
+    "file": "6940.png",
+    "skill": "Ame no Habakiri",
+    "url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_ac365435698ba11d4cea185ab07f4f01.png",
+    "sha256": "6c33347fb4bcb894ed754062b3d408c6c3f8879dceb85952020d39cc4788e8e9"
+  },
+  {
+    "file": "6910.png",
+    "skill": "Ninjutsu: Demon Feast",
+    "url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_816e14aed8c099fb8cfa6053ca0666e5.png",
+    "sha256": "110d90da73bdfab3a00e8c2c680a0aeb83e36a170056deb3527e95fded287ee3"
+  },
+  {
+    "file": "6920.png",
+    "skill": "Ninjutsu: Dark Mist",
+    "url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_83f7dbd47c58fba79f634a31f88e0ffe.png",
+    "sha256": "3daee88fb846dc0ab078896902628f811d296adc1349f7342e44a8d4005fbd22"
+  },
+  {
+    "file": "6930.png",
+    "skill": "Kinjutsu: Pinnacle Ninja",
+    "url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_12b3b6f378728e25a1ccf0952c9f84bf.png",
+    "sha256": "964bc31187620a5b00e15aedf2bd8b8bcf7a0b51ca5fa408540953bbd2cc3318"
+  },
+  {
+    "file": "69100.png",
+    "skill": "Forbidden Ninjutsu: Soul Snatch",
+    "url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_74eb2011217392bd06c2dc2cf9434731.png",
+    "sha256": "57f6fc611819e59ef3721c60c9ae23ebb17bb3477f76974f25cc59d1fde02fcc"
+  },
+  {
+    "file": "69200.png",
+    "skill": "Forbidden Ninjutsu: Black Mist",
+    "url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_2e6bdaf0784cffb7c0a636b77dce95e7.png",
+    "sha256": "12eaed9da5481f64a7b335c0203f95f4b33cfa69b95f3af82ed474ac3895d3ed"
+  },
+  {
+    "file": "69300.png",
+    "skill": "Ninjutsu Flee: Return",
+    "url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_d84a015788767e56209e80d5ee64ca8a.png",
+    "sha256": "d76a869dd4d542aac622aab528f9e8c9d848babaaf67469e252a2b94a98c48d0"
+  }
+]

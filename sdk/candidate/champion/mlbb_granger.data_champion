@@ -1,0 +1,309 @@
+{
+ "id": "mlbb_granger",
+ "category": "Range",
+ "tags": [
+  "AD",
+  "Range"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/granger_probe",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/granger_probe_skill",
+  "asset/mlbb_heroes/icons/granger_probe_skill2",
+  "asset/mlbb_heroes/icons/granger_probe_ult"
+ ],
+ "stat": {
+  "attack": 84,
+  "magic_power": 0,
+  "hp": 660,
+  "defence": 18,
+  "magic_resistance": 18,
+  "move_speed": 1080,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 5,
+  "magic_power": 0,
+  "hp": 90,
+  "defence": 3,
+  "magic_resistance": 2,
+  "move_speed": 4,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_granger.attack",
+  "duration": 12,
+  "cooltime": 66,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 72000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:granger_basic"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_granger.skill",
+  "duration": 1,
+  "cooltime": 18,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 90000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:granger_burst"
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_granger.skill2",
+  "duration": 1,
+  "cooltime": 720,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 35000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:granger_rondo"
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_granger.ult",
+  "duration": 1,
+  "cooltime": 36,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 140000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:granger_cannon"
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:granger"
+ },
+ "stack_skill_index": 0,
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_bullet",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_gun_projectile",
+   "tag": "main",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_sixth",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_sixth_projectile",
+   "tag": "main",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_cannon",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_cannon_projectile",
+   "tag": "main",
+   "z": 1,
+   "repeat": true
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_idle",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_idle",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_idle_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_idle_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_run",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_run",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_run_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_run_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_fire",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_fire",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_fire_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_fire_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_rondo",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_rondo",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_rondo_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_rondo_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_cannon",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_cannon",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_cannon_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_cannon_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_roll",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_roll",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_roll_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_roll_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_hit",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_hit",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_granger_pose_hit_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_hit_left",
+   "tag": "main",
+   "z": 1
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_gun_muzzle",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_gun_muzzle",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_gun_muzzle_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_gun_muzzle_left",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_cannon_muzzle",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_cannon_muzzle",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_cannon_muzzle_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_cannon_muzzle_left",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_gun_hit",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_gun_hit",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_sixth_hit",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_sixth_hit",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_cannon_impact",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_cannon_impact",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_dead",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_dead",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_granger_fx_dead_left",
+   "anim": "asset/mlbb_heroes/effects/granger_anim_dead_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  }
+ ]
+}

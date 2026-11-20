@@ -1,0 +1,1672 @@
+{
+ "id": "mlbb_eudora",
+ "category": "Magician",
+ "sprite": "asset/mlbb_heroes/sprite/eudora",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/eudora_skill",
+  "asset/mlbb_heroes/icons/eudora_skill2",
+  "asset/mlbb_heroes/icons/eudora_ult"
+ ],
+ "stat": {
+  "attack": 80,
+  "magic_power": 64,
+  "hp": 680,
+  "defence": 20,
+  "magic_resistance": 24,
+  "move_speed": 1040,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 3,
+  "magic_power": 8,
+  "hp": 95,
+  "defence": 3,
+  "magic_resistance": 3,
+  "move_speed": 4,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "tags": [
+  "AP",
+  "Magic",
+  "Range",
+  "CC"
+ ],
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_0",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_1",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_2",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_3",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_4",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_5",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_6",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_7",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_8",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_9",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_9",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_10",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_10",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_11",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_11",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_12",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_12",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_13",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_13",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_14",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_14",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_bolt_15",
+   "anim": "asset/mlbb_heroes/effects/eudora_bolt",
+   "tag": "dir_15",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "eudora_ball",
+   "anim": "asset/mlbb_heroes/effects/eudora_ball",
+   "tag": "play",
+   "z": 2,
+   "repeat": true
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "eudora_fan_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_0_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_0_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_1_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_1_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_2_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_2_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_3_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_3_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_4_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_4_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_5_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_5_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_6_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_6_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_7_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_7_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_8_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_8_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_9",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_9",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_9_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_9_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_10",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_10",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_10_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_10_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_11",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_11",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_11_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_11_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_12",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_12",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_12_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_12_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_13",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_13",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_13_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_13_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_14",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_14",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_14_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_14_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_fan_15",
+   "anim": "asset/mlbb_heroes/effects/eudora_fan",
+   "tag": "dir_15",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_link_15_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_link",
+   "tag": "dir_15_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_0",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_0",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_1",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_1",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_2",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_2",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_3",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_3",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_4",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_4",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_5",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_5",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_6",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_6",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_7",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_7",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_mark_8",
+   "anim": "asset/mlbb_heroes/effects/eudora_mark",
+   "tag": "mark_8",
+   "z": 3,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_impact",
+   "anim": "asset/mlbb_heroes/effects/eudora_impact",
+   "tag": "play",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_ball_burst",
+   "anim": "asset/mlbb_heroes/effects/eudora_ball_burst",
+   "tag": "play",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_warning",
+   "anim": "asset/mlbb_heroes/effects/eudora_warning",
+   "tag": "play",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_strike",
+   "anim": "asset/mlbb_heroes/effects/eudora_strike",
+   "tag": "play",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "eudora_discharge",
+   "anim": "asset/mlbb_heroes/effects/eudora_discharge",
+   "tag": "play",
+   "z": 0,
+   "is_follow": false
+  }
+ ],
+ "view_buffs": [],
+ "passive": {
+  "passive_ref": "mlbb_heroes:eudora_superconductor",
+  "params": {}
+ },
+ "stack_skill_index": 0,
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_eudora.attack",
+  "duration": 24,
+  "cooltime": 60,
+  "start_timing": 8,
+  "cancelable": false,
+  "range": 62000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:eudora_basic"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_eudora.skill",
+  "duration": 24,
+  "cooltime": 420,
+  "start_timing": 8,
+  "cancelable": false,
+  "range": 70000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_eudora_skill01"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:eudora_fork"
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_eudora.skill2",
+  "duration": 24,
+  "cooltime": 660,
+  "start_timing": 10,
+  "cancelable": false,
+  "range": 75000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_eudora_skill02"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:eudora_ball"
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_eudora.ult",
+  "duration": 30,
+  "cooltime": 1920,
+  "start_timing": 14,
+  "cancelable": false,
+  "range": 80000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_eudora_ult01"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:eudora_ult"
+    }
+   ]
+  }
+ }
+}

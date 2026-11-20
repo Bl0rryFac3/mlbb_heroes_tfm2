@@ -1,0 +1,128 @@
+[
+ {
+  "name": "gord_mystic_orb",
+  "file": "gord_orb",
+  "tag": "orb",
+  "frames": 9,
+  "dur": 0.05,
+  "cell": [
+   72,
+   72
+  ],
+  "seam": 1.87,
+  "kind": "loop",
+  "note": "uniform fit into 64x64 inside a 72x72 cell, keeps the core round | wrap 1.9% vs 5.1% normal (ratio 0.36, no pop)"
+ },
+ {
+  "name": "gord_gush_wave",
+  "file": "gord_gush_wave",
+  "tag": "wave",
+  "frames": 6,
+  "dur": 0.05,
+  "cell": [
+   128,
+   48
+  ],
+  "seam": 9.31,
+  "kind": "loop",
+  "note": "crop the beam band, never squash | wrap 9.3% vs 7.1% normal (ratio 1.31, no pop)"
+ },
+ {
+  "name": "gord_injunction_field",
+  "file": "gord_injunction_field",
+  "tag": "field",
+  "frames": 4,
+  "dur": 0.09,
+  "cell": [
+   128,
+   128
+  ],
+  "seam": 7.86,
+  "kind": "loop",
+  "note": "already matches estes_domain | trimmed 8->4: wrap 7.9% vs 3.9% normal (ratio 2.84 -> 2.03)"
+ },
+ {
+  "name": "gord_orb_burst",
+  "file": "gord_orb_burst",
+  "tag": "burst",
+  "frames": 5,
+  "dur": 0.05,
+  "cell": [
+   72,
+   72
+  ],
+  "seam": 30.21,
+  "kind": "oneshot",
+  "note": "fitted into 64x64; delivered art bled to all four edges | dropped 3 invisible tail frame(s)"
+ },
+ {
+  "name": "gord_orb_hit",
+  "file": "gord_orb_hit",
+  "tag": "hit",
+  "frames": 6,
+  "dur": 0.05,
+  "cell": [
+   72,
+   72
+  ],
+  "seam": 36.61,
+  "kind": "oneshot",
+  "note": "fitted into 64x64; dropped 3 near-invisible debris frames | dropped 3 invisible tail frame(s)"
+ },
+ {
+  "name": "gord_basic_hit",
+  "file": "gord_basic_hit",
+  "tag": "hit",
+  "frames": 9,
+  "dur": 0.04,
+  "cell": [
+   48,
+   48
+  ],
+  "seam": 0.95,
+  "kind": "oneshot",
+  "note": "pad only - never upscale 47->72"
+ },
+ {
+  "name": "gord_mystic_burst",
+  "file": "gord_mystic_burst",
+  "tag": "passive_proc",
+  "frames": 9,
+  "dur": 0.05,
+  "cell": [
+   64,
+   64
+  ],
+  "seam": 39.77,
+  "kind": "oneshot",
+  "note": "64x64 is roster-legal, no resample"
+ },
+ {
+  "name": "mlbb_gord_mystic_ready",
+  "file": "gord_mystic_ready",
+  "tag": "ready",
+  "frames": 9,
+  "dur": 0.06,
+  "cell": [
+   72,
+   72
+  ],
+  "seam": 9.07,
+  "kind": "loop",
+  "note": "fitted into 64x64 | wrap 9.1% vs 7.9% normal (ratio 1.14, no pop)"
+ },
+ {
+  "name": "mlbb_gord_mystic_slow",
+  "file": "gord_mystic_slow",
+  "tag": "slow",
+  "frames": 9,
+  "dur": 0.06,
+  "cell": [
+   72,
+   72
+  ],
+  "seam": 0.21,
+  "kind": "loop",
+  "note": "fitted into 64x64 | wrap 0.2% vs 17.0% normal (ratio 0.01, no pop)"
+ }
+]

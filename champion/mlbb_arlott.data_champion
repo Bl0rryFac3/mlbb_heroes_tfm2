@@ -1,0 +1,280 @@
+{
+ "id": "mlbb_arlott",
+ "category": "Melee",
+ "tags": [
+  "AD",
+  "Melee",
+  "CC"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/arlott",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/arlott_skill",
+  "asset/mlbb_heroes/icons/arlott_skill2",
+  "asset/mlbb_heroes/icons/arlott_ult"
+ ],
+ "stat": {
+  "attack": 121,
+  "magic_power": 0,
+  "hp": 800,
+  "defence": 26,
+  "magic_resistance": 20,
+  "move_speed": 1080,
+  "hp_regen": 8,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 5,
+  "magic_power": 0,
+  "hp": 100,
+  "defence": 4,
+  "magic_resistance": 3,
+  "move_speed": 3,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_arlott.attack",
+  "duration": 20,
+  "cooltime": 54,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 24000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Attack",
+   "damage": 0,
+   "attack_ratio": 100,
+   "attack_effect_type": "Target"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_arlott.skill",
+  "duration": 38,
+  "cooltime": 480,
+  "start_timing": 4,
+  "cancelable": false,
+  "range": 42000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "skill",
+     "tick": 6
+    },
+    {
+     "type": "LineRangeProjectile",
+     "name": "arlott_s1_slam",
+     "width": 26000,
+     "length": 42000,
+     "delay": 18,
+     "apply": 1,
+     "applied_target": "Enemy",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Attack",
+        "damage": 110,
+        "attack_ratio": 55,
+        "attack_effect_type": "Target"
+       },
+       "casting_type": "Targeting"
+      },
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:arlott_s1_stun"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_arlott.skill2",
+  "duration": 46,
+  "cooltime": 180,
+  "start_timing": 4,
+  "cancelable": false,
+  "range": 60000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:arlott_s2_cc_immune"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "skill2",
+     "tick": 8
+    },
+    {
+     "type": "CasterViewEffect",
+     "name": "arlott_s2_dash"
+    },
+    {
+     "type": "MoveToTarget",
+     "speed": 7000,
+     "range": 60000,
+     "end_effects": [
+      {
+       "type": "RangeEffect",
+       "apply_type": "AroundCaster",
+       "shape": {
+        "Circle": {
+         "radius": 14000
+        }
+       },
+       "target": "Enemy",
+       "effects": [
+        {
+         "type": "Attack",
+         "damage": 100,
+         "attack_ratio": 55,
+         "attack_effect_type": "Target"
+        },
+        {
+         "type": "Native",
+         "effect_ref": "mlbb_heroes:arlott_s2_vengeance"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_arlott.ult",
+  "duration": 40,
+  "cooltime": 1200,
+  "start_timing": 3,
+  "cancelable": false,
+  "range": 38000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 30
+    },
+    {
+     "type": "CasterViewEffect",
+     "name": "arlott_ult_cleave"
+    },
+    {
+     "type": "RangeEffect",
+     "shape": {
+      "Circle": {
+       "radius": 38000
+      }
+     },
+     "target": "Enemy",
+     "effects": [
+      {
+       "type": "Attack",
+       "damage": 160,
+       "attack_ratio": 75,
+       "attack_effect_type": "Target"
+      },
+      {
+       "type": "Native",
+       "effect_ref": "mlbb_heroes:arlott_ult_push"
+      }
+     ],
+     "apply_type": {
+      "Forward": {
+       "offset": 22000
+      }
+     }
+    },
+    {
+     "type": "CasterViewEffect",
+     "name": "arlott_ult_shock"
+    }
+   ]
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:arlott_demon_gaze",
+  "params": {}
+ },
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "arlott_s1_wave",
+   "anim": "asset/mlbb_heroes/effects/arlott_s1_wave",
+   "tag": "wave",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "arlott_s2_dash",
+   "anim": "asset/mlbb_heroes/effects/arlott_s2_dash",
+   "tag": "dash",
+   "z": 2,
+   "is_follow": true
+  },
+  {
+   "type": "Animation",
+   "name": "arlott_ult_cleave",
+   "anim": "asset/mlbb_heroes/effects/arlott_ult_cleave",
+   "tag": "cleave",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "arlott_ult_shock",
+   "anim": "asset/mlbb_heroes/effects/arlott_ult_shock",
+   "tag": "shock",
+   "z": -1,
+   "is_follow": false
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_arlott_mark",
+   "anim": "asset/mlbb_heroes/effects/arlott_mark",
+   "tag": "marked",
+   "z": 3
+  }
+ ],
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "arlott_s1_slam",
+   "anim": "asset/mlbb_heroes/effects/arlott_s1_wave",
+   "tag": "wave",
+   "z": 1,
+   "repeat": false
+  }
+ ]
+}

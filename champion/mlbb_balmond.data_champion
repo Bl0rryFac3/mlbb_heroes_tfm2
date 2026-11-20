@@ -1,0 +1,207 @@
+{
+ "id": "mlbb_balmond",
+ "category": "Melee",
+ "tags": [
+  "AD",
+  "Melee",
+  "Tank"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/balmond",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/balmond_skill1",
+  "asset/mlbb_heroes/icons/balmond_skill2",
+  "asset/mlbb_heroes/icons/balmond_ult"
+ ],
+ "stat": {
+  "attack": 103,
+  "magic_power": 0,
+  "hp": 820,
+  "defence": 32,
+  "magic_resistance": 28,
+  "move_speed": 1080,
+  "hp_regen": 8,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 5,
+  "magic_power": 0,
+  "hp": 100,
+  "defence": 4,
+  "magic_resistance": 3,
+  "move_speed": 3,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_balmond.attack",
+  "duration": 20,
+  "cooltime": 54,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 24000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Attack",
+   "damage": 0,
+   "attack_ratio": 100,
+   "attack_effect_type": "Target"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_balmond.skill",
+  "duration": 30,
+  "cooltime": 480,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 90000,
+  "casting_type": "Position",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterViewEffect",
+     "name": "mlbb_balmond_s1_dash"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:balmond_soul_lock_path"
+    },
+    {
+     "type": "MoveTo",
+     "speed": 7000,
+     "range": 90000,
+     "end_effects": [
+      {
+       "type": "Native",
+       "effect_ref": "mlbb_heroes:balmond_soul_lock_hit"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_balmond.skill2",
+  "duration": 180,
+  "cooltime": 360,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 35000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "skill2",
+     "tick": 12
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:balmond_cyclone_start"
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_balmond.ult",
+  "duration": 36,
+  "cooltime": 2040,
+  "start_timing": 3,
+  "cancelable": false,
+  "range": 110000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 30
+    },
+    {
+     "type": "LineRangeProjectile",
+     "name": "mlbb_balmond_ult_line",
+     "width": 36000,
+     "length": 110000,
+     "delay": 30,
+     "apply": 1,
+     "applied_target": "EnemyWithoutTower",
+     "applied_effects": []
+    },
+    {
+     "type": "RangeEffect",
+     "shape": {
+      "DirDot": {
+       "radius": 110000,
+       "range": 707
+      }
+     },
+     "target": "EnemyWithoutTower",
+     "effects": [
+      {
+       "type": "Native",
+       "effect_ref": "mlbb_heroes:balmond_lethal_counter"
+      }
+     ],
+     "apply_type": "AroundCaster"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_balmond_ult"
+    }
+   ]
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:balmond_bloodthirst",
+  "params": {}
+ },
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "mlbb_balmond_s1_dash",
+   "anim": "asset/mlbb_heroes/effects/balmond_s1_fx",
+   "tag": "dash",
+   "z": -1,
+   "is_follow": true
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_balmond_s2_active",
+   "anim": "asset/mlbb_heroes/effects/balmond_s2_fx",
+   "tag": "spin",
+   "z": -1
+  }
+ ],
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "mlbb_balmond_ult_line",
+   "anim": "asset/mlbb_heroes/effects/balmond_ult_fx",
+   "tag": "slash",
+   "z": -1,
+   "repeat": true
+  }
+ ]
+}

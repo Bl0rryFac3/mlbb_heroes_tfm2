@@ -1,0 +1,187 @@
+{
+ "id": "mlbb_hanabi",
+ "category": "Range",
+ "tags": [
+  "AD",
+  "Range"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/hanabi",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/hanabi_skill1",
+  "asset/mlbb_heroes/icons/hanabi_skill2",
+  "asset/mlbb_heroes/icons/hanabi_ult"
+ ],
+ "stat": {
+  "attack": 94,
+  "magic_power": 0,
+  "hp": 700,
+  "defence": 22,
+  "magic_resistance": 22,
+  "move_speed": 1090,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 4,
+  "magic_power": 0,
+  "hp": 90,
+  "defence": 3,
+  "magic_resistance": 2,
+  "move_speed": 4,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_hanabi.attack",
+  "duration": 20,
+  "cooltime": 54,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 76000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:hanabi_basic_attack"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_hanabi.skill",
+  "duration": 22,
+  "cooltime": 600,
+  "start_timing": 1,
+  "cancelable": false,
+  "range": 0,
+  "casting_type": "Targeting",
+  "casting_target": "AllyOnlySelf",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:hanabi_equinox"
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_hanabi.skill2",
+  "duration": 22,
+  "cooltime": 420,
+  "start_timing": 3,
+  "cancelable": false,
+  "range": 86000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:hanabi_soul_scroll"
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_hanabi.ult",
+  "duration": 30,
+  "cooltime": 1200,
+  "start_timing": 4,
+  "cancelable": false,
+  "range": 100000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:hanabi_ultimate"
+  }
+ },
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "hanabi_basic_higanbana",
+   "anim": "asset/mlbb_heroes/effects/hanabi_basic_petal",
+   "tag": "petal",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "hanabi_petal_blade",
+   "anim": "asset/mlbb_heroes/effects/hanabi_basic_petal",
+   "tag": "petal",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "hanabi_soul_scroll",
+   "anim": "asset/mlbb_heroes/effects/hanabi_soul_scroll",
+   "tag": "scroll",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "hanabi_ult_higanbana",
+   "anim": "asset/mlbb_heroes/effects/hanabi_ult_projectile",
+   "tag": "projectile",
+   "z": 1,
+   "repeat": true
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "hanabi_equinox_shield",
+   "anim": "asset/mlbb_heroes/effects/hanabi_equinox_shield",
+   "tag": "loop",
+   "z": 1,
+   "is_follow": true,
+   "repeat": true
+  },
+  {
+   "type": "Animation",
+   "name": "hanabi_soul_mark_burst",
+   "anim": "asset/mlbb_heroes/effects/hanabi_soul_mark_burst",
+   "tag": "apply",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "hanabi_soul_mark_consume",
+   "anim": "asset/mlbb_heroes/effects/hanabi_soul_mark_burst",
+   "tag": "consume",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "hanabi_ult_bloom",
+   "anim": "asset/mlbb_heroes/effects/hanabi_ult_bloom",
+   "tag": "bloom",
+   "z": 2,
+   "is_follow": false
+  }
+ ],
+ "passive": {
+  "passive_ref": "mlbb_heroes:hanabi_passive",
+  "params": {}
+ },
+ "stack_skill_index": 0,
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_hanabi_soul_mark",
+   "anim": "asset/mlbb_heroes/effects/hanabi_soul_mark",
+   "tag": "mark",
+   "z": 3
+  }
+ ]
+}

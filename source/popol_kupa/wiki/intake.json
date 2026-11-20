@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Popolandkupa.select.ogg",
+    "error": "HTTP Error 402: Payment Required"
+  },
+  {
+    "name": "Popolandkupa.move01.ogg",
+    "error": "HTTP Error 402: Payment Required"
+  },
+  {
+    "name": "Popolandkupa.move03.ogg",
+    "error": "HTTP Error 402: Payment Required"
+  },
+  {
+    "name": "Popolandkupa.move08.ogg",
+    "error": "HTTP Error 402: Payment Required"
+  },
+  {
+    "name": "Popolandkupa.skill01.ogg",
+    "error": "HTTP Error 402: Payment Required"
+  },
+  {
+    "name": "Popolandkupa.skill03.ogg",
+    "error": "HTTP Error 402: Payment Required"
+  },
+  {
+    "name": "Popolandkupa.ult.ogg",
+    "error": "HTTP Error 402: Payment Required"
+  },
+  {
+    "name": "Popolandkupa.death01.ogg",
+    "error": "HTTP Error 402: Payment Required"
+  },
+  {
+    "name": "9410.webp",
+    "url": "https://metammo.com/images/mlbb/skills/popol-and-kupa-9410.webp",
+    "bytes": 3818,
+    "sha256": "94dcbb6e7fc443cc6da04cb7eb7925c96835dfcbb51e9821ca4cf413d4218d0c"
+  },
+  {
+    "name": "9420.webp",
+    "url": "https://metammo.com/images/mlbb/skills/popol-and-kupa-9420.webp",
+    "bytes": 3996,
+    "sha256": "a781b36eb50e81bb8d39cf137082f0fbc6357cffaaa3bc2604c6a5078a88f4d2"
+  },
+  {
+    "name": "9440.webp",
+    "url": "https://metammo.com/images/mlbb/skills/popol-and-kupa-9440.webp",
+    "bytes": 3888,
+    "sha256": "04652688f2b1a7d79c0ee0a071eb8ad674a871c0bdc433bd5e1aca352ce1bd99"
+  },
+  {
+    "name": "9450.webp",
+    "url": "https://metammo.com/images/mlbb/skills/popol-and-kupa-9450.webp",
+    "bytes": 4072,
+    "sha256": "dc6645041569835f84f98abc2b4db218bfbd7315ee4377b507f6644b269222e8"
+  }
+]

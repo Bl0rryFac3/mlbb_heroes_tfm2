@@ -1,0 +1,260 @@
+{
+ "id": "mlbb_chou",
+ "category": "Melee",
+ "tags": [
+  "AD",
+  "Melee",
+  "CC"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/chou",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/chou_skill",
+  "asset/mlbb_heroes/icons/chou_skill2",
+  "asset/mlbb_heroes/icons/chou_ult"
+ ],
+ "stat": {
+  "attack": 107,
+  "magic_power": 0,
+  "hp": 790,
+  "defence": 33,
+  "magic_resistance": 24,
+  "move_speed": 1080,
+  "hp_regen": 8,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 5,
+  "magic_power": 0,
+  "hp": 102,
+  "defence": 3,
+  "magic_resistance": 2,
+  "move_speed": 0,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_chou.attack",
+  "duration": 20,
+  "cooltime": 54,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 15000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:chou_basic_attack"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_chou.skill",
+  "duration": 45,
+  "cooltime": 540,
+  "cooltime_use_count": 3,
+  "start_timing": 2,
+  "cancelable": false,
+  "range": 67000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "SwitchByBuff",
+     "buff_name": "mlbb_chou_s1_stage3",
+     "effect_buff": {
+      "type": "Combine",
+      "effects": [
+       {
+        "type": "CasterAnimation",
+        "name": "skill_finisher",
+        "tick": 45
+       },
+       {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:audio_voice_chou_skill1_b"
+       },
+       {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:chou_s1_third"
+       },
+       {
+        "type": "Delayed",
+        "tick": 9,
+        "effects": [
+         {
+          "type": "Native",
+          "effect_ref": "mlbb_heroes:chou_s1_third_impact"
+         },
+         {
+          "type": "RangeEffect",
+          "shape": {
+           "Circle": {
+            "radius": 30000
+           }
+          },
+          "target": "EnemyWithoutTower",
+          "apply_type": "AroundCaster",
+          "effects": [
+           {
+            "type": "Airborne",
+            "duration": 30
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     "effect_none": {
+      "type": "SwitchByBuff",
+      "buff_name": "mlbb_chou_s1_stage2",
+      "effect_buff": {
+       "type": "Combine",
+       "effects": [
+        {
+         "type": "CasterAnimation",
+         "name": "skill_recast",
+         "tick": 45
+        },
+        {
+         "type": "Native",
+         "effect_ref": "mlbb_heroes:chou_s1_second"
+        }
+       ]
+      },
+      "effect_none": {
+       "type": "Combine",
+       "effects": [
+        {
+         "type": "CasterAnimation",
+         "name": "skill",
+         "tick": 45
+        },
+        {
+         "type": "Native",
+         "effect_ref": "mlbb_heroes:audio_voice_chou_skill1_a"
+        },
+        {
+         "type": "Native",
+         "effect_ref": "mlbb_heroes:chou_s1_first"
+        }
+       ]
+      }
+     }
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_chou.skill2",
+  "duration": 50,
+  "cooltime": 390,
+  "start_timing": 1,
+  "cancelable": false,
+  "range": 95000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_chou_skill2"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:chou_s2_start"
+    },
+    {
+     "type": "MoveTo",
+     "speed": 3000,
+     "range": 30000,
+     "end_effects": [
+      {
+       "type": "Native",
+       "effect_ref": "mlbb_heroes:chou_s2_end"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_chou.ult",
+  "duration": 60,
+  "cooltime": 1980,
+  "start_timing": 1,
+  "cancelable": false,
+  "range": 20000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:chou_ult_range"
+    },
+    {
+     "type": "SwitchByBuff",
+     "buff_name": "mlbb_chou_ult_recast",
+     "effect_buff": {
+      "type": "Combine",
+      "effects": [
+       {
+        "type": "CasterAnimation",
+        "name": "ult_recast",
+        "tick": 60
+       },
+       {
+        "type": "Airborne",
+        "duration": 60
+       },
+       {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:chou_ult_recast"
+       }
+      ]
+     },
+     "effect_none": {
+      "type": "Combine",
+      "effects": [
+       {
+        "type": "CasterAnimation",
+        "name": "ult",
+        "tick": 44
+       },
+       {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:audio_voice_chou_ult"
+       },
+       {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:chou_ult_first"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:chou_only_fast",
+  "params": {}
+ }
+}

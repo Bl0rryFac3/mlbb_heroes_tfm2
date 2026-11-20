@@ -1,0 +1,1628 @@
+{
+  "id": "mlbb_atlas",
+  "category": "Tank",
+  "tags": [
+    "AD",
+    "AP",
+    "Melee",
+    "CC",
+    "Tank"
+  ],
+  "sprite": "asset/mlbb_heroes/sprite/atlas_carrier",
+  "anim_prefix": "",
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/atlas_skill",
+    "asset/mlbb_heroes/icons/atlas_skill2",
+    "asset/mlbb_heroes/icons/atlas_ult"
+  ],
+  "stat": {
+    "attack": 90,
+    "magic_power": 20,
+    "hp": 870,
+    "defence": 40,
+    "magic_resistance": 27,
+    "move_speed": 1040,
+    "hp_regen": 9,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "growth": {
+    "attack": 4,
+    "magic_power": 4,
+    "hp": 115,
+    "defence": 4,
+    "magic_resistance": 3,
+    "move_speed": 0,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_atlas.attack",
+    "duration": 22,
+    "cooltime": 56,
+    "start_timing": 5,
+    "cancelable": true,
+    "range": 24000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "BaseAttack",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Native",
+          "effect_ref": "mlbb_heroes:atlas_basic"
+        },
+        {
+          "type": "Attack",
+          "damage": 0,
+          "attack_ratio": 100,
+          "attack_effect_type": "Target"
+        }
+      ]
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_atlas.skill",
+    "duration": 1,
+    "cooltime": 420,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 30000,
+    "casting_type": "None",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:atlas_annihilate"
+    }
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_atlas.skill2",
+    "duration": 1,
+    "cooltime": 600,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 55000,
+    "casting_type": "None",
+    "casting_target": "EnemyChampion",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:atlas_perfect_match"
+    }
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_atlas.ult",
+    "duration": 1,
+    "cooltime": 2040,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 42000,
+    "casting_type": "None",
+    "casting_target": "EnemyChampion",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:atlas_fatal_links"
+    }
+  },
+  "passive": {
+    "passive_ref": "mlbb_heroes:atlas"
+  },
+  "stack_skill_index": 0,
+  "view_effects": [
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_dead",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "dead",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_dead_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "dead",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_annihilate_pulse",
+      "anim": "asset/mlbb_heroes/effects/atlas_annihilate_pulse",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_ejection_flash",
+      "anim": "asset/mlbb_heroes/effects/atlas_ejection_flash",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_freeze_impact",
+      "anim": "asset/mlbb_heroes/effects/atlas_freeze_impact",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_frost_exposure",
+      "anim": "asset/mlbb_heroes/effects/atlas_frost_exposure",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_link_head",
+      "anim": "asset/mlbb_heroes/effects/atlas_link_head",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_pilot_dead",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_dead",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_pilot_dead_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_dead_left",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_reunion_slow",
+      "anim": "asset/mlbb_heroes/effects/atlas_reunion_slow",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_reunion_stun",
+      "anim": "asset/mlbb_heroes/effects/atlas_reunion_stun",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_sentry_wake",
+      "anim": "asset/mlbb_heroes/effects/atlas_sentry_wake",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_fx_slam_impact",
+      "anim": "asset/mlbb_heroes/effects/atlas_slam_impact",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow",
+      "tag": "pose_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_follow_left_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_follow_left",
+      "tag": "pose_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1",
+      "tag": "pose_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_suit_s1_left_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_suit_s1_left",
+      "tag": "pose_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_0_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a0_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_1_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a1_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_2_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a2_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_3_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a3_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_4_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a4_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_5_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a5_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_6_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a6_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_7_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a7_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_8_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a8_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_9_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a9_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_10_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a10_8",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_0",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_1",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_2",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_3",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_4",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_5",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_6",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_7",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_atlas_chain_11_8",
+      "anim": "asset/mlbb_heroes/effects/atlas_chain_world",
+      "tag": "a11_8",
+      "z": 2,
+      "is_follow": false
+    }
+  ],
+  "view_buffs": [
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_idle",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "idle",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_run",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "run",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_attack",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "attack",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_skill",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "skill",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_skill2",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "skill2",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_ult",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "ult",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_hit",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "hit",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_rejoin",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "rejoin",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_ult_slam",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig",
+      "tag": "ult_slam",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_idle_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "idle",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_run_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "run",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_attack_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "attack",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_skill_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "skill",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_skill2_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "skill2",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_ult_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "ult",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_hit_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "hit",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_rejoin_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "rejoin",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_ult_slam_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_left",
+      "tag": "ult_slam",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_frigid_breath",
+      "anim": "asset/mlbb_heroes/effects/atlas_frost_aura",
+      "tag": "main",
+      "z": 0
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_attack",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_attack",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_attack_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_attack_left",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_exit",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_exit",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_exit_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_exit_left",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_hit",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_hit",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_hit_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_hit_left",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_idle",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_idle",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_idle_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_idle_left",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_move",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_move",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_move_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_move_left",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_s1",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_s1",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_s1_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_s1_left",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_ult",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_ult",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_pose_pilot_ult_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_pilot_ult_left",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_s1_ice",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_s1_ice_overflow",
+      "tag": "main",
+      "z": 2
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_atlas_s1_ice_left",
+      "anim": "asset/mlbb_heroes/effects/atlas_rig_s1_ice_overflow_left",
+      "tag": "main",
+      "z": 2
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+--- a/src/balmond.rs
++++ b/src/balmond.rs
+@@ -50,6 +50,14 @@
+ fn distance(a: (u64, u64), b: (u64, u64)) -> f64 {
+     (a.0 as f64 - b.0 as f64).hypot(a.1 as f64 - b.1 as f64)
+ }
++fn path_projection(origin: (u64, u64), point: (u64, u64), ux: f64, uy: f64) -> (f64, f64) {
++    let px = point.0 as f64 - origin.0 as f64;
++    let py = point.1 as f64 - origin.1 as f64;
++    (px * ux + py * uy, (px * uy - py * ux).abs())
++}
++fn soul_lock_damage(attack: usize, level: usize) -> usize {
++    level_linear(150, 275, level).saturating_add(percent(attack, 60))
++}
+ fn has_buff(sim: &StableSim<'_>, id: usize, name: &str) -> bool {
+     sim.get_entity(id).is_some_and(|e| {
+         (0..e.buff_count())
+@@ -189,7 +197,7 @@
+ struct BalmondSoulLockPath;
+ impl StableEffectType for BalmondSoulLockPath {
+     fn apply(&self, sim: &mut StableSim<'_>, _: u64, caster: usize, input: InputTargetV1) {
+-        if input.kind != InputTargetKindV1::Target.code() {
++        if input.kind != InputTargetKindV1::Dir.code() {
+             return;
+         }
+         let Some((start, team, attack, level)) = sim
+@@ -198,38 +206,54 @@
+         else {
+             return;
+         };
+-        let Some(end) = sim.get_entity(input.target_id).map(|e| e.pos()) else {
+-            return;
+-        };
+-        let (ax, ay) = (start.0 as f64, start.1 as f64);
+-        let (dx, dy) = (end.0 as f64 - ax, end.1 as f64 - ay);
+-        let len2 = dx * dx + dy * dy;
+-        if len2 < 1.0 {
++        let (dx, dy) = (input.dir_x as f64, input.dir_y as f64);
++        let len = dx.hypot(dy);
++        if len < 1.0 {
+             return;
+         }
+-        let damage = level_linear(150, 275, level).saturating_add(percent(attack, 60));
++        let (ux, uy) = (dx / len, dy / len);
++        let damage = soul_lock_damage(attack, level);
+         let ids: Vec<usize> = (0..sim.entity_count())
+             .filter_map(|i| sim.entity_at(i).map(|e| e.id()))
+             .collect();
+-        for id in ids {
+-            if id == input.target_id {
++
++        // RushTime collides with champions and stops on the first one. Limit the
++        // cast-time minion scan to the same path so it cannot damage units beyond
++        // the champion that will stop the dash. The collision hit itself is handled
++        // by BalmondSoulLockHit, avoiding a double hit on the champion.
++        let mut stop_at = 90_000.0_f64;
++        for id in &ids {
++            let Some(target) = sim.get_entity(*id) else {
++                continue;
++            };
++            if target.team() == team
++                || !target.is_alive()
++                || !target.is_targetable()
++                || !target.is_champion()
++                || target.is_tower()
++            {
+                 continue;
+             }
++            let (along, across) = path_projection(start, target.pos(), ux, uy);
++            if along >= 0.0 && along <= stop_at && across <= 20_000.0 {
++                stop_at = along;
++            }
++        }
++
++        for id in ids {
+             let Some(target) = sim.get_entity(id) else {
+                 continue;
+             };
+             if target.team() == team
+                 || !target.is_alive()
+                 || !target.is_targetable()
++                || target.is_champion()
+                 || target.is_tower()
+             {
+                 continue;
+             }
+-            let pos = target.pos();
+-            let (px, py) = (pos.0 as f64 - ax, pos.1 as f64 - ay);
+-            let t = ((px * dx + py * dy) / len2).clamp(0.0, 1.0);
+-            let (cx, cy) = (ax + t * dx, ay + t * dy);
+-            if (pos.0 as f64 - cx).hypot(pos.1 as f64 - cy) > 20_000.0 {
++            let (along, across) = path_projection(start, target.pos(), ux, uy);
++            if along < 0.0 || along > stop_at || across > 20_000.0 {
+                 continue;
+             }
+             sim.deal_damage(caster, id, damage, 0, AttackTypeV1::Skill);
+@@ -246,6 +270,7 @@
+             || !sim.get_entity(target).is_some_and(|e| {
+                 e.is_alive()
+                     && e.is_targetable()
++                    && e.is_champion()
+                     && e.team() != sim.get_entity(caster).map_or(usize::MAX, |c| c.team())
+                     && !e.is_tower()
+             })
+@@ -257,7 +282,7 @@
+         };
+         let level = me.level().max(1);
+         let attack = me.stat().attack;
+-        let damage = level_linear(150, 275, level).saturating_add(percent(attack, 60));
++        let damage = soul_lock_damage(attack, level);
+         let is_hero = sim.get_entity(target).is_some_and(|e| e.is_champion());
+         sim.deal_damage(caster, target, damage, 0, AttackTypeV1::Skill);
+         if is_hero {
+@@ -357,7 +382,8 @@
+ #[cfg(test)]
+ mod tests {
+     use super::{
+-        distance, level_linear, missing_hp_damage, percent, ult_nonhero_cap, ult_ratio_tenths_pct,
++        distance, level_linear, missing_hp_damage, path_projection, percent, soul_lock_damage,
++        ult_nonhero_cap, ult_ratio_tenths_pct,
+     };
+     #[test]
+     fn bloodthirst_amounts_match_current_reference() {
+@@ -370,6 +396,13 @@
+         assert_eq!(level_linear(30, 55, 15), 55);
+     }
+     #[test]
++    fn soul_lock_damage_and_direction_geometry_are_stable() {
++        assert_eq!(soul_lock_damage(100, 1), 210);
++        assert_eq!(soul_lock_damage(100, 15), 335);
++        assert_eq!(path_projection((0, 0), (30_000, 4_000), 1.0, 0.0), (30_000.0, 4_000.0));
++        assert_eq!(path_projection((0, 0), (30_000, 4_000), 0.0, 1.0), (4_000.0, 30_000.0));
++    }
++    #[test]
+     fn ultimate_uses_missing_hp_and_three_level_brackets() {
+         assert_eq!(missing_hp_damage(2000, 1000, 300), 300);
+         assert_eq!(ult_ratio_tenths_pct(1), 300);
+--- a/champion/mlbb_balmond.data_champion
++++ b/champion/mlbb_balmond.data_champion
+@@ -61,7 +61,7 @@
+     "start_timing": 0,
+     "cancelable": false,
+     "range": 90000,
+-    "casting_type": "Targeting",
++    "casting_type": "Direction",
+     "casting_target": "EnemyChampion",
+     "attack_type": "Skill",
+     "can_use_with_move": true,
+@@ -77,13 +77,19 @@
+           "effect_ref": "mlbb_heroes:balmond_soul_lock_path"
+         },
+         {
+-          "type": "MoveToTarget",
++          "type": "RushTime",
+           "speed": 7000,
++          "tick": 13,
+           "range": 90000,
+-          "end_effects": [
++          "casting_target": "EnemyChampion",
++          "penetrate": false,
++          "applied_effects": [
+             {
+-              "type": "Native",
+-              "effect_ref": "mlbb_heroes:balmond_soul_lock_hit"
++              "casting_type": "Targeting",
++              "effect": {
++                "type": "Native",
++                "effect_ref": "mlbb_heroes:balmond_soul_lock_hit"
++              }
+             }
+           ]
+         }
+--- a/mod.mod_info
++++ b/mod.mod_info
+@@ -8,2 +8,2 @@
+-  "last_updated": "2026-10-30",
+-  "description": "Distinct Balmond native champion candidate targeting TFM2 0.7.0, based on the preserved MLBB Heroes 1.1.63 source baseline. Includes Bloodthirst, Soul Lock, Cyclone Sweep and Lethal Counter, staged default art/audio, and documented TFM2 timing/geometry adaptations. Static validation complete; in-game verification pending.",
++  "last_updated": "2026-10-31",
++  "description": "Distinct Balmond v2 candidate targeting TFM2 0.7.0. Soul Lock now accepts directional RushTime input; static audit passed, but full build and in-game validation are pending.",

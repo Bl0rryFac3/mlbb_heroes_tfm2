@@ -1,0 +1,28 @@
+{
+  "baseline": {
+    "drive_url": "https://drive.google.com/file/d/1lx7pDQGqdCs2ga7jznuC6YKU5VcJd_sB/view",
+    "filename": "MLBB_Heroes_TFM2_v1.1.122_v21_full_source_with_SDK_v2.2.0-rc.2.zip",
+    "sha256": "fe308acad904a8f95bb465b21a06fe2073e9ad329e0b6da37e8aed02b4adc948",
+    "internal_version": "1.1.122",
+    "public_baseline": "v2.2.0-rc.2; owner confirmed and published Eudora",
+    "source_files_verified_against_local": true
+  },
+  "source_check": "PASS",
+  "combined_rust_tests": 316,
+  "existing_tests": 300,
+  "new_julian_tests": 16,
+  "tool_tests": 2,
+  "schema_checks_pass": 4,
+  "schema_warn": 0,
+  "schema_fail": 0,
+  "view_bindings": 333,
+  "old_hero_text_preserved_all_eight_locales": true,
+  "actual_art_present": false,
+  "windows_release_built": false,
+  "in_game_tested": false,
+  "paid_generation_credits_used": 0,
+  "source_sha256": {
+    "julian.rs": "5267db9af08c4865694fc57ec081a9321aa4bbabc6ece072f9f5bc1ea892fc5f",
+    "julian_tests.rs": "1fd9f9dea7e16f45aae33da1a05afc678c48ec1cccb85e7422695832fe5bbad4"
+  }
+}

@@ -1,0 +1,1445 @@
+{
+ "id": "mlbb_angela",
+ "category": "Util",
+ "sprite": "asset/mlbb_heroes/sprite/angela",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/angela_skill",
+  "asset/mlbb_heroes/icons/angela_skill2",
+  "asset/mlbb_heroes/icons/angela_ult"
+ ],
+ "stat": {
+  "attack": 82,
+  "magic_power": 58,
+  "hp": 700,
+  "defence": 22,
+  "magic_resistance": 28,
+  "move_speed": 1040,
+  "hp_regen": 7,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 3,
+  "magic_power": 8,
+  "hp": 90,
+  "defence": 3,
+  "magic_resistance": 3,
+  "move_speed": 0,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_angela.attack",
+  "duration": 20,
+  "cooltime": 60,
+  "start_timing": 6,
+  "cancelable": true,
+  "range": 88000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "TargetProjectile",
+   "speed": 7200,
+   "name": "angela_heart_bolt",
+   "y_offset": 0,
+   "applied_target": "Enemy",
+   "applied_effects": [
+    {
+     "effect": {
+      "type": "Attack",
+      "damage": 0,
+      "attack_ratio": 100,
+      "attack_effect_type": "Target"
+     },
+     "casting_type": "Targeting"
+    }
+   ]
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_angela.skill",
+  "duration": 24,
+  "cooltime": 300,
+  "start_timing": 2,
+  "cancelable": true,
+  "range": 92000,
+  "casting_type": "Position",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "cooltime_use_count": 5,
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_angela_skill"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:angela_love_waves"
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_angela.skill2",
+  "duration": 24,
+  "cooltime": 480,
+  "start_timing": 3,
+  "cancelable": true,
+  "range": 95000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_angela_skill"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:angela_puppet_string"
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_angela.ult",
+  "duration": 30,
+  "cooltime": 2400,
+  "start_timing": 4,
+  "cancelable": false,
+  "range": 30000000,
+  "casting_type": "Targeting",
+  "casting_target": "AllyChampion",
+  "attack_type": "Skill",
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_angela_ult"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:angela_heartguard"
+    }
+   ]
+  }
+ },
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "angela_heart_bolt",
+   "anim": "asset/mlbb_heroes/effects/angela_heart_bolt",
+   "tag": "heart_bolt",
+   "z": 1,
+   "repeat": true
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "angela_immobilize",
+   "anim": "asset/mlbb_heroes/effects/angela_immobilize",
+   "tag": "immobilize",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_0",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_1",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_2",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_3",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_4",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_5",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_6",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_7",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_8",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_9",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_9",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_10",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_10",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wire_11",
+   "anim": "asset/mlbb_heroes/effects/angela_puppet_wire",
+   "tag": "wire_11",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_0_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_0_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_1_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_1_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_2_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_2_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_3_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_3_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_4_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_4_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_5_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_5_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_6_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_6_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_7_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_7_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_8_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_8_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_9_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_9_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_10_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_10_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_11_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_11_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_12_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_12_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_13_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_13_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_14_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_14_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_0",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_1",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_2",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_3",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_4",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_5",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_6",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_7",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_wave_15_8",
+   "anim": "asset/mlbb_heroes/effects/angela_love_wave",
+   "tag": "wave_15_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "angela_attached_doll",
+   "anim": "asset/mlbb_heroes/effects/angela_attached_doll_overlay",
+   "tag": "attached_doll",
+   "z": 3,
+   "is_follow": true
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_angela_heartguard",
+   "anim": "asset/mlbb_heroes/effects/angela_heartguard_shield",
+   "tag": "heartguard_shield",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_heroes_angela_lovers_mark",
+   "anim": "asset/mlbb_heroes/effects/angela_lovers_mark",
+   "tag": "lovers_mark",
+   "z": 2
+  }
+ ],
+ "passive": {
+  "passive_ref": "mlbb_heroes:angela_smart_heart",
+  "params": {}
+ },
+ "stack_skill_index": 0,
+ "tags": [
+  "AP",
+  "Heal",
+  "Shield",
+  "Range",
+  "CC"
+ ]
+}

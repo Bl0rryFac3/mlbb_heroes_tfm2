@@ -1,0 +1,680 @@
+{
+ "cell_width": 72,
+ "cell_height": 72,
+ "columns": 15,
+ "rows": [
+  "idle",
+  "run",
+  "attack",
+  "skill",
+  "skill2",
+  "ult",
+  "hit",
+  "dead"
+ ],
+ "pivot": {
+  "feet_x": 34.0,
+  "ground_y": 55.0,
+  "note": "feet centre at x=34, bottom edge of boots at y=55 inside every 72x72 cell (same as Fanny)"
+ },
+ "animations": {
+  "idle": {
+   "source": "estes-idle.png",
+   "frame_count": 8,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      8
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "run": {
+   "source": "estes-walk.png",
+   "frame_count": 6,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      8
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "attack": {
+   "source": "estes-basic_attack.png",
+   "frame_count": 13,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1,
+      2,
+      3
+     ],
+     "hold": 3
+    },
+    {
+     "col": 1,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      10
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      11
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      12
+     ],
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": [
+      13
+     ],
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": [
+      14
+     ],
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": [
+      15
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "skill": {
+   "source": "estes-skill1.png",
+   "frame_count": 14,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      10
+     ],
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": [
+      11
+     ],
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": [
+      12
+     ],
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": [
+      13
+     ],
+     "hold": 1
+    },
+    {
+     "col": 13,
+     "src": [
+      14
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "skill2": {
+   "source": "estes-skill2.png",
+   "frame_count": 14,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      10
+     ],
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": [
+      11
+     ],
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": [
+      12
+     ],
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": [
+      13
+     ],
+     "hold": 1
+    },
+    {
+     "col": 13,
+     "src": [
+      14
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "ult": {
+   "source": "estes-ult.png",
+   "frame_count": 15,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      10
+     ],
+     "hold": 1
+    },
+    {
+     "col": 10,
+     "src": [
+      11
+     ],
+     "hold": 1
+    },
+    {
+     "col": 11,
+     "src": [
+      12
+     ],
+     "hold": 1
+    },
+    {
+     "col": 12,
+     "src": [
+      13
+     ],
+     "hold": 1
+    },
+    {
+     "col": 13,
+     "src": [
+      14
+     ],
+     "hold": 1
+    },
+    {
+     "col": 14,
+     "src": [
+      15
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "hit": {
+   "source": "estes-dead.png (frames 2,3,4,3,2,1 reused)",
+   "frame_count": 6,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      "dead 2"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      "dead 3"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      "dead 4"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      "dead 3"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      "dead 2"
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      "dead 1"
+     ],
+     "hold": 1
+    }
+   ]
+  },
+  "dead": {
+   "source": "estes-dead.png",
+   "frame_count": 10,
+   "frames": [
+    {
+     "col": 0,
+     "src": [
+      1
+     ],
+     "hold": 1
+    },
+    {
+     "col": 1,
+     "src": [
+      2
+     ],
+     "hold": 1
+    },
+    {
+     "col": 2,
+     "src": [
+      3
+     ],
+     "hold": 1
+    },
+    {
+     "col": 3,
+     "src": [
+      4
+     ],
+     "hold": 1
+    },
+    {
+     "col": 4,
+     "src": [
+      5
+     ],
+     "hold": 1
+    },
+    {
+     "col": 5,
+     "src": [
+      6
+     ],
+     "hold": 1
+    },
+    {
+     "col": 6,
+     "src": [
+      7
+     ],
+     "hold": 1
+    },
+    {
+     "col": 7,
+     "src": [
+      8
+     ],
+     "hold": 1
+    },
+    {
+     "col": 8,
+     "src": [
+      9
+     ],
+     "hold": 1
+    },
+    {
+     "col": 9,
+     "src": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+     ],
+     "hold": 7
+    }
+   ]
+  }
+ }
+}

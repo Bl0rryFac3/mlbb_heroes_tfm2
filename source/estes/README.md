@@ -1,0 +1,5 @@
+# Estes source and adaptation assets
+
+This folder preserves the user-supplied Claude atlas/JSON, all seven raw character sheets, and six raw effect sheets. The active character atlas is used without reprocessing: 72×72 cells, 15 columns, shared pivot x=34/y=55. Official Estes Default icons are kept under `icons/fandom/`; the previous VFX-derived icon drafts remain under `icons/vfx-derived/`.
+
+`asset_manifest.json` records animation frame-source mappings and effect-sheet decisions. Skill 2's animated ring uses only the final-size lower-row frames; the moon-top crescent is a separate static visual and the back aura is a separate four-frame loop. The Skill 1 tether uses the transparent user-supplied art in `tether_art_original.png`. `tools/prepare_estes_tether_assets.py` crops and feathers a repeat tile, then builds 12 directional sprite frames used by native `play_view_effect` calls from live match/replay endpoints. Overlapping sprites refresh every two ticks; this is not yet verified in TFM2. The basic projectile cells are downscaled for gameplay. `hit` is derived from death poses 2,3,4,3,2,1; it is not a separately supplied hit animation.

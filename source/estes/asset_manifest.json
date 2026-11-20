@@ -1,0 +1,864 @@
+{
+  "character_source": {
+    "atlas": "estes_atlas.png",
+    "manifest": "estes_atlas.json",
+    "cell": [
+      72,
+      72
+    ],
+    "columns": 15,
+    "rows": [
+      "idle",
+      "run",
+      "attack",
+      "skill",
+      "skill2",
+      "ult",
+      "hit",
+      "dead"
+    ],
+    "pivot": {
+      "feet_x": 34.0,
+      "ground_y": 55.0,
+      "note": "feet centre at x=34, bottom edge of boots at y=55 inside every 72x72 cell (same as Fanny)"
+    },
+    "animations": {
+      "idle": {
+        "frame_count": 8,
+        "frames": [
+          {
+            "col": 0,
+            "src": [
+              1
+            ],
+            "hold": 1
+          },
+          {
+            "col": 1,
+            "src": [
+              2
+            ],
+            "hold": 1
+          },
+          {
+            "col": 2,
+            "src": [
+              3
+            ],
+            "hold": 1
+          },
+          {
+            "col": 3,
+            "src": [
+              4
+            ],
+            "hold": 1
+          },
+          {
+            "col": 4,
+            "src": [
+              5
+            ],
+            "hold": 1
+          },
+          {
+            "col": 5,
+            "src": [
+              6
+            ],
+            "hold": 1
+          },
+          {
+            "col": 6,
+            "src": [
+              7
+            ],
+            "hold": 1
+          },
+          {
+            "col": 7,
+            "src": [
+              8
+            ],
+            "hold": 1
+          }
+        ]
+      },
+      "run": {
+        "frame_count": 6,
+        "frames": [
+          {
+            "col": 0,
+            "src": [
+              3
+            ],
+            "hold": 1
+          },
+          {
+            "col": 1,
+            "src": [
+              4
+            ],
+            "hold": 1
+          },
+          {
+            "col": 2,
+            "src": [
+              5
+            ],
+            "hold": 1
+          },
+          {
+            "col": 3,
+            "src": [
+              6
+            ],
+            "hold": 1
+          },
+          {
+            "col": 4,
+            "src": [
+              7
+            ],
+            "hold": 1
+          },
+          {
+            "col": 5,
+            "src": [
+              8
+            ],
+            "hold": 1
+          }
+        ]
+      },
+      "attack": {
+        "frame_count": 13,
+        "frames": [
+          {
+            "col": 0,
+            "src": [
+              1,
+              2,
+              3
+            ],
+            "hold": 3
+          },
+          {
+            "col": 1,
+            "src": [
+              4
+            ],
+            "hold": 1
+          },
+          {
+            "col": 2,
+            "src": [
+              5
+            ],
+            "hold": 1
+          },
+          {
+            "col": 3,
+            "src": [
+              6
+            ],
+            "hold": 1
+          },
+          {
+            "col": 4,
+            "src": [
+              7
+            ],
+            "hold": 1
+          },
+          {
+            "col": 5,
+            "src": [
+              8
+            ],
+            "hold": 1
+          },
+          {
+            "col": 6,
+            "src": [
+              9
+            ],
+            "hold": 1
+          },
+          {
+            "col": 7,
+            "src": [
+              10
+            ],
+            "hold": 1
+          },
+          {
+            "col": 8,
+            "src": [
+              11
+            ],
+            "hold": 1
+          },
+          {
+            "col": 9,
+            "src": [
+              12
+            ],
+            "hold": 1
+          },
+          {
+            "col": 10,
+            "src": [
+              13
+            ],
+            "hold": 1
+          },
+          {
+            "col": 11,
+            "src": [
+              14
+            ],
+            "hold": 1
+          },
+          {
+            "col": 12,
+            "src": [
+              15
+            ],
+            "hold": 1
+          }
+        ]
+      },
+      "skill": {
+        "frame_count": 14,
+        "frames": [
+          {
+            "col": 0,
+            "src": [
+              1
+            ],
+            "hold": 1
+          },
+          {
+            "col": 1,
+            "src": [
+              2
+            ],
+            "hold": 1
+          },
+          {
+            "col": 2,
+            "src": [
+              3
+            ],
+            "hold": 1
+          },
+          {
+            "col": 3,
+            "src": [
+              4
+            ],
+            "hold": 1
+          },
+          {
+            "col": 4,
+            "src": [
+              5
+            ],
+            "hold": 1
+          },
+          {
+            "col": 5,
+            "src": [
+              6
+            ],
+            "hold": 1
+          },
+          {
+            "col": 6,
+            "src": [
+              7
+            ],
+            "hold": 1
+          },
+          {
+            "col": 7,
+            "src": [
+              8
+            ],
+            "hold": 1
+          },
+          {
+            "col": 8,
+            "src": [
+              9
+            ],
+            "hold": 1
+          },
+          {
+            "col": 9,
+            "src": [
+              10
+            ],
+            "hold": 1
+          },
+          {
+            "col": 10,
+            "src": [
+              11
+            ],
+            "hold": 1
+          },
+          {
+            "col": 11,
+            "src": [
+              12
+            ],
+            "hold": 1
+          },
+          {
+            "col": 12,
+            "src": [
+              13
+            ],
+            "hold": 1
+          },
+          {
+            "col": 13,
+            "src": [
+              14
+            ],
+            "hold": 1
+          }
+        ]
+      },
+      "skill2": {
+        "frame_count": 14,
+        "frames": [
+          {
+            "col": 0,
+            "src": [
+              1
+            ],
+            "hold": 1
+          },
+          {
+            "col": 1,
+            "src": [
+              2
+            ],
+            "hold": 1
+          },
+          {
+            "col": 2,
+            "src": [
+              3
+            ],
+            "hold": 1
+          },
+          {
+            "col": 3,
+            "src": [
+              4
+            ],
+            "hold": 1
+          },
+          {
+            "col": 4,
+            "src": [
+              5
+            ],
+            "hold": 1
+          },
+          {
+            "col": 5,
+            "src": [
+              6
+            ],
+            "hold": 1
+          },
+          {
+            "col": 6,
+            "src": [
+              7
+            ],
+            "hold": 1
+          },
+          {
+            "col": 7,
+            "src": [
+              8
+            ],
+            "hold": 1
+          },
+          {
+            "col": 8,
+            "src": [
+              9
+            ],
+            "hold": 1
+          },
+          {
+            "col": 9,
+            "src": [
+              10
+            ],
+            "hold": 1
+          },
+          {
+            "col": 10,
+            "src": [
+              11
+            ],
+            "hold": 1
+          },
+          {
+            "col": 11,
+            "src": [
+              12
+            ],
+            "hold": 1
+          },
+          {
+            "col": 12,
+            "src": [
+              13
+            ],
+            "hold": 1
+          },
+          {
+            "col": 13,
+            "src": [
+              14
+            ],
+            "hold": 1
+          }
+        ]
+      },
+      "ult": {
+        "frame_count": 15,
+        "frames": [
+          {
+            "col": 0,
+            "src": [
+              1
+            ],
+            "hold": 1
+          },
+          {
+            "col": 1,
+            "src": [
+              2
+            ],
+            "hold": 1
+          },
+          {
+            "col": 2,
+            "src": [
+              3
+            ],
+            "hold": 1
+          },
+          {
+            "col": 3,
+            "src": [
+              4
+            ],
+            "hold": 1
+          },
+          {
+            "col": 4,
+            "src": [
+              5
+            ],
+            "hold": 1
+          },
+          {
+            "col": 5,
+            "src": [
+              6
+            ],
+            "hold": 1
+          },
+          {
+            "col": 6,
+            "src": [
+              7
+            ],
+            "hold": 1
+          },
+          {
+            "col": 7,
+            "src": [
+              8
+            ],
+            "hold": 1
+          },
+          {
+            "col": 8,
+            "src": [
+              9
+            ],
+            "hold": 1
+          },
+          {
+            "col": 9,
+            "src": [
+              10
+            ],
+            "hold": 1
+          },
+          {
+            "col": 10,
+            "src": [
+              11
+            ],
+            "hold": 1
+          },
+          {
+            "col": 11,
+            "src": [
+              12
+            ],
+            "hold": 1
+          },
+          {
+            "col": 12,
+            "src": [
+              13
+            ],
+            "hold": 1
+          },
+          {
+            "col": 13,
+            "src": [
+              14
+            ],
+            "hold": 1
+          },
+          {
+            "col": 14,
+            "src": [
+              15
+            ],
+            "hold": 1
+          }
+        ]
+      },
+      "hit": {
+        "frame_count": 6,
+        "frames": [
+          {
+            "col": 0,
+            "src": [
+              "dead 2"
+            ],
+            "hold": 1
+          },
+          {
+            "col": 1,
+            "src": [
+              "dead 3"
+            ],
+            "hold": 1
+          },
+          {
+            "col": 2,
+            "src": [
+              "dead 4"
+            ],
+            "hold": 1
+          },
+          {
+            "col": 3,
+            "src": [
+              "dead 3"
+            ],
+            "hold": 1
+          },
+          {
+            "col": 4,
+            "src": [
+              "dead 2"
+            ],
+            "hold": 1
+          },
+          {
+            "col": 5,
+            "src": [
+              "dead 1"
+            ],
+            "hold": 1
+          }
+        ]
+      },
+      "dead": {
+        "frame_count": 10,
+        "frames": [
+          {
+            "col": 0,
+            "src": [
+              1
+            ],
+            "hold": 1
+          },
+          {
+            "col": 1,
+            "src": [
+              2
+            ],
+            "hold": 1
+          },
+          {
+            "col": 2,
+            "src": [
+              3
+            ],
+            "hold": 1
+          },
+          {
+            "col": 3,
+            "src": [
+              4
+            ],
+            "hold": 1
+          },
+          {
+            "col": 4,
+            "src": [
+              5
+            ],
+            "hold": 1
+          },
+          {
+            "col": 5,
+            "src": [
+              6
+            ],
+            "hold": 1
+          },
+          {
+            "col": 6,
+            "src": [
+              7
+            ],
+            "hold": 1
+          },
+          {
+            "col": 7,
+            "src": [
+              8
+            ],
+            "hold": 1
+          },
+          {
+            "col": 8,
+            "src": [
+              9
+            ],
+            "hold": 1
+          },
+          {
+            "col": 9,
+            "src": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "hold": 7
+          }
+        ]
+      }
+    }
+  },
+  "effects": {
+    "link": {
+      "sheet": "estes_link#sheet.png",
+      "fanim": "estes_link#anim.fanim",
+      "tag": "link",
+      "cell_size": [
+        512,
+        64
+      ],
+      "frame_count": 4,
+      "duration": 0.1,
+      "repeat": true,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "domain": {
+      "sheet": "estes_domain#sheet.png",
+      "fanim": "estes_domain#anim.fanim",
+      "tag": "domain",
+      "cell_size": [
+        128,
+        128
+      ],
+      "frame_count": 3,
+      "duration": 0.12,
+      "repeat": true,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "moon_top": {
+      "sheet": "estes_moon_top#sheet.png",
+      "fanim": "estes_moon_top#anim.fanim",
+      "tag": "moon_top",
+      "cell_size": [
+        64,
+        80
+      ],
+      "frame_count": 1,
+      "duration": 1.0,
+      "repeat": false,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "moon_back": {
+      "sheet": "estes_moon_back#sheet.png",
+      "fanim": "estes_moon_back#anim.fanim",
+      "tag": "moon_back",
+      "cell_size": [
+        72,
+        72
+      ],
+      "frame_count": 4,
+      "duration": 0.12,
+      "repeat": true,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "basic_projectile": {
+      "sheet": "estes_basic_projectile#sheet.png",
+      "fanim": "estes_basic_projectile#anim.fanim",
+      "tag": "basic_projectile",
+      "cell_size": [
+        32,
+        16
+      ],
+      "frame_count": 4,
+      "duration": 0.07,
+      "repeat": true,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "passive_projectile": {
+      "sheet": "estes_passive_projectile#sheet.png",
+      "fanim": "estes_passive_projectile#anim.fanim",
+      "tag": "passive_projectile",
+      "cell_size": [
+        80,
+        64
+      ],
+      "frame_count": 4,
+      "duration": 0.08,
+      "repeat": true,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "passive_proc": {
+      "sheet": "estes_passive_proc#sheet.png",
+      "fanim": "estes_passive_proc#anim.fanim",
+      "tag": "passive_proc",
+      "cell_size": [
+        72,
+        64
+      ],
+      "frame_count": 4,
+      "duration": 0.07,
+      "repeat": false,
+      "anchor": [
+        0.5,
+        0.5
+      ]
+    },
+    "link_wire": {
+      "source_art": "tether_art_original.png",
+      "repeat_tile": "tether_art_repeat_tile.png",
+      "sheet": "estes_link_wire#sheet.png",
+      "fanim": "estes_link_wire#anim.fanim",
+      "tags": [
+        "wire_0",
+        "wire_1",
+        "wire_2",
+        "wire_3",
+        "wire_4",
+        "wire_5",
+        "wire_6",
+        "wire_7",
+        "wire_8",
+        "wire_9",
+        "wire_10",
+        "wire_11"
+      ],
+      "frame_size": [
+        48,
+        48
+      ],
+      "frame_count": 12,
+      "duration": 0.05,
+      "direction_bucket_degrees": 15,
+      "runtime": "Native client-side view-effect sprites refreshed every 2 simulation ticks; 12,000 world-unit nominal spacing; overlapping sprites follow live caster/ally positions."
+    }
+  },
+  "link_binding": {
+    "type": "Native view-effect tether",
+    "effect_names": [
+      "mlbb_heroes_estes_link_wire_0",
+      "mlbb_heroes_estes_link_wire_1",
+      "mlbb_heroes_estes_link_wire_2",
+      "mlbb_heroes_estes_link_wire_3",
+      "mlbb_heroes_estes_link_wire_4",
+      "mlbb_heroes_estes_link_wire_5",
+      "mlbb_heroes_estes_link_wire_6",
+      "mlbb_heroes_estes_link_wire_7",
+      "mlbb_heroes_estes_link_wire_8",
+      "mlbb_heroes_estes_link_wire_9",
+      "mlbb_heroes_estes_link_wire_10",
+      "mlbb_heroes_estes_link_wire_11"
+    ],
+    "refresh_ticks": 2,
+    "direction_buckets": 12,
+    "live_endpoints": true,
+    "source_art": "tether_art_original.png"
+  },
+  "official_icons": {
+    "source_page": "https://mobile-legends.fandom.com/wiki/Estes",
+    "files": [
+      "fandom/estes_passive.png",
+      "fandom/estes_skill.png",
+      "fandom/estes_skill_enhanced.png",
+      "fandom/estes_skill2.png",
+      "fandom/estes_ult.png"
+    ],
+    "active_bindings": [
+      "estes_skill.png",
+      "estes_skill2.png",
+      "estes_ult.png"
+    ]
+  },
+  "notes": [
+    "The user-supplied Estes atlas and its companion JSON are copied unchanged and used directly for the champion animation.",
+    "Official Default skill icons are sourced from the linked Estes Fandom page; the enhanced Skill 1 icon is preserved as an unbound reference asset.",
+    "Skill 2 uses only the final-size lower-row frames from the supplied six-cell zone sheet; the three larger/smaller stage samples are deliberately excluded so the ring never expands.",
+    "Moon-top crescent and moon-back aura are separate assets/bindings. Moon top is static; moon back is a subtle four-frame loop.",
+    "Hit animation is derived from death frames 2,3,4,3,2,1 and is not a supplied hit sheet.",
+    "Skill 1 and Ultimate tethers use the transparent tether artwork in native view effects. The sprite atlas contains 12 directional variants, refreshed from live caster/ally positions every two ticks; no projectile-pulse or debug-line renderer is used. In-game visibility remains to be verified."
+  ]
+}

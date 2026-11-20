@@ -1,0 +1,310 @@
+{
+ "id": "mlbb_lancelot",
+ "category": "Assassin",
+ "tags": [
+  "AD",
+  "Melee"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/lancelot",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/lancelot_skill",
+  "asset/mlbb_heroes/icons/lancelot_skill2",
+  "asset/mlbb_heroes/icons/lancelot_ult"
+ ],
+ "stat": {
+  "attack": 124,
+  "magic_power": 0,
+  "hp": 760,
+  "defence": 24,
+  "magic_resistance": 22,
+  "move_speed": 1150,
+  "hp_regen": 7,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 6,
+  "magic_power": 0,
+  "hp": 100,
+  "defence": 4,
+  "magic_resistance": 3,
+  "move_speed": 5,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_lancelot.attack",
+  "duration": 20,
+  "cooltime": 55,
+  "start_timing": 8,
+  "cancelable": true,
+  "range": 24000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_lancelot_basic"
+    },
+    {
+     "type": "CasterViewEffect",
+     "name": "mlbb_lancelot_basic_attack_fx"
+    },
+    {
+     "type": "Attack",
+     "damage": 0,
+     "attack_ratio": 100,
+     "attack_effect_type": "Target"
+    }
+   ]
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_lancelot.skill",
+  "duration": 21,
+  "cooltime": 180,
+  "start_timing": 3,
+  "cancelable": false,
+  "range": 90000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_lancelot_skill1"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:lancelot_puncture_start"
+    },
+    {
+     "type": "ViewEffect",
+     "name": "mlbb_lancelot_puncture_dash_fx"
+    },
+    {
+     "type": "MoveToTarget",
+     "speed": 6200,
+     "range": 90000,
+     "end_effects": [
+      {
+       "type": "Native",
+       "effect_ref": "mlbb_heroes:lancelot_puncture_hit"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_lancelot.skill2",
+  "duration": 36,
+  "cooltime": 300,
+  "start_timing": 1,
+  "cancelable": false,
+  "range": 64000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_lancelot_skill2"
+    },
+    {
+     "type": "ViewEffect",
+     "name": "mlbb_lancelot_thorned_rose_fx"
+    },
+    {
+     "type": "AddCasterBuff",
+     "only_to_enemy": false,
+     "buff_state": {
+      "name": "mlbb_heroes_lancelot_thorned_rose_guard",
+      "duration": {
+       "Time": {
+        "tick": 36
+       }
+      },
+      "damaged_reduce": 100,
+      "cc_immune": true
+     }
+    },
+    {
+     "type": "LineRangeProjectile",
+     "width": 42000,
+     "length": 64000,
+     "delay": 0,
+     "apply": 1,
+     "name": "mlbb_lancelot_thorned_rose_wave",
+     "applied_target": "EnemyWithoutTower",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:lancelot_thorned_rose_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    },
+    {
+     "type": "LineRangeProjectile",
+     "width": 42000,
+     "length": 64000,
+     "delay": 7,
+     "apply": 1,
+     "name": "mlbb_lancelot_thorned_rose_wave",
+     "applied_target": "EnemyWithoutTower",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:lancelot_thorned_rose_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    },
+    {
+     "type": "LineRangeProjectile",
+     "width": 42000,
+     "length": 64000,
+     "delay": 14,
+     "apply": 1,
+     "name": "mlbb_lancelot_thorned_rose_wave",
+     "applied_target": "EnemyWithoutTower",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:lancelot_thorned_rose_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_lancelot.ult",
+  "duration": 30,
+  "cooltime": 1200,
+  "start_timing": 5,
+  "cancelable": false,
+  "range": 120000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_lancelot_ult"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:lancelot_soul_cutter_charge"
+    },
+    {
+     "type": "AddCasterBuff",
+     "only_to_enemy": false,
+     "buff_state": {
+      "name": "mlbb_heroes_lancelot_phantom_execution_guard",
+      "duration": {
+       "Time": {
+        "tick": 30
+       }
+      },
+      "damaged_reduce": 100,
+      "cc_immune": true
+     }
+    },
+    {
+     "type": "MoveToTarget",
+     "speed": 8200,
+     "range": 160000,
+     "end_effects": [
+      {
+       "type": "Native",
+       "effect_ref": "mlbb_heroes:lancelot_phantom_execution_hit"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "view_projectiles": [],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "mlbb_lancelot_basic_attack_fx",
+   "anim": "asset/mlbb_heroes/effects/lancelot_basic_attack_fx",
+   "tag": "effect",
+   "z": 1,
+   "is_follow": true
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_lancelot_puncture_dash_fx",
+   "anim": "asset/mlbb_heroes/effects/lancelot_puncture_dash",
+   "tag": "effect",
+   "z": 1,
+   "is_follow": true
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_lancelot_puncture_mark",
+   "anim": "asset/mlbb_heroes/effects/lancelot_puncture_mark",
+   "tag": "effect",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_lancelot_thorned_rose_fx",
+   "anim": "asset/mlbb_heroes/effects/lancelot_skill2_fx",
+   "tag": "effect",
+   "z": 1,
+   "is_follow": true
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_lancelot_phantom_execution_fx",
+   "anim": "asset/mlbb_heroes/effects/lancelot_ult_fx",
+   "tag": "effect",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_lancelot_phantom_execution_fx_reverse",
+   "anim": "asset/mlbb_heroes/effects/lancelot_ult_fx_reverse",
+   "tag": "effect",
+   "z": 1,
+   "is_follow": false
+  }
+ ],
+ "passive": {
+  "passive_ref": "mlbb_heroes:lancelot_soul_cutter",
+  "params": {}
+ },
+ "stack_skill_index": 0
+}

@@ -1,0 +1,9 @@
+# Eudora asset sources and transformations
+
+Character and VFX: owner-returned PixelLab animation sheets from the Eudora Drive working folder, based on the previously delivered SpriteCook base frames. Original 18 PNGs are retained under returned/. Character visible RGBA pixels were preserved; compilation changes atlas layout only. VFX receive documented angle variants, transparent terminal frames and small mark scaling. See tools/compile_eudora.py and reports/EUDORA_ASSET_COUNTS.json.
+
+Skill/passive artwork: Mobile Legends Wiki equipment/hero media CDN, filenames Forked_Lightning.png, Ball_Lightning.png, Thunder's_Wrath.png and Superconductor.png. Original downloads are retained in icons/; their payloads are WEBP despite the URL extension, converted to actual PNG for the game. Wiki: https://mobile-legends.fandom.com/wiki/Eudora . These are third-party game assets, not original SpriteCook artwork.
+
+Voice sources: https://mobile-legends.fandom.com/wiki/Eudora/Audio . Exact fourteen default-voice filenames, source URLs and byte counts are in audio/sources.json. Originals are retained as OGG; runtime clips are mono 44.1 kHz PCM WAV with loudness normalization. Removed movement line 07 and cosmetic voice sets were excluded. S2 shares a default skill take because no distinct S2 recording was established. Both ult takes are bundled; the current ultimate cast selects ult01.
+
+Companion cards: mlbb_eudora_passive.png aliases the actual Superconductor icon. mlbb_eudora_base_attack.png reuses the Magician role glyph from mlbb_champ_info_tfm2 v0.2.3's mlbb_gord_base_attack.png, SHA256 of source archive 98bb6a07dca618f406b128f16b11b4bbda020568d55951cad49967604689f74b. That companion scans every installed mod's icons/ directory; its inspected source is retained as companion_icon_lookup_v023.rs. No companion DLL modification is required. The companion remains a separate installed mod.

@@ -1,0 +1,86 @@
+[
+  {
+    "part": "select",
+    "file": "Eudora.new.select.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/d/d1/Eudora.new.select.ogg",
+    "bytes": 21049
+  },
+  {
+    "part": "move01",
+    "file": "Eudora.new.move01.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/e/e4/Eudora.new.move01.ogg",
+    "bytes": 30715
+  },
+  {
+    "part": "move02",
+    "file": "Eudora.new.move02.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/0/07/Eudora.new.move02.ogg",
+    "bytes": 28057
+  },
+  {
+    "part": "move03",
+    "file": "Eudora.new.move03.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/d/d6/Eudora.new.move03.ogg",
+    "bytes": 15705
+  },
+  {
+    "part": "move04",
+    "file": "Eudora.new.move04.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/8/8b/Eudora.new.move04.ogg",
+    "bytes": 32431
+  },
+  {
+    "part": "move05",
+    "file": "Eudora.new.move05.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/9/97/Eudora.new.move05.ogg",
+    "bytes": 19464
+  },
+  {
+    "part": "move06",
+    "file": "Eudora.new.move06.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/b/bb/Eudora.new.move06.ogg",
+    "bytes": 39048
+  },
+  {
+    "part": "move08",
+    "file": "Eudora.new.move08.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/1/18/Eudora.new.move08.ogg",
+    "bytes": 29089
+  },
+  {
+    "part": "move09",
+    "file": "Eudora.new.move09.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/4/49/Eudora.new.move09.ogg",
+    "bytes": 23315
+  },
+  {
+    "part": "skill01",
+    "file": "Eudora.new.skill01.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/5/5d/Eudora.new.skill01.ogg",
+    "bytes": 11311
+  },
+  {
+    "part": "skill02",
+    "file": "Eudora.new.skill02.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/8/8c/Eudora.new.skill02.ogg",
+    "bytes": 10504
+  },
+  {
+    "part": "ult01",
+    "file": "Eudora.new.ult01.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/b/b9/Eudora.new.ult01.ogg",
+    "bytes": 10271
+  },
+  {
+    "part": "ult02",
+    "file": "Eudora.new.ult02.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/6/61/Eudora.new.ult02.ogg",
+    "bytes": 9753
+  },
+  {
+    "part": "death",
+    "file": "Eudora.new.death.ogg",
+    "url": "https://static.wikia.nocookie.net/mobile-legends/images/a/a6/Eudora.new.death.ogg",
+    "bytes": 27561
+  }
+]

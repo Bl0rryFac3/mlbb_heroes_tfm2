@@ -1,0 +1,2085 @@
+{
+ "id": "mlbb_hanzo",
+ "category": "Assassin",
+ "tags": [
+  "AD",
+  "Melee"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/hanzo_probe",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/hanzo_skill",
+  "asset/mlbb_heroes/icons/hanzo_skill2",
+  "asset/mlbb_heroes/icons/hanzo_ult"
+ ],
+ "stat": {
+  "attack": 100,
+  "magic_power": 0,
+  "hp": 770,
+  "defence": 22,
+  "magic_resistance": 20,
+  "move_speed": 1080,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 6,
+  "magic_power": 0,
+  "hp": 95,
+  "defence": 3,
+  "magic_resistance": 2,
+  "move_speed": 4,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_hanzo.attack",
+  "duration": 18,
+  "cooltime": 54,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 18000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:hanzo_basic"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_hanzo.skill",
+  "duration": 1,
+  "cooltime": 30,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 75000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:hanzo_feast"
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_hanzo.skill2",
+  "duration": 1,
+  "cooltime": 30,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 40000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:hanzo_dash"
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_hanzo.ult",
+  "duration": 1,
+  "cooltime": 60,
+  "start_timing": 0,
+  "cancelable": true,
+  "range": 100000,
+  "casting_type": "None",
+  "casting_target": "AllyOnlySelf",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:hanzo_ult"
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:hanzo"
+ },
+ "stack_skill_index": 0,
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_idle",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_idle",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_idle_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_idle_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_run",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_run",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_run_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_run_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_attack",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_attack",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_attack_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_attack_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_feast",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_feast",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_feast_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_feast_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_dash",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_dash",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_dash_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_dash_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_project",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_project_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_hit",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_hit",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_hit_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_hit_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_death",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_death",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_human_death_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_death_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_parked_body",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_parked_body_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_body_merge",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_body_merge_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_idle",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_idle",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_idle_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_idle_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_move",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_move",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_move_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_move_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_attack",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_attack",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_attack_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_attack_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_snatch",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_snatch",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_snatch_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_snatch_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_dash",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_dash",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_dash_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_dash_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_return",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_return",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_return_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_return_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_break",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_break",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_break_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_break_left",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_hit",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_hit",
+   "tag": "main",
+   "z": 1
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_hanzo_pose_spirit_hit_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_hit_left",
+   "tag": "main",
+   "z": 1
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_idle",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_idle",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_idle_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_idle_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_run",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_run",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_run_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_run_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_attack",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_attack",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_attack_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_attack_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_feast",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_feast",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_feast_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_feast_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_dash",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_dash",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_dash_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_dash_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_project",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_project_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_hit",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_hit",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_hit_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_hit_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_death",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_death",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_human_death_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_death_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_parked_body",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_parked_body_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_body_merge",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_body_merge_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_idle",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_idle",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_idle_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_idle_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_move",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_move",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_move_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_move_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_attack",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_attack",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_attack_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_attack_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_snatch",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_snatch",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_snatch_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_snatch_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_dash",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_dash",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_dash_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_dash_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_return",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_return",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_return_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_return_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_break",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_break",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_break_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_break_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_hit",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_hit",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_hit_left",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_spirit_hit_left",
+   "tag": "main",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_dark_marks",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_dark_marks",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_basic_slash",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_basic_slash",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_feast_bite",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_feast_bite",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_mist_ground_human",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_mist_ground_human",
+   "tag": "main",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_mist_ground_spirit",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_mist_ground_spirit",
+   "tag": "main",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_mist_pulse",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_mist_pulse",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_dash_streak",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_dash_streak",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_projection_flare",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_projection_flare",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_maw",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_spirit_maw",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_airborne_contact",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_airborne_contact",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_body_ward",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_body_ward",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_link",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_spirit_link",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_return_merge",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_return_merge",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_spirit_failure",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_spirit_failure",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_fx_heal_return",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_hanzo_heal_return",
+   "tag": "main",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body",
+   "tag": "overlay_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_parked_body_left_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_parked_body_left",
+   "tag": "overlay_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_human_project_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project",
+   "tag": "overlay_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_human_project_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project",
+   "tag": "overlay_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_human_project_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project",
+   "tag": "overlay_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_human_project_left_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project_left",
+   "tag": "overlay_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_human_project_left_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project_left",
+   "tag": "overlay_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_human_project_left_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_human_project_left",
+   "tag": "overlay_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge",
+   "tag": "overlay_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_0",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_1",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_2",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_3",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_4",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_5",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_6",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_7",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_body_merge_left_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_anim_body_merge_left",
+   "tag": "overlay_8",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_0",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_1",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_2",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_3",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_4",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_5",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_6",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_7",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_hanzo_body_ward_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_body_ward_soft",
+   "tag": "ward_8",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_mark_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_marks_head",
+   "tag": "mark_1",
+   "z": 5,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_mark_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_marks_head",
+   "tag": "mark_2",
+   "z": 5,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_mark_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_marks_head",
+   "tag": "mark_3",
+   "z": 5,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_mark_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_marks_head",
+   "tag": "mark_4",
+   "z": 5,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_mark_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_marks_head",
+   "tag": "mark_5",
+   "z": 5,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_0_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_0_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_1_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_1_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_2_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_2_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_3_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_3_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_4_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_4_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_5_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_5_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_6_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_6_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_7_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_7_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_8_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_8_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_9_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_9_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_10_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_10_8",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_0",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_0",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_1",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_1",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_2",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_2",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_3",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_3",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_4",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_4",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_5",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_5",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_6",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_6",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_7",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_7",
+   "z": 0,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_hanzo_overlay_link_11_8",
+   "anim": "asset/mlbb_heroes/effects/hanzo_native_link",
+   "tag": "link_11_8",
+   "z": 0,
+   "is_follow": false
+  }
+ ]
+}

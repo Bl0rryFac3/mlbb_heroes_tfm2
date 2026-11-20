@@ -1,0 +1,22 @@
+{
+  "hero": "mlbb_aldous",
+  "date": "2026-10-23",
+  "s1_formula": "40 + ((level - 1) * 80 / 11) + 100% AD + 2.5 * stacks (max 1000)",
+  "max_stack_bonus_raw_damage": 2500,
+  "level15_raw_s1_at_1000_stacks": 2762,
+  "damage_benchmark": {
+    "fanny_level15_hp": 2092,
+    "fanny_level15_defense": 28,
+    "required_raw_damage_standard_mitigation": 2678
+  },
+  "basic_attack_current": {
+    "frames": 4,
+    "duration_each_seconds": 0.065,
+    "total_seconds": 0.26,
+    "action_duration_ticks": 14,
+    "start_timing_tick": 2,
+    "cooltime_ticks": 60
+  },
+  "basic_attack_temporary_alternate_preserved": "source/aldous/attack_animation_intermediate_2026-10-23/",
+  "runtime_verified": false
+}

@@ -1,0 +1,14 @@
+{
+  "plays": [
+    {
+      "delay": 0.0,
+      "clip": "mlbb_karrie_hawkwatch_ult01",
+      "volume": 0.68
+    },
+    {
+      "delay": 1.25,
+      "clip": "mlbb_karrie_hawkwatch_ult02",
+      "volume": 0.68
+    }
+  ]
+}

@@ -1,0 +1,549 @@
+{
+ "id": "mlbb_belerick",
+ "category": "Tank",
+ "tags": [
+  "AP",
+  "Melee",
+  "Tank",
+  "CC",
+  "Heal"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/belerick",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/belerick_skill",
+  "asset/mlbb_heroes/icons/belerick_skill2",
+  "asset/mlbb_heroes/icons/belerick_ult"
+ ],
+ "stat": {
+  "attack": 96,
+  "magic_power": 0,
+  "hp": 870,
+  "defence": 36,
+  "magic_resistance": 28,
+  "move_speed": 1040,
+  "hp_regen": 9,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 4,
+  "magic_power": 0,
+  "hp": 118,
+  "defence": 4,
+  "magic_resistance": 3,
+  "move_speed": 0,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_belerick.attack",
+  "duration": 22,
+  "cooltime": 56,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 24000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "SwitchByBuff",
+   "buff_name": "mlbb_belerick_nature_ready",
+   "effect_buff": {
+    "type": "Combine",
+    "effects": [
+     {
+      "type": "ApAttack",
+      "damage": 60,
+      "attack_ratio": 0,
+      "hp_ratio": 0,
+      "attack_effect_type": "Target"
+     },
+     {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:belerick_nature_heal"
+     },
+     {
+      "type": "AddBuff",
+      "buff_state": {
+       "name": "mlbb_belerick_nature_slow",
+       "duration": {
+        "Time": {
+         "tick": 84
+        }
+       },
+       "move_speed_mult": -60
+      }
+     },
+     {
+      "type": "ViewEffect",
+      "name": "belerick_nature_hit"
+     }
+    ]
+   },
+   "effect_none": {
+    "type": "Attack",
+    "damage": 0,
+    "attack_ratio": 100,
+    "attack_effect_type": "Target"
+   }
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_belerick.skill",
+  "duration": 30,
+  "cooltime": 270,
+  "start_timing": 8,
+  "cancelable": false,
+  "range": 62000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "skill",
+     "tick": 8
+    },
+    {
+     "type": "Delayed",
+     "tick": 8,
+     "effects": [
+      {
+       "type": "LineRangeProjectile",
+       "name": "belerick_seed_line",
+       "width": 12000,
+       "length": 62000,
+       "delay": 27,
+       "apply": 1,
+       "applied_target": "EnemyWithoutTower",
+       "applied_effects": [
+        {
+         "effect": {
+          "type": "ApAttack",
+          "damage": 115,
+          "attack_ratio": 0,
+          "hp_ratio": 0,
+          "attack_effect_type": "Target"
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "AddBuff",
+          "buff_state": {
+           "name": "mlbb_belerick_seed_slow",
+           "duration": {
+            "Time": {
+             "tick": 120
+            }
+           },
+           "move_speed_mult": -25
+          }
+         },
+         "casting_type": "Targeting"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 68,
+     "effects": [
+      {
+       "type": "RangeProjectile",
+       "name": "belerick_thorn_eruption_zone",
+       "delay": 1,
+       "apply": 1,
+       "shape": {
+        "Circle": {
+         "radius": 28000
+        }
+       },
+       "applied_target": "EnemyWithoutTower",
+       "applied_effects": [
+        {
+         "effect": {
+          "type": "ApAttack",
+          "damage": 115,
+          "attack_ratio": 0,
+          "hp_ratio": 0,
+          "attack_effect_type": "Target"
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "Taunt",
+          "duration": 72
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "AddBuff",
+          "buff_state": {
+           "name": "mlbb_belerick_dryad_taunt",
+           "duration": {
+            "Time": {
+             "tick": 72
+            }
+           }
+          }
+         },
+         "casting_type": "Targeting"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_belerick.skill2",
+  "duration": 30,
+  "cooltime": 360,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 30000,
+  "casting_type": "None",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "skill2",
+     "tick": 30
+    },
+    {
+     "type": "AddCasterBuff",
+     "only_to_enemy": false,
+     "buff_state": {
+      "name": "mlbb_belerick_nature_ready",
+      "duration": {
+       "Time": {
+        "tick": 180
+       }
+      }
+     }
+    },
+    {
+     "type": "AddCasterBuff",
+     "only_to_enemy": false,
+     "buff_state": {
+      "name": "mlbb_belerick_nature_speed_a",
+      "duration": {
+       "Time": {
+        "tick": 60
+       }
+      },
+      "move_speed_mult": 60
+     }
+    },
+    {
+     "type": "Delayed",
+     "tick": 60,
+     "effects": [
+      {
+       "type": "AddCasterBuff",
+       "only_to_enemy": false,
+       "buff_state": {
+        "name": "mlbb_belerick_nature_speed_b",
+        "duration": {
+         "Time": {
+          "tick": 60
+         }
+        },
+        "move_speed_mult": 20
+       }
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_belerick.ult",
+  "duration": 90,
+  "cooltime": 1350,
+  "start_timing": 16,
+  "cancelable": false,
+  "range": 70000,
+  "casting_type": "None",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_belerick_ult"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 16
+    },
+    {
+     "type": "CasterViewEffect",
+     "name": "belerick_dryad_wrath"
+    },
+    {
+     "type": "Delayed",
+     "tick": 0,
+     "effects": [
+      {
+       "type": "RangeEffect",
+       "shape": {
+        "Circle": {
+         "radius": 25000
+        }
+       },
+       "target": "EnemyWithoutTower",
+       "apply_type": "AroundCaster",
+       "effects": [
+        {
+         "type": "ApAttack",
+         "damage": 55,
+         "attack_ratio": 0,
+         "hp_ratio": 0,
+         "attack_effect_type": "Target"
+        },
+        {
+         "type": "Taunt",
+         "duration": 90
+        },
+        {
+         "type": "AddBuff",
+         "buff_state": {
+          "name": "mlbb_belerick_dryad_taunt",
+          "duration": {
+           "Time": {
+            "tick": 90
+           }
+          }
+         }
+        },
+        {
+         "type": "ViewEffect",
+         "name": "belerick_dryad_tick"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 20,
+     "effects": [
+      {
+       "type": "RangeEffect",
+       "shape": {
+        "Circle": {
+         "radius": 40000
+        }
+       },
+       "target": "EnemyWithoutTower",
+       "apply_type": "AroundCaster",
+       "effects": [
+        {
+         "type": "ApAttack",
+         "damage": 55,
+         "attack_ratio": 0,
+         "hp_ratio": 0,
+         "attack_effect_type": "Target"
+        },
+        {
+         "type": "Taunt",
+         "duration": 90
+        },
+        {
+         "type": "AddBuff",
+         "buff_state": {
+          "name": "mlbb_belerick_dryad_taunt",
+          "duration": {
+           "Time": {
+            "tick": 90
+           }
+          }
+         }
+        },
+        {
+         "type": "ViewEffect",
+         "name": "belerick_dryad_tick"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 40,
+     "effects": [
+      {
+       "type": "RangeEffect",
+       "shape": {
+        "Circle": {
+         "radius": 55000
+        }
+       },
+       "target": "EnemyWithoutTower",
+       "apply_type": "AroundCaster",
+       "effects": [
+        {
+         "type": "ApAttack",
+         "damage": 55,
+         "attack_ratio": 0,
+         "hp_ratio": 0,
+         "attack_effect_type": "Target"
+        },
+        {
+         "type": "Taunt",
+         "duration": 90
+        },
+        {
+         "type": "AddBuff",
+         "buff_state": {
+          "name": "mlbb_belerick_dryad_taunt",
+          "duration": {
+           "Time": {
+            "tick": 90
+           }
+          }
+         }
+        },
+        {
+         "type": "ViewEffect",
+         "name": "belerick_dryad_tick"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 60,
+     "effects": [
+      {
+       "type": "RangeEffect",
+       "shape": {
+        "Circle": {
+         "radius": 70000
+        }
+       },
+       "target": "EnemyWithoutTower",
+       "apply_type": "AroundCaster",
+       "effects": [
+        {
+         "type": "ApAttack",
+         "damage": 55,
+         "attack_ratio": 0,
+         "hp_ratio": 0,
+         "attack_effect_type": "Target"
+        },
+        {
+         "type": "Taunt",
+         "duration": 90
+        },
+        {
+         "type": "AddBuff",
+         "buff_state": {
+          "name": "mlbb_belerick_dryad_taunt",
+          "duration": {
+           "Time": {
+            "tick": 90
+           }
+          }
+         }
+        },
+        {
+         "type": "ViewEffect",
+         "name": "belerick_dryad_tick"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "belerick_thorn_sweep",
+   "anim": "asset/mlbb_heroes/effects/belerick_thorn_sweep",
+   "tag": "sweep",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "belerick_seed_line",
+   "anim": "asset/mlbb_heroes/effects/belerick_seed_line",
+   "tag": "seed",
+   "z": -1,
+   "repeat": true
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "belerick_nature_hit",
+   "anim": "asset/mlbb_heroes/effects/belerick_nature_hit",
+   "tag": "hit",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "belerick_dryad_tick",
+   "anim": "asset/mlbb_heroes/effects/belerick_dryad_tick",
+   "tag": "tick",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "belerick_dryad_wrath",
+   "anim": "asset/mlbb_heroes/effects/belerick_dryad_wrath",
+   "tag": "wrath",
+   "z": 2,
+   "is_follow": true
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_belerick_nature_ready",
+   "anim": "asset/mlbb_heroes/effects/belerick_nature_ready",
+   "tag": "ready",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_belerick_dryad_taunt",
+   "anim": "asset/mlbb_heroes/effects/belerick_taunt_marker",
+   "tag": "taunt",
+   "z": 3
+  }
+ ],
+ "passive": {
+  "passive_ref": "mlbb_heroes:belerick_deadly_thorns",
+  "params": {}
+ },
+ "stack_skill_index": 0
+}

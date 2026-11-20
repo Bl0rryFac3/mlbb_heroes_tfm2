@@ -1,0 +1,320 @@
+{
+  "source_pages": {
+    "icons": "https://mobile-legends.fandom.com/wiki/Balmond",
+    "audio": "https://mobile-legends.fandom.com/wiki/Balmond/Audio"
+  },
+  "icons": [
+    {
+      "name": "Bloodthirst",
+      "path": "icons_source/balmond_bloodthirst.png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/34/Bloodthirst.png/revision/latest?cb=20220624121727",
+      "download_type": "image/webp",
+      "original_size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "sha256": "0fe17cb28ae30ff62b691a10a6b0a22cf6528ba3f5e97532d1424a61a6abae3c"
+    },
+    {
+      "name": "Soul_Lock",
+      "path": "icons_source/balmond_soul_lock.png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/dd/Soul_Lock.png/revision/latest?cb=20220624121809",
+      "download_type": "image/webp",
+      "original_size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "sha256": "412bc3e9b635afcb18daf2488125b74ca10094ba2b07e23ac881c7580758e26e"
+    },
+    {
+      "name": "Cyclone_Sweep",
+      "path": "icons_source/balmond_cyclone_sweep.png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/db/Cyclone_Sweep.png/revision/latest?cb=20220624121821",
+      "download_type": "image/webp",
+      "original_size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "sha256": "6c4f33c12d014d60dbd2207d35c5e4216351044fb6aa1614a0d1dfc1c6189e1e"
+    },
+    {
+      "name": "Lethal_Counter",
+      "path": "icons_source/balmond_lethal_counter.png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/5/50/Lethal_Counter.png/revision/latest?cb=20220624121847",
+      "download_type": "image/webp",
+      "original_size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "sha256": "8b0cdedf80728d9f36f3a69d660047a5ebdbeb6bd98e85480aa8e1b9755451ae"
+    }
+  ],
+  "audio": [
+    {
+      "name": "Audio021-select.ogg",
+      "path": "audio_source/default/Audio021-select.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/b8/Audio021-select.ogg/revision/latest?cb=20210822175000",
+      "content_type": "application/ogg",
+      "bytes": 34505,
+      "sha256": "8dd0d00572bb51616197a411f33148167e26b6e4b7a9868091c8323eec617b1c"
+    },
+    {
+      "name": "Audio021-move01.ogg",
+      "path": "audio_source/default/Audio021-move01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/1/13/Audio021-move01.ogg/revision/latest?cb=20220201133844",
+      "content_type": "application/ogg",
+      "bytes": 28040,
+      "sha256": "675ae786642b9a1ae1940d6a3871fe95a7d5963bda8b46027b1f2e7a4565cdbb"
+    },
+    {
+      "name": "Audio021-move02.ogg",
+      "path": "audio_source/default/Audio021-move02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/7/71/Audio021-move02.ogg/revision/latest?cb=20220201133850",
+      "content_type": "application/ogg",
+      "bytes": 27171,
+      "sha256": "282b3ef7b7a43acba25b69c359d50ccfc8d2b7b341b78627f98f4db9402c44e9"
+    },
+    {
+      "name": "Audio021-move03.ogg",
+      "path": "audio_source/default/Audio021-move03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/7/74/Audio021-move03.ogg/revision/latest?cb=20220201133859",
+      "content_type": "application/ogg",
+      "bytes": 33861,
+      "sha256": "10644d285aff40b108a06a38a6c71c341c1219d2f64032ae26d14b1301f17a1d"
+    },
+    {
+      "name": "Audio021-move04.ogg",
+      "path": "audio_source/default/Audio021-move04.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/6a/Audio021-move04.ogg/revision/latest?cb=20220201133907",
+      "content_type": "application/ogg",
+      "bytes": 40112,
+      "sha256": "938ca94c5fce7cb642c179ffed456090e709841d5247fc615978db15172f3e13"
+    },
+    {
+      "name": "Audio021-move05.ogg",
+      "path": "audio_source/default/Audio021-move05.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/a/ab/Audio021-move05.ogg/revision/latest?cb=20220201133919",
+      "content_type": "application/ogg",
+      "bytes": 45626,
+      "sha256": "b46411280636ef43007650d5acd762c68c665ea9d592de977f475e8b5d339580"
+    },
+    {
+      "name": "Audio021-move06.ogg",
+      "path": "audio_source/default/Audio021-move06.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/2/2a/Audio021-move06.ogg/revision/latest?cb=20220201133929",
+      "content_type": "application/ogg",
+      "bytes": 26904,
+      "sha256": "da9e8aafee82bea98c9f9d62a5947e77bba0c4fc2e0117df59b5f6af4a0c9922"
+    },
+    {
+      "name": "Audio021-move07.ogg",
+      "path": "audio_source/default/Audio021-move07.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/a/ae/Audio021-move07.ogg/revision/latest?cb=20220201134252",
+      "content_type": "application/ogg",
+      "bytes": 50185,
+      "sha256": "e803f0ca511f35aed9f0446be44e741573d8299a767165f42daec63316f60fdc"
+    },
+    {
+      "name": "Audio021-move08.ogg",
+      "path": "audio_source/default/Audio021-move08.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/32/Audio021-move08.ogg/revision/latest?cb=20220201134257",
+      "content_type": "application/ogg",
+      "bytes": 34704,
+      "sha256": "7e923807db65b423c5aedabad6eb02518955f2485fb39d4e689525c0e803c02c"
+    },
+    {
+      "name": "Audio021-move09.ogg",
+      "path": "audio_source/default/Audio021-move09.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/e/e0/Audio021-move09.ogg/revision/latest?cb=20220201134302",
+      "content_type": "application/ogg",
+      "bytes": 23872,
+      "sha256": "97bef039ccd0dbcb151004ae42a34ead271f58b63283080864adaf34b155e4f3"
+    },
+    {
+      "name": "Audio021-move10.ogg",
+      "path": "audio_source/default/Audio021-move10.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/1/11/Audio021-move10.ogg/revision/latest?cb=20220201134313",
+      "content_type": "application/ogg",
+      "bytes": 19787,
+      "sha256": "6afb884f81ba65918944c42b832eeb58ff9303dfa27a6e8bb004e3777ed51af7"
+    },
+    {
+      "name": "Audio021-move11.ogg",
+      "path": "audio_source/default/Audio021-move11.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/ca/Audio021-move11.ogg/revision/latest?cb=20220201134318",
+      "content_type": "application/ogg",
+      "bytes": 35326,
+      "sha256": "54dac056a04f5bb5cb8c9a016c4a064b16a74512ed1d5efff0a1d680b2f46a29"
+    },
+    {
+      "name": "Audio021-move12.ogg",
+      "path": "audio_source/default/Audio021-move12.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/48/Audio021-move12.ogg/revision/latest?cb=20220201134332",
+      "content_type": "application/ogg",
+      "bytes": 22698,
+      "sha256": "cacb620842e437cb7dd990a76045de15bd3b261ebb4c686f9d315142c6e1e7c5"
+    },
+    {
+      "name": "Audio021-move13.ogg",
+      "path": "audio_source/default/Audio021-move13.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/38/Audio021-move13.ogg/revision/latest?cb=20220201134550",
+      "content_type": "application/ogg",
+      "bytes": 23304,
+      "sha256": "7652a3f945a5ed0a722416002ab8a4d877fe2ea0758a7547a9fec86e28aa1d9c"
+    },
+    {
+      "name": "Audio021-move14.ogg",
+      "path": "audio_source/default/Audio021-move14.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/e/ef/Audio021-move14.ogg/revision/latest?cb=20220201134557",
+      "content_type": "application/ogg",
+      "bytes": 47986,
+      "sha256": "d0a52eabb5745a8deb471fbe9ac283b00c268d65f6bb4e8b8ebb6d12386648f8"
+    },
+    {
+      "name": "Audio021-move15.ogg",
+      "path": "audio_source/default/Audio021-move15.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/c0/Audio021-move15.ogg/revision/latest?cb=20220201134602",
+      "content_type": "application/ogg",
+      "bytes": 43824,
+      "sha256": "a58ad47120e3c884eb0e1057f9158d0d5050486b6a20852b84eda6686a7efbff"
+    },
+    {
+      "name": "Audio021-move16.ogg",
+      "path": "audio_source/default/Audio021-move16.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/89/Audio021-move16.ogg/revision/latest?cb=20220201134612",
+      "content_type": "application/ogg",
+      "bytes": 44254,
+      "sha256": "e8d13031b8bcdc346d9b65f1a81c488138762bb8776003e1b354702c18431b5d"
+    },
+    {
+      "name": "Audio021-move17.ogg",
+      "path": "audio_source/default/Audio021-move17.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/3b/Audio021-move17.ogg/revision/latest?cb=20220201134618",
+      "content_type": "application/ogg",
+      "bytes": 40515,
+      "sha256": "c300fa46cd574d9944d5cd3d81152042c5bf66c2252aef0ffd60d4b4932624e8"
+    },
+    {
+      "name": "Audio021-move18.ogg",
+      "path": "audio_source/default/Audio021-move18.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/bd/Audio021-move18.ogg/revision/latest?cb=20220201134625",
+      "content_type": "application/ogg",
+      "bytes": 31710,
+      "sha256": "674658f2108a542ab3edf77f42c2ff5c6e4d2c1fd48a438caf74717dd5aa7836"
+    },
+    {
+      "name": "Audio021-move19.ogg",
+      "path": "audio_source/default/Audio021-move19.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/4c/Audio021-move19.ogg/revision/latest?cb=20220201134849",
+      "content_type": "application/ogg",
+      "bytes": 42750,
+      "sha256": "a9ea843b761baf3daf20352605fc1d266b0d9827433fa40e38902f17d89751b2"
+    },
+    {
+      "name": "Audio021-basic01.ogg",
+      "path": "audio_source/default/Audio021-basic01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/e/e3/Audio021-basic01.ogg/revision/latest?cb=20220912045604",
+      "content_type": "application/ogg",
+      "bytes": 8528,
+      "sha256": "2c7bdf35b0cdf955ba0c5f053601ee8de59032f0af3d7a2901774c536bb80a05"
+    },
+    {
+      "name": "Audio021-basic02.ogg",
+      "path": "audio_source/default/Audio021-basic02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/f/fc/Audio021-basic02.ogg/revision/latest?cb=20220912045605",
+      "content_type": "application/ogg",
+      "bytes": 10023,
+      "sha256": "fccaf42c3c65115f1e4a9068eb6247fec3cf7d822dd8e180764e4003dde9d2ca"
+    },
+    {
+      "name": "Audio021-basic03.ogg",
+      "path": "audio_source/default/Audio021-basic03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/f/fb/Audio021-basic03.ogg/revision/latest?cb=20220912045605",
+      "content_type": "application/ogg",
+      "bytes": 9983,
+      "sha256": "659407db6455baf112536bb14346943892a7d847efbde5c588a7cd95e852be84"
+    },
+    {
+      "name": "Audio021-basic04.ogg",
+      "path": "audio_source/default/Audio021-basic04.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/cd/Audio021-basic04.ogg/revision/latest?cb=20220925035443",
+      "content_type": "application/ogg",
+      "bytes": 10695,
+      "sha256": "382efdd8f7dbb9a67b9bc3456ca83fe7299f564794ff837fd2c85c40ce9591ff"
+    },
+    {
+      "name": "Audio021-ult01.ogg",
+      "path": "audio_source/default/Audio021-ult01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/f/fa/Audio021-ult01.ogg/revision/latest?cb=20210822174753",
+      "content_type": "application/ogg",
+      "bytes": 25966,
+      "sha256": "2fc436caaa7d31da6344b947ee8bca37f6fd89e73dd93d41ca9711625d8132b2"
+    },
+    {
+      "name": "Audio021-ult02.ogg",
+      "path": "audio_source/default/Audio021-ult02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/df/Audio021-ult02.ogg/revision/latest?cb=20210822174846",
+      "content_type": "application/ogg",
+      "bytes": 23698,
+      "sha256": "ba1844a8b563c72af5190af2673bcb5a8c2a570308933df873f74a75a021865e"
+    },
+    {
+      "name": "Audio021-death01.ogg",
+      "path": "audio_source/default/Audio021-death01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/6c/Audio021-death01.ogg/revision/latest?cb=20220201134910",
+      "content_type": "application/ogg",
+      "bytes": 33813,
+      "sha256": "15dfa4d50998a0b6abbbf76c3883b19da85d9327b50d856b60dbe3e73a24e62d"
+    },
+    {
+      "name": "Audio021-death02.ogg",
+      "path": "audio_source/default/Audio021-death02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/8a/Audio021-death02.ogg/revision/latest?cb=20220201134914",
+      "content_type": "application/ogg",
+      "bytes": 15359,
+      "sha256": "91e99abec5f3e3439971df8727e0baef419aa8d0b14ac34fc9be78ff308320f0"
+    }
+  ],
+  "user_supplied_assets": [
+    {
+      "path": "atlas_source/balmond_atlas.png",
+      "bytes": 288135,
+      "sha256": "65f87d200d9c1c00a826ebb69c614839b0b7cebff3ea073bc68e7fd9d3d28599",
+      "note": "User-supplied source/reference asset; retained unchanged."
+    },
+    {
+      "path": "atlas_source/balmond_atlas.json",
+      "bytes": 1886,
+      "sha256": "7e660c8a05e0d8ed4613c69eaa59e3386afa3ce9b7914ebc99b60aa18801b303",
+      "note": "User-supplied source/reference asset; retained unchanged."
+    },
+    {
+      "path": "reference_effects/Balmond-spin.png",
+      "bytes": 190516,
+      "sha256": "dc46d2bbb10d5f209013182b49c5ed63f93ecbf9c638a5966d231e79529b4495",
+      "note": "User-supplied source/reference asset; retained unchanged."
+    },
+    {
+      "path": "reference_effects/balmond-rings_nobg.png",
+      "bytes": 241889,
+      "sha256": "b58b4ce9cd3016d36f0deb11ec090f09d4a8bcba4389dd1c1afea38741b8e0e2",
+      "note": "User-supplied source/reference asset; retained unchanged."
+    },
+    {
+      "path": "reference_effects/balmond-skill1effect_nobg (1).png",
+      "bytes": 521233,
+      "sha256": "7ef739387625add62ca58516cda8026a7f6bda02386f6b0ee3cc7962fce0dabb",
+      "note": "User-supplied source/reference asset; retained unchanged."
+    },
+    {
+      "path": "reference_effects/balmond-ult_nobg.png",
+      "bytes": 925940,
+      "sha256": "dd44013ff528005494c70f19dc66a8bdbeec0af60d5ba1972c2c1e63fc329a49",
+      "note": "User-supplied source/reference asset; retained unchanged."
+    }
+  ]
+}

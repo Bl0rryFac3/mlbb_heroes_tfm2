@@ -1,0 +1,946 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -2,7 +2,7 @@
+ name = "mlbb_heroes"
+ version = "1.1.63"
+ edition = "2021"
+-description = "Teamfight Manager 2 — MLBB Heroes Gusion S1/tower safety candidate"
++description = "Teamfight Manager 2 — MLBB Heroes Balmond candidate"
+ 
+ [lib]
+ crate-type = ["cdylib"]
+--- a/mod.mod_info
++++ b/mod.mod_info
+@@ -6,7 +6,7 @@
+   "mod_type": "native",
+   "contains_code": true,
+   "last_updated": "2026-10-30",
+-  "description": "Gusion S1 and tower-retreat safety candidate based on Hanabi v5 / Uranus 60% baseline. Adds native-input S1 route gating and an 8-tick safe-route escape release confirmation. Preserves tower pushing; excludes the Chou native-movement patch. Gameplay verification pending.",
++  "description": "Distinct Balmond native champion candidate targeting TFM2 0.7.0, based on the preserved MLBB Heroes 1.1.63 source baseline. Includes Bloodthirst, Soul Lock, Cyclone Sweep and Lethal Counter, staged default art/audio, and documented TFM2 timing/geometry adaptations. Static validation complete; in-game verification pending.",
+   "dependencies": [
+     {
+       "mod_id": "base",
+--- a/mod.override_info
++++ b/mod.override_info
+@@ -598,5 +598,229 @@
+   "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_zhask_voice_death04": {
+     "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_zhask_voice_death04",
+     "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_basic01": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_basic01",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic01": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic01",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_basic02": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_basic02",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic02": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic02",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_basic03": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_basic03",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic03": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic03",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_basic04": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_basic04",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic04": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic04",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_death01": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_death01",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_death01": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_death01",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_death02": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_death02",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_death02": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_death02",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move01": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move01",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move01": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move01",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move02": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move02",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move02": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move02",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move03": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move03",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move03": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move03",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move04": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move04",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move04": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move04",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move05": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move05",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move05": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move05",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move06": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move06",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move06": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move06",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move07": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move07",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move07": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move07",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move08": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move08",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move08": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move08",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move09": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move09",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move09": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move09",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move10": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move10",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move10": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move10",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move11": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move11",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move11": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move11",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move12": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move12",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move12": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move12",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move13": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move13",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move13": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move13",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move14": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move14",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move14": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move14",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move15": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move15",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move15": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move15",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move16": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move16",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move16": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move16",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move17": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move17",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move17": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move17",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move18": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move18",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move18": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move18",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_move19": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_move19",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move19": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move19",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_select": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_select",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_select": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_select",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_ult01": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_ult01",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_ult01": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_ult01",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_balmond_voice_ult02": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_balmond_voice_ult02",
++    "type": "override"
++  },
++  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_ult02": {
++    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_ult02",
++    "type": "override"
+   }
+ }
+--- a/README.md
++++ b/README.md
+@@ -1,7 +1,12 @@
+-# MLBB Heroes — Gusion safety candidate
++# MLBB Heroes — Balmond candidate
+ 
+-This is a distinct Gusion S1 / tower-retreat safety candidate based on the preserved Hanabi v5 + Uranus 60% baseline. It excludes the separate Chou native-movement patch. Earlier candidate archives were not changed.
++A distinct Balmond implementation candidate based on the preserved 1.1.63 source baseline, targeting the TFM2 0.7.0 runtime. It retains the prior Hanabi/Uranus/Gusion/Chou/Zhask work and archives unchanged.
+ 
+-See `RELEASE_README.md` and `GUSION_SAFETY_FIX_VALIDATION_REPORT.md` for exact scope and validation. The source and SDK are included in this source package; the separately delivered runtime ZIP contains no source or SDK.
++- `BALMOND_IMPLEMENTATION_NOTES.md` — current-kit baseline, TFM2 assumptions, asset mapping, and validation limitations.
++- `Balmond_TFM2_Feasibility_Research.md` is retained in the companion source archive/workspace.
++- `source/balmond/` — atlas/timing mapping and user-provided source/provenance assets.
++- `source/audio/balmond/` — source OGGs; corresponding mono PCM16 WAVs are under `sound/sfx/`.
+ 
+-Gameplay is not yet verified. Passing unit tests and a Windows release build do not establish in-game success.
++The native source includes Balmond's passive and skill handlers, the champion data/localization/style entries, default skill icons, a mapped sprite/animation, separate dash/spin/ultimate VFX, and routed default voice clips. The supplied body-atlas frame index gaps are normalized to measured TFM2 action cycles; the source JSON contains no exact duration values.
++
++The build uses `mod-api-stable` adjacent to this project (or the `TFM2_STABLE_SDK_DIR` environment variable). See the separate runtime ZIP for the source/SDK-free install package. Passing tests and a successful cross-compile do not prove a TFM2 0.7.0 in-game load or match result.
+--- a/RELEASE_README.md
++++ b/RELEASE_README.md
+@@ -1,14 +1,13 @@
+-# Gusion S1 and tower-retreat safety candidate
++# MLBB Heroes — Balmond runtime candidate
+ 
+-Distinct runtime/source candidate based on the preserved Hanabi v5 + Uranus 60% baseline. It excludes the separate Chou native-movement patch and does not modify Chou, Hanabi, Uranus, Zhask, or other hero source code.
++This Windows runtime ZIP is a distinct Balmond candidate targeting TFM2 0.7.0. Keep the extracted `mlbb_heroes` folder intact when installing it through the TFM2 mod loader. The package includes runtime data/assets and the compiled Windows DLL only; it does **not** contain Rust source or the stable SDK.
+ 
+-## Gusion scope
++## Included Balmond content
+ 
+-- Prevent unsafe S1 recast routes from slipping through the native/base AI input after the custom preflight declines them; keep the effect-time safety recheck.
+-- Keep the outward tower-escape waypoint latched until the native movement route remains safe for eight consecutive AI ticks; extend outward if it turns unsafe during confirmation.
+-- Preserve safe native tower attacks/pushing and existing allied-tanker checks. No Return-home order is added.
+-- Preserve Gusion’s existing S2 volley/follow-up logic and logging.
++- Bloodthirst 5%/10% heal events; Soul Lock dash/path damage and slow; Cyclone Sweep timed spin, movement speed and defense-shred stacks; missing-HP true-damage Lethal Counter.
++- User-supplied mapped body sprite/animation, separate skill VFX, default skill icons and the default voice set.
++- English descriptions and champion-view placement entry.
+ 
+-## Validation
++## Validation status
+ 
+-See `GUSION_SAFETY_FIX_VALIDATION_REPORT.md`. Unit/static/build validation is complete; in-game behavior remains unverified. Test with the exact game version and runtime ZIP, and retain the diagnostic log.
++The candidate Rust test suite passes (74 tests), JSON/FAnim/audio references parse, and the Windows x86-64 release DLL cross-compiles. This is static/build validation only. No TFM2 0.7.0 load, match, visual, or audible result has been confirmed. Review `BALMOND_IMPLEMENTATION_NOTES.md` in the source archive for the assumptions and known fidelity gaps before testing.
+--- a/ASSET_ATTRIBUTION.md
++++ b/ASSET_ATTRIBUTION.md
+@@ -34,3 +34,12 @@
+ - The Hanabi character atlas and six VFX sprite sheets under `source/hanabi/import_2026-10-28/` were supplied by the user, who identified the VFX workflow as GPT Image 2.5 Sunburst. The candidate preserves those original files unchanged and records derived crops/scales in `HANABI_IMPLEMENTATION_NOTES.md`.
+ - The four 100×100 classic/default Hanabi ability icons in the same import folder were staged as transparent PNGs. Three active-skill icons are wired into the champion data; the passive icon is retained in `icons/` for reference because the project data schema exposes three active action-icon slots.
+ - No license or redistribution permission is asserted for Mobile Legends character/icon art or user-supplied generated assets. Confirm rights before public redistribution.
++
++## Balmond candidate assets
++
++- The Balmond body atlas and the `Balmond-spin.png`, Skill 1, Skill 2 ring, and Ultimate art were supplied by the user and are preserved in `source/balmond/` and `source/balmond/reference_effects/`. The generated runtime sprite/VFX animation metadata references these assets without replacing or regenerating the art.
++- The classic/default action icons were fetched from the Mobile Legends Fandom Balmond page. Exact source URLs, byte sizes, and hashes are in `source/balmond/ASSET_SOURCES.json`.
++- The default English Balmond voice set (selection, movement, basic exertion, Ultimate, death) is sourced from https://mobile-legends.fandom.com/wiki/Balmond/Audio. Exact source URLs and mappings are in `source/audio/audio_manifest.json`; original OGG files are retained under `source/audio/balmond/default/` and playback files are converted to mono 22.05 kHz PCM16 WAV.
++- The page supplies voice/grunt clips, not distinct non-voice Skill 1/Skill 2 ability SFX. No voice lines were fabricated.
++
++**Rights warning:** the source references identify provenance only and do not establish permission to redistribute user-supplied images, game art, icons, or game voice recordings. Confirm rights before public redistribution.
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -4,6 +4,7 @@
+ //! `lancelot.rs`; his visual timelines and skill geometry remain data-driven.
+ 
+ mod audio;
++mod balmond;
+ mod chou;
+ #[cfg(all(target_os = "windows", target_env = "msvc"))]
+ mod crt_shim;
+@@ -2388,6 +2389,7 @@
+     );
+     let mut module = StableMod::new(MOD_ID);
+     audio::register_native_cues(&mut module);
++    balmond::register(&mut module);
+     module.add_native_effect("mlbb_heroes:cable", SteelCable);
+     module.add_native_effect(CABLE_IMPACT_EFFECT, CableImpact);
+     module.add_native_effect(CABLE_DRAW_EFFECT, CableDraw);
+--- a/src/audio.rs
++++ b/src/audio.rs
+@@ -262,6 +262,174 @@
+         "mlbb_zhask_voice_death04",
+         true,
+         true,
++    ),
++    (
++        "balmond_voice_select",
++        "mlbb_balmond_voice_select",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move01",
++        "mlbb_balmond_voice_move01",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move02",
++        "mlbb_balmond_voice_move02",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move03",
++        "mlbb_balmond_voice_move03",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move04",
++        "mlbb_balmond_voice_move04",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move05",
++        "mlbb_balmond_voice_move05",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move06",
++        "mlbb_balmond_voice_move06",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move07",
++        "mlbb_balmond_voice_move07",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move08",
++        "mlbb_balmond_voice_move08",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move09",
++        "mlbb_balmond_voice_move09",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move10",
++        "mlbb_balmond_voice_move10",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move11",
++        "mlbb_balmond_voice_move11",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move12",
++        "mlbb_balmond_voice_move12",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move13",
++        "mlbb_balmond_voice_move13",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move14",
++        "mlbb_balmond_voice_move14",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move15",
++        "mlbb_balmond_voice_move15",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move16",
++        "mlbb_balmond_voice_move16",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move17",
++        "mlbb_balmond_voice_move17",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move18",
++        "mlbb_balmond_voice_move18",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_move19",
++        "mlbb_balmond_voice_move19",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_basic01",
++        "mlbb_balmond_voice_basic01",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_basic02",
++        "mlbb_balmond_voice_basic02",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_basic03",
++        "mlbb_balmond_voice_basic03",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_basic04",
++        "mlbb_balmond_voice_basic04",
++        false,
++        false,
++    ),
++    (
++        "balmond_voice_ult01",
++        "mlbb_balmond_voice_ult01",
++        true,
++        false,
++    ),
++    (
++        "balmond_voice_ult02",
++        "mlbb_balmond_voice_ult02",
++        true,
++        false,
++    ),
++    (
++        "balmond_voice_death01",
++        "mlbb_balmond_voice_death01",
++        true,
++        false,
++    ),
++    (
++        "balmond_voice_death02",
++        "mlbb_balmond_voice_death02",
++        true,
++        false,
+     ),
+ ];
+ 
+@@ -351,6 +519,34 @@
+         "mlbb_zhask_voice_death02" => 259,
+         "mlbb_zhask_voice_death03" => 95,
+         "mlbb_zhask_voice_death04" => 70,
++        "mlbb_balmond_voice_basic01" => 64,
++        "mlbb_balmond_voice_basic02" => 79,
++        "mlbb_balmond_voice_basic03" => 78,
++        "mlbb_balmond_voice_basic04" => 87,
++        "mlbb_balmond_voice_death01" => 255,
++        "mlbb_balmond_voice_death02" => 103,
++        "mlbb_balmond_voice_move01" => 208,
++        "mlbb_balmond_voice_move02" => 201,
++        "mlbb_balmond_voice_move03" => 254,
++        "mlbb_balmond_voice_move04" => 298,
++        "mlbb_balmond_voice_move05" => 341,
++        "mlbb_balmond_voice_move06" => 196,
++        "mlbb_balmond_voice_move07" => 366,
++        "mlbb_balmond_voice_move08" => 266,
++        "mlbb_balmond_voice_move09" => 173,
++        "mlbb_balmond_voice_move10" => 136,
++        "mlbb_balmond_voice_move11" => 248,
++        "mlbb_balmond_voice_move12" => 157,
++        "mlbb_balmond_voice_move13" => 170,
++        "mlbb_balmond_voice_move14" => 362,
++        "mlbb_balmond_voice_move15" => 328,
++        "mlbb_balmond_voice_move16" => 338,
++        "mlbb_balmond_voice_move17" => 309,
++        "mlbb_balmond_voice_move18" => 231,
++        "mlbb_balmond_voice_move19" => 324,
++        "mlbb_balmond_voice_select" => 258,
++        "mlbb_balmond_voice_ult01" => 189,
++        "mlbb_balmond_voice_ult02" => 175,
+         _ => 180,
+     }
+ }
+@@ -470,6 +666,8 @@
+     "mlbb_zhask_voice_ult03",
+ ];
+ 
++const BALMOND_ULT_LINES: &[&str] = &["mlbb_balmond_voice_ult01", "mlbb_balmond_voice_ult02"];
++
+ #[derive(Clone, Copy)]
+ struct RandomVoiceCue {
+     lines: &'static [&'static str],
+@@ -524,6 +722,13 @@
+         "mlbb_heroes:audio_voice_zhask_ult",
+         RandomVoiceCue {
+             lines: ZHASK_ULT_LINES,
++        },
++    );
++
++    module.add_native_effect(
++        "mlbb_heroes:audio_voice_balmond_ult",
++        RandomVoiceCue {
++            lines: BALMOND_ULT_LINES,
+         },
+     );
+ 
+--- a/text/champion.i18n
++++ b/text/champion.i18n
+@@ -79,6 +79,14 @@
+         "skill": "<#5ad0e6ff>Ninjutsu: Equinox<>: Gains a <#ff9028ff>120 + 35% AD<> shield for <#ffb900ff>5s<>, plus <#ffb900ff>12% movement speed<> and <#ffb900ff>20% attack speed<>. While this shield is active, <#ffb900ff>20%<> of damage dealt to heroes and <#ffb900ff>10%<> of damage dealt to other units is added as shield. The shield cap is <#ffb900ff>50% of max HP<>; the implementation counts all shield layers toward that cap. Any shield also grants the passive control immunity.",
+         "skill2": "<#5ad0e6ff>Ninjutsu: Soul Scroll<>: Fires a penetrating kunai-and-scroll projectile, dealing <#ff9028ff>65 + 75% AD<> physical damage to enemies along its path and slowing them by <#ffb900ff>30%<> for <#ffb900ff>1s<>. Each target is marked for <#ffb900ff>5s<>. Hanabi’s next basic-attack Petal bounce on a marked target adds <#ff9028ff>20 + 50% AD<> damage without the normal bounce decay, then consumes that mark.",
+         "ult": "<#e64a6aff>Forbidden Jutsu: Higanbana<>: Throws a large Higanbana that hits the first enemy hero, dealing <#ff9028ff>150 + 80% AD<> physical damage and binding them for <#ffb900ff>0.8s<>. After <#ffb900ff>0.8s<>, it blooms at that location for <#ff9028ff>105 + 55% AD<> physical damage in a <#ffb900ff>34,000<> radius. Other enemies hit are slowed by <#ffb900ff>20%<> for <#ffb900ff>0.6s<>."
++      },
++      "mlbb_balmond": {
++        "name": "Balmond",
++        "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
++        "passive": "<#5ad0e6ff>Bloodthirst<>: Restores <#ffb900ff>5%<> of Max HP after a minion or creep kill, and <#ffb900ff>10%<> after a hero kill or assist.",
++        "skill": "<#5ad0e6ff>Soul Lock<>: Charges toward the selected enemy hero, damaging foes along its straight route for <#ff9028ff>150–275 + 60% Total Physical Attack<> physical damage. The struck hero is briefly knocked back and slowed by <#ffb900ff>40%<> for <#ffb900ff>3s<>. TFM2 uses a target-directed dash with sampled straight-line path damage.",
++        "skill2": "<#5ad0e6ff>Cyclone Sweep<>: Spins for <#ffb900ff>3s<>, dealing damage in 14 pulses. Each hit deals <#ff9028ff>30–55 + 1.3% Total HP + 25% Total Physical Attack<> physical damage and reduces the target’s Physical Defense by <#ffb900ff>5%<> per hit, up to <#ffb900ff>8 stacks<>. Grants <#ffb900ff>15%<> movement speed while active.",
++        "ult": "<#e64a6aff>Lethal Counter<>: Strikes a wide frontal area for <#ff9028ff>150 + 70% Total Physical Attack + 30–45% of each target’s lost HP<> as true damage. Non-hero damage is capped at <#ffb900ff>1,000 / 1,500 / 2,000<> by hero-level bracket."
+       }
+     },
+     "skill_name": {
+@@ -139,6 +147,12 @@
+         "skill1": "Ninjutsu: Equinox",
+         "skill2": "Ninjutsu: Soul Scroll",
+         "ult": "Forbidden Jutsu: Higanbana"
++      },
++      "mlbb_balmond": {
++        "passive": "Bloodthirst",
++        "skill1": "Soul Lock",
++        "skill2": "Cyclone Sweep",
++        "ult": "Lethal Counter"
+       }
+     }
+   },
+--- a/style/champion_view.champion_view
++++ b/style/champion_view.champion_view
+@@ -125,6 +125,20 @@
+         "x": 0,
+         "y": -10
+       }
++    },
++    "mlbb_balmond": {
++      "face": {
++        "x": 3,
++        "y": -39
++      },
++      "center": {
++        "x": 0,
++        "y": -14
++      },
++      "banpick_center": {
++        "x": 0,
++        "y": -10
++      }
+     }
+   }
+ }
+--- a/source/audio/audio_manifest.json
++++ b/source/audio/audio_manifest.json
+@@ -5,7 +5,8 @@
+     "aldous": "https://mobile-legends.fandom.com/wiki/Aldous/Audio",
+     "estes": "https://mobile-legends.fandom.com/wiki/Estes/Audio",
+     "gusion": "https://mobile-legends.fandom.com/wiki/Gusion/Audio",
+-    "karrie_hawkwatch": "https://mobile-legends.fandom.com/wiki/Karrie/Audio#Hawkwatch"
++    "karrie_hawkwatch": "https://mobile-legends.fandom.com/wiki/Karrie/Audio#Hawkwatch",
++    "balmond": "https://mobile-legends.fandom.com/wiki/Balmond/Audio"
+   },
+   "assets": [
+     {
+@@ -575,6 +576,314 @@
+       "role": "Ultimate voice line; the two clips play sequentially on Ultimate activation",
+       "source_page": "https://mobile-legends.fandom.com/wiki/Karrie/Audio#Hawkwatch",
+       "provenance": "English Karrie Hawkwatch voice asset listed on the user-provided Fandom Audio page; rights are not asserted"
++    },
++    {
++      "hero": "balmond",
++      "role": "Basic-attack effort grunt; rotated across available clips.",
++      "file": "balmond/default/Audio021-basic01.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/e/e3/Audio021-basic01.ogg/revision/latest?cb=20220912045604",
++      "event": "mlbb_balmond_voice_basic01",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_basic01",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic01.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_basic01.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Basic-attack effort grunt; rotated across available clips.",
++      "file": "balmond/default/Audio021-basic02.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/f/fc/Audio021-basic02.ogg/revision/latest?cb=20220912045605",
++      "event": "mlbb_balmond_voice_basic02",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_basic02",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic02.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_basic02.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Basic-attack effort grunt; rotated across available clips.",
++      "file": "balmond/default/Audio021-basic03.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/f/fb/Audio021-basic03.ogg/revision/latest?cb=20220912045605",
++      "event": "mlbb_balmond_voice_basic03",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_basic03",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic03.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_basic03.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Basic-attack effort grunt; rotated across available clips.",
++      "file": "balmond/default/Audio021-basic04.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/cd/Audio021-basic04.ogg/revision/latest?cb=20220925035443",
++      "event": "mlbb_balmond_voice_basic04",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_basic04",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_basic04.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_basic04.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default death voice line; cycled by death count.",
++      "file": "balmond/default/Audio021-death01.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/6c/Audio021-death01.ogg/revision/latest?cb=20220201134910",
++      "event": "mlbb_balmond_voice_death01",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_death01",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_death01.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_death01.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default death voice line; cycled by death count.",
++      "file": "balmond/default/Audio021-death02.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/8a/Audio021-death02.ogg/revision/latest?cb=20220201134914",
++      "event": "mlbb_balmond_voice_death02",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_death02",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_death02.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_death02.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move01.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/1/13/Audio021-move01.ogg/revision/latest?cb=20220201133844",
++      "event": "mlbb_balmond_voice_move01",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move01",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move01.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move01.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move02.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/7/71/Audio021-move02.ogg/revision/latest?cb=20220201133850",
++      "event": "mlbb_balmond_voice_move02",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move02",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move02.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move02.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move03.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/7/74/Audio021-move03.ogg/revision/latest?cb=20220201133859",
++      "event": "mlbb_balmond_voice_move03",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move03",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move03.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move03.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move04.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/6a/Audio021-move04.ogg/revision/latest?cb=20220201133907",
++      "event": "mlbb_balmond_voice_move04",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move04",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move04.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move04.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move05.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/a/ab/Audio021-move05.ogg/revision/latest?cb=20220201133919",
++      "event": "mlbb_balmond_voice_move05",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move05",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move05.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move05.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move06.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/2/2a/Audio021-move06.ogg/revision/latest?cb=20220201133929",
++      "event": "mlbb_balmond_voice_move06",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move06",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move06.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move06.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move07.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/a/ae/Audio021-move07.ogg/revision/latest?cb=20220201134252",
++      "event": "mlbb_balmond_voice_move07",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move07",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move07.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move07.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move08.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/32/Audio021-move08.ogg/revision/latest?cb=20220201134257",
++      "event": "mlbb_balmond_voice_move08",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move08",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move08.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move08.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move09.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/e/e0/Audio021-move09.ogg/revision/latest?cb=20220201134302",
++      "event": "mlbb_balmond_voice_move09",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move09",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move09.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move09.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move10.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/1/11/Audio021-move10.ogg/revision/latest?cb=20220201134313",
++      "event": "mlbb_balmond_voice_move10",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move10",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move10.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move10.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move11.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/ca/Audio021-move11.ogg/revision/latest?cb=20220201134318",
++      "event": "mlbb_balmond_voice_move11",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move11",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move11.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move11.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move12.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/48/Audio021-move12.ogg/revision/latest?cb=20220201134332",
++      "event": "mlbb_balmond_voice_move12",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move12",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move12.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move12.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move13.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/38/Audio021-move13.ogg/revision/latest?cb=20220201134550",
++      "event": "mlbb_balmond_voice_move13",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move13",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move13.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move13.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move14.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/e/ef/Audio021-move14.ogg/revision/latest?cb=20220201134557",
++      "event": "mlbb_balmond_voice_move14",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move14",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move14.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move14.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move15.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/c0/Audio021-move15.ogg/revision/latest?cb=20220201134602",
++      "event": "mlbb_balmond_voice_move15",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move15",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move15.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move15.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move16.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/89/Audio021-move16.ogg/revision/latest?cb=20220201134612",
++      "event": "mlbb_balmond_voice_move16",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move16",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move16.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move16.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move17.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/3b/Audio021-move17.ogg/revision/latest?cb=20220201134618",
++      "event": "mlbb_balmond_voice_move17",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move17",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move17.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move17.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move18.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/bd/Audio021-move18.ogg/revision/latest?cb=20220201134625",
++      "event": "mlbb_balmond_voice_move18",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move18",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move18.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move18.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Default movement line; cycled on movement start/repeat.",
++      "file": "balmond/default/Audio021-move19.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/4c/Audio021-move19.ogg/revision/latest?cb=20220201134849",
++      "event": "mlbb_balmond_voice_move19",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_move19",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_move19.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_move19.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "Selection line played on spawn.",
++      "file": "balmond/default/Audio021-select.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/b8/Audio021-select.ogg/revision/latest?cb=20210822175000",
++      "event": "mlbb_balmond_voice_select",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_select",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_select.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_select.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "One of the two default Ultimate voice lines; selected randomly.",
++      "file": "balmond/default/Audio021-ult01.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/f/fa/Audio021-ult01.ogg/revision/latest?cb=20210822174753",
++      "event": "mlbb_balmond_voice_ult01",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_ult01",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_ult01.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_ult01.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
++    },
++    {
++      "hero": "balmond",
++      "role": "One of the two default Ultimate voice lines; selected randomly.",
++      "file": "balmond/default/Audio021-ult02.ogg",
++      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/df/Audio021-ult02.ogg/revision/latest?cb=20210822174846",
++      "event": "mlbb_balmond_voice_ult02",
++      "clip": "mlbb_heroes_clip_mlbb_balmond_voice_ult02",
++      "playback_file": "sound/sfx/mlbb_heroes_clip_mlbb_balmond_voice_ult02.wav",
++      "runtime_sound_info": "sound/sfx/mlbb_balmond_voice_ult02.sound_info",
++      "playback_format": "mono PCM16 22050 Hz"
+     }
+   ],
+   "notes": [

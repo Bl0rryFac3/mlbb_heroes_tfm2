@@ -1,0 +1,12 @@
+{
+  "size": [
+    800,
+    450
+  ],
+  "frames": 644,
+  "seconds": 32.2,
+  "loop": 0,
+  "bytes": 2068372,
+  "expected_seconds": 32.2,
+  "all_body_frames_covered": true
+}

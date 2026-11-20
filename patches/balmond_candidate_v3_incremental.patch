@@ -1,0 +1,179 @@
+--- a/src/balmond.rs
++++ b/src/balmond.rs
+@@ -83,6 +83,25 @@
+ fn ult_nonhero_cap(level: usize) -> usize {
+     1000 + 500 * ((level.saturating_sub(1) / 5).min(2))
+ }
++fn lethal_counter_damage(
++    attack: usize,
++    max_hp: usize,
++    current_hp: usize,
++    level: usize,
++    is_champion: bool,
++) -> usize {
++    let base = 150usize.saturating_add(percent(attack, 70));
++    let amount = base.saturating_add(missing_hp_damage(
++        max_hp,
++        current_hp,
++        ult_ratio_tenths_pct(level),
++    ));
++    if is_champion {
++        amount
++    } else {
++        amount.min(ult_nonhero_cap(level))
++    }
++}
+ 
+ #[derive(Clone, Default)]
+ struct BalmondBloodthirst {
+@@ -309,62 +328,48 @@
+ #[derive(Clone, Copy, Default)]
+ struct BalmondLethalCounter;
+ impl StableEffectType for BalmondLethalCounter {
++    // The data-driven RangeEffect selects the directional fan targets. This
++    // native effect is invoked once per selected target and owns only the live
++    // missing-HP formula, fixed-damage route, and non-hero cap.
+     fn apply(&self, sim: &mut StableSim<'_>, _: u64, caster: usize, input: InputTargetV1) {
+-        let Some(me) = sim.get_entity(caster) else {
++        if input.kind != InputTargetKindV1::Target.code() {
++            return;
++        }
++        let target_id = input.target_id;
++        let Some((team, attack, level)) = sim
++            .get_entity(caster)
++            .map(|e| (e.team(), e.stat().attack, e.level().max(1)))
++        else {
+             return;
+         };
+-        let origin = me.pos();
+-        let team = me.team();
+-        let stat = me.stat();
+-        let level = me.level().max(1);
+-        let (dx, dy) = if input.kind == InputTargetKindV1::Dir.code() {
+-            (input.dir_x as f64, input.dir_y as f64)
+-        } else if input.kind == InputTargetKindV1::Pos.code() {
+-            (
+-                input.x as f64 - origin.0 as f64,
+-                input.y as f64 - origin.1 as f64,
+-            )
+-        } else {
++        let Some((target_team, alive, targetable, is_tower, is_champion, hp, max_hp)) = sim
++            .get_entity(target_id)
++            .map(|e| {
++                let (hp, max_hp) = e.hp();
++                (
++                    e.team(),
++                    e.is_alive(),
++                    e.is_targetable(),
++                    e.is_tower(),
++                    e.is_champion(),
++                    hp,
++                    max_hp,
++                )
++            })
++        else {
+             return;
+         };
+-        let len = dx.hypot(dy);
+-        if len < 1.0 {
++        if target_team == team || !alive || !targetable || is_tower {
+             return;
+         }
+-        let (ux, uy) = (dx / len, dy / len);
+-        let range = 110_000.0;
+-        let min_cos = 0.70710678118;
+-        let ids: Vec<usize> = (0..sim.entity_count())
+-            .filter_map(|i| sim.entity_at(i).map(|e| e.id()))
+-            .collect();
+-        for id in ids {
+-            let Some(target) = sim.get_entity(id) else {
+-                continue;
+-            };
+-            if target.team() == team
+-                || !target.is_alive()
+-                || !target.is_targetable()
+-                || target.is_tower()
+-            {
+-                continue;
+-            }
+-            let p = target.pos();
+-            let vx = p.0 as f64 - origin.0 as f64;
+-            let vy = p.1 as f64 - origin.1 as f64;
+-            let dist = vx.hypot(vy);
+-            if dist > range || dist < 1.0 || (vx * ux + vy * uy) / dist < min_cos {
+-                continue;
+-            }
+-            let (hp, max_hp) = target.hp();
+-            let base = 150usize.saturating_add(percent(stat.attack, 70));
+-            let mut amount =
+-                base.saturating_add(missing_hp_damage(max_hp, hp, ult_ratio_tenths_pct(level)));
+-            if !target.is_champion() {
+-                amount = amount.min(ult_nonhero_cap(level));
+-            }
+-            let _ =
+-                sim.deal_damage_typed(caster, id, amount, DamageTypeV1::Fixed, AttackTypeV1::Skill);
+-        }
++        let amount = lethal_counter_damage(attack, max_hp, hp, level, is_champion);
++        let _ = sim.deal_damage_typed(
++            caster,
++            target_id,
++            amount,
++            DamageTypeV1::Fixed,
++            AttackTypeV1::Skill,
++        );
+     }
+ }
+ 
+@@ -382,8 +387,8 @@
+ #[cfg(test)]
+ mod tests {
+     use super::{
+-        distance, level_linear, missing_hp_damage, path_projection, percent, soul_lock_damage,
+-        ult_nonhero_cap, ult_ratio_tenths_pct,
++        distance, lethal_counter_damage, level_linear, missing_hp_damage, path_projection, percent,
++        soul_lock_damage, ult_nonhero_cap, ult_ratio_tenths_pct,
+     };
+     #[test]
+     fn bloodthirst_amounts_match_current_reference() {
+@@ -409,6 +414,9 @@
+         assert_eq!(ult_ratio_tenths_pct(6), 375);
+         assert_eq!(ult_ratio_tenths_pct(11), 450);
+         assert_eq!(ult_nonhero_cap(11), 2000);
++        assert_eq!(lethal_counter_damage(100, 2000, 1000, 1, true), 520);
++        assert_eq!(lethal_counter_damage(1000, 10000, 0, 11, false), 2000);
++        assert_eq!(lethal_counter_damage(100, 2000, 2000, 1, true), 220);
+     }
+     #[test]
+     fn radius_math_is_stable() {
+--- a/champion/mlbb_balmond.data_champion
++++ b/champion/mlbb_balmond.data_champion
+@@ -129,8 +129,20 @@
+       "type": "Combine",
+       "effects": [
+         {
+-          "type": "Native",
+-          "effect_ref": "mlbb_heroes:balmond_lethal_counter"
++          "type": "RangeEffect",
++          "shape": {
++            "DirDot": {
++              "radius": 110000,
++              "range": 707
++            }
++          },
++          "target": "EnemyWithoutTower",
++          "effects": [
++            {
++              "type": "Native",
++              "effect_ref": "mlbb_heroes:balmond_lethal_counter"
++            }
++          ]
+         },
+         {
+           "type": "Native",
+--- a/mod.mod_info
++++ b/mod.mod_info
+@@ -8,2 +8,2 @@
+-  "last_updated": "2026-10-31",
+-  "description": "Distinct Balmond v2 candidate targeting TFM2 0.7.0. Soul Lock now accepts directional RushTime input; static audit passed, but full build and in-game validation are pending.",
++  "last_updated": "2026-10-31",
++  "description": "Distinct Balmond v3 candidate targeting TFM2 0.7.0. Soul Lock uses Direction/RushTime; Lethal Counter uses a data-driven fan with native execute scaling. Static audit passed; full build and in-game validation are pending.",

@@ -1,0 +1,188 @@
+--- a/candidate/mod.mod_info
++++ b/candidate/mod.mod_info
+@@ -6,7 +6,7 @@
+   "mod_type": "native",
+   "contains_code": true,
+   "last_updated": "2026-10-31",
+-  "description": "Distinct Balmond v5 candidate targeting TFM2 0.7.0. Carries v4 caster-anchored visuals, explicit S2/Ultimate animations and S2 target filter; S1 trail atlas downscaled to 65%. Existing native Rust mechanics are unchanged. Gameplay/visual verification pending.",
++  "description": "Balmond v6 test candidate targeting TFM2 0.7.0. Lets S2 move after a short 12-tick entry animation; preserves native 3-second spin/damage. Ultimate keeps its working damage fan but moves an 80%-scale slash VFX to each hit target, following the BoDUD Miss Fortune target-impact pattern. Native S2 diagnostic logging added. Not in-game verified.",
+   "dependencies": [
+     {
+       "mod_id": "base",
+--- a/candidate/README.md
++++ b/candidate/README.md
+@@ -1,10 +1,9 @@
+-# MLBB Heroes — Balmond v5 candidate
++# MLBB Heroes — Balmond v6 test candidate
+ 
+-Distinct Balmond v5 source candidate based on the preserved MLBB Heroes 1.1.63 source-with-SDK baseline and targeting TFM2 0.7.0. Earlier Balmond candidates are preserved.
++Distinct v6 test revision based on preserved v5 source-with-SDK. V1–v5 archives are unchanged.
+ 
+-- S1 keeps Direction + RushTime mechanics; the trail uses the v4 caster-follow trigger and the existing atlas is rescaled to 65% in v5. It has not been visually verified in-game.
+-- S2 carries the v4 `EnemyWithoutTower` action target (range 35,000) and explicit `skill2` body animation while preserving the native self-centered spin. That selector can still include jungle units.
+-- Ultimate carries explicit body-animation and caster-anchored VFX triggers. Its fan orientation remains unverified.
+-- Native Rust damage formulas and mechanics are unchanged from v3.
++- **S2 movement:** the forced `skill2` body animation is shortened from 180 to 12 ticks. The native active buff, spin VFX, movement-speed buff, three-second duration, 14-hit schedule, radius and damage formula remain intact.
++- **S2 diagnostics:** the newly built DLL logs the native-start event, passive activation and each pulse's target count during a watched live match. These lines are tagged `[BALMOND_S2]` in the existing `mlbb_heroes.log`; they help distinguish a native callback issue from an out-of-radius/no-target pulse.
++- **Ultimate visual:** keeps Balmond's existing directional damage fan and native execute unchanged. The hit slash is now a target-position `ViewEffect` inside the fan, follows hit targets briefly, and uses an 80%-scale atlas (161x98 vs. 201x122). The pattern is adapted from BoDUD Miss Fortune's separation of cone hit selection and target-position hit visual; it does not copy Miss Fortune's 40° gameplay cone or multi-wave channel.
+ 
+-The v5 static audit passes 80 checks. No TFM2 load/match test has been performed. The complete source archive includes the stable SDK; do not use it as a runtime install ZIP. The separate runtime ZIP contains runtime data/assets and the existing compiled Windows DLL only.
++The v6 static audit and 75 Rust unit tests pass; a fresh Windows x86-64 release DLL was cross-built. **No TFM2 in-game test has been run.** Please test S2 movement and its `[BALMOND_S2]` log lines, then verify the Ultimate slash placement/size on both sides.
+--- a/candidate/RELEASE_README.md
++++ b/candidate/RELEASE_README.md
+@@ -1,13 +1,13 @@
+-# MLBB Heroes — Balmond v5 runtime candidate
++# MLBB Heroes — Balmond v6 Windows runtime test candidate
+ 
+-Distinct v5 Windows x86-64 runtime package targeting TFM2 0.7.0. Install the extracted `mlbb_heroes` folder intact through the TFM2 mod loader. The runtime ZIP contains runtime data/assets and the compiled Windows DLL only; it does not contain Rust source, the stable SDK, patch files, or build tools.
++Install the extracted `mlbb_heroes` folder intact through the TFM2 mod loader. This runtime ZIP includes runtime data/assets and the compiled Windows x86-64 DLL only; it does not include Rust source, the stable SDK, patch files, or build tools.
+ 
+-## Balmond changes
++## Changes from v5
+ 
+-- S1 trail: caster-follow trigger carried forward; supplied trail atlas is downscaled to approximately 65.2% (354x118, six 59x118 frame crops); animation timing unchanged.
+-- S2: `EnemyWithoutTower` action target at 35,000 range and explicit `skill2` body animation; native spin and damage mechanics unchanged. Jungle units may still be selected.
+-- Ultimate: explicit `ult` body animation trigger and caster-anchored fan VFX.
++- S2 body `skill2` animation now lasts 12 ticks rather than locking Balmond in place for all 180 ticks. The native cyclone remains 180 ticks, with the existing 14 damage pulses, radius, movement buff and spin VFX.
++- New live-match diagnostics write `[BALMOND_S2] native_start`, `passive_active`, and per-pulse `targets=` counts to `mlbb_heroes.log`.
++- Ultimate damage geometry and native execute are unchanged. The slash is now a target-following `ViewEffect` on targets selected by the fan, and its sheet is reduced to 161x98 (80% of the v5 201x122). Inspired by BoDUD Miss Fortune's separate fan-hit geometry and target impact visual.
+ 
+-## Validation status
++## Validation
+ 
+-The v5 static audit passes 80 checks. The runtime packager validates data/FAnim/asset/sound references, DLL header, and source/SDK exclusion. The native Rust source did not change between v3 and v5, so this package reuses the DLL from the previously built v3 candidate; no new Rust compilation was performed. **No TFM2 load, match, gameplay, visual, or audio test was performed.** S1 direction alignment and size need in-game review; the S2 selector may include jungle units; Ultimate fan orientation needs verification.
++The full Rust unit suite passed (75 tests), the v6 static audit passed, and a fresh Windows x86-64 release DLL was built. The runtime packager validates JSON/FAnim/assets/audio references, PE header and source/SDK exclusion. **No TFM2 load or in-game verification was performed.** Verify that S2 movement resumes after its short entry animation, that S2 damage pulses reach nearby enemies (use the log counts), and that the smaller Ultimate visual appears at each enemy hit as intended.
+--- a/candidate/BALMOND_IMPLEMENTATION_NOTES.md
++++ b/candidate/BALMOND_IMPLEMENTATION_NOTES.md
+@@ -64,3 +64,12 @@
+ ## V5 S1 trail scale update
+ 
+ At the user's selection, the existing S1 trail atlas was downscaled to approximately 65% (uniform factor 354/543 = 118/181 = 0.651934, rounded to integer pixel dimensions); six frame crops are 59x118 instead of 90.5x181. Frame timing and VFX binding are unchanged. This modifies the supplied raster asset without regenerating it. It has not been calibrated in a TFM2 match.
++
++
++## V6 follow-up — movement, S2 diagnostics, target impact VFX
++
++V6 shortens the S2 `CasterAnimation("skill2")` from 180 ticks to 12. The native 180-tick cyclone buff, 14 hit pulses, 36,000 radius, movement buff and damage/shred code are unchanged. The new DLL writes watched-live-match `[BALMOND_S2]` start/passive/pulse target-count diagnostics to the existing `mlbb_heroes.log`.
++
++The Ultimate still uses Balmond's prior directional `DirDot` damage fan and native execute. The caster-bound slash trigger is replaced by a target-position `ViewEffect` nested in the fan's per-target effects; its binding follows the struck target for the brief hit. The existing one-frame slash is resized to 161x98 (80% of v5's 201x122); timing is unchanged. This adapts BoDUD Miss Fortune's separation of fan hit selection and target hit visual; it does not copy her 40-degree gameplay cone or 12-wave channel.
++
++V6's Rust unit tests (75) and Windows x86-64 build passed, and the v6/package static audits passed. No TFM2 match test was performed, so the S2 movement/damage and target-following VFX remain to be checked in game.
+--- a/candidate/champion/mlbb_balmond.data_champion
++++ b/candidate/champion/mlbb_balmond.data_champion
+@@ -114,7 +114,7 @@
+         {
+           "type": "CasterAnimation",
+           "name": "skill2",
+-          "tick": 180
++          "tick": 12
+         },
+         {
+           "type": "Native",
+@@ -154,6 +154,10 @@
+           "target": "EnemyWithoutTower",
+           "effects": [
+             {
++              "type": "ViewEffect",
++              "name": "mlbb_balmond_ult_slash"
++            },
++            {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:balmond_lethal_counter"
+             }
+@@ -162,10 +166,6 @@
+         {
+           "type": "Native",
+           "effect_ref": "mlbb_heroes:audio_voice_balmond_ult"
+-        },
+-        {
+-          "type": "CasterViewEffect",
+-          "name": "mlbb_balmond_ult_slash"
+         }
+       ]
+     }
+@@ -189,7 +189,7 @@
+       "anim": "asset/mlbb_heroes/effects/balmond_ult_fx",
+       "tag": "slash",
+       "z": -1,
+-      "is_follow": false
++      "is_follow": true
+     }
+   ],
+   "view_buffs": [
+--- a/candidate/src/balmond.rs
++++ b/candidate/src/balmond.rs
+@@ -58,6 +58,16 @@
+ fn soul_lock_damage(attack: usize, level: usize) -> usize {
+     level_linear(150, 275, level).saturating_add(percent(attack, 60))
+ }
++fn log_s2_match_view(sim: &StableSim<'_>, message: String) {
++    let is_match_view = sim
++        .sim_origin()
++        .and_then(|origin| SimOriginKindV1::from_code(origin.kind))
++        .is_some_and(|kind| kind == SimOriginKindV1::ClientMatchView);
++    if is_match_view {
++        crate::wlog(message);
++    }
++}
++
+ fn has_buff(sim: &StableSim<'_>, id: usize, name: &str) -> bool {
+     sim.get_entity(id).is_some_and(|e| {
+         (0..e.buff_count())
+@@ -119,9 +129,9 @@
+             }
+         }
+     }
+-    fn cyclone_hit(&self, sim: &mut StableSim<'_>, owner: usize) {
++    fn cyclone_hit(&self, sim: &mut StableSim<'_>, owner: usize) -> usize {
+         let Some(me) = sim.get_entity(owner) else {
+-            return;
++            return 0;
+         };
+         let pos = me.pos();
+         let team = me.team();
+@@ -134,6 +144,7 @@
+         let ids: Vec<usize> = (0..sim.entity_count())
+             .filter_map(|i| sim.entity_at(i).map(|e| e.id()))
+             .collect();
++        let mut hit_targets = 0usize;
+         for id in ids {
+             let Some(target) = sim.get_entity(id) else {
+                 continue;
+@@ -160,7 +171,9 @@
+             shred.defence_mult = -(5 * next as i32);
+             sim.add_buff(id, &shred);
+             sim.deal_damage(owner, id, damage, 0, AttackTypeV1::Skill);
+-        }
++            hit_targets += 1;
++        }
++        hit_targets
+     }
+ }
+ impl StablePassive for BalmondBloodthirst {
+@@ -202,11 +215,17 @@
+             return;
+         }
+         let now = sim.tick();
++        let first_observed_tick = self.cyclone_started.is_none();
+         let start = *self.cyclone_started.get_or_insert(now);
++        if first_observed_tick {
++            log_s2_match_view(sim, format!("[BALMOND_S2] passive_active caster={owner} tick={now}"));
++        }
+         while self.next_s2_hit < S2_HITS
+             && now >= start + (self.next_s2_hit * S2_DURATION / S2_HITS)
+         {
+-            self.cyclone_hit(sim, owner);
++            let pulse = self.next_s2_hit + 1;
++            let hit_targets = self.cyclone_hit(sim, owner);
++            log_s2_match_view(sim, format!("[BALMOND_S2] pulse={pulse}/{S2_HITS} caster={owner} tick={now} targets={hit_targets} radius={S2_RADIUS:.0}"));
+             self.next_s2_hit += 1;
+         }
+     }
+@@ -317,6 +336,7 @@
+     fn apply(&self, sim: &mut StableSim<'_>, _: u64, caster: usize, _: InputTargetV1) {
+         let _ = sim.entity_remove_buff(caster, S2_ACTIVE);
+         let _ = sim.entity_remove_buff(caster, S2_SPEED);
++        log_s2_match_view(sim, format!("[BALMOND_S2] native_start caster={caster} tick={} duration={S2_DURATION}", sim.tick()));
+         let active = BuffV1::timed(S2_ACTIVE, S2_DURATION);
+         sim.add_buff(caster, &active);
+         let mut speed = BuffV1::timed(S2_SPEED, S2_DURATION);

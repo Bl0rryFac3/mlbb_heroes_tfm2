@@ -1,0 +1,1919 @@
+{
+ "id": "mlbb_gord",
+ "category": "Magician",
+ "tags": [
+  "AP",
+  "Magic",
+  "Range",
+  "CC"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/gord",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/gord_skill",
+  "asset/mlbb_heroes/icons/gord_skill2",
+  "asset/mlbb_heroes/icons/gord_ult"
+ ],
+ "stat": {
+  "attack": 48,
+  "magic_power": 64,
+  "hp": 700,
+  "defence": 22,
+  "magic_resistance": 24,
+  "move_speed": 1040,
+  "hp_regen": 6,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 3,
+  "magic_power": 8,
+  "hp": 95,
+  "defence": 3,
+  "magic_resistance": 3,
+  "move_speed": 4,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_gord.attack",
+  "duration": 20,
+  "cooltime": 60,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 62000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:gord_basic_attack"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_gord.skill",
+  "duration": 24,
+  "cooltime": 480,
+  "start_timing": 8,
+  "cancelable": false,
+  "range": 62000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_gord_skill1"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "skill",
+     "tick": 8
+    },
+    {
+     "type": "Delayed",
+     "tick": 8,
+     "effects": [
+      {
+       "type": "LinearProjectile",
+       "name": "gord_mystic_orb",
+       "speed": 7000,
+       "range": 62000,
+       "shape": {
+        "Circle": {
+         "radius": 12000
+        }
+       },
+       "penetrate": false,
+       "applied_target": "EnemyWithoutTower",
+       "applied_effects": [],
+       "end_effects": [
+        {
+         "type": "ViewEffect",
+         "name": "gord_orb_burst"
+        },
+        {
+         "type": "RangeProjectile",
+         "name": "gord_mystic_burst_zone",
+         "delay": 1,
+         "apply": 1,
+         "shape": {
+          "Circle": {
+           "radius": 28000
+          }
+         },
+         "applied_target": "EnemyWithoutTower",
+         "applied_effects": [
+          {
+           "effect": {
+            "type": "ApAttack",
+            "damage": 105,
+            "attack_ratio": 52,
+            "hp_ratio": 0,
+            "attack_effect_type": "Target"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Native",
+            "effect_ref": "mlbb_heroes:gord_mystic_hit"
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "Stun",
+            "duration": 60
+           },
+           "casting_type": "Targeting"
+          },
+          {
+           "effect": {
+            "type": "ViewEffect",
+            "name": "gord_orb_hit"
+           },
+           "casting_type": "Targeting"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_gord.skill2",
+  "duration": 30,
+  "cooltime": 480,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 62000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_gord_skill2"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "skill2",
+     "tick": 6
+    },
+    {
+     "type": "Delayed",
+     "tick": 6,
+     "effects": [
+      {
+       "type": "RangePeriodProjectile",
+       "name": "gord_injunction_field",
+       "tick": 240,
+       "period": 15,
+       "first_delay": 0,
+       "shape": {
+        "Circle": {
+         "radius": 35000
+        }
+       },
+       "applied_target": "EnemyWithoutTower",
+       "applied_effects": [
+        {
+         "effect": {
+          "type": "ApAttack",
+          "damage": 6,
+          "attack_ratio": 12,
+          "hp_ratio": 0,
+          "attack_effect_type": "Target"
+         },
+         "casting_type": "Targeting"
+        },
+        {
+         "effect": {
+          "type": "Native",
+          "effect_ref": "mlbb_heroes:gord_mystic_hit"
+         },
+         "casting_type": "Targeting"
+        }
+       ],
+       "end_effects": []
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_gord.ult",
+  "duration": 24,
+  "cooltime": 1920,
+  "start_timing": 1,
+  "cancelable": false,
+  "range": 120000,
+  "casting_type": "Targeting",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": false,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_gord_ult"
+    },
+    {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 16
+    },
+    {
+     "type": "Delayed",
+     "tick": 16,
+     "effects": [
+      {
+       "type": "CasterAnimation",
+       "name": "ult_loop",
+       "tick": 192
+      }
+     ]
+    },
+    {
+     "type": "Combine",
+     "effects": [
+      {
+       "type": "Delayed",
+       "tick": 10,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_0",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_0",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 22,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_1",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_1",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 34,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_2",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_2",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 46,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_3",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_3",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 58,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_4",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_4",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 70,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_5",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_5",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 82,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_6",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_6",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 94,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_7",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_7",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 106,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_8",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_8",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 118,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_9",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_9",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 130,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_10",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_10",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 142,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_11",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_11",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 154,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_12",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_12",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 166,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_13",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_13",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 178,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_14",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_14",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      },
+      {
+       "type": "Delayed",
+       "tick": 190,
+       "effects": [
+        {
+         "type": "RandomTarget",
+         "range": 40000,
+         "casting_target": "EnemyChampion",
+         "from_projectile": false,
+         "effects": [
+          {
+           "type": "AddCasterBuff",
+           "only_to_enemy": false,
+           "buff_state": {
+            "name": "mlbb_heroes_gord_gush_lock_15",
+            "duration": {
+             "Time": {
+              "tick": 1
+             }
+            }
+           }
+          },
+          {
+           "type": "LineRangeProjectile",
+           "name": "gord_gush_wave",
+           "width": 12000,
+           "length": 120000,
+           "delay": 18,
+           "apply": 1,
+           "applied_target": "EnemyWithoutTower",
+           "applied_effects": [
+            {
+             "effect": {
+              "type": "ApAttack",
+              "damage": 12,
+              "attack_ratio": 17,
+              "hp_ratio": 0,
+              "attack_effect_type": "Target"
+             },
+             "casting_type": "Targeting"
+            },
+            {
+             "effect": {
+              "type": "Native",
+              "effect_ref": "mlbb_heroes:gord_mystic_hit"
+             },
+             "casting_type": "Targeting"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "type": "SwitchByBuff",
+         "buff_name": "mlbb_heroes_gord_gush_lock_15",
+         "effect_buff": {
+          "type": "Combine",
+          "effects": []
+         },
+         "effect_none": {
+          "type": "RandomTarget",
+          "range": 90000,
+          "casting_target": "EnemyWithoutTower",
+          "from_projectile": false,
+          "effects": [
+           {
+            "type": "LineRangeProjectile",
+            "name": "gord_gush_wave",
+            "width": 12000,
+            "length": 120000,
+            "delay": 18,
+            "apply": 1,
+            "applied_target": "EnemyWithoutTower",
+            "applied_effects": [
+             {
+              "effect": {
+               "type": "ApAttack",
+               "damage": 12,
+               "attack_ratio": 17,
+               "hp_ratio": 0,
+               "attack_effect_type": "Target"
+              },
+              "casting_type": "Targeting"
+             },
+             {
+              "effect": {
+               "type": "Native",
+               "effect_ref": "mlbb_heroes:gord_mystic_hit"
+              },
+              "casting_type": "Targeting"
+             }
+            ]
+           }
+          ]
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "gord_mystic_orb",
+   "anim": "asset/mlbb_heroes/effects/gord_orb",
+   "tag": "orb",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "gord_injunction_field",
+   "anim": "asset/mlbb_heroes/effects/gord_injunction_field",
+   "tag": "field",
+   "z": -1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "gord_gush_wave",
+   "anim": "asset/mlbb_heroes/effects/gord_gush_wave",
+   "tag": "wave",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "gord_basic_bolt",
+   "anim": "asset/mlbb_heroes/effects/gord_basic_bolt",
+   "tag": "bolt",
+   "z": 1,
+   "repeat": true
+  }
+ ],
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "gord_orb_burst",
+   "anim": "asset/mlbb_heroes/effects/gord_orb_burst",
+   "tag": "burst",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "gord_orb_hit",
+   "anim": "asset/mlbb_heroes/effects/gord_orb_hit",
+   "tag": "hit",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "gord_basic_hit",
+   "anim": "asset/mlbb_heroes/effects/gord_basic_hit",
+   "tag": "hit",
+   "z": 2,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "gord_mystic_burst",
+   "anim": "asset/mlbb_heroes/effects/gord_mystic_burst",
+   "tag": "passive_proc",
+   "z": 2,
+   "is_follow": false
+  }
+ ],
+ "view_buffs": [
+  {
+   "type": "Animated",
+   "name": "mlbb_gord_mystic_ready",
+   "anim": "asset/mlbb_heroes/effects/gord_mystic_ready",
+   "tag": "ready",
+   "z": 3
+  },
+  {
+   "type": "Animated",
+   "name": "mlbb_gord_mystic_slow",
+   "anim": "asset/mlbb_heroes/effects/gord_mystic_slow",
+   "tag": "slow",
+   "z": 1
+  }
+ ],
+ "passive": {
+  "passive_ref": "mlbb_heroes:gord_mystic_favor",
+  "params": {}
+ },
+ "stack_skill_index": 0
+}

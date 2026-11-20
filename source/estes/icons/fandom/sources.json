@@ -1,0 +1,45 @@
+{
+  "source_page": "https://mobile-legends.fandom.com/wiki/Estes",
+  "icons": {
+    "estes_passive.png": {
+      "file_page": "https://mobile-legends.fandom.com/wiki/File:Scripture%20of%20the%20Moon%20Elf.png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/b7/Scripture_of_the_Moon_Elf.png/revision/latest?cb=20220404063820",
+      "pixel_size": [
+        100,
+        100
+      ]
+    },
+    "estes_skill.png": {
+      "file_page": "https://mobile-legends.fandom.com/wiki/File:Moonlight%20Immersion.png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/2/2b/Moonlight_Immersion.png/revision/latest?cb=20220404063857",
+      "pixel_size": [
+        100,
+        100
+      ]
+    },
+    "estes_skill_enhanced.png": {
+      "file_page": "https://mobile-legends.fandom.com/wiki/File:Moonlight%20Immersion%20(enhanced).png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/9/94/Moonlight_Immersion_%28enhanced%29.png/revision/latest?cb=20220404063629",
+      "pixel_size": [
+        100,
+        100
+      ]
+    },
+    "estes_skill2.png": {
+      "file_page": "https://mobile-legends.fandom.com/wiki/File:Domain%20of%20Moon%20Goddess.png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/2/2f/Domain_of_Moon_Goddess.png/revision/latest?cb=20220404064002",
+      "pixel_size": [
+        100,
+        100
+      ]
+    },
+    "estes_ult.png": {
+      "file_page": "https://mobile-legends.fandom.com/wiki/File:Blessing%20of%20Moon%20Goddess.png",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/db/Blessing_of_Moon_Goddess.png/revision/latest?cb=20220404064022",
+      "pixel_size": [
+        100,
+        100
+      ]
+    }
+  }
+}

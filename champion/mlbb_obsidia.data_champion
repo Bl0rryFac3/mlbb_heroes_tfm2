@@ -1,0 +1,313 @@
+{
+ "id": "mlbb_obsidia",
+ "category": "Range",
+ "tags": [
+  "AD",
+  "Range",
+  "CC"
+ ],
+ "sprite": "asset/mlbb_heroes/sprite/obsidia",
+ "anim_prefix": "",
+ "skill_icons": [
+  "asset/mlbb_heroes/icons/obsidia_skill",
+  "asset/mlbb_heroes/icons/obsidia_skill2",
+  "asset/mlbb_heroes/icons/obsidia_ult"
+ ],
+ "stat": {
+  "attack": 110,
+  "magic_power": 0,
+  "hp": 720,
+  "defence": 20,
+  "magic_resistance": 18,
+  "move_speed": 1080,
+  "hp_regen": 8,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "growth": {
+  "attack": 4,
+  "magic_power": 0,
+  "hp": 95,
+  "defence": 3,
+  "magic_resistance": 3,
+  "move_speed": 3,
+  "hp_regen": 0,
+  "stack": 0,
+  "crit_chance": 0
+ },
+ "attack": {
+  "action_name": "attack",
+  "description": "#asset/base/text/champion?description.mlbb_obsidia.attack",
+  "duration": 20,
+  "cooltime": 54,
+  "start_timing": 5,
+  "cancelable": true,
+  "range": 60000,
+  "casting_type": "Targeting",
+  "casting_target": "Enemy",
+  "attack_type": "BaseAttack",
+  "effect": {
+   "type": "Native",
+   "effect_ref": "mlbb_heroes:obsidia_basic_attack"
+  }
+ },
+ "skill": {
+  "action_name": "skill",
+  "description": "#asset/base/text/champion?description.mlbb_obsidia.skill",
+  "duration": 24,
+  "cooltime": 270,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 90000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "skill",
+     "tick": 4
+    },
+    {
+     "type": "LineRangeProjectile",
+     "name": "obsidia_needle",
+     "width": 20000,
+     "length": 90000,
+     "delay": 18,
+     "apply": 4,
+     "applied_target": "EnemyWithoutTower",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:obsidia_needle_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "skill2": {
+  "action_name": "skill2",
+  "description": "#asset/base/text/champion?description.mlbb_obsidia.skill2",
+  "duration": 20,
+  "cooltime": 270,
+  "start_timing": 0,
+  "cancelable": false,
+  "range": 30000,
+  "casting_type": "Position",
+  "casting_target": "EnemyWithoutTower",
+  "attack_type": "Skill",
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:obsidia_shadowmeld"
+    },
+    {
+     "type": "MoveTo",
+     "speed": 3000,
+     "range": 30000,
+     "end_effects": []
+    }
+   ]
+  },
+  "can_use_with_move": true
+ },
+ "ult": {
+  "action_name": "ult",
+  "description": "#asset/base/text/champion?description.mlbb_obsidia.ult",
+  "duration": 60,
+  "cooltime": 2400,
+  "start_timing": 6,
+  "cancelable": false,
+  "range": 80000,
+  "casting_type": "Direction",
+  "casting_target": "EnemyChampion",
+  "attack_type": "Skill",
+  "can_use_with_move": true,
+  "effect": {
+   "type": "Combine",
+   "effects": [
+    {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 10
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:obsidia_hunt"
+    },
+    {
+     "type": "LineRangeProjectile",
+     "name": "obsidia_hunt_throw",
+     "width": 20000,
+     "length": 80000,
+     "delay": 18,
+     "apply": 1,
+     "applied_target": "EnemyChampion",
+     "applied_effects": [
+      {
+       "effect": {
+        "type": "Native",
+        "effect_ref": "mlbb_heroes:obsidia_hunt_hit"
+       },
+       "casting_type": "Targeting"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "passive": {
+  "passive_ref": "mlbb_heroes:obsidia_return_to_bone",
+  "params": {}
+ },
+ "view_effects": [
+  {
+   "type": "Animation",
+   "name": "obsidia_shard_flash",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_shard",
+   "tag": "shard",
+   "z": 1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_hunt_ring",
+   "anim": "asset/mlbb_heroes/effects/obsidia_hunt_ring",
+   "tag": "ring",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_0",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_0",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_1",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_1",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_2",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_2",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_3",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_3",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_4",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_4",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_5",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_5",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_6",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_6",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_7",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_7",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_8",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_8",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_9",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_9",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_10",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_10",
+   "z": -1,
+   "is_follow": false
+  },
+  {
+   "type": "Animation",
+   "name": "obsidia_bone_link_11",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_link",
+   "tag": "link_11",
+   "z": -1,
+   "is_follow": false
+  }
+ ],
+ "view_buffs": [],
+ "view_projectiles": [
+  {
+   "type": "Animated",
+   "name": "obsidia_basic_shard",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_shard",
+   "tag": "shard",
+   "z": 1,
+   "repeat": false
+  },
+  {
+   "type": "Animated",
+   "name": "obsidia_needle",
+   "anim": "asset/mlbb_heroes/effects/obsidia_bone_needle",
+   "tag": "needle",
+   "z": 1,
+   "repeat": true
+  },
+  {
+   "type": "Animated",
+   "name": "obsidia_hunt_throw",
+   "anim": "asset/mlbb_heroes/effects/obsidia_hunt_throw",
+   "tag": "throw",
+   "z": 1,
+   "repeat": false
+  }
+ ]
+}

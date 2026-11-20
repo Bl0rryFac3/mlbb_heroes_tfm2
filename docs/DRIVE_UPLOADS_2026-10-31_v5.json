@@ -1,0 +1,40 @@
+{
+  "drive_folder_id": "1mQ547CY88fl9AmU2Vo9MB5UymtU3wpCX",
+  "candidate": "Balmond TFM2 v5, user-selected 65% S1 trail rescale after v4",
+  "uploads": [
+    {
+      "name": "MLBB_Heroes_Balmond_TFM2_0.7.0_v5_S1scale65_source_patch.zip",
+      "id": "18EzucowYjLBCw3LZsK-2q7CGuMrjpuX5",
+      "url": "https://drive.google.com/file/d/18EzucowYjLBCw3LZsK-2q7CGuMrjpuX5/view?usp=drivesdk",
+      "bytes": 46906,
+      "sha256": "a3ce67a7f1a0fbc11f2df393ec4003c892c247a8f5577c335af5dc0bbe62c499"
+    },
+    {
+      "name": "balmond_s1_fx_sheet_v5_65pct.png",
+      "id": "1j6sGNhA7BzWOcBoZBgElk85PrFZKT7kF",
+      "url": "https://drive.google.com/file/d/1j6sGNhA7BzWOcBoZBgElk85PrFZKT7kF/view?usp=drivesdk",
+      "bytes": 24151
+    },
+    {
+      "name": "balmond_s1_fx_anim_v5_65pct.fanim",
+      "id": "1QqMr2LXQL0o--9G3RwZ1bbf2_-OHN_6X",
+      "url": "https://drive.google.com/file/d/1QqMr2LXQL0o--9G3RwZ1bbf2_-OHN_6X/view?usp=drivesdk",
+      "bytes": 1065
+    },
+    {
+      "name": "Balmond_TFM2_Implementation_Check_v5_2026-10-31.md",
+      "id": "1McT4I9VJolGrrARNKYzNH9kuTiHwP0N5",
+      "url": "https://drive.google.com/file/d/1McT4I9VJolGrrARNKYzNH9kuTiHwP0N5/view?usp=drivesdk",
+      "bytes": 1717
+    }
+  ],
+  "runtime_zip": null,
+  "validation": {
+    "static_audit": "80 passed, 0 failed",
+    "v5_delta_patch": "dry-run applies cleanly against v4; atlas and FAnim replaced; v5 audit passes",
+    "full_build": "not run; no full project/SDK baseline integrated in workspace",
+    "in_game_validation": "not run",
+    "scale": "65% requested; output 354x118 from 543x181 = ~65.19%, six 59x118 frames; timing unchanged"
+  },
+  "preserved_candidates": "v1-v4 remain unchanged; no previous archive overwritten"
+}

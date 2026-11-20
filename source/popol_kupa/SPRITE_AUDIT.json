@@ -1,0 +1,60 @@
+[
+  {
+    "file": "popol_master.png",
+    "canvas": [
+      56,
+      48
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "occupied_bbox": [
+      0,
+      0,
+      56,
+      48
+    ],
+    "edge_opaque_pixels": {
+      "left": 2,
+      "right": 3,
+      "top": 3,
+      "bottom": 16
+    },
+    "colors_including_transparent": 29
+  },
+  {
+    "file": "kupa_master.png",
+    "canvas": [
+      72,
+      42
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "occupied_bbox": [
+      0,
+      0,
+      72,
+      42
+    ],
+    "edge_opaque_pixels": {
+      "left": 3,
+      "right": 2,
+      "top": 2,
+      "bottom": 8
+    },
+    "colors_including_transparent": 22
+  }
+]

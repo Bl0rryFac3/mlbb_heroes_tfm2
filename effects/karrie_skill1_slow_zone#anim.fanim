@@ -1,0 +1,19 @@
+{
+  "anims": {
+    "zone": {
+      "frames": [
+        {
+          "duration": 0.1,
+          "data": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 79
+          }
+        }
+      ]
+    }
+  },
+  "anchor_x": 0.5,
+  "anchor_y": 0.5
+}
