@@ -47,7 +47,7 @@ EXCLUDED_SUFFIXES = {".pyc"}
 # nothing under `reports/` is touched. Only a log AT THE RUNTIME PATH is skipped.
 EXCLUDED_NAMES = {"mlbb_heroes.log"}
 
-EXPECTED_CHAMPIONS = 26  # Atlas integration candidate
+EXPECTED_CHAMPIONS = 27  # Yu Zhong integration candidate
 
 
 def collect() -> list[Path]:
@@ -60,8 +60,6 @@ def collect() -> list[Path]:
     for d in SHIPPED_DIRS:
         base = ROOT / d
         if not base.is_dir():
-            if d in {"reports", "src"}:
-                continue
             raise SystemExit(f"Required directory missing: {base}")
         for p in base.rglob("*"):
             if not p.is_file():

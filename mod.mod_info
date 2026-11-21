@@ -2,11 +2,11 @@
  "mod_id": "mlbb_heroes",
  "name": "MLBB Heroes",
  "author": "Bl0rryFac3",
- "version": "1.1.164",
+ "version": "1.1.170",
  "mod_type": "native",
  "contains_code": true,
  "last_updated": "2026-11-21",
- "description": "26 heroes \u00b7 Draft grid idle preview candidate for Teamfight Manager 2 0.7.3+.",
+ "description": "Adds 27 Mobile Legends heroes to Teamfight Manager 2, including Yu Zhong.",
  "dependencies": [
   {
    "mod_id": "base",

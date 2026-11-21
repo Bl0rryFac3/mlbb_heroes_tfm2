@@ -13,7 +13,7 @@ data = read(atlas)
 candidate = root / 'sdk/candidate'
 assert atlas.read_bytes() == (candidate / 'champion/mlbb_atlas.data_champion').read_bytes()
 assert data['id'] == 'mlbb_atlas' and data['category'] == 'Tank'
-assert len(list((root / 'champion').glob('*.data_champion'))) == 26
+assert len(list((root / 'champion').glob('*.data_champion'))) >= 26
 assert [data[slot]['cooltime'] for slot in ['attack', 'skill', 'skill2', 'ult']] == [56, 420, 600, 2040]
 
 code = (candidate / 'atlas.rs').read_text()
@@ -69,4 +69,4 @@ assert len(locales) == 8
 for locale in locales.values():
     assert len(locale['description']['mlbb_atlas']) == 6
     assert len(locale['skill_name']['mlbb_atlas']) == 4
-print(f'Atlas reference integrity: {len(bindings)} view bindings, 8 locales, 3 icons, 26 heroes, all body poses within 48 px.')
+print(f'Atlas reference integrity: {len(bindings)} view bindings, 8 locales, 3 icons, all body poses within 48 px.')

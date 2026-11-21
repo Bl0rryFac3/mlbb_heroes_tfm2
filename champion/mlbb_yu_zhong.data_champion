@@ -1,0 +1,3004 @@
+{
+  "id": "mlbb_yu_zhong",
+  "category": "Melee",
+  "tags": [
+    "AD",
+    "Melee",
+    "CC"
+  ],
+  "sprite": "asset/mlbb_heroes/sprite/yu_zhong_carrier",
+  "anim_prefix": "",
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/mlbb_yu_zhong_skill",
+    "asset/mlbb_heroes/icons/mlbb_yu_zhong_skill2",
+    "asset/mlbb_heroes/icons/mlbb_yu_zhong_ult"
+  ],
+  "stat": {
+    "attack": 122,
+    "magic_power": 20,
+    "hp": 830,
+    "defence": 33,
+    "magic_resistance": 25,
+    "move_speed": 1080,
+    "hp_regen": 9,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "growth": {
+    "attack": 5,
+    "magic_power": 4,
+    "hp": 105,
+    "defence": 4,
+    "magic_resistance": 2,
+    "move_speed": 0,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_yu_zhong.attack",
+    "duration": 22,
+    "cooltime": 60,
+    "start_timing": 5,
+    "cancelable": true,
+    "range": 24000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "BaseAttack",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Combine",
+      "effects": [
+        {
+          "type": "Native",
+          "effect_ref": "mlbb_heroes:yu_basic"
+        },
+        {
+          "type": "Attack",
+          "damage": 0,
+          "attack_ratio": 100,
+          "attack_effect_type": "Target"
+        }
+      ]
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_yu_zhong.skill",
+    "duration": 1,
+    "cooltime": 420,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 35000,
+    "casting_type": "None",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:yu_tail"
+    }
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_yu_zhong.skill2",
+    "duration": 1,
+    "cooltime": 600,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 66000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:yu_grip"
+    }
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_yu_zhong.ult",
+    "duration": 1,
+    "cooltime": 2760,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 95000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyChampion",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:yu_dragon"
+    }
+  },
+  "passive": {
+    "passive_ref": "mlbb_heroes:yu_zhong"
+  },
+  "stack_skill_index": 0,
+  "view_effects": [
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_idle_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_idle_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_human_jog_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_human_jog_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_basic_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_basic_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_empowered_basic_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_empowered_basic_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_tail_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_tail_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_soul_grip_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_soul_grip_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_furious_dive_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_furious_dive_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_idle_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_idle_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_jog_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_jog_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_attack_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_attack_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_soul_grip_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_soul_grip_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_dragon_tail_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_dragon_tail_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_furious_dive_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_furious_dive_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_entry_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_entry_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_flight_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_flight_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_black_dragon_contact_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_black_dragon_contact_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_5",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_6",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_7",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragon_exit_left_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_left",
+      "tag": "body_8",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_left_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human_left",
+      "tag": "body_0",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_left_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human_left",
+      "tag": "body_1",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_left_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human_left",
+      "tag": "body_2",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_left_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human_left",
+      "tag": "body_3",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_body_dragonoid_to_human_left_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragonoid_to_human_left",
+      "tag": "body_4",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_tail_warning",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_tail_warning",
+      "tag": "main",
+      "z": 0,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_tail_warning_large",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_tail_warning_large",
+      "tag": "main",
+      "z": 0,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_tail_crescents",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_tail_crescents",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_tail_crescents_large",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_tail_crescents_large",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_tail_inner_hit",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_tail_inner_hit",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_tail_outer_hit",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_tail_outer_hit",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_0",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_1",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_2",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_3",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_4",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_5",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_6",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_7",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_8",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_9",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_9",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_10",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_10",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_11",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_11",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_12",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_12",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_13",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_13",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_14",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_14",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_15",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_15",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_0",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_0",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_1",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_2",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_3",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_4",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_4",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_5",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_5",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_6",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_6",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_7",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_7",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_8",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_8",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_9",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_9",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_10",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_10",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_11",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_11",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_12",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_12",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_13",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_13",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_14",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_14",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_wave_large_15",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_wave_large_15",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_ready_glow",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_ready_glow",
+      "tag": "main",
+      "z": 2,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_grip_empowered_flash",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_grip_empowered_flash",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_dive_warning",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dive_warning",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_dive_warning_large",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dive_warning_large",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_dive_spikes",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dive_spikes",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_dive_spikes_large",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dive_spikes_large",
+      "tag": "main",
+      "z": 0,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_dragon_channel",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_channel",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_dragon_contact_fx",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_contact_fx",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_dragon_exit_fx",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_dragon_exit_fx",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_eruption_flash",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_eruption_flash",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_returning_mote",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_returning_mote",
+      "tag": "main",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_mark_1",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_residue",
+      "tag": "mark_1",
+      "z": 4,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_mark_2",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_residue",
+      "tag": "mark_2",
+      "z": 4,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_yu_fx_mark_3",
+      "anim": "asset/mlbb_heroes/effects/yu_zhong_residue",
+      "tag": "mark_3",
+      "z": 4,
+      "is_follow": true
+    }
+  ],
+  "view_buffs": []
+}

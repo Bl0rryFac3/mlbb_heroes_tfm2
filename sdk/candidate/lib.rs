@@ -12,6 +12,7 @@ mod popol_menu;
 mod granger;
 mod hanzo;
 mod atlas;
+mod yu_zhong;
 mod arlott;
 mod audio;
 mod balmond;
@@ -2533,6 +2534,7 @@ fn init(host: &StableHost) -> StableMod {
     granger::register(&mut module);
     hanzo::register(&mut module);
     atlas::register(&mut module);
+    yu_zhong::register(&mut module);
     module.set_extension(hanzo::Extension);
     franco::register(&mut module);
     balmond::register(&mut module);

@@ -1,0 +1,338 @@
+{
+  "human_idle": {
+    "original_sha256": "c97fd8eaa6967a135a9c384ff1c10eb0868e9ca4f454505edbefe45bce6b59f7",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "human_walk": {
+    "original_sha256": "2600a68521ea8bb98e3eadabef4d535d290bb7bbe3234dc429da3504a79f4a57",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "basic": {
+    "original_sha256": "a013a27d4beb019c92077f5522d342517544bbefa5e658faa3d6786c66950775",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "empowered_basic": {
+    "original_sha256": "002264bb6b24f5611f0c623667386de085a24e56a2349b0573e199c9dd87de15",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "dragon_tail": {
+    "original_sha256": "8b1dee1898108f0d80ea644001ea14dd103cdad2aeaacd2e9661a79d345f34c9",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "soul_grip": {
+    "original_sha256": "c2d3e02b502b654f49169f3d4cebb644b689a385db22a889cdcf5c66ac76ccbd",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "furious_dive": {
+    "original_sha256": "1808130991bf97545f61a31298d0d7eba4424ca58e99f525e48482353f9ffe60",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "dragonoid_idle": {
+    "original_sha256": "b70ba954f6189bbe9f172bc692322d1b9764d749cd579ab056d2be89f5f9db8b",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "dragonoid_jog": {
+    "original_sha256": "d8b24592b0e0b30f96fd62f568e942870a029fdf2e04023433106cc52fd407bf",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "dragonoid_attack": {
+    "original_sha256": "6edbe41d3e0ce3247ccac6a6774f4ec9bd06e729c23b7b55da304da37aef40d1",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "dragonoid_soul_grip": {
+    "original_sha256": "57677b805fb42029d9ceb1bccb83b86bcac4d886225c956e1da8085d8eef02bf",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "dragonoid_dragon_tail": {
+    "original_sha256": "c476ab1fc6f53898b448e0adc67599183c0078223ad5262ffcf6862d15489c47",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "dragonoid_furious_dive": {
+    "original_sha256": "9ecf50b787f3f9f2c11a9cd06fb2da0d55b6ba8f9ac4f6f26d6e2efdf8082c7e",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "black_dragon_entry": {
+    "original_sha256": "d3e4342d0029821736c7ae42beed222450aae28f1f41edc180d364f4b068c9fe",
+    "source_cell": [
+      128,
+      88
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      128,
+      88
+    ]
+  },
+  "black_dragon_flight": {
+    "original_sha256": "93596c7de46fef2e03c7e9d0514dc23e98e66482324393b8bf0f85a6f428851b",
+    "source_cell": [
+      144,
+      88
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      144,
+      88
+    ]
+  },
+  "black_dragon_contact": {
+    "original_sha256": "f75be4f82d1b2cb143253f80e98ef4b53cb76f0b2d16e1f604919009ddbbba1a",
+    "source_cell": [
+      160,
+      104
+    ],
+    "frames": 5,
+    "runtime_cell": [
+      160,
+      104
+    ]
+  },
+  "dragon_exit": {
+    "original_sha256": "90dc62374c4c6c87f6ebd91170cac6faec3f7b742ac487738bcbac1104c3a945",
+    "source_cell": [
+      128,
+      88
+    ],
+    "frames": 9,
+    "runtime_cell": [
+      128,
+      88
+    ]
+  },
+  "dragonoid_to_human": {
+    "original_sha256": "d6995b4984a80b7b2bd77dfaf09ccb321ab9087c1fe7db24af17e15eecd4b5db",
+    "source_cell": [
+      64,
+      48
+    ],
+    "frames": 5,
+    "runtime_cell": [
+      72,
+      72
+    ]
+  },
+  "tail_warning": {
+    "original_sha256": "66625216df1c569157a98a7c8d0dcaeea17c42efbc03566303a216ab5de46b3c",
+    "source_cell": [
+      96,
+      64
+    ],
+    "frames": 5
+  },
+  "tail_crescents": {
+    "original_sha256": "22f1d73981447526ac6160755b4d75be06050dc4c0f022b8b635b63d4de2bab4",
+    "source_cell": [
+      96,
+      64
+    ],
+    "frames": 4
+  },
+  "tail_inner_hit": {
+    "original_sha256": "23d8fd54cc8ec963e8806bd9819821bde4bf9cbaf4318c8b704bb5beb953bd9f",
+    "source_cell": [
+      32,
+      32
+    ],
+    "frames": 5
+  },
+  "tail_outer_hit": {
+    "original_sha256": "74b5611a8f5c14d384c2102710ae237476d07f52e6b8aaa796beb44e6924ad7c",
+    "source_cell": [
+      32,
+      32
+    ],
+    "frames": 5
+  },
+  "grip_wave": {
+    "original_sha256": "0b3f3b928eb777cda13ded2ecc57ffea4280d82d700e41ebeb96b809ae9ab015",
+    "source_cell": [
+      172,
+      84
+    ],
+    "frames": 9
+  },
+  "grip_ready_glow": {
+    "original_sha256": "fc0cb8cf23632261fe564ad68ef2e24d9e5b367c07a0a1ad5ea83b1a7dcee7a0",
+    "source_cell": [
+      32,
+      32
+    ],
+    "frames": 5
+  },
+  "grip_empowered_flash": {
+    "original_sha256": "ff466a9a4265b820bfc76ce7a04bd382e7e897e8e35e5349c07baace5e589cf3",
+    "source_cell": [
+      32,
+      32
+    ],
+    "frames": 5
+  },
+  "dive_warning": {
+    "original_sha256": "370e7df436a0f2462e4f303e60cc47b180584dd6ff6aeb3004116a5d51e6f9b0",
+    "source_cell": [
+      96,
+      64
+    ],
+    "frames": 5
+  },
+  "dive_spikes": {
+    "original_sha256": "21230097c250f5899ea57ae51fb0e7a132a59a553644d3097262073d768940aa",
+    "source_cell": [
+      96,
+      64
+    ],
+    "frames": 4
+  },
+  "dragon_channel": {
+    "original_sha256": "2b020017ce570f8bb41afd9956d568fd8054b2a23594aa15543fc61fe2dc88b5",
+    "source_cell": [
+      64,
+      64
+    ],
+    "frames": 5
+  },
+  "dragon_contact_fx": {
+    "original_sha256": "07062e3fd90d3fc422a82a14a78c55b9ba71f7740306e155798a024f4d11d4a0",
+    "source_cell": [
+      32,
+      32
+    ],
+    "frames": 5
+  },
+  "dragon_exit_fx": {
+    "original_sha256": "c9c9ec73e9a192b5efc3ec2bea13497d299f40b0b83ed03c646d13f360a2cfa3",
+    "source_cell": [
+      96,
+      64
+    ],
+    "frames": 5
+  },
+  "eruption_flash": {
+    "original_sha256": "c7eb20098b007a81ef6db01be851171b4b3f78c47c64dbba0db8c4ecd0edf40b",
+    "source_cell": [
+      32,
+      32
+    ],
+    "frames": 5
+  },
+  "returning_mote": {
+    "original_sha256": "09be6d04923f2a921e925169219c18ed36b63314d3995fbfb6eb40dcbe9c1a04",
+    "source_cell": [
+      24,
+      24
+    ],
+    "frames": 9
+  },
+  "residue": {
+    "original_sha256": "c2c2cac60b105dd300208d0834c5862ff3b8f3fffba39f3ba4ac4434c1084540",
+    "source_cell": [
+      72,
+      72
+    ],
+    "frames": 5
+  }
+}

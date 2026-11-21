@@ -208,6 +208,14 @@
         "skill": "Slams three times for <#5ad0e6ff>30 + 10% Magic Power<> magic damage per pulse. The suit also slams while separated. Overlapping hits deal <#5ad0e6ff>45 + 15% Magic Power<> once per pulse. Cooldown: <#ffb900ff>7s<>.",
         "skill2": "Ejects for up to <#ffb900ff>2s<>, gaining <#ffb900ff>25% Movement Speed<> while the suit follows. Reunion deals <#5ad0e6ff>65 + 20% Magic Power<> magic damage and <#ef5350ff>stuns for 0.6s<>. Cooldown: <#ffb900ff>10s<>.",
         "ult": "Links nearby enemy champions for <#5ad0e6ff>35 + 10% Magic Power<> magic damage and <#ef5350ff>30% slow<>. After <#ffb900ff>0.4s<>, Atlas pulls them in for <#5ad0e6ff>105 + 25% Magic Power<> magic damage and <#ef5350ff>0.35s airborne<>. While ejected, reunites immediately with a <#ef5350ff>40% slow<> in place of the reunion hit. Cooldown: <#ffb900ff>34s<>."
+      },
+      "mlbb_yu_zhong": {
+        "name": "Yu Zhong",
+        "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
+        "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
+        "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
@@ -366,6 +374,12 @@
         "skill1": "Annihilate",
         "skill2": "Perfect Match",
         "ult": "Fatal Links"
+      },
+      "mlbb_yu_zhong": {
+        "passive": "Cursing Touch",
+        "skill1": "Dragon Tail",
+        "skill2": "Soul Grip",
+        "ult": "Black Dragon Form"
       }
     }
   },
@@ -578,6 +592,14 @@
         "skill": "Slams three times for <#5ad0e6ff>30 + 10% Magic Power<> magic damage per pulse. The suit also slams while separated. Overlapping hits deal <#5ad0e6ff>45 + 15% Magic Power<> once per pulse. Cooldown: <#ffb900ff>7s<>.",
         "skill2": "Ejects for up to <#ffb900ff>2s<>, gaining <#ffb900ff>25% Movement Speed<> while the suit follows. Reunion deals <#5ad0e6ff>65 + 20% Magic Power<> magic damage and <#ef5350ff>stuns for 0.6s<>. Cooldown: <#ffb900ff>10s<>.",
         "ult": "Links nearby enemy champions for <#5ad0e6ff>35 + 10% Magic Power<> magic damage and <#ef5350ff>30% slow<>. After <#ffb900ff>0.4s<>, Atlas pulls them in for <#5ad0e6ff>105 + 25% Magic Power<> magic damage and <#ef5350ff>0.35s airborne<>. While ejected, reunites immediately with a <#ef5350ff>40% slow<> in place of the reunion hit. Cooldown: <#ffb900ff>34s<>."
+      },
+      "mlbb_yu_zhong": {
+        "name": "Yu Zhong",
+        "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
+        "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
+        "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
@@ -736,6 +758,12 @@
         "skill1": "Annihilate",
         "skill2": "Perfect Match",
         "ult": "Fatal Links"
+      },
+      "mlbb_yu_zhong": {
+        "passive": "Cursing Touch",
+        "skill1": "Dragon Tail",
+        "skill2": "Soul Grip",
+        "ult": "Black Dragon Form"
       }
     }
   },
@@ -948,6 +976,14 @@
         "skill": "Slams three times for <#5ad0e6ff>30 + 10% Magic Power<> magic damage per pulse. The suit also slams while separated. Overlapping hits deal <#5ad0e6ff>45 + 15% Magic Power<> once per pulse. Cooldown: <#ffb900ff>7s<>.",
         "skill2": "Ejects for up to <#ffb900ff>2s<>, gaining <#ffb900ff>25% Movement Speed<> while the suit follows. Reunion deals <#5ad0e6ff>65 + 20% Magic Power<> magic damage and <#ef5350ff>stuns for 0.6s<>. Cooldown: <#ffb900ff>10s<>.",
         "ult": "Links nearby enemy champions for <#5ad0e6ff>35 + 10% Magic Power<> magic damage and <#ef5350ff>30% slow<>. After <#ffb900ff>0.4s<>, Atlas pulls them in for <#5ad0e6ff>105 + 25% Magic Power<> magic damage and <#ef5350ff>0.35s airborne<>. While ejected, reunites immediately with a <#ef5350ff>40% slow<> in place of the reunion hit. Cooldown: <#ffb900ff>34s<>."
+      },
+      "mlbb_yu_zhong": {
+        "name": "Yu Zhong",
+        "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
+        "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
+        "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
@@ -1106,6 +1142,12 @@
         "skill1": "Annihilate",
         "skill2": "Perfect Match",
         "ult": "Fatal Links"
+      },
+      "mlbb_yu_zhong": {
+        "passive": "Cursing Touch",
+        "skill1": "Dragon Tail",
+        "skill2": "Soul Grip",
+        "ult": "Black Dragon Form"
       }
     }
   },
@@ -1318,6 +1360,14 @@
         "skill": "Slams three times for <#5ad0e6ff>30 + 10% Magic Power<> magic damage per pulse. The suit also slams while separated. Overlapping hits deal <#5ad0e6ff>45 + 15% Magic Power<> once per pulse. Cooldown: <#ffb900ff>7s<>.",
         "skill2": "Ejects for up to <#ffb900ff>2s<>, gaining <#ffb900ff>25% Movement Speed<> while the suit follows. Reunion deals <#5ad0e6ff>65 + 20% Magic Power<> magic damage and <#ef5350ff>stuns for 0.6s<>. Cooldown: <#ffb900ff>10s<>.",
         "ult": "Links nearby enemy champions for <#5ad0e6ff>35 + 10% Magic Power<> magic damage and <#ef5350ff>30% slow<>. After <#ffb900ff>0.4s<>, Atlas pulls them in for <#5ad0e6ff>105 + 25% Magic Power<> magic damage and <#ef5350ff>0.35s airborne<>. While ejected, reunites immediately with a <#ef5350ff>40% slow<> in place of the reunion hit. Cooldown: <#ffb900ff>34s<>."
+      },
+      "mlbb_yu_zhong": {
+        "name": "Yu Zhong",
+        "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
+        "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
+        "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
@@ -1476,6 +1526,12 @@
         "skill1": "Annihilate",
         "skill2": "Perfect Match",
         "ult": "Fatal Links"
+      },
+      "mlbb_yu_zhong": {
+        "passive": "Cursing Touch",
+        "skill1": "Dragon Tail",
+        "skill2": "Soul Grip",
+        "ult": "Black Dragon Form"
       }
     }
   },
@@ -1688,6 +1744,14 @@
         "skill": "Slams three times for <#5ad0e6ff>30 + 10% Magic Power<> magic damage per pulse. The suit also slams while separated. Overlapping hits deal <#5ad0e6ff>45 + 15% Magic Power<> once per pulse. Cooldown: <#ffb900ff>7s<>.",
         "skill2": "Ejects for up to <#ffb900ff>2s<>, gaining <#ffb900ff>25% Movement Speed<> while the suit follows. Reunion deals <#5ad0e6ff>65 + 20% Magic Power<> magic damage and <#ef5350ff>stuns for 0.6s<>. Cooldown: <#ffb900ff>10s<>.",
         "ult": "Links nearby enemy champions for <#5ad0e6ff>35 + 10% Magic Power<> magic damage and <#ef5350ff>30% slow<>. After <#ffb900ff>0.4s<>, Atlas pulls them in for <#5ad0e6ff>105 + 25% Magic Power<> magic damage and <#ef5350ff>0.35s airborne<>. While ejected, reunites immediately with a <#ef5350ff>40% slow<> in place of the reunion hit. Cooldown: <#ffb900ff>34s<>."
+      },
+      "mlbb_yu_zhong": {
+        "name": "Yu Zhong",
+        "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
+        "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
+        "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
@@ -1846,6 +1910,12 @@
         "skill1": "Annihilate",
         "skill2": "Perfect Match",
         "ult": "Fatal Links"
+      },
+      "mlbb_yu_zhong": {
+        "passive": "Cursing Touch",
+        "skill1": "Dragon Tail",
+        "skill2": "Soul Grip",
+        "ult": "Black Dragon Form"
       }
     }
   },
@@ -2058,6 +2128,14 @@
         "skill": "Slams three times for <#5ad0e6ff>30 + 10% Magic Power<> magic damage per pulse. The suit also slams while separated. Overlapping hits deal <#5ad0e6ff>45 + 15% Magic Power<> once per pulse. Cooldown: <#ffb900ff>7s<>.",
         "skill2": "Ejects for up to <#ffb900ff>2s<>, gaining <#ffb900ff>25% Movement Speed<> while the suit follows. Reunion deals <#5ad0e6ff>65 + 20% Magic Power<> magic damage and <#ef5350ff>stuns for 0.6s<>. Cooldown: <#ffb900ff>10s<>.",
         "ult": "Links nearby enemy champions for <#5ad0e6ff>35 + 10% Magic Power<> magic damage and <#ef5350ff>30% slow<>. After <#ffb900ff>0.4s<>, Atlas pulls them in for <#5ad0e6ff>105 + 25% Magic Power<> magic damage and <#ef5350ff>0.35s airborne<>. While ejected, reunites immediately with a <#ef5350ff>40% slow<> in place of the reunion hit. Cooldown: <#ffb900ff>34s<>."
+      },
+      "mlbb_yu_zhong": {
+        "name": "Yu Zhong",
+        "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
+        "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
+        "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
@@ -2216,6 +2294,12 @@
         "skill1": "Annihilate",
         "skill2": "Perfect Match",
         "ult": "Fatal Links"
+      },
+      "mlbb_yu_zhong": {
+        "passive": "Cursing Touch",
+        "skill1": "Dragon Tail",
+        "skill2": "Soul Grip",
+        "ult": "Black Dragon Form"
       }
     }
   },
@@ -2428,6 +2512,14 @@
         "skill": "Slams three times for <#5ad0e6ff>30 + 10% Magic Power<> magic damage per pulse. The suit also slams while separated. Overlapping hits deal <#5ad0e6ff>45 + 15% Magic Power<> once per pulse. Cooldown: <#ffb900ff>7s<>.",
         "skill2": "Ejects for up to <#ffb900ff>2s<>, gaining <#ffb900ff>25% Movement Speed<> while the suit follows. Reunion deals <#5ad0e6ff>65 + 20% Magic Power<> magic damage and <#ef5350ff>stuns for 0.6s<>. Cooldown: <#ffb900ff>10s<>.",
         "ult": "Links nearby enemy champions for <#5ad0e6ff>35 + 10% Magic Power<> magic damage and <#ef5350ff>30% slow<>. After <#ffb900ff>0.4s<>, Atlas pulls them in for <#5ad0e6ff>105 + 25% Magic Power<> magic damage and <#ef5350ff>0.35s airborne<>. While ejected, reunites immediately with a <#ef5350ff>40% slow<> in place of the reunion hit. Cooldown: <#ffb900ff>34s<>."
+      },
+      "mlbb_yu_zhong": {
+        "name": "Yu Zhong",
+        "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
+        "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
+        "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
@@ -2586,6 +2678,12 @@
         "skill1": "Annihilate",
         "skill2": "Perfect Match",
         "ult": "Fatal Links"
+      },
+      "mlbb_yu_zhong": {
+        "passive": "Cursing Touch",
+        "skill1": "Dragon Tail",
+        "skill2": "Soul Grip",
+        "ult": "Black Dragon Form"
       }
     }
   },
@@ -2798,6 +2896,14 @@
         "skill": "Slams three times for <#5ad0e6ff>30 + 10% Magic Power<> magic damage per pulse. The suit also slams while separated. Overlapping hits deal <#5ad0e6ff>45 + 15% Magic Power<> once per pulse. Cooldown: <#ffb900ff>7s<>.",
         "skill2": "Ejects for up to <#ffb900ff>2s<>, gaining <#ffb900ff>25% Movement Speed<> while the suit follows. Reunion deals <#5ad0e6ff>65 + 20% Magic Power<> magic damage and <#ef5350ff>stuns for 0.6s<>. Cooldown: <#ffb900ff>10s<>.",
         "ult": "Links nearby enemy champions for <#5ad0e6ff>35 + 10% Magic Power<> magic damage and <#ef5350ff>30% slow<>. After <#ffb900ff>0.4s<>, Atlas pulls them in for <#5ad0e6ff>105 + 25% Magic Power<> magic damage and <#ef5350ff>0.35s airborne<>. While ejected, reunites immediately with a <#ef5350ff>40% slow<> in place of the reunion hit. Cooldown: <#ffb900ff>34s<>."
+      },
+      "mlbb_yu_zhong": {
+        "name": "Yu Zhong",
+        "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
+        "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
+        "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
@@ -2956,6 +3062,12 @@
         "skill1": "Annihilate",
         "skill2": "Perfect Match",
         "ult": "Fatal Links"
+      },
+      "mlbb_yu_zhong": {
+        "passive": "Cursing Touch",
+        "skill1": "Dragon Tail",
+        "skill2": "Soul Grip",
+        "ult": "Black Dragon Form"
       }
     }
   }

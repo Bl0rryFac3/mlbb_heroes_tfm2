@@ -16,6 +16,7 @@ enum Hero {
     Granger,
     Hanzo,
     Atlas,
+    YuZhong,
 }
 
 impl Hero {
@@ -25,6 +26,7 @@ impl Hero {
             "Granger" | "mlbb_granger" => Some(Self::Granger),
             "Hanzo" | "mlbb_hanzo" => Some(Self::Hanzo),
             "Atlas" | "mlbb_atlas" => Some(Self::Atlas),
+            "Yu Zhong" | "mlbb_yu_zhong" => Some(Self::YuZhong),
             _ => None,
         }
     }
@@ -37,6 +39,7 @@ impl Hero {
             Self::Granger => ("granger_draft_idle", frame, 72. / 72.),
             Self::Hanzo => ("hanzo_draft_idle", elapsed_us / 240_000, 96. / 72.),
             Self::Atlas => ("atlas_draft_idle", frame, 96. / 88.),
+            Self::YuZhong => ("yu_zhong_draft_idle", frame, 1.),
         };
         (format!("asset/mlbb_heroes/icons/{name}_{frame}"), aspect)
     }

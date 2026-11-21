@@ -1814,5 +1814,37 @@
   "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_atlas_reunion": {
     "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_atlas_reunion",
     "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_yu_tail": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_yu_tail",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_yu_tail": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_yu_tail",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_yu_grip": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_yu_grip",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_yu_grip": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_yu_grip",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_yu_dive": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_yu_dive",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_yu_dive": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_yu_dive",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_yu_dragon": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_yu_dragon",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_yu_dragon": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_yu_dragon",
+    "type": "override"
   }
 }

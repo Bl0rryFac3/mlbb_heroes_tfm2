@@ -18,6 +18,7 @@ struct Unit {
 }
 pub(crate) struct Host {
     pub(crate) now: usize,
+    pub(crate) respawn_ticks: usize,
     seed: u64,
     units: HashMap<usize, Unit>,
     kills: usize,
@@ -36,7 +37,7 @@ pub(crate) struct Host {
     allow_skill: bool,
     allow_dash: bool,
     allow_ult: bool,
-    effects: Vec<(String, Pos, u64)>,
+    pub(crate) effects: Vec<(String, Pos, u64)>,
     native_attack_range: usize,
     basic_metadata: bool,
     deferred_damage: bool,
@@ -47,6 +48,7 @@ impl Host {
     pub(crate) fn new() -> Self {
         let mut h = Self {
             now: 0,
+            respawn_ticks: 0,
             seed: SEED.fetch_add(1, Ordering::Relaxed),
             units: HashMap::new(),
             kills: 0,
@@ -119,6 +121,7 @@ impl Host {
         t.play_view_effect = Some(play_effect);
         t.player_is_valid = Some(player_valid);
         t.player_champion = Some(player_champion);
+        t.player_respawn_time = Some(player_respawn_time);
         t.entity_cooldown = Some(cooldown);
         t.entity_kind = Some(kind);
         t.entity_buff_count = Some(buff_count);
@@ -152,7 +155,30 @@ impl Host {
         self.units.get_mut(&id).unwrap().p = p;
     }
 
+    pub(crate) fn set_unit_kind(&mut self, id: usize, kind: EntityKindV1) {
+        self.units.get_mut(&id).unwrap().kind = kind;
+    }
+
+    pub(crate) fn set_unit_max_hp(&mut self, id: usize, hp: usize) {
+        self.units.get_mut(&id).unwrap().base.hp = hp;
+    }
+
+    pub(crate) fn respawn_unit(&mut self, id: usize, position: Pos) {
+        let unit = self.units.get_mut(&id).unwrap();
+        unit.alive = true;
+        unit.hp = max(unit);
+        unit.p = position;
+    }
+
     fn ai(&mut self, base: Option<InputV1>) -> Option<InputV1> {
+        self.think_with(&mut Ai, base)
+    }
+
+    pub(crate) fn think_with(
+        &mut self,
+        ai: &mut impl StablePlayerAi,
+        base: Option<InputV1>,
+    ) -> Option<InputV1> {
         let sim = Self::table();
         let mut a: AiVtableV1 = unsafe { std::mem::zeroed() };
         a.size = size_of::<AiVtableV1>();
@@ -167,7 +193,7 @@ impl Host {
             sim_state: ptr,
         };
         let mut ctx = unsafe { StableAiContext::from_raw(&mut raw) }.unwrap();
-        Ai.think(&mut ctx, base)
+        ai.think(&mut ctx, base)
     }
     fn setup(&mut self) -> (Passive, EntityKey) {
         let mut p = Passive::default();
@@ -974,6 +1000,9 @@ unsafe extern "C" fn origin(s: *const c_void, out: *mut SimOriginV1) -> bool {
 unsafe extern "C" fn player_valid(_: *const c_void, _: PlayerHandleV1) -> bool {
     true
 }
+unsafe extern "C" fn player_respawn_time(s: *const c_void, _: PlayerHandleV1) -> usize {
+    h(s).respawn_ticks
+}
 unsafe extern "C" fn player_champion(_: *const c_void, _: PlayerHandleV1) -> EntityHandleV1 {
     EntityHandleV1::from_id(1)
 }
@@ -1003,6 +1032,7 @@ unsafe extern "C" fn ai_valid(s: *const c_void, p: *const InputV1) -> bool {
         Some(InputKindV1::Ult) => h.allow_ult,
         Some(InputKindV1::Skill2) => h.allow_dash,
         Some(InputKindV1::Move | InputKindV1::Return) => true,
+        Some(InputKindV1::Skill) if i.target.target_id == 0 => h.allow_skill,
         Some(InputKindV1::Attack | InputKindV1::Skill) => {
             let Some(t) = h.units.get(&i.target.target_id) else {
                 return false;

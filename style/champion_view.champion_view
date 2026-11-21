@@ -350,6 +350,7 @@
     "y": -18
    }
   },
-  "mlbb_atlas": {"face":{"x":0,"y":-38},"center":{"x":0,"y":-20},"banpick_center":{"x":0,"y":-18}}
+  "mlbb_atlas": {"face":{"x":0,"y":-38},"center":{"x":0,"y":-20},"banpick_center":{"x":0,"y":-18}},
+  "mlbb_yu_zhong": {"face":{"x":0,"y":-38},"center":{"x":0,"y":-20},"banpick_center":{"x":0,"y":-18}}
 }
 }

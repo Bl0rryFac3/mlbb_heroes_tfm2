@@ -153,7 +153,7 @@ fn endpoint(a: Pos, d: (f64, f64), n: f64) -> Pos {
         (a.1 as f64 + d.1 * n).max(0.) as u64,
     )
 }
-fn grid(sim: &StableSim<'_>) -> Arc<crate::Grid> {
+pub(crate) fn grid(sim: &StableSim<'_>) -> Arc<crate::Grid> {
     // Select once per projection using actual map-hook cells and live champion positions.
     let live: Vec<_> = (0..sim.champion_count())
         .filter_map(|i| sim.get_entity(sim.champion_id_at(i)))
@@ -177,7 +177,7 @@ fn grid(sim: &StableSim<'_>) -> Arc<crate::Grid> {
     g.bounds = None;
     Arc::new(g)
 }
-fn standable(g: &crate::Grid, p: Pos) -> bool {
+pub(crate) fn standable(g: &crate::Grid, p: Pos) -> bool {
     [
         (0., 0.),
         (8000., 0.),
@@ -188,7 +188,7 @@ fn standable(g: &crate::Grid, p: Pos) -> bool {
     .iter()
     .all(|(x, y)| !g.is_wall(p.0 as f64 + x, p.1 as f64 + y))
 }
-fn landing(g: &crate::Grid, p: Pos, fallback: Pos) -> Pos {
+pub(crate) fn landing(g: &crate::Grid, p: Pos, fallback: Pos) -> Pos {
     if standable(g, p) {
         return p;
     }
@@ -203,7 +203,7 @@ fn landing(g: &crate::Grid, p: Pos, fallback: Pos) -> Pos {
     }
     fallback // known human/last legal location, never guessed lane coordinates
 }
-fn legal_step(g: &crate::Grid, p: Pos, d: (f64, f64), n: f64, phase: bool) -> Pos {
+pub(crate) fn legal_step(g: &crate::Grid, p: Pos, d: (f64, f64), n: f64, phase: bool) -> Pos {
     let mut to = p;
     let count = (n / 1000.).ceil().max(1.) as usize;
     for i in 1..=count {
@@ -241,7 +241,7 @@ fn foe(sim: &StableSim<'_>, id: usize, target: usize, structures: bool) -> bool 
         && (structures || !matches!(b.kind(), Some(EntityKindV1::Tower | EntityKindV1::Nexus)))
         && sim.is_visible(a.team(), target)
 }
-fn blocked(sim: &StableSim<'_>, id: usize, moving: bool) -> bool {
+pub(crate) fn blocked(sim: &StableSim<'_>, id: usize, moving: bool) -> bool {
     sim.get_entity(id).is_none_or(|e| {
         (0..e.cc_count()).filter_map(|i| e.cc_at(i)).any(|c| {
             matches!(
@@ -839,6 +839,7 @@ impl StableExtension for Extension {
     fn on_end(&self) {
         crate::granger::Extension.on_end();
         crate::atlas::clear_state();
+        crate::yu_zhong::clear_state();
         crate::popol_menu::clear();
         crate::draft_preview::clear();
         ROWS.lock().unwrap_or_else(|e| e.into_inner()).clear();

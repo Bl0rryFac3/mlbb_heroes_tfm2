@@ -1,17 +1,12 @@
 # MLBB Heroes (`mlbb_heroes`) — Teamfight Manager 2 Mod Pack
 
-![Game Version](https://img.shields.io/badge/TFM2-v0.7.3%2B-orange)
-![Mod Type](https://img.shields.io/badge/Mod_Type-Native_Rust_%2B_Data-blue)
-![Version](https://img.shields.io/badge/Version-2.7.0-brightgreen)
-![Author](https://img.shields.io/badge/Author-Bl0rryFac3-crimson)
-
 A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfight Manager 2 (`v0.7.3+`)**, combining custom pixel-art sprites, multi-frame VFX, custom SFX, localization (`EN`, `KO`, `JA`, `ZH-Hans`, `ZH-Hant`, `FR`, `RU`, `VI`), and native Rust (`mod-api-stable`) gameplay mechanics into a single modular package (`mods/mlbb_heroes/`).
 
 ---
 
-## Roster (`v2.7.0`)
+## Roster (`v2.8.0`)
 
-26 heroes. The Mods menu shows build **1.1.164**.
+27 heroes. The Mods menu shows build **1.1.170**.
 
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
@@ -41,6 +36,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 | **Popol & Kupa** | `mlbb_popol_kupa` | Range | Data + native Rust | A spear fighter and companion who coordinate attacks, traps and **Alpha Wolf Form**. |
 | **Uranus** | `mlbb_uranus` | Tank | Data + native Rust | Builds **Radiance** when damaged and recovers health through **Consecration**. |
 | **Zhask** | `mlbb_zhask` | Magician | Data + native Rust | Places a stationary Spawn and can merge with its empowered form. |
+| **Yu Zhong** *(Black Dragon)* | `mlbb_yu_zhong` | Melee | Data + native Rust | **Sha Residue** damages marked targets and heals Yu Zhong. **Black Dragon Form** lets him fly and extends his skill reach after landing. |
 
 ---
 
@@ -335,15 +331,24 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ---
 
+### 27. Yu Zhong — Black Dragon (`mlbb_yu_zhong`)
+
+- **Cursing Touch.** Three marks trigger five damaging pulses and restore health. Marks also work on jungle monsters, including Morgard and Serpen.
+- **Dragon Tail.** Sweeps nearby enemies. The outer edge hits harder and applies two marks.
+- **Soul Grip.** Slows enemies and empowers the next basic attack. A hit on a champion can lead into Furious Dive.
+- **Black Dragon Form.** Flies through terrain and knocks enemies back on contact. Yu Zhong lands in Dragonoid Form with wider, longer-reaching skills for 15 seconds.
+
+---
+
 ## Installation
 
-1. Download [the Windows release ZIP](https://github.com/Bl0rryFac3/mlbb_heroes_tfm2/releases/tag/v2.7.0) and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
+1. Download the Windows ZIP from the release assets and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
    ```text
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
 2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, Estes, or Gusion mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
-3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.164**.
-4. See [Install_Guide.html](Install_Guide.html) for the screenshot guide. The optional [MLBB Champ Info companion](https://github.com/Bl0rryFac3/mlbb_champ_info_tfm2) adds basic attack and passive cards.
+3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.170**.
+4. See `Install_Guide.html` for the screenshot guide. The optional MLBB Champ Info companion adds basic attack and passive cards.
 
 ---
 
@@ -376,12 +381,10 @@ mlbb_heroes/
 
 ---
 
-## v2.7.0 Notes & Validation
+## v2.8.0
 
-- Atlas joins as hero 26 with pilot and suit animations, three skill icons and cast audio.
-- Granger, Hanzo and Eudora received damage updates. Granger honors the game's existing return-to-base orders.
-- Animated hover previews for Atlas, Granger, Hanzo and Popol & Kupa are restored in match ban/pick.
-- Build 1.1.164 passed 552 Rust tests and 104 champion-data checks. [Release notes](docs/GITHUB_RELEASE_v2.7.0.md) · [Build report](docs/BUILD_REPORT_v2.7.0.md)
+- Yu Zhong joins the roster as the 27th hero, with human, Black Dragon, and Dragonoid forms.
+- Includes Yu Zhong's animated draft preview, ability icons, and cast sound effects.
 
 ### Earlier v1.0.4 notes
 
@@ -410,7 +413,7 @@ Because `mlbb_heroes` is structured as a multi-hero pack, you can add new MLBB h
 
 ## Building From Source (Optional)
 
-`mlbb_heroes.dll` is included as a precompiled Windows x64 library; v2.7.0 was built with the Windows GNU target. Rebuild from the native crate after editing `sdk/candidate/lib.rs`:
+`mlbb_heroes.dll` is included as a precompiled Windows x64 library; v2.8.0 was built with the Windows GNU target. Rebuild from the native crate after editing `sdk/candidate/lib.rs`:
 
 - **Windows (PowerShell)**:
   ```powershell
