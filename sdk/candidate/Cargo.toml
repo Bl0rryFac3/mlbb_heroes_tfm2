@@ -1,6 +1,6 @@
 [package]
 name = "mlbb_heroes"
-version = "1.1.174"
+version = "1.1.178"
 edition = "2021"
 
 [lib]

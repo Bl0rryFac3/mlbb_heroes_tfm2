@@ -4,9 +4,9 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ---
 
-## Roster (`v2.9.0`)
+## Roster (`v2.10.0`)
 
-28 heroes. The Mods menu shows build **1.1.174**.
+29 heroes. The Mods menu shows build **1.1.178**.
 
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
@@ -38,6 +38,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 | **Zhask** | `mlbb_zhask` | Magician | Data + native Rust | Places a stationary Spawn and can merge with its empowered form. |
 | **Yu Zhong** *(Black Dragon)* | `mlbb_yu_zhong` | Melee | Data + native Rust | **Sha Residue** damages marked targets and heals Yu Zhong. **Black Dragon Form** lets him fly and extends his skill reach after landing. |
 | **Lesley** *(Deadly Sniper)* | `mlbb_lesley` | Range | Data + native Rust | **Lethal Shot** primes after every skill. **Master of Camouflage** conceals her, **Tactical Grenade** creates space, and **Ultimate Snipe** fires four rounds. |
+| **Valir** *(Son of Flames)* | `mlbb_valir` | Magician | Data + native Rust | **Ashing** detonates at three stacks. **Searing Torrent** pushes back enemies, and **Vengeance Flame** cleanses crowd control and empowers four casts. |
 
 ---
 
@@ -350,14 +351,23 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ---
 
+### 29. Valir — Son of Flames (`mlbb_valir`)
+
+- **Ashing.** Direct spells apply a burn. At three stacks, it detonates for **4% max HP + 25% Magic Power** and briefly stuns eligible targets.
+- **Burst Fireball.** Stores two charges. A shot deals **70 + 65% Magic Power** on impact and leaves a delayed explosion for **42 + 30% Magic Power**. A direct hit on a champion or boss can refund a charge.
+- **Searing Torrent.** Deals **95 + 65% Magic Power** and pushes back enemy champions, lane minions and regular jungle monsters. The empowered cast leaves a damaging firewall. Cooldown is **10s**.
+- **Vengeance Flame.** Can break a stun when ready. It grants a short movement speed boost and empowers up to four Fireball or Torrent casts within **9s**. Cooldown is **42s**.
+
+---
+
 ## Installation
 
-1. Download the Windows ZIP from the release assets and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
+1. Download the Windows ZIP (`mlbb_heroes_v2.10.0.zip`) and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
    ```text
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
 2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, Estes, or Gusion mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
-3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.174**.
+3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.178**.
 4. See `Install_Guide.html` for the screenshot guide. The optional MLBB Champ Info companion adds basic attack and passive cards.
 
 ---
@@ -375,7 +385,7 @@ mlbb_heroes/
 │   ├── fanny.data_champion
 │   ├── mlbb_lancelot.data_champion
 │   ├── mlbb_estes.data_champion
-│   └── …                            # 26 hero definitions
+│   └── …                            # 29 hero definitions
 ├── champions/                       # Aldous champion animation
 ├── sprite/                          # Fanny, Lancelot, Estes, and Gusion atlases
 ├── effects/                         # Hero skill effects, including Estes tether and Gusion VFX
@@ -390,6 +400,10 @@ mlbb_heroes/
 ```
 
 ---
+
+## v2.10.0
+
+- Valir joins as hero 29 with charged fireballs, a knockback wave, and an ultimate that breaks supported crowd control and empowers four casts.
 
 ## v2.9.0
 

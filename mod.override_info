@@ -1886,5 +1886,45 @@
   "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_camouflage": {
     "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_camouflage",
     "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_basic": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_basic",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_basic": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_basic",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_fireball": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_fireball",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_fireball": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_fireball",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_blast": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_blast",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_blast": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_blast",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_torrent": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_torrent",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_torrent": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_torrent",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_ult": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_ult",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_ult": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_ult",
+    "type": "override"
   }
 }

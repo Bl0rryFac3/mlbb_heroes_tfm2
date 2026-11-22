@@ -1,7 +1,5 @@
-MLBB Heroes v2.7.0 uses internal build 1.1.164 and contains 26 heroes. Requires Teamfight Manager 2 0.7.3 or newer.
+MLBB Heroes v2.10.0 contains 29 heroes and uses build 1.1.178. Requires Teamfight Manager 2 0.7.3 or newer.
 
-The canonical Rust crate is in sdk/candidate. The stable SDK used for this build is beside it in sdk/mod-api-stable. From sdk/candidate, run cargo test --offline --locked. The bundled Windows x64 DLL was built using the x86_64-pc-windows-gnu target. See the build report and project context under docs.
+The Rust crate is in sdk/candidate and the matching stable SDK is in sdk/mod-api-stable. Run cargo test --locked --manifest-path sdk/candidate/Cargo.toml. The bundled DLL targets Windows x64.
 
-The Atlas implementation is in sdk/candidate/atlas.rs and atlas_visual.rs. Original Atlas animation art is in source/atlas/animations. Source icon and audio references are in source/atlas/media. The ban/pick preview is in sdk/candidate/draft_preview.rs.
-
-Release notes, the build report, publication checklist and earlier playtest reports are under docs. To install the mod, use the separate mlbb_heroes_v2.7.0.zip.
+Valir's Rust implementation is in sdk/candidate/valir.rs. The original sheets and icons are under source/valir. Run python tools/compile_valir.py with Pillow to regenerate his runtime sprites, VFX, icon PNGs, and champion data. Install the mod using mlbb_heroes_v2.10.0.zip.

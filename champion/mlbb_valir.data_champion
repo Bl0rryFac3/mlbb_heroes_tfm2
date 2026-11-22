@@ -1,0 +1,432 @@
+{
+  "id": "mlbb_valir",
+  "category": "Magician",
+  "tags": [
+    "AP",
+    "Range",
+    "CC"
+  ],
+  "sprite": "asset/mlbb_heroes/sprite/valir",
+  "anim_prefix": "",
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/valir_skill",
+    "asset/mlbb_heroes/icons/valir_skill2",
+    "asset/mlbb_heroes/icons/valir_ult"
+  ],
+  "stat": {
+    "attack": 80,
+    "magic_power": 35,
+    "hp": 880,
+    "defence": 20,
+    "magic_resistance": 20,
+    "move_speed": 900,
+    "hp_regen": 6
+  },
+  "growth": {
+    "attack": 6,
+    "magic_power": 18,
+    "hp": 100,
+    "defence": 7,
+    "magic_resistance": 4,
+    "move_speed": 9,
+    "hp_regen": 0
+  },
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_valir.attack",
+    "duration": 21,
+    "cooltime": 90,
+    "start_timing": 8,
+    "cancelable": true,
+    "range": 60000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "BaseAttack",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:valir_attack"
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_valir.skill",
+    "duration": 24,
+    "cooltime": 540,
+    "start_timing": 10,
+    "cancelable": true,
+    "range": 82000,
+    "casting_type": "Direction",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:valir_skill"
+    }
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_valir.skill2",
+    "duration": 28,
+    "cooltime": 600,
+    "start_timing": 10,
+    "cancelable": true,
+    "range": 38000,
+    "casting_type": "Direction",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:valir_skill2"
+    }
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_valir.ult",
+    "duration": 30,
+    "cooltime": 2520,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 82000,
+    "casting_type": "None",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:valir_ult"
+    }
+  },
+  "view_effects": [
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_fireball_impact",
+      "anim": "asset/mlbb_heroes/effects/valir_fireball_impact",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_fireball_waiting_patch",
+      "anim": "asset/mlbb_heroes/effects/valir_fireball_waiting_patch",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_fireball_delayed_blast",
+      "anim": "asset/mlbb_heroes/effects/valir_fireball_delayed_blast",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_ablaze_burn",
+      "anim": "asset/mlbb_heroes/effects/valir_ablaze_burn",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_ablaze_detonation",
+      "anim": "asset/mlbb_heroes/effects/valir_ablaze_detonation",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_cleanse_flash",
+      "anim": "asset/mlbb_heroes/effects/valir_cleanse_flash",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_wave_0",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_wave_0",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_wave_1",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_wave_1",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_wave_2",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_wave_2",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_wave_3",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_wave_3",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_wave_4",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_wave_4",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_wave_5",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_wave_5",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_wave_6",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_wave_6",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_wave_7",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_wave_7",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_empowered_0",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_empowered_0",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_empowered_1",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_empowered_1",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_empowered_2",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_empowered_2",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_empowered_3",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_empowered_3",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_empowered_4",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_empowered_4",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_empowered_5",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_empowered_5",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_empowered_6",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_empowered_6",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_empowered_7",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_empowered_7",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_firewall_0",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_firewall_0",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_firewall_1",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_firewall_1",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_firewall_2",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_firewall_2",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_firewall_3",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_firewall_3",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_firewall_4",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_firewall_4",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_firewall_5",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_firewall_5",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_firewall_6",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_firewall_6",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_torrent_firewall_7",
+      "anim": "asset/mlbb_heroes/effects/valir_torrent_firewall_7",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_valir_idle_palm",
+      "anim": "asset/mlbb_heroes/effects/valir_idle_palm",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    }
+  ],
+  "view_projectiles": [
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_basic_ember",
+      "anim": "asset/mlbb_heroes/effects/valir_basic_ember",
+      "tag": "main",
+      "z": 1,
+      "repeat": true
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_fireball_projectile",
+      "anim": "asset/mlbb_heroes/effects/valir_fireball_projectile",
+      "tag": "main",
+      "z": 1,
+      "repeat": true
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_fireball_empowered",
+      "anim": "asset/mlbb_heroes/effects/valir_fireball_empowered",
+      "tag": "main",
+      "z": 1,
+      "repeat": true
+    }
+  ],
+  "view_buffs": [
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_mark_1",
+      "anim": "asset/mlbb_heroes/effects/valir_mark_1",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_mark_2",
+      "anim": "asset/mlbb_heroes/effects/valir_mark_2",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_mark_3",
+      "anim": "asset/mlbb_heroes/effects/valir_mark_3",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_vengeance_1",
+      "anim": "asset/mlbb_heroes/effects/valir_vengeance_1",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_vengeance_2",
+      "anim": "asset/mlbb_heroes/effects/valir_vengeance_2",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_vengeance_3",
+      "anim": "asset/mlbb_heroes/effects/valir_vengeance_3",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_valir_vengeance_4",
+      "anim": "asset/mlbb_heroes/effects/valir_vengeance_4",
+      "tag": "main",
+      "z": 1
+    }
+  ],
+  "passive": {
+    "passive_ref": "mlbb_heroes:valir"
+  }
+}

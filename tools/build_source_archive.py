@@ -46,8 +46,9 @@ EXCLUDED_SUFFIXES = {".pyc"}
 # the name is already reserved by the toolchain, so this is a packaging exclusion, not a deletion:
 # nothing under `reports/` is touched. Only a log AT THE RUNTIME PATH is skipped.
 EXCLUDED_NAMES = {"mlbb_heroes.log"}
+OPTIONAL_ARCHIVE_DIRS = {"reports", "src"}
 
-EXPECTED_CHAMPIONS = 28  # Lesley integration candidate
+EXPECTED_CHAMPIONS = 29
 
 
 def collect() -> list[Path]:
@@ -60,6 +61,8 @@ def collect() -> list[Path]:
     for d in SHIPPED_DIRS:
         base = ROOT / d
         if not base.is_dir():
+            if d in OPTIONAL_ARCHIVE_DIRS:
+                continue
             raise SystemExit(f"Required directory missing: {base}")
         for p in base.rglob("*"):
             if not p.is_file():

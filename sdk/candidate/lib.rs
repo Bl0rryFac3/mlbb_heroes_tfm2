@@ -11,6 +11,7 @@ mod popol_probe;
 mod popol_menu;
 mod granger;
 mod lesley;
+mod valir;
 mod hanzo;
 mod atlas;
 mod yu_zhong;
@@ -2534,6 +2535,7 @@ fn init(host: &StableHost) -> StableMod {
     // Bracket client updates so Julian audio follows fresh viewer ticks, including pause/seek.
     granger::register(&mut module);
     lesley::register(&mut module);
+    valir::register(&mut module);
     hanzo::register(&mut module);
     atlas::register(&mut module);
     yu_zhong::register(&mut module);

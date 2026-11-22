@@ -1,6 +1,14 @@
 {
   "en": {
     "description": {
+      "mlbb_valir": {
+        "name": "Valir",
+        "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "Direct spell hits apply Ablaze for <#ffb900ff>3s<>. The burn deals <#5ad0e6ff>0.8% max HP<> magic damage per second. At <#ffb900ff>3 stacks<>, it detonates for <#5ad0e6ff>4% max HP + 25% Magic Power<> magic damage and <#ef5350ff>stuns for 0.65s<>. Stun cooldown per target is <#ffb900ff>8s<>. Monster damage is capped. Bosses are immune to the stun.",
+        "skill": "Fires a bolt that deals <#5ad0e6ff>70 + 65% Magic Power<> magic damage and <#ef5350ff>slows by 25% for 0.7s<>. The impact area bursts after <#ffb900ff>0.75s<> for <#5ad0e6ff>42 + 30% Magic Power<> magic damage. Stores <#ffb900ff>2 charges<> and restores one every <#ffb900ff>9s<>. A direct hit on a champion or boss refunds a charge up to once every <#ffb900ff>3.6s<>. Hitting a lane minion takes <#ffb900ff>2s<> off the recharge. Minimum recast is <#ffb900ff>1.8s<>.",
+        "skill2": "Sends a wave that deals <#5ad0e6ff>95 + 65% Magic Power<> magic damage and <#ef5350ff>knocks back enemy champions, lane minions and regular jungle monsters<>. While empowered, it leaves a firewall for <#ffb900ff>3s<> that deals <#5ad0e6ff>27 + 22% Magic Power<> magic damage each second and briefly <#ef5350ff>slows by 20%<>. Cooldown is <#ffb900ff>10s<>.",
+        "ult": "Can activate automatically when ready to <#ef5350ff>break a stun or other supported disable<>. Suppression still applies. Grants <#ffb900ff>30% Movement Speed<>, tapering over <#ffb900ff>3s<>. Empowers the next <#ffb900ff>4 casts<> within <#ffb900ff>9s<>. Fireball gains <#ffb900ff>30% projectile reach<> and Torrent leaves a firewall. Cooldown is <#ffb900ff>42s<>."
+      },
       "mlbb_lesley": {
         "name": "Lesley",
         "attack": "Fires a rifle shot for 100% Attack physical damage.",
@@ -227,6 +235,12 @@
       }
     },
     "skill_name": {
+      "mlbb_valir": {
+        "passive": "Ashing",
+        "skill1": "Burst Fireball",
+        "skill2": "Searing Torrent",
+        "ult": "Vengeance Flame"
+      },
       "mlbb_lesley": {
         "passive": "Lethal Shot",
         "skill1": "Master of Camouflage",
@@ -399,6 +413,14 @@
   },
   "zh-hans": {
     "description": {
+      "mlbb_valir": {
+        "name": "Valir",
+        "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "Direct spell hits apply Ablaze for <#ffb900ff>3s<>. The burn deals <#5ad0e6ff>0.8% max HP<> magic damage per second. At <#ffb900ff>3 stacks<>, it detonates for <#5ad0e6ff>4% max HP + 25% Magic Power<> magic damage and <#ef5350ff>stuns for 0.65s<>. Stun cooldown per target is <#ffb900ff>8s<>. Monster damage is capped. Bosses are immune to the stun.",
+        "skill": "Fires a bolt that deals <#5ad0e6ff>70 + 65% Magic Power<> magic damage and <#ef5350ff>slows by 25% for 0.7s<>. The impact area bursts after <#ffb900ff>0.75s<> for <#5ad0e6ff>42 + 30% Magic Power<> magic damage. Stores <#ffb900ff>2 charges<> and restores one every <#ffb900ff>9s<>. A direct hit on a champion or boss refunds a charge up to once every <#ffb900ff>3.6s<>. Hitting a lane minion takes <#ffb900ff>2s<> off the recharge. Minimum recast is <#ffb900ff>1.8s<>.",
+        "skill2": "Sends a wave that deals <#5ad0e6ff>95 + 65% Magic Power<> magic damage and <#ef5350ff>knocks back enemy champions, lane minions and regular jungle monsters<>. While empowered, it leaves a firewall for <#ffb900ff>3s<> that deals <#5ad0e6ff>27 + 22% Magic Power<> magic damage each second and briefly <#ef5350ff>slows by 20%<>. Cooldown is <#ffb900ff>10s<>.",
+        "ult": "Can activate automatically when ready to <#ef5350ff>break a stun or other supported disable<>. Suppression still applies. Grants <#ffb900ff>30% Movement Speed<>, tapering over <#ffb900ff>3s<>. Empowers the next <#ffb900ff>4 casts<> within <#ffb900ff>9s<>. Fireball gains <#ffb900ff>30% projectile reach<> and Torrent leaves a firewall. Cooldown is <#ffb900ff>42s<>."
+      },
       "mlbb_lesley": {
         "name": "Lesley",
         "attack": "Fires a rifle shot for 100% Attack physical damage.",
@@ -625,6 +647,12 @@
       }
     },
     "skill_name": {
+      "mlbb_valir": {
+        "passive": "Ashing",
+        "skill1": "Burst Fireball",
+        "skill2": "Searing Torrent",
+        "ult": "Vengeance Flame"
+      },
       "mlbb_lesley": {
         "passive": "Lethal Shot",
         "skill1": "Master of Camouflage",
@@ -797,6 +825,14 @@
   },
   "zh-hant": {
     "description": {
+      "mlbb_valir": {
+        "name": "Valir",
+        "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "Direct spell hits apply Ablaze for <#ffb900ff>3s<>. The burn deals <#5ad0e6ff>0.8% max HP<> magic damage per second. At <#ffb900ff>3 stacks<>, it detonates for <#5ad0e6ff>4% max HP + 25% Magic Power<> magic damage and <#ef5350ff>stuns for 0.65s<>. Stun cooldown per target is <#ffb900ff>8s<>. Monster damage is capped. Bosses are immune to the stun.",
+        "skill": "Fires a bolt that deals <#5ad0e6ff>70 + 65% Magic Power<> magic damage and <#ef5350ff>slows by 25% for 0.7s<>. The impact area bursts after <#ffb900ff>0.75s<> for <#5ad0e6ff>42 + 30% Magic Power<> magic damage. Stores <#ffb900ff>2 charges<> and restores one every <#ffb900ff>9s<>. A direct hit on a champion or boss refunds a charge up to once every <#ffb900ff>3.6s<>. Hitting a lane minion takes <#ffb900ff>2s<> off the recharge. Minimum recast is <#ffb900ff>1.8s<>.",
+        "skill2": "Sends a wave that deals <#5ad0e6ff>95 + 65% Magic Power<> magic damage and <#ef5350ff>knocks back enemy champions, lane minions and regular jungle monsters<>. While empowered, it leaves a firewall for <#ffb900ff>3s<> that deals <#5ad0e6ff>27 + 22% Magic Power<> magic damage each second and briefly <#ef5350ff>slows by 20%<>. Cooldown is <#ffb900ff>10s<>.",
+        "ult": "Can activate automatically when ready to <#ef5350ff>break a stun or other supported disable<>. Suppression still applies. Grants <#ffb900ff>30% Movement Speed<>, tapering over <#ffb900ff>3s<>. Empowers the next <#ffb900ff>4 casts<> within <#ffb900ff>9s<>. Fireball gains <#ffb900ff>30% projectile reach<> and Torrent leaves a firewall. Cooldown is <#ffb900ff>42s<>."
+      },
       "mlbb_lesley": {
         "name": "Lesley",
         "attack": "Fires a rifle shot for 100% Attack physical damage.",
@@ -1023,6 +1059,12 @@
       }
     },
     "skill_name": {
+      "mlbb_valir": {
+        "passive": "Ashing",
+        "skill1": "Burst Fireball",
+        "skill2": "Searing Torrent",
+        "ult": "Vengeance Flame"
+      },
       "mlbb_lesley": {
         "passive": "Lethal Shot",
         "skill1": "Master of Camouflage",
@@ -1195,6 +1237,14 @@
   },
   "ko": {
     "description": {
+      "mlbb_valir": {
+        "name": "Valir",
+        "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "Direct spell hits apply Ablaze for <#ffb900ff>3s<>. The burn deals <#5ad0e6ff>0.8% max HP<> magic damage per second. At <#ffb900ff>3 stacks<>, it detonates for <#5ad0e6ff>4% max HP + 25% Magic Power<> magic damage and <#ef5350ff>stuns for 0.65s<>. Stun cooldown per target is <#ffb900ff>8s<>. Monster damage is capped. Bosses are immune to the stun.",
+        "skill": "Fires a bolt that deals <#5ad0e6ff>70 + 65% Magic Power<> magic damage and <#ef5350ff>slows by 25% for 0.7s<>. The impact area bursts after <#ffb900ff>0.75s<> for <#5ad0e6ff>42 + 30% Magic Power<> magic damage. Stores <#ffb900ff>2 charges<> and restores one every <#ffb900ff>9s<>. A direct hit on a champion or boss refunds a charge up to once every <#ffb900ff>3.6s<>. Hitting a lane minion takes <#ffb900ff>2s<> off the recharge. Minimum recast is <#ffb900ff>1.8s<>.",
+        "skill2": "Sends a wave that deals <#5ad0e6ff>95 + 65% Magic Power<> magic damage and <#ef5350ff>knocks back enemy champions, lane minions and regular jungle monsters<>. While empowered, it leaves a firewall for <#ffb900ff>3s<> that deals <#5ad0e6ff>27 + 22% Magic Power<> magic damage each second and briefly <#ef5350ff>slows by 20%<>. Cooldown is <#ffb900ff>10s<>.",
+        "ult": "Can activate automatically when ready to <#ef5350ff>break a stun or other supported disable<>. Suppression still applies. Grants <#ffb900ff>30% Movement Speed<>, tapering over <#ffb900ff>3s<>. Empowers the next <#ffb900ff>4 casts<> within <#ffb900ff>9s<>. Fireball gains <#ffb900ff>30% projectile reach<> and Torrent leaves a firewall. Cooldown is <#ffb900ff>42s<>."
+      },
       "mlbb_lesley": {
         "name": "Lesley",
         "attack": "Fires a rifle shot for 100% Attack physical damage.",
@@ -1421,6 +1471,12 @@
       }
     },
     "skill_name": {
+      "mlbb_valir": {
+        "passive": "Ashing",
+        "skill1": "Burst Fireball",
+        "skill2": "Searing Torrent",
+        "ult": "Vengeance Flame"
+      },
       "mlbb_lesley": {
         "passive": "Lethal Shot",
         "skill1": "Master of Camouflage",
@@ -1593,6 +1649,14 @@
   },
   "ja": {
     "description": {
+      "mlbb_valir": {
+        "name": "Valir",
+        "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "Direct spell hits apply Ablaze for <#ffb900ff>3s<>. The burn deals <#5ad0e6ff>0.8% max HP<> magic damage per second. At <#ffb900ff>3 stacks<>, it detonates for <#5ad0e6ff>4% max HP + 25% Magic Power<> magic damage and <#ef5350ff>stuns for 0.65s<>. Stun cooldown per target is <#ffb900ff>8s<>. Monster damage is capped. Bosses are immune to the stun.",
+        "skill": "Fires a bolt that deals <#5ad0e6ff>70 + 65% Magic Power<> magic damage and <#ef5350ff>slows by 25% for 0.7s<>. The impact area bursts after <#ffb900ff>0.75s<> for <#5ad0e6ff>42 + 30% Magic Power<> magic damage. Stores <#ffb900ff>2 charges<> and restores one every <#ffb900ff>9s<>. A direct hit on a champion or boss refunds a charge up to once every <#ffb900ff>3.6s<>. Hitting a lane minion takes <#ffb900ff>2s<> off the recharge. Minimum recast is <#ffb900ff>1.8s<>.",
+        "skill2": "Sends a wave that deals <#5ad0e6ff>95 + 65% Magic Power<> magic damage and <#ef5350ff>knocks back enemy champions, lane minions and regular jungle monsters<>. While empowered, it leaves a firewall for <#ffb900ff>3s<> that deals <#5ad0e6ff>27 + 22% Magic Power<> magic damage each second and briefly <#ef5350ff>slows by 20%<>. Cooldown is <#ffb900ff>10s<>.",
+        "ult": "Can activate automatically when ready to <#ef5350ff>break a stun or other supported disable<>. Suppression still applies. Grants <#ffb900ff>30% Movement Speed<>, tapering over <#ffb900ff>3s<>. Empowers the next <#ffb900ff>4 casts<> within <#ffb900ff>9s<>. Fireball gains <#ffb900ff>30% projectile reach<> and Torrent leaves a firewall. Cooldown is <#ffb900ff>42s<>."
+      },
       "mlbb_lesley": {
         "name": "Lesley",
         "attack": "Fires a rifle shot for 100% Attack physical damage.",
@@ -1819,6 +1883,12 @@
       }
     },
     "skill_name": {
+      "mlbb_valir": {
+        "passive": "Ashing",
+        "skill1": "Burst Fireball",
+        "skill2": "Searing Torrent",
+        "ult": "Vengeance Flame"
+      },
       "mlbb_lesley": {
         "passive": "Lethal Shot",
         "skill1": "Master of Camouflage",
@@ -1991,6 +2061,14 @@
   },
   "fr": {
     "description": {
+      "mlbb_valir": {
+        "name": "Valir",
+        "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "Direct spell hits apply Ablaze for <#ffb900ff>3s<>. The burn deals <#5ad0e6ff>0.8% max HP<> magic damage per second. At <#ffb900ff>3 stacks<>, it detonates for <#5ad0e6ff>4% max HP + 25% Magic Power<> magic damage and <#ef5350ff>stuns for 0.65s<>. Stun cooldown per target is <#ffb900ff>8s<>. Monster damage is capped. Bosses are immune to the stun.",
+        "skill": "Fires a bolt that deals <#5ad0e6ff>70 + 65% Magic Power<> magic damage and <#ef5350ff>slows by 25% for 0.7s<>. The impact area bursts after <#ffb900ff>0.75s<> for <#5ad0e6ff>42 + 30% Magic Power<> magic damage. Stores <#ffb900ff>2 charges<> and restores one every <#ffb900ff>9s<>. A direct hit on a champion or boss refunds a charge up to once every <#ffb900ff>3.6s<>. Hitting a lane minion takes <#ffb900ff>2s<> off the recharge. Minimum recast is <#ffb900ff>1.8s<>.",
+        "skill2": "Sends a wave that deals <#5ad0e6ff>95 + 65% Magic Power<> magic damage and <#ef5350ff>knocks back enemy champions, lane minions and regular jungle monsters<>. While empowered, it leaves a firewall for <#ffb900ff>3s<> that deals <#5ad0e6ff>27 + 22% Magic Power<> magic damage each second and briefly <#ef5350ff>slows by 20%<>. Cooldown is <#ffb900ff>10s<>.",
+        "ult": "Can activate automatically when ready to <#ef5350ff>break a stun or other supported disable<>. Suppression still applies. Grants <#ffb900ff>30% Movement Speed<>, tapering over <#ffb900ff>3s<>. Empowers the next <#ffb900ff>4 casts<> within <#ffb900ff>9s<>. Fireball gains <#ffb900ff>30% projectile reach<> and Torrent leaves a firewall. Cooldown is <#ffb900ff>42s<>."
+      },
       "mlbb_lesley": {
         "name": "Lesley",
         "attack": "Fires a rifle shot for 100% Attack physical damage.",
@@ -2217,6 +2295,12 @@
       }
     },
     "skill_name": {
+      "mlbb_valir": {
+        "passive": "Ashing",
+        "skill1": "Burst Fireball",
+        "skill2": "Searing Torrent",
+        "ult": "Vengeance Flame"
+      },
       "mlbb_lesley": {
         "passive": "Lethal Shot",
         "skill1": "Master of Camouflage",
@@ -2389,6 +2473,14 @@
   },
   "ru": {
     "description": {
+      "mlbb_valir": {
+        "name": "Valir",
+        "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "Direct spell hits apply Ablaze for <#ffb900ff>3s<>. The burn deals <#5ad0e6ff>0.8% max HP<> magic damage per second. At <#ffb900ff>3 stacks<>, it detonates for <#5ad0e6ff>4% max HP + 25% Magic Power<> magic damage and <#ef5350ff>stuns for 0.65s<>. Stun cooldown per target is <#ffb900ff>8s<>. Monster damage is capped. Bosses are immune to the stun.",
+        "skill": "Fires a bolt that deals <#5ad0e6ff>70 + 65% Magic Power<> magic damage and <#ef5350ff>slows by 25% for 0.7s<>. The impact area bursts after <#ffb900ff>0.75s<> for <#5ad0e6ff>42 + 30% Magic Power<> magic damage. Stores <#ffb900ff>2 charges<> and restores one every <#ffb900ff>9s<>. A direct hit on a champion or boss refunds a charge up to once every <#ffb900ff>3.6s<>. Hitting a lane minion takes <#ffb900ff>2s<> off the recharge. Minimum recast is <#ffb900ff>1.8s<>.",
+        "skill2": "Sends a wave that deals <#5ad0e6ff>95 + 65% Magic Power<> magic damage and <#ef5350ff>knocks back enemy champions, lane minions and regular jungle monsters<>. While empowered, it leaves a firewall for <#ffb900ff>3s<> that deals <#5ad0e6ff>27 + 22% Magic Power<> magic damage each second and briefly <#ef5350ff>slows by 20%<>. Cooldown is <#ffb900ff>10s<>.",
+        "ult": "Can activate automatically when ready to <#ef5350ff>break a stun or other supported disable<>. Suppression still applies. Grants <#ffb900ff>30% Movement Speed<>, tapering over <#ffb900ff>3s<>. Empowers the next <#ffb900ff>4 casts<> within <#ffb900ff>9s<>. Fireball gains <#ffb900ff>30% projectile reach<> and Torrent leaves a firewall. Cooldown is <#ffb900ff>42s<>."
+      },
       "mlbb_lesley": {
         "name": "Lesley",
         "attack": "Fires a rifle shot for 100% Attack physical damage.",
@@ -2615,6 +2707,12 @@
       }
     },
     "skill_name": {
+      "mlbb_valir": {
+        "passive": "Ashing",
+        "skill1": "Burst Fireball",
+        "skill2": "Searing Torrent",
+        "ult": "Vengeance Flame"
+      },
       "mlbb_lesley": {
         "passive": "Lethal Shot",
         "skill1": "Master of Camouflage",
@@ -2787,6 +2885,14 @@
   },
   "vi": {
     "description": {
+      "mlbb_valir": {
+        "name": "Valir",
+        "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "Direct spell hits apply Ablaze for <#ffb900ff>3s<>. The burn deals <#5ad0e6ff>0.8% max HP<> magic damage per second. At <#ffb900ff>3 stacks<>, it detonates for <#5ad0e6ff>4% max HP + 25% Magic Power<> magic damage and <#ef5350ff>stuns for 0.65s<>. Stun cooldown per target is <#ffb900ff>8s<>. Monster damage is capped. Bosses are immune to the stun.",
+        "skill": "Fires a bolt that deals <#5ad0e6ff>70 + 65% Magic Power<> magic damage and <#ef5350ff>slows by 25% for 0.7s<>. The impact area bursts after <#ffb900ff>0.75s<> for <#5ad0e6ff>42 + 30% Magic Power<> magic damage. Stores <#ffb900ff>2 charges<> and restores one every <#ffb900ff>9s<>. A direct hit on a champion or boss refunds a charge up to once every <#ffb900ff>3.6s<>. Hitting a lane minion takes <#ffb900ff>2s<> off the recharge. Minimum recast is <#ffb900ff>1.8s<>.",
+        "skill2": "Sends a wave that deals <#5ad0e6ff>95 + 65% Magic Power<> magic damage and <#ef5350ff>knocks back enemy champions, lane minions and regular jungle monsters<>. While empowered, it leaves a firewall for <#ffb900ff>3s<> that deals <#5ad0e6ff>27 + 22% Magic Power<> magic damage each second and briefly <#ef5350ff>slows by 20%<>. Cooldown is <#ffb900ff>10s<>.",
+        "ult": "Can activate automatically when ready to <#ef5350ff>break a stun or other supported disable<>. Suppression still applies. Grants <#ffb900ff>30% Movement Speed<>, tapering over <#ffb900ff>3s<>. Empowers the next <#ffb900ff>4 casts<> within <#ffb900ff>9s<>. Fireball gains <#ffb900ff>30% projectile reach<> and Torrent leaves a firewall. Cooldown is <#ffb900ff>42s<>."
+      },
       "mlbb_lesley": {
         "name": "Lesley",
         "attack": "Fires a rifle shot for 100% Attack physical damage.",
@@ -3013,6 +3119,12 @@
       }
     },
     "skill_name": {
+      "mlbb_valir": {
+        "passive": "Ashing",
+        "skill1": "Burst Fireball",
+        "skill2": "Searing Torrent",
+        "ult": "Vengeance Flame"
+      },
       "mlbb_lesley": {
         "passive": "Lethal Shot",
         "skill1": "Master of Camouflage",
