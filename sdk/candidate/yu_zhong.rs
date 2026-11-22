@@ -15,6 +15,12 @@ include!("yu_zhong_body.rs");
 const DRAGONOID_DURATION: usize = 15 * 60;
 const RESIDUE_HEAL_PERCENT: usize = 8;
 const MONSTER_MISSING_HP_CAP: usize = 40;
+const GRIP_LUNGE_DISTANCE: f64 = 12_000.;
+const GRIP_LUNGE_STOP: f64 = 13_000.;
+const DIVE_RADIUS: f64 = 23_000.;
+const DIVE_IMPACT_DELAY: usize = 24;
+const DIVE_FOLLOW_DISTANCE: f64 = 12_000.;
+const DIVE_FOLLOW_TICKS: usize = 6;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 enum Form {
@@ -41,14 +47,28 @@ struct Dive {
     scale: f64,
 }
 
+enum DiveFollow {
+    AwaitDirection { until: usize, scale: f64 },
+    Travel { dest: Pos, until: usize },
+}
+
+struct DiveImpact {
+    at: usize,
+    center: Pos,
+    scale: f64,
+    damage: usize,
+}
+
 struct State {
     form: Form,
     marks: Vec<Mark>,
     hit_by_dragon: Vec<EntityKey>,
     tail: Option<(usize, f64)>,
     grip_ready: usize,
+    grip_target: Option<EntityKey>,
     dive: Option<Dive>,
-    dive_impact: Option<(usize, Pos, f64)>,
+    dive_follow: Option<DiveFollow>,
+    dive_impact: Option<DiveImpact>,
     grid: Option<Arc<Grid>>,
     landing: Pos,
     last_pos: Pos,
@@ -69,7 +89,9 @@ impl State {
             hit_by_dragon: Vec::new(),
             tail: None,
             grip_ready: 0,
+            grip_target: None,
             dive: None,
+            dive_follow: None,
             dive_impact: None,
             grid: None,
             landing: pos,
@@ -391,7 +413,47 @@ fn tick_residue(sim: &mut StableSim<'_>, id: usize, team: usize, now: usize, s: 
     });
 }
 
-fn grip(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, aim: Pos, s: &mut State) {
+fn safe_route(sim: &StableSim<'_>, id: usize, grid: &Grid, from: Pos, dest: Pos) -> bool {
+    let length = distance(from, dest);
+    if length <= 1.
+        || distance(
+            crate::hanzo::legal_step(grid, from, direction(from, dest), length, false),
+            dest,
+        ) >= 3.
+    {
+        return false;
+    }
+    let units = crate::units(sim);
+    units
+        .iter()
+        .find(|unit| unit.id == id)
+        .is_some_and(|caster| {
+            !crate::is_unsafe_tower_route(&units, caster, (dest.0 as f64, dest.1 as f64), 0.)
+        })
+}
+
+fn grip_lunge(sim: &mut StableSim<'_>, id: usize, p: Pos, q: Pos, s: &mut State) {
+    if s.dive.is_some()
+        || matches!(s.dive_follow, Some(DiveFollow::Travel { .. }))
+        || crate::hanzo::blocked(sim, id, true)
+    {
+        return;
+    }
+    let length = (distance(p, q) - GRIP_LUNGE_STOP).min(GRIP_LUNGE_DISTANCE * s.scale());
+    if length <= 1. {
+        return;
+    }
+    let dest = to(p, direction(p, q), length);
+    let grid = s.grid.get_or_insert_with(|| crate::hanzo::grid(sim));
+    if safe_route(sim, id, grid, p, dest) && sim.entity_set_pos(id, dest.0, dest.1) {
+        s.last_pos = dest;
+    }
+}
+
+fn grip(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, aiming_at: usize, s: &mut State) {
+    let Some(aim) = position(sim, aiming_at).filter(|&pos| pos != p) else {
+        return;
+    };
     let now = sim.tick();
     let scale = s.scale();
     let dir = direction(p, aim);
@@ -409,6 +471,7 @@ fn grip(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, aim: Pos, s: &m
     );
     let mut closest = None;
     let mut any = false;
+    let mut grip_target = None;
     for (target, pos) in targets(sim, team, false) {
         let (x, y) = delta(p, pos);
         let along = x * dir.0 + y * dir.1;
@@ -424,10 +487,14 @@ fn grip(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, aim: Pos, s: &m
         let mut slow = BuffV1::timed(SLOW, 60);
         slow.move_speed_mult = -30;
         sim.add_buff(target, &slow);
+        let living_champion = sim
+            .get_entity(target)
+            .is_some_and(|e| e.is_champion() && e.is_alive() && e.is_targetable());
+        if target == aiming_at && living_champion {
+            grip_target = Some(entity_key(sim, target));
+        }
         if (23_000. ..=53_000. * scale).contains(&along)
-            && sim
-                .get_entity(target)
-                .is_some_and(|e| e.is_champion() && e.is_alive())
+            && living_champion
             && closest.is_none_or(|(best, _)| along < best)
         {
             closest = Some((along, pos));
@@ -435,6 +502,7 @@ fn grip(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, aim: Pos, s: &m
     }
     if any {
         s.grip_ready = now + 180;
+        s.grip_target = grip_target;
         fx(sim, id, p, "grip_ready_glow");
     }
     if let Some((gap, target)) = closest {
@@ -447,12 +515,7 @@ fn grip(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, aim: Pos, s: &m
             (gap - 16_000.).min(32_000. * scale),
         );
         let g = s.grid.get_or_insert_with(|| crate::hanzo::grid(sim));
-        if crate::hanzo::standable(g, dest)
-            && distance(
-                crate::hanzo::legal_step(g, p, direction(p, dest), distance(p, dest), false),
-                dest,
-            ) < 3.
-        {
+        if safe_route(sim, id, g, p, dest) {
             s.dive = Some(Dive {
                 from: p,
                 dest,
@@ -462,9 +525,80 @@ fn grip(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, aim: Pos, s: &m
         }
     }
 }
+fn tick_dive_follow(sim: &mut StableSim<'_>, id: usize, p: Pos, now: usize, s: &mut State) {
+    let Some(follow) = s.dive_follow.take() else {
+        return;
+    };
+    if s.locked() || crate::hanzo::blocked(sim, id, true) {
+        return;
+    }
+    let grid = s.grid.as_ref().expect("Furious Dive initializes terrain");
+    let (dest, until) = match follow {
+        DiveFollow::AwaitDirection { until, scale } if now < until => {
+            // The game already chose the movement direction. Do not choose a
+            // new pursuit target or dash if he is stationary after landing.
+            let movement = distance(s.last_pos, p);
+            if movement <= 100. {
+                s.dive_follow = Some(follow);
+                return;
+            }
+            if movement >= 8_000. {
+                return;
+            }
+            let dest = to(p, direction(s.last_pos, p), DIVE_FOLLOW_DISTANCE * scale);
+            if !safe_route(sim, id, grid, p, dest) {
+                return;
+            }
+            (dest, now + DIVE_FOLLOW_TICKS)
+        }
+        DiveFollow::Travel { dest, until } if now < until => (dest, until),
+        _ => return,
+    };
+    let distance_per_tick = distance(p, dest) / (until - now) as f64;
+    let step = crate::hanzo::legal_step(grid, p, direction(p, dest), distance_per_tick, false);
+    if step != p && sim.entity_set_pos(id, step.0, step.1) && distance(step, dest) >= 3. {
+        s.dive_follow = Some(DiveFollow::Travel { dest, until });
+    }
+}
+
+fn dive_landed(
+    sim: &mut StableSim<'_>,
+    id: usize,
+    team: usize,
+    now: usize,
+    at: Pos,
+    scale: f64,
+    s: &mut State,
+) {
+    let attack = sim.get_entity(id).map_or(0, |e| e.stat().attack);
+    let combined = 64 + attack * 45 / 100;
+    let landing_damage = combined / 2;
+    fx(sim, id, at, &format!("dive_warning{}", size_suffix(scale)));
+    s.dive_impact = Some(DiveImpact {
+        at: now + DIVE_IMPACT_DELAY,
+        center: at,
+        scale,
+        damage: combined - landing_damage,
+    });
+    s.dive_follow = Some(DiveFollow::AwaitDirection {
+        until: now + DIVE_IMPACT_DELAY,
+        scale,
+    });
+    for (target, pos) in targets(sim, team, false) {
+        if distance(at, pos) <= DIVE_RADIUS * scale {
+            sim.deal_damage(id, target, landing_damage, 0, AttackTypeV1::Skill);
+        }
+    }
+}
+
 fn tick_dive(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, now: usize, s: &mut State) {
+    tick_dive_follow(sim, id, p, now, s);
     if let Some(dive) = s.dive.take() {
-        if !crate::hanzo::blocked(sim, id, true) {
+        let launch_blocked = now + 12 == dive.end
+            && s.grid
+                .as_ref()
+                .is_none_or(|g| !safe_route(sim, id, g, p, dive.dest));
+        if !launch_blocked && !crate::hanzo::blocked(sim, id, true) {
             if now + 12 >= dive.end
                 && s.motion.is_none_or(|(name, _)| {
                     !matches!(name, "furious_dive" | "dragonoid_furious_dive")
@@ -490,13 +624,7 @@ fn tick_dive(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, now: usize
                 };
                 if now >= dive.end || landed == dive.dest || landed == p {
                     if distance(landed, dive.from) > 2_000. {
-                        fx(
-                            sim,
-                            id,
-                            landed,
-                            &format!("dive_warning{}", size_suffix(dive.scale)),
-                        );
-                        s.dive_impact = Some((now + 24, landed, dive.scale));
+                        dive_landed(sim, id, team, now, landed, dive.scale, s);
                     }
                 } else {
                     s.dive = Some(dive);
@@ -504,9 +632,13 @@ fn tick_dive(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, now: usize
             }
         }
     }
-    if let Some((at, center, scale)) = s.dive_impact.filter(|(at, _, _)| now >= *at) {
-        debug_assert!(now >= at);
-        s.dive_impact = None;
+    if let Some(DiveImpact {
+        center,
+        scale,
+        damage,
+        ..
+    }) = s.dive_impact.take_if(|impact| now >= impact.at)
+    {
         cue(sim, id, "mlbb_yu_dive");
         fx(
             sim,
@@ -515,10 +647,10 @@ fn tick_dive(sim: &mut StableSim<'_>, id: usize, team: usize, p: Pos, now: usize
             &format!("dive_spikes{}", size_suffix(scale)),
         );
         for (target, pos) in targets(sim, team, false) {
-            if distance(center, pos) > 23_000. * scale {
+            if distance(center, pos) > DIVE_RADIUS * scale {
                 continue;
             }
-            damage(sim, id, target, 64, 45);
+            sim.deal_damage(id, target, damage, 0, AttackTypeV1::Skill);
             add_residue(sim, id, target, 1, s);
             if sim.get_entity(target).is_some_and(|e| {
                 e.is_champion()
@@ -710,6 +842,9 @@ impl StableEffectType for Cast {
                         let primed = s.grip_ready > now;
                         if primed {
                             s.grip_ready = 0;
+                            if s.grip_target.take() == Some(entity_key_ro(sim, target)) {
+                                grip_lunge(sim, id, p, q, &mut s);
+                            }
                             damage(sim, id, target, 55, 40);
                             fx(sim, id, q, "grip_empowered_flash");
                         }
@@ -735,9 +870,8 @@ impl StableEffectType for Cast {
                 );
             }
             Self::Grip => {
-                let aim = position(sim, input.target_id).unwrap_or(p);
-                if aim != p {
-                    grip(sim, id, team, p, aim, &mut s);
+                if position(sim, input.target_id).is_some_and(|aim| aim != p) {
+                    grip(sim, id, team, p, input.target_id, &mut s);
                     cue(sim, id, "mlbb_yu_grip");
                 }
             }
@@ -746,6 +880,7 @@ impl StableEffectType for Cast {
                     s.left = q.0 < p.0;
                 }
                 s.dive = None;
+                s.dive_follow = None;
                 s.tail = None;
                 s.form = Form::Channel(now + 36);
                 cue(sim, id, "mlbb_yu_dragon");
@@ -1045,17 +1180,99 @@ mod tests {
             tick(&mut h, &mut p, t);
         }
         assert!(h.cc.is_empty());
+        assert_eq!(hp(&mut h, 2), 475); // Landing uses the smaller half of the existing raw damage.
+        assert_eq!(
+            take(p.owner.unwrap()).map(|s| {
+                let count = s.marks[0].count;
+                put(p.owner.unwrap(), s);
+                count
+            }),
+            Some(1)
+        ); // Only Grip marked the target so far.
         cast(&mut h, Cast::Basic);
-        assert_eq!(hp(&mut h, 2), 432);
+        assert_eq!(hp(&mut h, 2), 376);
         h.now = 19;
         cast(&mut h, Cast::Basic);
-        assert_eq!(hp(&mut h, 2), 432);
-        tick(&mut h, &mut p, 34);
         assert_eq!(hp(&mut h, 2), 376);
+        tick(&mut h, &mut p, 34);
+        assert_eq!(hp(&mut h, 2), 319);
         tick(&mut h, &mut p, 42);
-        assert_eq!(hp(&mut h, 2), 263);
+        assert_eq!(hp(&mut h, 2), 262);
         assert_eq!(h.cc, vec![(2, CcV1::of_kind(CcKindV1::Airborne, 30))]);
     }
+    #[test]
+    fn empowered_basic_closes_distance_only_to_its_grip_target_on_a_clear_route() {
+        for (wrong_target, wall, expected_x) in [
+            (false, false, 209_000),
+            (true, false, 200_000),
+            (false, true, 200_000),
+        ] {
+            let mut h = Host::new();
+            let p = setup(&mut h);
+            let key = p.owner.unwrap();
+            h.set_unit_position(2, (222_000, 200_000));
+            cast(&mut h, Cast::Grip);
+            let mut s = take(key).unwrap();
+            assert!(s.dive.is_none());
+            if wrong_target {
+                s.grip_target = Some(key);
+            }
+            if wall {
+                let grid = Arc::make_mut(s.grid.as_mut().unwrap());
+                grid.cells[(200_000. / crate::CELL) as usize][(215_000. / crate::CELL) as usize] =
+                    1;
+            }
+            put(key, s);
+
+            h.now = 1;
+            cast(&mut h, Cast::Basic);
+            h.sim(|sim| assert_eq!(position(sim, 1), Some((expected_x, 200_000))));
+            // Blocked or unrelated targets still receive the original accepted
+            // basic attack's bonus. They do not gain a gap-close.
+            assert_eq!(hp(&mut h, 2), 432);
+            h.now = 2;
+            cast(&mut h, Cast::Basic);
+            h.sim(|sim| assert_eq!(position(sim, 1), Some((expected_x, 200_000))));
+            assert_eq!(hp(&mut h, 2), 432);
+        }
+    }
+
+    #[test]
+    fn dive_follows_movement_once_and_the_spikes_stay_at_the_first_landing() {
+        let mut h = Host::new();
+        let mut p = setup(&mut h);
+        let key = p.owner.unwrap();
+        h.set_unit_position(2, (240_000, 200_000));
+        cast(&mut h, Cast::Grip);
+        for now in 1..=18 {
+            tick(&mut h, &mut p, now);
+        }
+        let landing = h.sim(|sim| position(sim, 1).unwrap());
+        assert_eq!(landing, (224_000, 200_000));
+        assert_eq!(hp(&mut h, 2), 475);
+        assert!(h.cc.is_empty());
+
+        // The game walks north after landing. The bonus dash follows north,
+        // leaving the target to the east at the original impact ring.
+        h.set_unit_position(1, (landing.0, landing.1 + 1_000));
+        for now in 19..=26 {
+            tick(&mut h, &mut p, now);
+        }
+        assert_eq!(h.sim(|sim| position(sim, 1)), Some((224_000, 213_000)));
+        assert!(take(key)
+            .map(|s| {
+                let done = s.dive_follow.is_none();
+                put(key, s);
+                done
+            })
+            .unwrap());
+        tick(&mut h, &mut p, 42);
+        assert_eq!(hp(&mut h, 2), 418); // 700 - 169 (Grip) - 56 - 57 (Dive).
+        assert_eq!(h.cc, vec![(2, CcV1::of_kind(CcKindV1::Airborne, 30))]);
+        let s = take(key).unwrap();
+        assert_eq!(s.marks[0].count, 2); // One Grip mark and one delayed Dive mark.
+    }
+
     #[test]
     fn flight_contact_is_once_and_form_expiry_clears_movement_buff() {
         let mut h = Host::new();

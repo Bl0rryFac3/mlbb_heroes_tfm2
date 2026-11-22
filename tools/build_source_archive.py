@@ -47,7 +47,7 @@ EXCLUDED_SUFFIXES = {".pyc"}
 # nothing under `reports/` is touched. Only a log AT THE RUNTIME PATH is skipped.
 EXCLUDED_NAMES = {"mlbb_heroes.log"}
 
-EXPECTED_CHAMPIONS = 27  # Yu Zhong integration candidate
+EXPECTED_CHAMPIONS = 28  # Lesley integration candidate
 
 
 def collect() -> list[Path]:

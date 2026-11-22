@@ -1,0 +1,139 @@
+{
+  "hero": "mlbb_lesley",
+  "status": "Phase 0 art and integration proposal",
+  "baseline_build": "1.1.171",
+  "clock_hz": 60,
+  "canvas": {
+    "cell_size_px": [72, 72],
+    "foot_anchor_px": [36, 62],
+    "coordinates": "zero-indexed, x right and y down",
+    "standing_height_target_px": 45,
+    "standing_height_ceiling_px": 48,
+    "source_facing": "right",
+    "other_facing": "Verify mirrored master, muzzle socket and effect origin. Redraw visible asymmetric details if needed.",
+    "wider_cells": "Pad on both sides as needed while preserving the foot line and corresponding horizontal pivot."
+  },
+  "body": [
+    {
+      "sheet": "lesley_idle",
+      "native_tag": "idle",
+      "frame_ticks": [10, 10, 10, 10, 10, 10],
+      "loop": true,
+      "notes": "First frame is the native draft preview. Low diagonal carry."
+    },
+    {
+      "sheet": "lesley_run",
+      "native_tag": "run",
+      "frame_ticks": [5, 4, 4, 5, 5, 4, 4, 5],
+      "loop": true,
+      "notes": "Coordinate playback rate with native movement. No local translation of the foot anchor."
+    },
+    {
+      "sheet": "lesley_attack",
+      "native_tag": "attack",
+      "frame_ticks": [4, 4, 2, 3, 4, 4],
+      "loop": false,
+      "event_cue": { "event": "basic_release", "frame_1_based": 3, "pose_tick": 8 },
+      "notes": "Attack interval stays separate from the pose duration."
+    },
+    {
+      "sheet": "lesley_lethal_shot",
+      "frame_ticks": [4, 3, 3, 2, 4, 5, 6],
+      "loop": false,
+      "event_cue": { "event": "lethal_release", "frame_1_based": 4, "pose_tick": 10 },
+      "notes": "One release path per attack. Verify selection through the existing attack presentation before locking frame alignment."
+    },
+    {
+      "sheet": "lesley_camouflage_enter",
+      "native_tag": "skill",
+      "frame_ticks": [2, 2, 2, 3, 3],
+      "loop": false,
+      "notes": "Blend into the current native idle or run pose with the attached concealment presentation."
+    },
+    {
+      "sheet": "lesley_camouflage_exit",
+      "frame_ticks": [2, 2, 2, 3],
+      "loop": false,
+      "notes": "Optional appearance transition. Active attack or death can take over immediately."
+    },
+    {
+      "sheet": "lesley_grenade",
+      "native_tag": "skill2",
+      "frame_ticks": [3, 3, 2, 4, 4, 5, 6],
+      "loop": false,
+      "event_cue": { "event": "grenade_release", "frame_1_based": 3, "pose_tick": 6 },
+      "notes": "Visual hop rides supported native displacement. Pin cone origin and facing at the actual release."
+    },
+    {
+      "sheet": "lesley_ult_aim",
+      "native_tag": "ult",
+      "frame_ticks": [5, 5, 5, 5, 5, 5],
+      "loop": false,
+      "notes": "Lower to a low asymmetric brace. The first round releases after this windup."
+    },
+    {
+      "sheet": "lesley_ult_hold",
+      "frame_ticks": [5, 5, 5, 6],
+      "loop": true,
+      "notes": "Neutral aim pose used between recoil pulses or when waiting for an event."
+    },
+    {
+      "sheet": "lesley_ult_recoil",
+      "frame_ticks": [2, 3, 4, 4, 5],
+      "loop": false,
+      "event_cue": { "event": "ult_round_release", "frame_1_based": 1, "pose_tick": 0 },
+      "notes": "Start on each resolved release. Eighteen ticks of recoil leave three ticks of hold before the next scheduled shot."
+    },
+    {
+      "sheet": "lesley_ult_recover",
+      "frame_ticks": [3, 3, 4, 4, 4],
+      "loop": false,
+      "notes": "Start after final recoil or a normal cancel. Native hit and death take priority."
+    },
+    {
+      "sheet": "lesley_hit",
+      "native_tag": "hit",
+      "frame_ticks": [2, 3, 3, 4],
+      "loop": false
+    },
+    {
+      "sheet": "lesley_dead",
+      "native_tag": "dead",
+      "frame_ticks": [4, 5, 5, 6, 6, 7, 7],
+      "loop": false,
+      "notes": "End on native removal. Never hold the death pose through the respawn countdown."
+    }
+  ],
+  "effects": [
+    { "name": "lesley_basic_muzzle", "anchor": "muzzle", "trigger": "basic_release", "max_frames": 3 },
+    { "name": "lesley_basic_tracer", "anchor": "projectile", "trigger": "basic_release", "max_frames": 3 },
+    { "name": "lesley_basic_impact", "anchor": "hit_location", "trigger": "basic_hit", "max_frames": 4 },
+    { "name": "lesley_lethal_ready", "anchor": "receiver", "trigger": "lethal_ready", "max_frames": 4 },
+    { "name": "lesley_lethal_muzzle", "anchor": "muzzle", "trigger": "lethal_release", "max_frames": 4 },
+    { "name": "lesley_lethal_tracer", "anchor": "projectile", "trigger": "lethal_release", "max_frames": 3 },
+    { "name": "lesley_lethal_impact", "anchor": "hit_location", "trigger": "lethal_hit", "max_frames": 5 },
+    { "name": "lesley_camouflage_ripple", "anchor": "ground_at_cast", "trigger": "camouflage_enter", "max_frames": 6 },
+    { "name": "lesley_camouflage_edge", "anchor": "current_body_pose", "trigger": "camouflage_state" },
+    { "name": "lesley_grenade_fan", "anchor": "ground_at_release_facing", "trigger": "grenade_release", "max_frames": 7 },
+    { "name": "lesley_grenade_impact", "anchor": "hit_location", "trigger": "grenade_hit", "max_frames": 4 },
+    { "name": "lesley_ult_lock", "anchor": "locked_target", "trigger": "ult_lock" },
+    { "name": "lesley_ult_scan", "anchor": "ground_at_cast", "trigger": "ult_lock", "max_frames": 6, "optional": true },
+    { "name": "lesley_ult_muzzle", "anchor": "muzzle", "trigger": "ult_round_release", "max_frames": 4 },
+    { "name": "lesley_ult_projectile", "anchor": "projectile", "trigger": "ult_round_release", "max_frames": 4 },
+    { "name": "lesley_ult_impact", "anchor": "hit_location", "trigger": "ult_round_hit", "max_frames": 5 }
+  ],
+  "ultimate_timing": {
+    "round_release_ticks_from_cast": [30, 51, 72, 93],
+    "round_release_seconds_from_cast": [0.5, 0.85, 1.2, 1.55],
+    "recoil_ticks_per_round": 18,
+    "cancel": "End the lock and pending rounds when the cast terminates. If grenade cancellation is implemented, release one final round before dropping the pending sequence.",
+    "interception": "A round's impact is tied to its first resolved champion contact, which may be the blocker. The lock cue follows the intended target until the cast terminates.",
+    "cleanup": "Remove attached presentation on cancellation, state exit or death. An already-fired projectile follows its own impact or expiry lifecycle."
+  },
+  "notes": [
+    "Frame timings are for original TFM2 art and event alignment. The skill footage timecodes live in the atlas.",
+    "Event names identify production cues, not existing SDK callbacks. Validate the corresponding native bindings before integration.",
+    "Export actual muzzle coordinates for release poses. The owner art determines exact sockets.",
+    "A native visible idle must exist for draft. Use the actual body pose for concealment and prioritize native hit and dead."
+  ]
+}

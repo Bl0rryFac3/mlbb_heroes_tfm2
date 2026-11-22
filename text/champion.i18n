@@ -1,6 +1,14 @@
 {
   "en": {
     "description": {
+      "mlbb_lesley": {
+        "name": "Lesley",
+        "attack": "Fires a rifle shot for 100% Attack physical damage.",
+        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
+        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
+        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
+        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+      },
       "mlbb_aldous": {
         "name": "Aldous",
         "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
@@ -61,9 +69,9 @@
         "name": "Chou",
         "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
         "passive": "<#5ad0e6ff>Only Fast<>: Moving charges his next basic attack. When ready, it deals <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>180% AD<> physical damage, slows by <#ffb900ff>80%<> for <#ffb900ff>1<>s and reduces the target’s Armor by <#ffb900ff>10<> for <#ffb900ff>2<>s, stacking up to <#ffb900ff>2<> times.",
-        "skill": "<#5ad0e6ff>Jeet Kune Do<>: Performs a three-part combo, each hit dealing <#ffb900ff>100–165<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>45% AD<> physical damage. The first two casts refresh the skill; the third knocks enemies airborne and starts its cooldown.",
+        "skill": "<#5ad0e6ff>Jeet Kune Do<>: Performs a three-part combo, each hit dealing <#ffb900ff>100–165<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>45% AD<> physical damage. The first two casts refresh the skill; the third knocks enemies airborne and starts its cooldown. Hitting an enemy champion with the third cast resets Shunpo.",
         "skill2": "<#5ad0e6ff>Shunpo<>: Dashes in the chosen direction with crowd-control immunity. Gains a <#ffb900ff>200–300<> + <#ffb900ff>100%<> bonus Attack shield and <#ffb900ff>15<> Physical Penetration for <#ffb900ff>2.5<>s on arrival.",
-        "ult": "<#e64a6aff>The Way of Dragon<>: Kicks an enemy hero away, dealing <#ffb900ff>275–420<> + <#ffb900ff>110%<> bonus Attack physical damage. Recast within <#ffb900ff>4<>s to chase them and deliver an aerial flurry for <#ffb900ff>330–500<> + <#ffb900ff>132%<> bonus Attack physical damage."
+        "ult": "<#e64a6aff>The Way of Dragon<>: Kicks an enemy hero away, dealing <#ffb900ff>275–420<> + <#ffb900ff>110%<> bonus Attack physical damage. If the same target stays in reach, Chou follows and strikes four times on arrival for a total of <#ffb900ff>330–500<> + <#ffb900ff>132%<> bonus Attack physical damage."
       },
       "mlbb_zhask": {
         "name": "Zhask",
@@ -214,11 +222,17 @@
         "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
         "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
         "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
-        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage and can lunge toward the champion struck by Soul Grip if the route is clear. Hitting a champion at a useful distance triggers Furious Dive if the landing is safe. The leap deals damage on landing and allows one short dash in his movement direction. After 0.4s, the original landing area erupts, knocking enemy champions airborne for 0.5s. Both hits deal a combined <#ff9028ff>64 + 45% Attack<> physical damage. Cooldown is 10s.",
         "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
+      "mlbb_lesley": {
+        "passive": "Lethal Shot",
+        "skill1": "Master of Camouflage",
+        "skill2": "Tactical Grenade",
+        "ult": "Ultimate Snipe"
+      },
       "mlbb_aldous": {
         "skill1": "Contract: Soul Steal",
         "skill2": "Contract: Explosion",
@@ -385,6 +399,14 @@
   },
   "zh-hans": {
     "description": {
+      "mlbb_lesley": {
+        "name": "Lesley",
+        "attack": "Fires a rifle shot for 100% Attack physical damage.",
+        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
+        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
+        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
+        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+      },
       "mlbb_aldous": {
         "name": "奥尔德斯",
         "attack": "挥舞熔岩巨拳造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<><#ff9028ff>物理伤害<>。",
@@ -445,9 +467,9 @@
         "name": "周",
         "attack": "普通攻击造成100%物理攻击的物理伤害。",
         "passive": "<#5ad0e6ff>迅捷<>：移动约<#ffb900ff>42,000<>个TFM2世界单位后，下一次普攻造成<#ff9028ff>180%物理攻击<>的物理伤害，使目标减速<#ffb900ff>80%<>持续<#ffb900ff>1秒<>，并降低<#ffb900ff>10<>点物理防御，持续<#ffb900ff>2秒<>，最多<#ffb900ff>2<>层。距离按TFM2地图比例调整。",
-        "skill": "<#ff9028ff>截拳道<>：最多施放<#ffb900ff>3<>次：上踢、突进上勾踢，最后跃起下砸并击飞敌人。每次命中造成<#ff9028ff>100–165 + 45%总物理攻击<>伤害。前两次施放会刷新技能以继续连招；第三次后进入冷却。",
+        "skill": "<#ff9028ff>截拳道<>：最多施放<#ffb900ff>3<>次：上踢、突进上勾踢，最后跃起下砸并击飞敌人。每次命中造成<#ff9028ff>100–165 + 45%总物理攻击<>伤害。前两次施放会刷新技能以继续连招；第三次后进入冷却。第三次施放命中敌方英雄时重置瞬步的冷却时间。",
         "skill2": "<#5ad0e6ff>瞬步<>：朝指定方向突进，突进期间获得<#ffb900ff>控制免疫<>。抵达后获得护盾，数值为<#5bd18aff>200–300 + 100%额外物理攻击<>，并获得<#ffb900ff>15<>点物理穿透，持续<#ffb900ff>2.5秒<>。",
-        "ult": "<#e64a6aff>龙之道<>：回旋踢击敌方英雄，造成<#ff9028ff>275–420 + 110%额外物理攻击<>伤害并将其击退。<#ffb900ff>4秒<>内再次施放可追击目标并在空中连续踢击，造成<#ff9028ff>330–500 + 132%额外物理攻击<>伤害。通过实战验证多段触发前，伤害按一次引擎事件结算。"
+        "ult": "<#e64a6aff>龙之道<>：回旋踢击敌方英雄，造成<#ff9028ff>275–420 + 110%额外物理攻击<>伤害并将其击退。若同一目标仍在追击范围内，周会追上并在抵达后连续攻击四次，共造成<#ff9028ff>330–500 + 132%额外物理攻击<>物理伤害。"
       },
       "mlbb_zhask": {
         "name": "泽斯",
@@ -598,11 +620,17 @@
         "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
         "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
         "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
-        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage and can lunge toward the champion struck by Soul Grip if the route is clear. Hitting a champion at a useful distance triggers Furious Dive if the landing is safe. The leap deals damage on landing and allows one short dash in his movement direction. After 0.4s, the original landing area erupts, knocking enemy champions airborne for 0.5s. Both hits deal a combined <#ff9028ff>64 + 45% Attack<> physical damage. Cooldown is 10s.",
         "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
+      "mlbb_lesley": {
+        "passive": "Lethal Shot",
+        "skill1": "Master of Camouflage",
+        "skill2": "Tactical Grenade",
+        "ult": "Ultimate Snipe"
+      },
       "mlbb_aldous": {
         "skill1": "契约：夺魂",
         "skill2": "契约：爆裂",
@@ -769,6 +797,14 @@
   },
   "zh-hant": {
     "description": {
+      "mlbb_lesley": {
+        "name": "Lesley",
+        "attack": "Fires a rifle shot for 100% Attack physical damage.",
+        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
+        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
+        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
+        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+      },
       "mlbb_aldous": {
         "name": "奧爾德斯",
         "attack": "揮舞熔岩巨拳造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<><#ff9028ff>物理傷害<>。",
@@ -829,9 +865,9 @@
         "name": "周",
         "attack": "普通攻擊造成100%物理攻擊的物理傷害。",
         "passive": "<#5ad0e6ff>迅捷<>：移動約<#ffb900ff>42,000<>個TFM2世界單位後，下一次普攻造成<#ff9028ff>180%物理攻擊<>的物理傷害，使目標緩速<#ffb900ff>80%<>持續<#ffb900ff>1秒<>，並降低<#ffb900ff>10<>點物理防禦，持續<#ffb900ff>2秒<>，最多<#ffb900ff>2<>層。距離依TFM2地圖比例調整。",
-        "skill": "<#ff9028ff>截拳道<>：最多施放<#ffb900ff>3<>次：上踢、突進上勾踢，最後躍起下砸並擊飛敵人。每次命中造成<#ff9028ff>100–165 + 45%總物理攻擊<>傷害。前兩次施放會重置技能以繼續連招；第三次後進入冷卻。",
+        "skill": "<#ff9028ff>截拳道<>：最多施放<#ffb900ff>3<>次：上踢、突進上勾踢，最後躍起下砸並擊飛敵人。每次命中造成<#ff9028ff>100–165 + 45%總物理攻擊<>傷害。前兩次施放會重置技能以繼續連招；第三次後進入冷卻。第三次施放命中敵方英雄時重置瞬步的冷卻時間。",
         "skill2": "<#5ad0e6ff>瞬步<>：朝指定方向突進，突進期間獲得<#ffb900ff>控制免疫<>。抵達後獲得護盾，數值為<#5bd18aff>200–300 + 100%額外物理攻擊<>，並獲得<#ffb900ff>15<>點物理穿透，持續<#ffb900ff>2.5秒<>。",
-        "ult": "<#e64a6aff>龍之道<>：迴旋踢擊敵方英雄，造成<#ff9028ff>275–420 + 110%額外物理攻擊<>傷害並將其擊退。<#ffb900ff>4秒<>內再次施放可追擊目標並在空中連續踢擊，造成<#ff9028ff>330–500 + 132%額外物理攻擊<>傷害。通過實戰驗證多段觸發前，傷害以一次引擎事件結算。"
+        "ult": "<#e64a6aff>龍之道<>：迴旋踢擊敵方英雄，造成<#ff9028ff>275–420 + 110%額外物理攻擊<>傷害並將其擊退。若同一目標仍在追擊範圍內，周會追上並在抵達後連續攻擊四次，共造成<#ff9028ff>330–500 + 132%額外物理攻擊<>物理傷害。"
       },
       "mlbb_zhask": {
         "name": "澤斯",
@@ -982,11 +1018,17 @@
         "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
         "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
         "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
-        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage and can lunge toward the champion struck by Soul Grip if the route is clear. Hitting a champion at a useful distance triggers Furious Dive if the landing is safe. The leap deals damage on landing and allows one short dash in his movement direction. After 0.4s, the original landing area erupts, knocking enemy champions airborne for 0.5s. Both hits deal a combined <#ff9028ff>64 + 45% Attack<> physical damage. Cooldown is 10s.",
         "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
+      "mlbb_lesley": {
+        "passive": "Lethal Shot",
+        "skill1": "Master of Camouflage",
+        "skill2": "Tactical Grenade",
+        "ult": "Ultimate Snipe"
+      },
       "mlbb_aldous": {
         "skill1": "契約：奪魂",
         "skill2": "契約：爆裂",
@@ -1153,6 +1195,14 @@
   },
   "ko": {
     "description": {
+      "mlbb_lesley": {
+        "name": "Lesley",
+        "attack": "Fires a rifle shot for 100% Attack physical damage.",
+        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
+        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
+        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
+        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+      },
       "mlbb_aldous": {
         "name": "올더스",
         "attack": "거대한 용암 건틀릿으로 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% 공격력<>의 <#ff9028ff>물리 피해<>를 입힙니다.",
@@ -1213,9 +1263,9 @@
         "name": "초우",
         "attack": "기본 공격은 물리 공격력의 100%에 해당하는 물리 피해를 줍니다.",
         "passive": "<#5ad0e6ff>일섬<>: TFM2 월드 거리 약 <#ffb900ff>42,000<>만큼 이동하면 다음 기본 공격이 <#ff9028ff>물리 공격력의 180%<> 물리 피해를 주고 <#ffb900ff>1초<> 동안 <#ffb900ff>80%<> 둔화시키며, <#ffb900ff>2초<> 동안 물리 방어력을 <#ffb900ff>10<> 감소시킵니다(최대 <#ffb900ff>2<>중첩). 이동 거리는 TFM2 맵 규모에 맞춰 조정됩니다.",
-        "skill": "<#ff9028ff>절권도<>: 최대 <#ffb900ff>3<>회 시전합니다. 올려차기, 돌진 어퍼컷, 도약 후 내려찍기 순서이며 마지막 타격은 적을 공중에 띄웁니다. 각 타격은 <#ff9028ff>100–165 + 총 물리 공격력의 45%<> 피해를 줍니다. 처음 두 시전은 기술을 초기화하며 세 번째 시전 후 재사용 대기시간이 시작됩니다.",
+        "skill": "<#ff9028ff>절권도<>: 최대 <#ffb900ff>3<>회 시전합니다. 올려차기, 돌진 어퍼컷, 도약 후 내려찍기 순서이며 마지막 타격은 적을 공중에 띄웁니다. 각 타격은 <#ff9028ff>100–165 + 총 물리 공격력의 45%<> 피해를 줍니다. 처음 두 시전은 기술을 초기화하며 세 번째 시전 후 재사용 대기시간이 시작됩니다. 세 번째 시전으로 적 영웅을 적중하면 순보의 재사용 대기시간이 초기화됩니다.",
         "skill2": "<#5ad0e6ff>순보<>: 지정 방향으로 돌진하며 이동 중 <#ffb900ff>제어 면역<>을 얻습니다. 도착 시 <#5bd18aff>200–300 + 추가 물리 공격력의 100%<>만큼 보호막을 얻고, <#ffb900ff>2.5초<> 동안 물리 관통력 <#ffb900ff>15<>를 얻습니다.",
-        "ult": "<#e64a6aff>용의 길<>: 적 영웅을 돌려차기해 <#ff9028ff>275–420 + 추가 물리 공격력의 110%<> 피해를 주고 밀쳐냅니다. <#ffb900ff>4초<> 안에 재사용하면 대상을 추격해 공중에서 연속 발차기를 퍼부으며 <#ff9028ff>330–500 + 추가 물리 공격력의 132%<> 피해를 줍니다. 다단 타격 발동을 실전 검증하기 전까지 피해는 엔진 이벤트 1회로 처리합니다."
+        "ult": "<#e64a6aff>용의 길<>: 적 영웅을 돌려차기해 <#ff9028ff>275–420 + 추가 물리 공격력의 110%<> 피해를 주고 밀쳐냅니다. 같은 대상이 추격 범위 내에 있으면 초우가 따라가 도착 후 4회 공격해 총 <#ff9028ff>330–500 + 추가 물리 공격력의 132%<> 물리 피해를 줍니다."
       },
       "mlbb_zhask": {
         "name": "자스크",
@@ -1366,11 +1416,17 @@
         "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
         "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
         "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
-        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage and can lunge toward the champion struck by Soul Grip if the route is clear. Hitting a champion at a useful distance triggers Furious Dive if the landing is safe. The leap deals damage on landing and allows one short dash in his movement direction. After 0.4s, the original landing area erupts, knocking enemy champions airborne for 0.5s. Both hits deal a combined <#ff9028ff>64 + 45% Attack<> physical damage. Cooldown is 10s.",
         "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
+      "mlbb_lesley": {
+        "passive": "Lethal Shot",
+        "skill1": "Master of Camouflage",
+        "skill2": "Tactical Grenade",
+        "ult": "Ultimate Snipe"
+      },
       "mlbb_aldous": {
         "skill1": "계약: 영혼 탈취",
         "skill2": "계약: 폭발",
@@ -1537,6 +1593,14 @@
   },
   "ja": {
     "description": {
+      "mlbb_lesley": {
+        "name": "Lesley",
+        "attack": "Fires a rifle shot for 100% Attack physical damage.",
+        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
+        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
+        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
+        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+      },
       "mlbb_aldous": {
         "name": "オルダス",
         "attack": "溶岩の巨拳で<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻撃力<>の<#ff9028ff>物理ダメージ<>を与える。",
@@ -1597,9 +1661,9 @@
         "name": "チョウ",
         "attack": "通常攻撃は物理攻撃力の100%の物理ダメージを与える。",
         "passive": "<#5ad0e6ff>迅速<>：TFM2ワールド距離で約<#ffb900ff>42,000<>移動すると、次の通常攻撃が<#ff9028ff>物理攻撃力の180%<>の物理ダメージを与え、<#ffb900ff>1秒<>間<#ffb900ff>80%<>減速させ、<#ffb900ff>2秒<>間物理防御を<#ffb900ff>10<>低下させる（最大<#ffb900ff>2<>スタック）。距離はTFM2のマップ規模に合わせて調整。",
-        "skill": "<#ff9028ff>截拳道<>：最大<#ffb900ff>3<>回発動。上昇蹴り、突進アッパー、跳び上がって叩きつける蹴りの順に繰り出し、最後の一撃で敵を浮かせる。各攻撃は<#ff9028ff>100–165 + 総物理攻撃力の45%<>ダメージ。最初の2回は再発動でき、3回目でクールダウンが始まる。",
+        "skill": "<#ff9028ff>截拳道<>：最大<#ffb900ff>3<>回発動。上昇蹴り、突進アッパー、跳び上がって叩きつける蹴りの順に繰り出し、最後の一撃で敵を浮かせる。各攻撃は<#ff9028ff>100–165 + 総物理攻撃力の45%<>ダメージ。最初の2回は再発動でき、3回目でクールダウンが始まる。3回目が敵ヒーローに命中すると、瞬歩のクールダウンがリセットされる。",
         "skill2": "<#5ad0e6ff>瞬歩<>：指定方向へダッシュし、移動中は<#ffb900ff>行動妨害無効<>を得る。到着時に<#5bd18aff>200–300 + 追加物理攻撃力の100%<>のシールドと、<#ffb900ff>2.5秒<>間物理貫通<#ffb900ff>15<>を得る。",
-        "ult": "<#e64a6aff>龍の道<>：敵ヒーローに回し蹴りを放ち、<#ff9028ff>275–420 + 追加物理攻撃力の110%<>ダメージを与えて吹き飛ばす。<#ffb900ff>4秒<>以内に再発動すると対象を追い、空中で連続蹴りを浴びせて<#ff9028ff>330–500 + 追加物理攻撃力の132%<>ダメージを与える。多段ヒットの発動確認までは、ダメージ処理をエンジンイベント1回にまとめる。"
+        "ult": "<#e64a6aff>龍の道<>：敵ヒーローに回し蹴りを放ち、<#ff9028ff>275–420 + 追加物理攻撃力の110%<>ダメージを与えて吹き飛ばす。同じ対象が追撃範囲内にいれば、チョウは追いついてから4回攻撃し、合計<#ff9028ff>330–500 + 追加物理攻撃力の132%<>の物理ダメージを与える。"
       },
       "mlbb_zhask": {
         "name": "ザスク",
@@ -1750,11 +1814,17 @@
         "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
         "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
         "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
-        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage and can lunge toward the champion struck by Soul Grip if the route is clear. Hitting a champion at a useful distance triggers Furious Dive if the landing is safe. The leap deals damage on landing and allows one short dash in his movement direction. After 0.4s, the original landing area erupts, knocking enemy champions airborne for 0.5s. Both hits deal a combined <#ff9028ff>64 + 45% Attack<> physical damage. Cooldown is 10s.",
         "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
+      "mlbb_lesley": {
+        "passive": "Lethal Shot",
+        "skill1": "Master of Camouflage",
+        "skill2": "Tactical Grenade",
+        "ult": "Ultimate Snipe"
+      },
       "mlbb_aldous": {
         "skill1": "契約：ソウルスティール",
         "skill2": "契約：エクスプロージョン",
@@ -1921,6 +1991,14 @@
   },
   "fr": {
     "description": {
+      "mlbb_lesley": {
+        "name": "Lesley",
+        "attack": "Fires a rifle shot for 100% Attack physical damage.",
+        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
+        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
+        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
+        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+      },
       "mlbb_aldous": {
         "name": "Aldous",
         "attack": "Frappe avec son gantelet de lave pour infliger <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% d'AD<> en <#ff9028ff>dégâts physiques<>.",
@@ -1957,9 +2035,9 @@
         "name": "Chou",
         "attack": "Les attaques de base infligent 100% d'AD en dégâts physiques.",
         "passive": "<#5ad0e6ff>Rapide seulement<> : après environ <#ffb900ff>42 000<> unités de monde TFM2 parcourues, l'attaque de base suivante de Chou inflige <#ff9028ff>180% d'AD<> en dégâts physiques, ralentit de <#ffb900ff>80%<> pendant <#ffb900ff>1 s<> et réduit la Défense Physique de <#ffb900ff>10<> pendant <#ffb900ff>2 s<> (jusqu'à <#ffb900ff>2<> cumuls). La distance est ajustée à l'échelle de la carte TFM2.",
-        "skill": "<#ff9028ff>Jeet Kune Do<> : jusqu'à <#ffb900ff>3<> lancers : un coup de pied ascendant, un uppercut propulsé, puis un écrasement plongeant qui soulève les ennemis. Chaque touche inflige <#ff9028ff>100–165 + 45% de l'Attaque Physique Totale<>. Les deux premiers lancers réinitialisent la compétence pour enchaîner ; le troisième lance le délai de récupération.",
+        "skill": "<#ff9028ff>Jeet Kune Do<> : jusqu'à <#ffb900ff>3<> lancers : un coup de pied ascendant, un uppercut propulsé, puis un écrasement plongeant qui soulève les ennemis. Chaque touche inflige <#ff9028ff>100–165 + 45% de l'Attaque Physique Totale<>. Les deux premiers lancers réinitialisent la compétence pour enchaîner ; le troisième lance le délai de récupération. Toucher un champion ennemi avec le troisième lancer réinitialise le délai de récupération de Shunpo.",
         "skill2": "<#5ad0e6ff>Shunpo<> : bondit dans la direction choisie, obtenant l'<#ffb900ff>Immunité au contrôle<> pendant le bond. À l'arrivée, obtient un bouclier de <#5bd18aff>200–300 + 100% de l'Attaque Physique Supplémentaire<> et <#ffb900ff>15<> de Pénétration Physique pendant <#ffb900ff>2,5 s<>.",
-        "ult": "<#e64a6aff>La Voie du Dragon<> : roundhouse-kick sur un champion ennemi pour <#ff9028ff>275–420 + 110% de l'Attaque Physique Supplémentaire<> et le repousse. Relancez dans les <#ffb900ff>4 s<> pour poursuivre et enchaîner une rafale de coups aériens pour <#ff9028ff>330–500 + 132% de l'Attaque Physique Supplémentaire<>. Les dégâts forment un seul événement moteur jusqu'à ce que des tests en direct valident leur répartition entre les coups."
+        "ult": "<#e64a6aff>La Voie du Dragon<> : roundhouse-kick sur un champion ennemi pour <#ff9028ff>275–420 + 110% de l'Attaque Physique Supplémentaire<> et le repousse. Si la même cible reste à portée, Chou la poursuit et frappe quatre fois à l’arrivée, pour un total de <#ff9028ff>330–500 + 132% de l’Attaque Physique Supplémentaire<> en dégâts physiques."
       },
       "mlbb_estes": {
         "name": "Estes",
@@ -2134,11 +2212,17 @@
         "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
         "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
         "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
-        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage and can lunge toward the champion struck by Soul Grip if the route is clear. Hitting a champion at a useful distance triggers Furious Dive if the landing is safe. The leap deals damage on landing and allows one short dash in his movement direction. After 0.4s, the original landing area erupts, knocking enemy champions airborne for 0.5s. Both hits deal a combined <#ff9028ff>64 + 45% Attack<> physical damage. Cooldown is 10s.",
         "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
+      "mlbb_lesley": {
+        "passive": "Lethal Shot",
+        "skill1": "Master of Camouflage",
+        "skill2": "Tactical Grenade",
+        "ult": "Ultimate Snipe"
+      },
       "mlbb_aldous": {
         "skill1": "Contrat : Vol d'âme",
         "skill2": "Contrat : Explosion",
@@ -2305,6 +2389,14 @@
   },
   "ru": {
     "description": {
+      "mlbb_lesley": {
+        "name": "Lesley",
+        "attack": "Fires a rifle shot for 100% Attack physical damage.",
+        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
+        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
+        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
+        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+      },
       "mlbb_aldous": {
         "name": "Алдус",
         "attack": "Бьёт огромной lava-перчаткой, нанося <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>физического урона<>.",
@@ -2341,9 +2433,9 @@
         "name": "Чоу",
         "attack": "Обычные атаки наносят 100% AD физического урона.",
         "passive": "<#5ad0e6ff>Только быстро<> : пройдя около <#ffb900ff>42 000<> единиц мира TFM2, следующая обычная атака Чоу наносит <#ff9028ff>180% AD<> физического урона, замедляет на <#ffb900ff>80%<> на <#ffb900ff>1 с<> и снижает физическую защиту на <#ffb900ff>10<> на <#ffb900ff>2 с<> (до <#ffb900ff>2<> зарядов). Дистанция подстроена под масштаб карты TFM2.",
-        "skill": "<#ff9028ff>Джит Кун-До<> : до <#ffb900ff>3<> применений: восходящий удар ногой, рывок-апперкот, затем прыжок с ударом вниз, подбрасывающий врагов. Каждое попадание наносит <#ff9028ff>100–165 + 45% общей физической атаки<>. Первые два применения сбрасывают навык, продолжая комбо; третье запускает перезарядку.",
+        "skill": "<#ff9028ff>Джит Кун-До<> : до <#ffb900ff>3<> применений: восходящий удар ногой, рывок-апперкот, затем прыжок с ударом вниз, подбрасывающий врагов. Каждое попадание наносит <#ff9028ff>100–165 + 45% общей физической атаки<>. Первые два применения сбрасывают навык, продолжая комбо; третье запускает перезарядку. Если третье применение попадает по вражескому чемпиону, перезарядка Шунпо сбрасывается.",
         "skill2": "<#5ad0e6ff>Шунпо<> : рывок в выбранном направлении с <#ffb900ff>иммунитетом к контролю<> во время рывка. По прибытии даёт щит <#5bd18aff>200–300 + 100% доп. физической атаки<> и <#ffb900ff>15<> физического пробивания на <#ffb900ff>2,5 с<>.",
-        "ult": "<#e64a6aff>Путь дракона<> : круговой удар ногой по вражескому чемпиону на <#ff9028ff>275–420 + 110% доп. физической атаки<> с отбрасыванием. Повторное применение в течение <#ffb900ff>4 с<> — погоня и серия ударов в воздухе на <#ff9028ff>330–500 + 132% доп. физической атаки<>. Урон идёт одним событием движка, пока живые тесты не подтвердят его разделение по ударам."
+        "ult": "<#e64a6aff>Путь дракона<> : круговой удар ногой по вражескому чемпиону на <#ff9028ff>275–420 + 110% доп. физической атаки<> с отбрасыванием. Если та же цель остаётся в пределах досягаемости, Чоу догоняет её и наносит четыре удара, суммарно нанося <#ff9028ff>330–500 + 132% доп. физической атаки<> физического урона."
       },
       "mlbb_estes": {
         "name": "Эстес",
@@ -2518,11 +2610,17 @@
         "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
         "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
         "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
-        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage and can lunge toward the champion struck by Soul Grip if the route is clear. Hitting a champion at a useful distance triggers Furious Dive if the landing is safe. The leap deals damage on landing and allows one short dash in his movement direction. After 0.4s, the original landing area erupts, knocking enemy champions airborne for 0.5s. Both hits deal a combined <#ff9028ff>64 + 45% Attack<> physical damage. Cooldown is 10s.",
         "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
+      "mlbb_lesley": {
+        "passive": "Lethal Shot",
+        "skill1": "Master of Camouflage",
+        "skill2": "Tactical Grenade",
+        "ult": "Ultimate Snipe"
+      },
       "mlbb_aldous": {
         "skill1": "Контракт: Кража душ",
         "skill2": "Контракт: Взрыв",
@@ -2689,6 +2787,14 @@
   },
   "vi": {
     "description": {
+      "mlbb_lesley": {
+        "name": "Lesley",
+        "attack": "Fires a rifle shot for 100% Attack physical damage.",
+        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
+        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
+        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
+        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+      },
       "mlbb_aldous": {
         "name": "Aldous",
         "attack": "Đấm bằng găng tay dung nham khổng lồ gây <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% Công Vật Lý<> <#ff9028ff>sát thương vật lý<>.",
@@ -2725,9 +2831,9 @@
         "name": "Chou",
         "attack": "Đòn đánh thường gây 100% Công Vật Lý sát thương vật lý.",
         "passive": "<#5ad0e6ff>Duy Tốc Độ<> : sau khi di chuyển khoảng <#ffb900ff>42.000<> đơn vị thế giới TFM2, đòn đánh thường kế tiếp của Chou gây <#ff9028ff>180% Công Vật Lý<> sát thương vật lý, làm chậm <#ffb900ff>80%<> trong <#ffb900ff>1 giây<> và giảm 10 Phòng Thủ Vật Lý trong <#ffb900ff>2 giây<> (tối đa <#ffb900ff>2<> điểm cộng dồn). Khoảng cách được tinh chỉnh theo tỷ lệ bản đồ TFM2.",
-        "skill": "<#ff9028ff>Jeet Kune Do<> : tung tối đa <#ffb900ff>3<> lần: đá vọt lên, đấm xốc khi lướt tới, rồi đạp xuống hất kẻ địch lên không. Mỗi đòn gây <#ff9028ff>100–165 + 45% Tổng Công Vật Lý<>. Hai lần đầu làm mới chiêu để tiếp tục combo; lần thứ ba bắt đầu thời gian hồi.",
+        "skill": "<#ff9028ff>Jeet Kune Do<> : tung tối đa <#ffb900ff>3<> lần: đá vọt lên, đấm xốc khi lướt tới, rồi đạp xuống hất kẻ địch lên không. Mỗi đòn gây <#ff9028ff>100–165 + 45% Tổng Công Vật Lý<>. Hai lần đầu làm mới chiêu để tiếp tục combo; lần thứ ba bắt đầu thời gian hồi. Lần tung chiêu thứ ba trúng tướng địch sẽ hồi ngay Shunpo.",
         "skill2": "<#5ad0e6ff>Shunpo<> : lướt theo hướng đã chọn, nhận <#ffb900ff>Miễn Nhiễm Khống Chế<> trong lúc lướt. Khi tới nơi, nhận khiên bằng <#5bd18aff>200–300 + 100% Công Vật Lý Thêm Vào<> và <#ffb900ff>15<> Xuyên Phòng Thủ Vật Lý trong <#ffb900ff>2,5 giây<>.",
-        "ult": "<#e64a6aff>Đạo Rồng<> : đá xoay người vào tướng địch gây <#ff9028ff>275–420 + 110% Công Vật Lý Thêm Vào<> và đẩy họ văng ra. Tái kích hoạt trong <#ffb900ff>4 giây<> để truy đuổi và tung loạt đá trên không gây <#ff9028ff>330–500 + 132% Công Vật Lý Thêm Vào<>. Sát thương tính là một sự kiện engine cho đến khi kiểm thử trực tiếp xác nhận việc chia nhỏ theo từng cú đá."
+        "ult": "<#e64a6aff>Đạo Rồng<> : đá xoay người vào tướng địch gây <#ff9028ff>275–420 + 110% Công Vật Lý Thêm Vào<> và đẩy họ văng ra. Nếu mục tiêu đó vẫn trong tầm truy đuổi, Chou lao theo và tung bốn đòn khi đến nơi, gây tổng cộng <#ff9028ff>330–500 + 132% Công Vật Lý Thêm Vào<> sát thương vật lý."
       },
       "mlbb_estes": {
         "name": "Estes",
@@ -2902,11 +3008,17 @@
         "attack": "Strikes for <#ff9028ff>100% Attack<> physical damage. Soul Grip can empower the next basic attack.",
         "passive": "Basic attacks and direct skill hits apply Sha Residue to enemy heroes and jungle monsters, including Morgard and Serpen, for <#ffb900ff>5s<>. At three marks, the target pulses five times. Each pulse deals <#ff9028ff>32 + 18% Attack + 2% of the target’s missing HP<> as physical damage and heals Yu Zhong for <#66cc66ff>8% of his missing HP<>. Against jungle monsters, the missing-HP damage bonus is capped at 40 per pulse. When the eruption starts, Yu Zhong gains 15% Movement Speed for 1.5s.",
         "skill": "After 0.4s, sweeps nearby enemies for <#ff9028ff>80 + 65% Attack<> physical damage. The outer edge instead deals <#ff9028ff>138 + 95% Attack<> and applies two marks to eligible targets. Cooldown is 7s.",
-        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage. Hitting a hero at a useful distance triggers Furious Dive if Yu Zhong has a clear landing. The landing area bursts after 0.4s for <#ff9028ff>64 + 45% Attack<> and knocks heroes airborne for 0.5s. Cooldown is 10s.",
+        "skill2": "Sends a wave that deals <#ff9028ff>95 + 68% Attack<> physical damage and slows by 30% for 1s. On hit, the next basic attack within 3s deals <#ff9028ff>55 + 40% Attack<> extra physical damage and can lunge toward the champion struck by Soul Grip if the route is clear. Hitting a champion at a useful distance triggers Furious Dive if the landing is safe. The leap deals damage on landing and allows one short dash in his movement direction. After 0.4s, the original landing area erupts, knocking enemy champions airborne for 0.5s. Both hits deal a combined <#ff9028ff>64 + 45% Attack<> physical damage. Cooldown is 10s.",
         "ult": "Channels for 0.6s, then flies as a dragon for up to 3.5s with 35% Movement Speed, wall traversal and crowd-control immunity. Passing an enemy hero deals <#ff9028ff>125 + 85% Attack<> physical damage and knocks them back once. On landing, enters Dragonoid Form for 15s, increasing skill reach and width by 20%. Cooldown is 46s."
       }
     },
     "skill_name": {
+      "mlbb_lesley": {
+        "passive": "Lethal Shot",
+        "skill1": "Master of Camouflage",
+        "skill2": "Tactical Grenade",
+        "ult": "Ultimate Snipe"
+      },
       "mlbb_aldous": {
         "skill1": "Khế Ước: Cướp Hồn",
         "skill2": "Khế Ước: Nổ",

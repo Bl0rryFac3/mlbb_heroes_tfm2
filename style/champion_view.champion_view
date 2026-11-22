@@ -1,356 +1,396 @@
 {
- "entries": {
-  "mlbb_aldous": {
-   "face": {
-    "x": 3,
-    "y": -37
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_fanny": {
-   "face": {
-    "x": 5,
-    "y": -40
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_lancelot": {
-   "face": {
-    "x": 6,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_gusion": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_estes": {
-   "face": {
-    "x": 1,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_karrie": {
-   "face": {
-    "x": 2,
-    "y": -40
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_uranus": {
-   "face": {
-    "x": -2,
-    "y": -38
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_chou": {
-   "face": {
-    "x": 0,
-    "y": -38
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_zhask": {
-   "face": {
-    "x": 0,
-    "y": -38
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_balmond": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_alpha": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_arlott": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_hanabi": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_franco": {
-   "face": {
-    "x": -10,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_belerick": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_gord": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_cecilion": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_obsidia": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_johnson": {
-   "face": {
-    "x": 3,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_angela": {
-   "face": {
-    "x": 0,
-    "y": -39
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_eudora": {
-   "face": {
-    "x": 0,
-    "y": -34
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_julian": {
-   "face": {
-    "x": 0,
-    "y": -34
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_popol_kupa": {
-   "face": {
-    "x": 0,
-    "y": -35
-   },
-   "center": {
-    "x": 0,
-    "y": -14
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -10
-   }
-  },
-  "mlbb_granger": {
-   "face": {
-    "x": 0,
-    "y": -37
-   },
-   "center": {
-    "x": 0,
-    "y": -20
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -18
-   }
-  },
-  "mlbb_hanzo": {
-   "face": {
-    "x": 0,
-    "y": -40
-   },
-   "center": {
-    "x": 0,
-    "y": -20
-   },
-   "banpick_center": {
-    "x": 0,
-    "y": -18
-   }
-  },
-  "mlbb_atlas": {"face":{"x":0,"y":-38},"center":{"x":0,"y":-20},"banpick_center":{"x":0,"y":-18}},
-  "mlbb_yu_zhong": {"face":{"x":0,"y":-38},"center":{"x":0,"y":-20},"banpick_center":{"x":0,"y":-18}}
-}
+  "entries": {
+    "mlbb_aldous": {
+      "face": {
+        "x": 3,
+        "y": -37
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_fanny": {
+      "face": {
+        "x": 5,
+        "y": -40
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_lancelot": {
+      "face": {
+        "x": 6,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_gusion": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_estes": {
+      "face": {
+        "x": 1,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_karrie": {
+      "face": {
+        "x": 2,
+        "y": -40
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_uranus": {
+      "face": {
+        "x": -2,
+        "y": -38
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_chou": {
+      "face": {
+        "x": 0,
+        "y": -38
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_zhask": {
+      "face": {
+        "x": 0,
+        "y": -38
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_balmond": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_alpha": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_arlott": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_hanabi": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_franco": {
+      "face": {
+        "x": -10,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_belerick": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_gord": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_cecilion": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_obsidia": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_johnson": {
+      "face": {
+        "x": 3,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_angela": {
+      "face": {
+        "x": 0,
+        "y": -39
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_eudora": {
+      "face": {
+        "x": 0,
+        "y": -34
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_julian": {
+      "face": {
+        "x": 0,
+        "y": -34
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_popol_kupa": {
+      "face": {
+        "x": 0,
+        "y": -35
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
+    "mlbb_granger": {
+      "face": {
+        "x": 0,
+        "y": -37
+      },
+      "center": {
+        "x": 0,
+        "y": -20
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -18
+      }
+    },
+    "mlbb_hanzo": {
+      "face": {
+        "x": 0,
+        "y": -40
+      },
+      "center": {
+        "x": 0,
+        "y": -20
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -18
+      }
+    },
+    "mlbb_atlas": {
+      "face": {
+        "x": 0,
+        "y": -38
+      },
+      "center": {
+        "x": 0,
+        "y": -20
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -18
+      }
+    },
+    "mlbb_yu_zhong": {
+      "face": {
+        "x": 0,
+        "y": -38
+      },
+      "center": {
+        "x": 0,
+        "y": -20
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -18
+      }
+    },
+    "mlbb_lesley": {
+      "face": {
+        "x": 0,
+        "y": -38
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    }
+  }
 }

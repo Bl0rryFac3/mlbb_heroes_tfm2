@@ -1,0 +1,263 @@
+{
+  "id": "mlbb_lesley",
+  "category": "Range",
+  "tags": [
+    "AD",
+    "Range"
+  ],
+  "sprite": "asset/mlbb_heroes/sprite/lesley",
+  "anim_prefix": "",
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/lesley_skill",
+    "asset/mlbb_heroes/icons/lesley_skill2",
+    "asset/mlbb_heroes/icons/lesley_ult"
+  ],
+  "stat": {
+    "attack": 104,
+    "magic_power": 0,
+    "hp": 680,
+    "defence": 18,
+    "magic_resistance": 18,
+    "move_speed": 1080,
+    "hp_regen": 6,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "growth": {
+    "attack": 6,
+    "magic_power": 0,
+    "hp": 90,
+    "defence": 3,
+    "magic_resistance": 2,
+    "move_speed": 4,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_lesley.attack",
+    "duration": 21,
+    "cooltime": 66,
+    "start_timing": 8,
+    "cancelable": true,
+    "range": 75000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "BaseAttack",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:lesley_attack"
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_lesley.skill",
+    "duration": 12,
+    "cooltime": 300,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 92000,
+    "casting_type": "None",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": true,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:lesley_skill"
+    }
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_lesley.skill2",
+    "duration": 27,
+    "cooltime": 540,
+    "start_timing": 6,
+    "cancelable": true,
+    "range": 30000,
+    "casting_type": "Direction",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:lesley_skill2"
+    }
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_lesley.ult",
+    "duration": 129,
+    "cooltime": 1920,
+    "start_timing": 0,
+    "cancelable": true,
+    "range": 150000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyChampion",
+    "attack_type": "Skill",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:lesley_ult"
+    }
+  },
+  "passive": {
+    "passive_ref": "mlbb_heroes:lesley"
+  },
+  "view_effects": [
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_basic_impact",
+      "anim": "asset/mlbb_heroes/effects/lesley_basic_impact",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_basic_muzzle",
+      "anim": "asset/mlbb_heroes/effects/lesley_basic_muzzle",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_basic_muzzle_left",
+      "anim": "asset/mlbb_heroes/effects/lesley_basic_muzzle_left",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_lethal_impact",
+      "anim": "asset/mlbb_heroes/effects/lesley_lethal_impact",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_lethal_muzzle",
+      "anim": "asset/mlbb_heroes/effects/lesley_lethal_muzzle",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_lethal_muzzle_left",
+      "anim": "asset/mlbb_heroes/effects/lesley_lethal_muzzle_left",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_ult_impact",
+      "anim": "asset/mlbb_heroes/effects/lesley_ult_impact",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_ult_muzzle",
+      "anim": "asset/mlbb_heroes/effects/lesley_ult_muzzle",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_ult_muzzle_left",
+      "anim": "asset/mlbb_heroes/effects/lesley_ult_muzzle_left",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_camouflage_ripple",
+      "anim": "asset/mlbb_heroes/effects/lesley_camouflage_ripple",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_grenade_fan",
+      "anim": "asset/mlbb_heroes/effects/lesley_grenade_fan",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_grenade_fan_left",
+      "anim": "asset/mlbb_heroes/effects/lesley_grenade_fan_left",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "mlbb_lesley_grenade_impact",
+      "anim": "asset/mlbb_heroes/effects/lesley_grenade_impact",
+      "tag": "main",
+      "z": 1,
+      "is_follow": false
+    }
+  ],
+  "view_projectiles": [
+    {
+      "type": "Animated",
+      "name": "mlbb_lesley_basic_tracer",
+      "anim": "asset/mlbb_heroes/effects/lesley_basic_tracer",
+      "tag": "main",
+      "z": 1,
+      "repeat": true
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_lesley_lethal_tracer",
+      "anim": "asset/mlbb_heroes/effects/lesley_lethal_tracer",
+      "tag": "main",
+      "z": 1,
+      "repeat": true
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_lesley_ult_projectile",
+      "anim": "asset/mlbb_heroes/effects/lesley_ult_projectile",
+      "tag": "main",
+      "z": 1,
+      "repeat": true
+    }
+  ],
+  "view_buffs": [
+    {
+      "type": "Animated",
+      "name": "mlbb_lesley_lethal_ready",
+      "anim": "asset/mlbb_heroes/effects/lesley_lethal_ready",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_lesley_camouflage_edge",
+      "anim": "asset/mlbb_heroes/effects/lesley_camouflage_edge",
+      "tag": "main",
+      "z": 1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_lesley_ult_lock",
+      "anim": "asset/mlbb_heroes/effects/lesley_ult_lock",
+      "tag": "main",
+      "z": 1
+    }
+  ]
+}

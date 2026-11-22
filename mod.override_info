@@ -1846,5 +1846,45 @@
   "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_yu_dragon": {
     "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_yu_dragon",
     "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_basic": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_basic",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_basic": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_basic",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_lethal": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_lethal",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_lethal": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_lethal",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_ult": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_ult",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_ult": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_ult",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_grenade": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_grenade",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_grenade": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_grenade",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_camouflage": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_camouflage",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_camouflage": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_camouflage",
+    "type": "override"
   }
 }

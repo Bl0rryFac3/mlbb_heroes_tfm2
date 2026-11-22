@@ -17,6 +17,9 @@ struct Unit {
     shield: usize,
 }
 pub(crate) struct Host {
+    pub(crate) queued: Vec<(String, usize, InputTargetV1, usize)>,
+    pub(crate) knockback_allowed: bool,
+    pub(crate) record_queued_effects: bool,
     pub(crate) now: usize,
     pub(crate) respawn_ticks: usize,
     seed: u64,
@@ -47,6 +50,9 @@ pub(crate) struct Host {
 impl Host {
     pub(crate) fn new() -> Self {
         let mut h = Self {
+            queued: vec![],
+            knockback_allowed: false,
+            record_queued_effects: false,
             now: 0,
             respawn_ticks: 0,
             seed: SEED.fetch_add(1, Ordering::Relaxed),
@@ -130,6 +136,8 @@ impl Host {
         t.entity_remove_buff = Some(remove_buff);
         t.entity_banish = Some(banish);
         t.entity_pull = Some(pull);
+        t.queue_effect = Some(record_queue);
+        t.entity_knockback = Some(allow_knockback);
         t.heal = Some(heal);
         t.deal_damage = Some(damage);
         t.deal_damage_typed = Some(typed_damage);
@@ -381,6 +389,24 @@ unsafe extern "C" fn damage(s: *mut c_void, c: usize, e: usize, ad: usize, ap: u
 unsafe extern "C" fn shield(s: *const c_void, e: EntityHandleV1) -> usize {
     h(s).units[&id(e)].shield
 }
+unsafe extern "C" fn record_queue(
+    s: *mut c_void, name: *const u8, len: usize, _: u32, caster: usize,
+    input: *const InputTargetV1, delay: usize,
+) -> bool {
+    let Ok(name) = std::str::from_utf8(std::slice::from_raw_parts(name, len)) else {
+        return false;
+    };
+    if !h(s).record_queued_effects { return false; }
+    h(s).queued.push((name.to_owned(), caster, *input, delay));
+    true
+}
+
+unsafe extern "C" fn allow_knockback(
+    s: *mut c_void, _: usize, _: EntityHandleV1, _: usize, _: usize,
+) -> bool {
+    h(s).knockback_allowed
+}
+
 unsafe extern "C" fn cc(s: *mut c_void, e: usize, c: *const CcV1) {
     h(s).cc.push((e, *c));
 }
@@ -1337,7 +1363,7 @@ fn repair153_low_health_does_not_force_recall_or_stop() {
     }
 }
 
-fn add_unit(h: &mut Host, id: usize, kind: EntityKindV1, team: usize, p: Pos) {
+pub(crate) fn add_unit(h: &mut Host, id: usize, kind: EntityKindV1, team: usize, p: Pos) {
     h.units.insert(
         id,
         Unit {

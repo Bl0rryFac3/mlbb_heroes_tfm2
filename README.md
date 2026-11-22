@@ -4,9 +4,9 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ---
 
-## Roster (`v2.8.0`)
+## Roster (`v2.9.0`)
 
-27 heroes. The Mods menu shows build **1.1.170**.
+28 heroes. The Mods menu shows build **1.1.174**.
 
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
@@ -37,6 +37,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 | **Uranus** | `mlbb_uranus` | Tank | Data + native Rust | Builds **Radiance** when damaged and recovers health through **Consecration**. |
 | **Zhask** | `mlbb_zhask` | Magician | Data + native Rust | Places a stationary Spawn and can merge with its empowered form. |
 | **Yu Zhong** *(Black Dragon)* | `mlbb_yu_zhong` | Melee | Data + native Rust | **Sha Residue** damages marked targets and heals Yu Zhong. **Black Dragon Form** lets him fly and extends his skill reach after landing. |
+| **Lesley** *(Deadly Sniper)* | `mlbb_lesley` | Range | Data + native Rust | **Lethal Shot** primes after every skill. **Master of Camouflage** conceals her, **Tactical Grenade** creates space, and **Ultimate Snipe** fires four rounds. |
 
 ---
 
@@ -335,8 +336,17 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 - **Cursing Touch.** Three marks trigger five damaging pulses and restore health. Marks also work on jungle monsters, including Morgard and Serpen.
 - **Dragon Tail.** Sweeps nearby enemies. The outer edge hits harder and applies two marks.
-- **Soul Grip.** Slows enemies and empowers the next basic attack. A hit on a champion can lead into Furious Dive.
+- **Soul Grip.** Slows enemies and empowers the next basic attack, which can lunge at the champion hit. Furious Dive deals damage on landing, allows a short second dash, and knocks champions airborne at the landing point.
 - **Black Dragon Form.** Flies through terrain and knocks enemies back on contact. Yu Zhong lands in Dragonoid Form with wider, longer-reaching skills for 15 seconds.
+
+---
+
+### 28. Lesley — Deadly Sniper (`mlbb_lesley`)
+
+- **Lethal Shot.** Each skill, or five seconds without taking damage, readies an extended-range attack for 75 + 125% Attack true damage to champions.
+- **Master of Camouflage.** Conceals Lesley and grants movement speed for up to 2.5s.
+- **Tactical Grenade.** Blasts a cone and knocks enemy champions away as Lesley steps back.
+- **Ultimate Snipe.** Fires four shots for 70 + 32% Attack + 6% missing HP each. Other enemy champions can intercept.
 
 ---
 
@@ -347,7 +357,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
 2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, Estes, or Gusion mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
-3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.170**.
+3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.174**.
 4. See `Install_Guide.html` for the screenshot guide. The optional MLBB Champ Info companion adds basic attack and passive cards.
 
 ---
@@ -381,6 +391,11 @@ mlbb_heroes/
 
 ---
 
+## v2.9.0
+
+- Lesley joins as hero 28 with skill icons, custom sound effects, and a four-round ultimate.
+- Yu Zhong gains the empowered basic lunge and Furious Dive follow-through. Chou’s combo transitions are faster.
+
 ## v2.8.0
 
 - Yu Zhong joins the roster as the 27th hero, with human, Black Dragon, and Dragonoid forms.
@@ -413,7 +428,7 @@ Because `mlbb_heroes` is structured as a multi-hero pack, you can add new MLBB h
 
 ## Building From Source (Optional)
 
-`mlbb_heroes.dll` is included as a precompiled Windows x64 library; v2.8.0 was built with the Windows GNU target. Rebuild from the native crate after editing `sdk/candidate/lib.rs`:
+`mlbb_heroes.dll` is included as a precompiled Windows x64 library; v2.9.0 was built with the Windows GNU target. Rebuild from the native crate after editing `sdk/candidate/lib.rs`:
 
 - **Windows (PowerShell)**:
   ```powershell

@@ -6,8 +6,8 @@ const PASSIVE_READY: &str = "mlbb_chou_only_fast_ready";
 const PASSIVE_SHRED: &str = "mlbb_chou_only_fast_shred";
 const S1_STAGE2: &str = "mlbb_chou_s1_stage2";
 const S1_STAGE3: &str = "mlbb_chou_s1_stage3";
-const S1_FINISHER_HIT: &str = "mlbb_chou_s1_finisher_hit";
-const ULT_RECAST: &str = "mlbb_chou_ult_recast";
+const ULT_SEQUENCE: &str = "mlbb_chou_ult_sequence";
+const ULT_DAMAGE_PREFIX: &str = "mlbb_chou_ult_damage:";
 const S2_CC_IMMUNE: &str = "mlbb_chou_shunpo_cc_immune";
 const S2_GUARD: &str = "mlbb_chou_shunpo_guard";
 
@@ -16,7 +16,6 @@ const S1_RANGE: f64 = 67_000.0;
 const S1_HALF_WIDTH: f64 = 30_000.0;
 const S1_DASH_DISTANCE: f64 = 20_000.0;
 const S1_DASH_SPEED: usize = 2_500;
-const S1_ACTION_LOCK: usize = 45;
 const S1_RECAST_WINDOW: usize = 360;
 const S1_FINISHER_RADIUS: f64 = 30_000.0;
 // Conservative damage restoration: about +10% at level 1, up to ~18–20% late.
@@ -34,28 +33,27 @@ const S1_FINISHER_APPROACH_RANGE: f64 = S1_FINISHER_RADIUS + S1_DASH_DISTANCE;
 // The effect is queued from action start_timing 2, so wait 9 more ticks.
 const S1_FINISHER_IMPACT_DELAY: usize = 9;
 const S2_DASH_DISTANCE: f64 = 30_000.0;
-const S2_DASH_SPEED: usize = 3_000;
 const S2_SHIELD_TICKS: usize = 150;
-const S2_ACTION_LOCK: usize = 52; // 50-tick action plus the existing 2-tick AI guard.
-const S2_BACKSTEP_DISTANCE: f64 = 20_000.0;
-const ULT_WINDOW: usize = 240;
-const ULT_READY_DELAY: usize = 72;
-const ULT_FIRST_RANGE: f64 = 20_000.0; // Slightly wider than Chou's 15,000 basic-attack range.
-const ULT_FIRST_AI_RANGE: f64 = 18_000.0; // Close-range trigger with room for the cast-start tick.
-const ULT_TARGET_RANGE: f64 = 145_000.0;
-const ULT_RECAST_RANGE_BONUS: u64 = 125_000; // 20,000 first-cast base + bonus = 145,000 recast reach.
-const ULT_KNOCKBACK_SPEED: usize = 10_000;
+const S2_BACKSTEP_DISTANCE: f64 = 12_000.0;
+const ULT_FIRST_RANGE: f64 = 20_000.0;
+const ULT_KICK_DELAY: usize = 13;
+const ULT_KNOCKBACK_SPEED: usize = 6_000;
 const ULT_KNOCKBACK_TICKS: usize = 10;
 const ULT_AIRBORNE_DELAY: usize = ULT_KNOCKBACK_TICKS + 1;
 const ULT_AIRBORNE_TICKS: u64 = 30;
-
-fn ult_recast_range_bonus(recast_active: bool) -> u64 {
-    if recast_active {
-        ULT_RECAST_RANGE_BONUS
-    } else {
-        0
-    }
-}
+const ULT_CHASE_AFTER_KICK: usize = 17;
+const ULT_CHASE_RANGE: f64 = 90_000.0;
+const ULT_CHASE_SPEED: usize = 8_000;
+const ULT_STRIKE_RANGE: f64 = 22_000.0;
+const ULT_HIT_EFFECTS: [&str; 4] = [
+    "mlbb_heroes:chou_ult_hit_1",
+    "mlbb_heroes:chou_ult_hit_2",
+    "mlbb_heroes:chou_ult_hit_3",
+    "mlbb_heroes:chou_ult_hit_4",
+];
+const ULT_FLURRY_HITS: usize = ULT_HIT_EFFECTS.len();
+const ULT_FLURRY_TICKS: u64 = 30;
+const ULT_HIT_SPACING: usize = 7;
 
 fn log_chou_event(sim: &StableSim<'_>, caster_id: usize, message: impl AsRef<str>) {
     let origin = sim.sim_origin().unwrap_or_default();
@@ -77,14 +75,6 @@ fn log_chou_event(sim: &StableSim<'_>, caster_id: usize, message: impl AsRef<str
         sim.tick(),
         message.as_ref()
     ));
-}
-
-fn log_chou_ai(ctx: &mut StableAiContext<'_>, caster_id: usize, message: impl AsRef<str>) {
-    if let Some(sim) = ctx.sim() {
-        log_chou_event(&sim, caster_id, message);
-    } else {
-        crate::wlog(format!("Chou AI caster#{caster_id}: {}", message.as_ref()));
-    }
 }
 
 fn clamp_level(level: usize) -> usize {
@@ -214,11 +204,16 @@ fn is_on_kick_back_side(
         goal_pos.0 as f64 - target_pos.0 as f64,
         goal_pos.1 as f64 - target_pos.1 as f64,
     );
-    let target_to_caster = (
-        caster_pos.0 as f64 - target_pos.0 as f64,
-        caster_pos.1 as f64 - target_pos.1 as f64,
+    let kick_line = unit(
+        target_pos.0 as f64 - caster_pos.0 as f64,
+        target_pos.1 as f64 - caster_pos.1 as f64,
     );
-    target_to_caster.0 * toward_goal.0 + target_to_caster.1 * toward_goal.1 < 0.0
+    distance_sq(caster_pos, target_pos) > 0
+        && kick_line.0 * toward_goal.0 + kick_line.1 * toward_goal.1 >= 0.65
+}
+
+fn finisher_mark(caster: usize) -> String {
+    format!("mlbb_chou_s1_hit:{caster}")
 }
 
 fn input_direction(
@@ -248,16 +243,14 @@ fn input_direction(
     }
 }
 
-fn chou_tower_target_is_safe(sim: &StableSim<'_>, caster_id: usize, target_id: usize) -> bool {
+fn route_is_safe(sim: &StableSim<'_>, caster: usize, destination: (u64, u64)) -> bool {
     let all = crate::units(sim);
-    let Some(caster) = all.iter().find(|unit| unit.id == caster_id) else {
+    let to = (destination.0 as f64, destination.1 as f64);
+    let Some(actor) = all.iter().find(|unit| unit.id == caster) else {
         return false;
     };
-    let Some(target) = all.iter().find(|unit| unit.id == target_id) else {
-        return false;
-    };
-    !crate::is_unsafe_under_enemy_tower(&all, caster, target)
-        && !crate::is_unsafe_tower_route(&all, caster, target.pos, 0.0)
+    !crate::is_unsafe_tower_route(&all, actor, to, 0.0)
+        && crate::path_is_clear(&crate::current_grid(&all), actor.pos, to)
 }
 
 fn is_enemy_nonstructure(sim: &StableSim<'_>, caster_id: usize, target_id: usize) -> bool {
@@ -342,8 +335,7 @@ impl StablePassive for ChouOnlyFast {
         // never cause the first visible cast to resolve as a later phase.
         let _ = sim.entity_remove_buff(entity_id, S1_STAGE2);
         let _ = sim.entity_remove_buff(entity_id, S1_STAGE3);
-        let _ = sim.entity_remove_buff(entity_id, S1_FINISHER_HIT);
-        let _ = sim.entity_remove_buff(entity_id, ULT_RECAST);
+        let _ = sim.entity_remove_buff(entity_id, ULT_SEQUENCE);
         let _ = sim.entity_remove_buff(entity_id, PASSIVE_READY);
         let _ = sim.entity_remove_buff(entity_id, PASSIVE_SHRED);
     }
@@ -380,13 +372,16 @@ impl StablePassive for ChouOnlyFast {
     }
 
     fn on_dead(&mut self, sim: &mut StableSim<'_>, player: usize) {
-        let _ = player;
         self.last_pos = None;
         self.distance_since_attack = 0.0;
         self.armed = false;
-        // The passive callback only exposes player on death, not the entity id;
-        // the next on_spawn clears the visual-ready state.
-        let _ = sim;
+        if let Some(id) = sim
+            .get_player(player)
+            .and_then(|p| p.champion())
+            .map(|e| e.id())
+        {
+            let _ = sim.entity_remove_buff(id, ULT_SEQUENCE);
+        }
     }
 }
 
@@ -406,10 +401,11 @@ enum ChouEffectKind {
     S2Start,
     S2End,
     UltFirst,
+    UltKick,
     UltAirborne,
-    UltRecastReady,
-    UltRecast,
-    UltRange,
+    UltChase,
+    UltArrive,
+    UltHit(usize),
 }
 
 impl StableEffectType for ChouEffect {
@@ -423,10 +419,11 @@ impl StableEffectType for ChouEffect {
             ChouEffectKind::S2Start => shunpo_start(sim, caster_id),
             ChouEffectKind::S2End => shunpo_end(sim, caster_id),
             ChouEffectKind::UltFirst => ultimate_first(sim, caster_id, input),
+            ChouEffectKind::UltKick => ultimate_kick(sim, caster_id, input),
             ChouEffectKind::UltAirborne => ultimate_airborne(sim, caster_id, input),
-            ChouEffectKind::UltRecastReady => ult_recast_ready(sim, caster_id),
-            ChouEffectKind::UltRecast => ultimate_recast(sim, caster_id, input),
-            ChouEffectKind::UltRange => {} // Range-only marker; dynamic adjustment is below.
+            ChouEffectKind::UltChase => ultimate_chase(sim, caster_id, input),
+            ChouEffectKind::UltArrive => ultimate_arrive(sim, caster_id, input),
+            ChouEffectKind::UltHit(hit) => ultimate_hit(sim, caster_id, input, hit),
         }
     }
 
@@ -440,10 +437,6 @@ impl StableEffectType for ChouEffect {
                 ULT_FIRST_DAMAGE_MIN + stat.attack * ULT_FIRST_EXTRA_AD_RATIO / 100,
                 0,
             ),
-            ChouEffectKind::UltRecast => (
-                ULT_RECAST_DAMAGE_MIN + stat.attack * ULT_RECAST_EXTRA_AD_RATIO / 100,
-                0,
-            ),
             _ => (0, 0),
         }
     }
@@ -451,18 +444,6 @@ impl StableEffectType for ChouEffect {
     fn expected_shield(&self, stat: &StatV1) -> usize {
         if matches!(self.kind, ChouEffectKind::S2End) {
             250 + stat.attack
-        } else {
-            0
-        }
-    }
-
-    fn may_adjust_range(&self) -> bool {
-        matches!(self.kind, ChouEffectKind::UltRange)
-    }
-
-    fn range_adjust(&self, caster: &StableEntityView<'_>, _target: &StableEntityView<'_>) -> u64 {
-        if matches!(self.kind, ChouEffectKind::UltRange) {
-            ult_recast_range_bonus(caster.has_buff(ULT_RECAST))
         } else {
             0
         }
@@ -524,9 +505,6 @@ fn skill1(sim: &mut StableSim<'_>, caster_id: usize, input: InputTargetV1, stage
         caster_id,
         format!("S1 stage {stage} effect started; aim_kind={}", input.kind),
     );
-    if stage == 1 {
-        let _ = sim.entity_remove_buff(caster_id, S1_FINISHER_HIT);
-    }
     if stage == 3 {
         // The data effect schedules the damage helper and RangeEffect airborne
         // together at the baked shockwave's impact frame.
@@ -653,13 +631,16 @@ fn skill1_third_impact(sim: &mut StableSim<'_>, caster_id: usize) {
         hit_count += 1;
         if is_champion {
             hit_champion = true;
+            if sim
+                .get_entity(target_id)
+                .is_some_and(|target| target.is_alive() && target.hp().0 > 0)
+            {
+                sim.add_buff(target_id, &BuffV1::timed(&finisher_mark(caster_id), 30));
+            }
         }
     }
     let skill2_reset =
         hit_champion && sim.entity_reduce_cooldown(caster_id, SkillSlotV1::Skill2, 9_999);
-    if hit_champion {
-        sim.add_buff(caster_id, &BuffV1::timed(S1_FINISHER_HIT, 120));
-    }
     log_chou_event(
         sim,
         caster_id,
@@ -667,16 +648,6 @@ fn skill1_third_impact(sim: &mut StableSim<'_>, caster_id: usize) {
             "S1 finisher damage impact at ({},{}) radius={} raw_damage_per_target={damage} hit_targets={hit_count} hit_champion={hit_champion} airborne=delayed_data_effect skill2_reset={skill2_reset} combo_hit_marker={hit_champion}",
             origin.0, origin.1, S1_FINISHER_RADIUS
         ),
-    );
-}
-
-fn ult_recast_ready(sim: &mut StableSim<'_>, caster_id: usize) {
-    let has_recast = crate::has_named_buff(sim, caster_id, ULT_RECAST);
-    let reset = has_recast && sim.entity_reduce_cooldown(caster_id, SkillSlotV1::Ult, 99_999);
-    log_chou_event(
-        sim,
-        caster_id,
-        format!("Ultimate recast-ready effect: buff_present={has_recast} cooldown_reset={reset}"),
     );
 }
 
@@ -702,659 +673,367 @@ fn shunpo_end(sim: &mut StableSim<'_>, caster_id: usize) {
     sim.add_buff(caster_id, &pen);
 }
 
-fn ultimate_first(sim: &mut StableSim<'_>, caster_id: usize, input: InputTargetV1) {
+fn live_champion_target(sim: &StableSim<'_>, caster: usize, target: usize) -> bool {
+    is_enemy_nonstructure(sim, caster, target)
+        && sim
+            .get_entity(caster)
+            .is_some_and(|e| e.is_alive() && e.hp().0 > 0)
+        && sim
+            .get_entity(target)
+            .is_some_and(|e| e.is_champion() && e.hp().0 > 0)
+}
+
+fn ultimate_target(
+    sim: &StableSim<'_>,
+    caster: usize,
+    input: InputTargetV1,
+) -> Option<(usize, (u64, u64), (u64, u64))> {
+    let target = input.target_id;
     if input.kind != InputTargetKindV1::Target.code()
-        || !is_enemy_nonstructure(sim, caster_id, input.target_id)
+        || !crate::has_named_buff(sim, caster, ULT_SEQUENCE)
+        || !live_champion_target(sim, caster, target)
     {
-        log_chou_event(
-            sim,
-            caster_id,
-            format!(
-                "Ultimate first phase rejected input kind={} target#{}",
-                input.kind, input.target_id
-            ),
-        );
+        return None;
+    }
+    Some((
+        target,
+        sim.get_entity(caster)?.pos(),
+        sim.get_entity(target)?.pos(),
+    ))
+}
+
+fn ultimate_first(sim: &mut StableSim<'_>, caster: usize, input: InputTargetV1) {
+    if input.kind != InputTargetKindV1::Target.code()
+        || !live_champion_target(sim, caster, input.target_id)
+    {
         return;
     }
-    let target_id = input.target_id;
-    let Some((caster_pos, target_pos, attack, level)) = sim
-        .get_entity(caster_id)
-        .zip(sim.get_entity(target_id))
-        .map(|(caster, target)| {
-            (
-                caster.pos(),
-                target.pos(),
-                caster.stat().attack,
-                caster.level(),
-            )
-        })
+    let Some((from, target)) = sim
+        .get_entity(caster)
+        .zip(sim.get_entity(input.target_id))
+        .map(|(caster, target)| (caster.pos(), target.pos()))
     else {
         return;
     };
-    let first_range_sq = (ULT_FIRST_RANGE as u128) * (ULT_FIRST_RANGE as u128);
-    let target_distance_sq = distance_sq(caster_pos, target_pos);
-    if target_distance_sq > first_range_sq {
-        log_chou_event(
-            sim,
-            caster_id,
-            format!(
-                "Ultimate first phase rejected: target#{target_id} distance={:.0} exceeds close range {}",
-                (target_distance_sq as f64).sqrt(), ULT_FIRST_RANGE
-            ),
-        );
+    if distance_sq(from, target) > (ULT_FIRST_RANGE as u128).pow(2) {
         return;
     }
-    let damage = chou_ult_first_damage(attack, level);
-    sim.deal_damage(caster_id, target_id, damage, 0, AttackTypeV1::Skill);
-    // Experimental long roundhouse: 10,000 units/tick for 10 ticks = 100,000 units. Airborne is applied
-    // by a delayed effect after the 10-tick knockback has completed, avoiding
-    // an immediate CC state replacing the movement state.
-    let knockback = sim.entity_knockback(
-        caster_id,
-        target_id,
-        ULT_KNOCKBACK_SPEED,
-        ULT_KNOCKBACK_TICKS,
-    );
-    sim.add_buff(caster_id, &BuffV1::timed(ULT_RECAST, ULT_WINDOW));
-    let target_input = InputTargetV1::target(target_id);
-    let airborne_queued = sim.queue_effect(
-        "mlbb_heroes:chou_ult_airborne",
+    sim.add_buff(caster, &BuffV1::timed(ULT_SEQUENCE, 100));
+    let queued = sim.queue_effect(
+        "mlbb_heroes:chou_ult_kick",
         AttackTypeV1::Skill,
-        caster_id,
-        &target_input,
-        ULT_AIRBORNE_DELAY,
-    );
-    let recast_ready_queued = sim.queue_effect(
-        "mlbb_heroes:chou_ult_recast_ready",
-        AttackTypeV1::Skill,
-        caster_id,
-        &InputTargetV1::NONE,
-        ULT_READY_DELAY,
+        caster,
+        &input,
+        ULT_KICK_DELAY,
     );
     log_chou_event(
         sim,
-        caster_id,
-        format!(
-            "Ultimate first phase target#{target_id}: close_range={} raw_damage={damage} knockback={knockback} knockback_speed={} knockback_ticks={} caster_start=({},{}) target_start=({},{}) airborne_queued={airborne_queued} airborne_delay={ULT_AIRBORNE_DELAY} recast_ready_queued={recast_ready_queued} ready_delay={ULT_READY_DELAY}",
-            ULT_FIRST_RANGE, ULT_KNOCKBACK_SPEED, ULT_KNOCKBACK_TICKS,
-            caster_pos.0, caster_pos.1, target_pos.0, target_pos.1
-        ),
+        caster,
+        format!("Ultimate target#{} kick_queued={queued}", input.target_id),
     );
 }
 
-fn ultimate_airborne(sim: &mut StableSim<'_>, caster_id: usize, input: InputTargetV1) {
-    if input.kind != InputTargetKindV1::Target.code()
-        || !is_enemy_nonstructure(sim, caster_id, input.target_id)
+fn ultimate_kick(sim: &mut StableSim<'_>, caster: usize, input: InputTargetV1) {
+    let Some((target, from, target_pos)) = ultimate_target(sim, caster, input) else {
+        return;
+    };
+    if distance_sq(from, target_pos) > (ULT_STRIKE_RANGE as u128).pow(2)
+        || crate::hanzo::blocked(sim, caster, false)
     {
-        log_chou_event(
-            sim,
-            caster_id,
-            format!(
-                "Ultimate airborne skipped: invalid/non-targetable target#{} kind={}",
-                input.target_id, input.kind
-            ),
-        );
         return;
     }
-    let target_pos = sim.get_entity(input.target_id).map(|target| target.pos());
-    let airborne = CcV1::of_kind(CcKindV1::Airborne, ULT_AIRBORNE_TICKS);
-    sim.apply_cc(input.target_id, &airborne);
-    log_chou_event(
-        sim,
-        caster_id,
-        format!(
-            "Ultimate airborne applied to target#{} for {} ticks at_position={:?}",
-            input.target_id, ULT_AIRBORNE_TICKS, target_pos
-        ),
-    );
-}
-
-fn ultimate_recast(sim: &mut StableSim<'_>, caster_id: usize, input: InputTargetV1) {
-    if input.kind != InputTargetKindV1::Target.code()
-        || !is_enemy_nonstructure(sim, caster_id, input.target_id)
-    {
-        log_chou_event(
-            sim,
-            caster_id,
-            format!(
-                "Ultimate recast rejected input kind={} target#{}",
-                input.kind, input.target_id
-            ),
-        );
-        return;
-    }
-    let target_id = input.target_id;
-    let Some((caster_pos, target_pos, attack, level)) = sim
-        .get_entity(caster_id)
-        .zip(sim.get_entity(target_id))
-        .map(|(caster, target)| {
-            (
-                caster.pos(),
-                target.pos(),
-                caster.stat().attack,
-                caster.level(),
-            )
-        })
+    let Some(amount) = sim
+        .get_entity(caster)
+        .map(|e| chou_ult_first_damage(e.stat().attack, e.level()))
     else {
         return;
     };
-    let total_damage = chou_ult_recast_damage(attack, level);
-    // Conservative one-hit damage fallback: the recast flurry is fully shown
-    // in the sprite animation, while damage/proc accounting remains a single
-    // engine event until live TFM2 testing confirms safe multi-hit procs.
-    sim.deal_damage(caster_id, target_id, total_damage, 0, AttackTypeV1::Skill);
-    let toward = unit(
-        target_pos.0 as f64 - caster_pos.0 as f64,
-        target_pos.1 as f64 - caster_pos.1 as f64,
-    );
-    push_direction(sim, caster_id, toward, S2_DASH_DISTANCE, S2_DASH_SPEED);
-    let _ = sim.entity_remove_buff(caster_id, ULT_RECAST);
+    sim.deal_damage(caster, target, amount, 0, AttackTypeV1::Skill);
+    if !live_champion_target(sim, caster, target) {
+        return;
+    }
+    let kicked = sim.entity_knockback(caster, target, ULT_KNOCKBACK_SPEED, ULT_KNOCKBACK_TICKS);
     log_chou_event(
         sim,
-        caster_id,
-        format!("Ultimate recast executed on target#{target_id}; one damage event={total_damage}; dash issued; data airborne duration=60 ticks"),
+        caster,
+        format!("Ultimate first kick target#{target} knockback={kicked}"),
     );
+    if kicked {
+        sim.queue_effect(
+            "mlbb_heroes:chou_ult_airborne",
+            AttackTypeV1::Skill,
+            caster,
+            &input,
+            ULT_AIRBORNE_DELAY,
+        );
+        sim.queue_effect(
+            "mlbb_heroes:chou_ult_chase",
+            AttackTypeV1::Skill,
+            caster,
+            &input,
+            ULT_CHASE_AFTER_KICK,
+        );
+    }
 }
 
-#[derive(Clone, Copy, Default, PartialEq, Eq)]
-enum ChouComboPhase {
-    #[default]
-    None,
-    S1Chain,
-    AwaitFinisher,
-    AwaitPosition,
+fn ultimate_airborne(sim: &mut StableSim<'_>, caster: usize, input: InputTargetV1) {
+    if let Some((target, _, _)) = ultimate_target(sim, caster, input) {
+        sim.apply_cc(
+            target,
+            &CcV1::of_kind(CcKindV1::Airborne, ULT_AIRBORNE_TICKS),
+        );
+    }
+}
+
+fn chase_destination(from: (u64, u64), to: (u64, u64)) -> Option<((u64, u64), usize)> {
+    let gap = (distance_sq(from, to) as f64).sqrt();
+    if gap > ULT_CHASE_RANGE {
+        return None;
+    }
+    let travel = (gap - 10_000.0).max(0.0);
+    let dir = unit(to.0 as f64 - from.0 as f64, to.1 as f64 - from.1 as f64);
+    let destination = (
+        (from.0 as f64 + dir.0 * travel).round().max(0.0) as u64,
+        (from.1 as f64 + dir.1 * travel).round().max(0.0) as u64,
+    );
+    Some((
+        destination,
+        (travel / ULT_CHASE_SPEED as f64).ceil() as usize,
+    ))
+}
+
+fn ultimate_chase(sim: &mut StableSim<'_>, caster: usize, input: InputTargetV1) {
+    let Some((target, from, target_pos)) = ultimate_target(sim, caster, input) else {
+        return;
+    };
+    let Some((destination, ticks)) = chase_destination(from, target_pos) else {
+        return;
+    };
+    let Some(team) = sim.get_entity(caster).map(|e| e.team()) else {
+        return;
+    };
+    if crate::hanzo::blocked(sim, caster, true)
+        || !route_is_safe(sim, caster, destination)
+        || !sim.is_visible(team, target)
+    {
+        log_chou_event(
+            sim,
+            caster,
+            format!("Ultimate follow-up skipped: unsafe route or crowd control, target#{target}"),
+        );
+        return;
+    }
+    if ticks == 0 {
+        ultimate_arrive(sim, caster, input);
+        return;
+    }
+    if sim.queue_effect(
+        "mlbb_heroes:chou_ult_arrive",
+        AttackTypeV1::Skill,
+        caster,
+        &input,
+        ticks + 1,
+    ) {
+        let dx = destination.0 as i64 - from.0 as i64;
+        let dy = destination.1 as i64 - from.1 as i64;
+        let mut dash = CcV1::of_kind(CcKindV1::ForceMove, ticks as u64);
+        dash.dx = dx;
+        dash.dy = dy;
+        dash.speed = ((dx as f64).hypot(dy as f64) / ticks as f64).ceil() as u64;
+        sim.apply_cc(caster, &dash);
+    }
+}
+
+fn ultimate_arrive(sim: &mut StableSim<'_>, caster: usize, input: InputTargetV1) {
+    let Some((target, from, target_pos)) = ultimate_target(sim, caster, input) else {
+        return;
+    };
+    if distance_sq(from, target_pos) > (ULT_STRIKE_RANGE as u128).pow(2)
+        || !route_is_safe(sim, caster, from)
+        || crate::hanzo::blocked(sim, caster, false)
+    {
+        log_chou_event(
+            sim,
+            caster,
+            format!("Ultimate follow-up skipped: no safe arrival on target#{target}"),
+        );
+        return;
+    }
+    let Some(total) = sim
+        .get_entity(caster)
+        .map(|e| chou_ult_recast_damage(e.stat().attack, e.level()))
+    else {
+        return;
+    };
+    let mut flurry = CcV1::of_kind(CcKindV1::Animation, ULT_FLURRY_TICKS);
+    flurry.set_name("ult_recast");
+    sim.apply_cc(caster, &flurry);
+    sim.apply_cc(target, &CcV1::of_kind(CcKindV1::Airborne, ULT_FLURRY_TICKS));
+    // Target inputs are marshalled by the host. Keep the damage snapshot on
+    // the caster and encode the hit index in the registered effect.
+    sim.add_buff(
+        caster,
+        &BuffV1::timed(
+            &format!("{ULT_DAMAGE_PREFIX}{total}"),
+            ULT_FLURRY_TICKS as usize,
+        ),
+    );
+    log_chou_event(
+        sim,
+        caster,
+        format!("Ultimate follow-up arrived on target#{target}, raw total={total}"),
+    );
+    for (hit, name) in ULT_HIT_EFFECTS.iter().enumerate() {
+        sim.queue_effect(
+            name,
+            AttackTypeV1::Skill,
+            caster,
+            &input,
+            1 + hit * ULT_HIT_SPACING,
+        );
+    }
+}
+
+fn flurry_damage(total: usize, hit: usize) -> usize {
+    total / ULT_FLURRY_HITS + usize::from(hit < total % ULT_FLURRY_HITS)
+}
+
+fn ultimate_hit(sim: &mut StableSim<'_>, caster: usize, input: InputTargetV1, hit: usize) {
+    let Some((target, from, target_pos)) = ultimate_target(sim, caster, input) else {
+        let _ = sim.entity_remove_buff(caster, ULT_SEQUENCE);
+        return;
+    };
+    if distance_sq(from, target_pos) > (ULT_STRIKE_RANGE as u128).pow(2)
+        || crate::hanzo::blocked(sim, caster, false)
+    {
+        let _ = sim.entity_remove_buff(caster, ULT_SEQUENCE);
+        return;
+    }
+    let Some(total) = sim.get_entity(caster).and_then(|e| {
+        (0..e.buff_count())
+            .filter_map(|i| e.buff_at(i))
+            .find_map(|b| {
+                b.name()
+                    .strip_prefix(ULT_DAMAGE_PREFIX)?
+                    .parse::<usize>()
+                    .ok()
+            })
+    }) else {
+        return;
+    };
+    sim.deal_damage(
+        caster,
+        target,
+        flurry_damage(total, hit),
+        0,
+        AttackTypeV1::Skill,
+    );
+    if hit + 1 == ULT_FLURRY_HITS {
+        let _ = sim.entity_remove_buff(caster, ULT_SEQUENCE);
+    }
 }
 
 #[derive(Clone, Default)]
-struct ChouAi {
-    ult_target: Option<usize>,
-    ult_expires: usize,
-    s1_lock_until: usize,
-    combo_lock_until: usize,
-    combo_target: Option<usize>,
-    combo_phase: ChouComboPhase,
-    approach_s2_used: bool,
-    failed_kick_target: Option<usize>,
-    combo_retry_count: u8,
-    combo_wait_count: u8,
-}
-
-impl ChouAi {
-    fn clear_combo(&mut self) {
-        self.combo_target = None;
-        self.combo_phase = ChouComboPhase::None;
-        self.approach_s2_used = false;
-        self.combo_lock_until = 0;
-        self.combo_retry_count = 0;
-        self.combo_wait_count = 0;
-    }
-}
+struct ChouAi;
 
 impl StablePlayerAi for ChouAi {
     fn clone_box(&self) -> Box<dyn StablePlayerAi> {
         Box::new(self.clone())
     }
+
     fn id(&self) -> String {
         "mlbb_chou_combo_ai".to_string()
     }
+
     fn priority(&self) -> i32 {
         150
     }
+
     fn matches(&self, init: &StableAiInit) -> bool {
-        init.champion_name.to_ascii_lowercase().contains("chou")
+        init.champion_name == "mlbb_chou"
     }
 
-    fn think(
-        &mut self,
-        ctx: &mut StableAiContext<'_>,
-        base_input: Option<InputV1>,
-    ) -> Option<InputV1> {
-        let player_id = ctx.player_id();
-        let athlete_id = ctx.athlete_id();
-        let tick = ctx.tick();
-        if tick < self.s1_lock_until || tick < self.combo_lock_until {
+    fn think(&mut self, ctx: &mut StableAiContext<'_>, base: Option<InputV1>) -> Option<InputV1> {
+        let base = base?;
+        if base.kind != InputKindV1::Attack.code()
+            || base.target.kind != InputTargetKindV1::Target.code()
+        {
             return None;
         }
-        let (
-            caster_id,
-            team,
-            pos,
-            stage2,
-            stage3,
-            ult_recast,
-            unsafe_base_input,
-            retreat_from_tower,
-            hold_position,
-            skill_unlocked,
-            skill2_unlocked,
-            ult_unlocked,
-            best_target,
-        ) = {
+        let player = ctx.player_id();
+        let proposed = {
             let sim = ctx.sim()?;
-            let player = sim.get_player(player_id)?;
-            let caster_id = player
-                .champion()
-                .map(|champion| champion.id())
-                .unwrap_or(athlete_id);
-            let entity = sim.get_entity(caster_id)?;
-            let pos = entity.pos();
-            let team = entity.team();
-            let stage2 = crate::has_named_buff(&sim, caster_id, S1_STAGE2);
-            let stage3 = crate::has_named_buff(&sim, caster_id, S1_STAGE3);
-            let ult_recast = crate::has_named_buff(&sim, caster_id, ULT_RECAST);
-            let all = crate::units(&sim);
-            let Some(caster_snap) = all.iter().find(|unit| unit.id == caster_id) else {
+            let e = sim.get_player(player)?.champion()?;
+            let id = e.id();
+            let target = base.target.target_id;
+            if !live_champion_target(&sim, id, target)
+                || !sim.is_visible(e.team(), target)
+                || crate::has_named_buff(&sim, id, ULT_SEQUENCE)
+                || crate::hanzo::blocked(&sim, id, false)
+            {
                 return None;
+            }
+            let from = e.pos();
+            let to = sim.get_entity(target)?.pos();
+            let gap = (distance_sq(from, to) as f64).sqrt();
+            let ready = |slot| {
+                e.cooldown(slot)
+                    .is_some_and(|c| c.unlocked && c.charges > 0)
             };
-            let unsafe_base_input = base_input.is_some_and(|input| {
-                if input.kind == InputKindV1::Move.code() {
-                    crate::is_unsafe_tower_route(
-                        &all,
-                        caster_snap,
-                        (input.x as f64, input.y as f64),
-                        0.0,
-                    )
-                } else if input.target.kind == InputTargetKindV1::Target.code() {
-                    all.iter()
-                        .find(|unit| unit.id == input.target.target_id)
-                        .is_some_and(|target| {
-                            target.team != team
-                                && (crate::is_unsafe_under_enemy_tower(&all, caster_snap, target)
-                                    || crate::is_unsafe_tower_route(
-                                        &all,
-                                        caster_snap,
-                                        target.pos,
-                                        0.0,
-                                    ))
-                        })
-                } else if input.target.kind == InputTargetKindV1::Pos.code() {
-                    crate::is_unsafe_tower_route(
-                        &all,
-                        caster_snap,
-                        (input.target.x as f64, input.target.y as f64),
-                        0.0,
-                    )
-                } else {
-                    false
-                }
-            });
-            let retreat_from_tower =
-                crate::is_unsafe_tower_route(&all, caster_snap, caster_snap.pos, 0.0);
-            let hold_position = InputV1::move_to(
-                caster_snap.pos.0.max(0.0) as u64,
-                caster_snap.pos.1.max(0.0) as u64,
-            );
-            let preferred = base_input
-                .filter(|input| input.target.kind == InputTargetKindV1::Target.code())
-                .map(|input| input.target.target_id);
-            let mut best: Option<(usize, u128, bool)> = None;
-            for i in 0..sim.entity_count() {
-                let Some(enemy) = sim.entity_at(i) else {
-                    continue;
-                };
-                if enemy.team() == team || !enemy.is_alive() || !enemy.is_targetable() {
-                    continue;
-                }
-                if matches!(
-                    enemy.kind(),
-                    Some(EntityKindV1::Tower | EntityKindV1::Nexus)
-                ) {
-                    continue;
-                }
-                if all
-                    .iter()
-                    .find(|unit| unit.id == enemy.id())
-                    .is_some_and(|target| {
-                        crate::is_unsafe_under_enemy_tower(&all, caster_snap, target)
-                            || crate::is_unsafe_tower_route(&all, caster_snap, target.pos, 0.0)
-                    })
+            let shunpo = ready(SkillSlotV1::Skill2) && !crate::hanzo::blocked(&sim, id, true);
+            let ult = ready(SkillSlotV1::Ult);
+            let stage3 = crate::has_named_buff(&sim, id, S1_STAGE3);
+            let stage2 = crate::has_named_buff(&sim, id, S1_STAGE2);
+            if ult && crate::has_named_buff(&sim, target, &finisher_mark(id)) {
+                let (goal, _) = kick_goal_position(&sim, id, target, from, to);
+                if !crate::has_named_buff(&sim, id, S2_CC_IMMUNE)
+                    && gap <= ULT_FIRST_RANGE
+                    && is_on_kick_back_side(from, to, goal)
+                    && route_is_safe(&sim, id, to)
                 {
-                    continue;
-                }
-                let candidate = (
-                    enemy.id(),
-                    distance_sq(pos, enemy.pos()),
-                    enemy.is_champion(),
-                );
-                if let Some((current_id, current_d2, current_champ)) = best {
-                    if preferred == Some(candidate.0)
-                        || (preferred != Some(current_id)
-                            && (candidate.2 && !current_champ
-                                || candidate.2 == current_champ && candidate.1 < current_d2))
-                    {
-                        best = Some(candidate);
-                    }
+                    InputV1::action(InputKindV1::Ult, InputTargetV1::target(target))
                 } else {
-                    best = Some(candidate);
+                    let behind = point_behind_target(to, goal, S2_BACKSTEP_DISTANCE);
+                    if !shunpo
+                        || distance_sq(from, behind) > (S2_DASH_DISTANCE as u128).pow(2)
+                        || !is_on_kick_back_side(behind, to, goal)
+                        || !route_is_safe(&sim, id, behind)
+                    {
+                        return None;
+                    }
+                    InputV1::action(InputKindV1::Skill2, InputTargetV1::pos(behind.0, behind.1))
                 }
-            }
-            (
-                caster_id,
-                team,
-                pos,
-                stage2,
-                stage3,
-                ult_recast,
-                unsafe_base_input,
-                retreat_from_tower,
-                hold_position,
-                entity
-                    .cooldown(SkillSlotV1::Skill)
-                    .is_some_and(|state| state.unlocked && state.charges > 0),
-                entity
-                    .cooldown(SkillSlotV1::Skill2)
-                    .is_some_and(|state| state.unlocked && state.charges > 0),
-                entity
-                    .cooldown(SkillSlotV1::Ult)
-                    .is_some_and(|state| state.unlocked && state.charges > 0),
-                best.map(|v| v.0),
-            )
-        };
-        // Do not pursue a target or movement order through an unsupported tower zone.
-        if retreat_from_tower {
-            return Some(InputV1::return_home());
-        }
-        if unsafe_base_input {
-            return Some(hold_position);
-        }
-
-        // Recast the saved target only after the queued cooldown reset has run.
-        if ult_recast && tick <= self.ult_expires && ult_unlocked {
-            let max_range_sq = (ULT_TARGET_RANGE as u128) * (ULT_TARGET_RANGE as u128);
-            if let Some(saved) = self.ult_target.filter(|id| {
-                ctx.sim().is_some_and(|sim| {
-                    sim.get_entity(*id).is_some_and(|entity| {
-                        entity.is_alive()
-                            && distance_sq(pos, entity.pos()) <= max_range_sq
-                            && chou_tower_target_is_safe(&sim, caster_id, *id)
-                    })
-                })
-            }) {
-                crate::wlog(format!(
-                    "Chou AI tick={tick}: issued Ultimate recast on saved target#{saved}"
-                ));
-                return Some(InputV1::action(
-                    InputKindV1::Ult,
-                    InputTargetV1::target(saved),
-                ));
-            }
-        }
-        // Hold the selected hero throughout an active combo instead of retargeting mid-sequence.
-        let target_id = if let Some(locked) = self.combo_target {
-            let valid = ctx.sim().is_some_and(|sim| {
-                sim.get_entity(locked).is_some_and(|target| {
-                    target.team() != team
-                        && target.is_alive()
-                        && target.is_targetable()
-                        && target.is_champion()
-                        && chou_tower_target_is_safe(&sim, caster_id, locked)
-                })
-            });
-            if valid {
-                Some(locked)
-            } else {
-                self.clear_combo();
-                best_target
-            }
-        } else {
-            best_target
-        };
-        let Some(target_id) = target_id else {
-            return None;
-        };
-        let Some((target_pos, target_distance, target_is_champion)) =
-            ctx.sim()?.get_entity(target_id).map(|target| {
-                (
-                    target.pos(),
-                    (distance_sq(pos, target.pos()) as f64).sqrt(),
-                    target.is_champion(),
-                )
-            })
-        else {
-            self.clear_combo();
-            return None;
-        };
-
-        // Combo phase 1: finish the three S1 casts, optionally using the first S2
-        // as a gap-close before the airborne finisher.
-        if self.combo_phase == ChouComboPhase::S1Chain {
-            if !ult_unlocked || !target_is_champion {
-                self.clear_combo();
-                return None;
-            }
-            if stage3 && !self.approach_s2_used && target_distance > 32_000.0 && skill2_unlocked {
-                self.approach_s2_used = true;
-                self.combo_lock_until = tick.saturating_add(S2_ACTION_LOCK);
-                log_chou_ai(
-                    ctx,
-                    caster_id,
-                    format!("combo S2 approach target#{target_id} distance={target_distance:.0}"),
+            } else if (stage2 || stage3)
+                && ready(SkillSlotV1::Skill)
+                && !crate::hanzo::blocked(&sim, id, true)
+                && gap > 0.0
+            {
+                let max_range = if stage3 {
+                    S1_FINISHER_APPROACH_RANGE
+                } else {
+                    S1_RANGE
+                };
+                let (kind, travel) = if gap <= max_range {
+                    (InputKindV1::Skill, S1_DASH_DISTANCE)
+                } else if stage3 && ult && shunpo && gap <= max_range + S2_DASH_DISTANCE {
+                    (InputKindV1::Skill2, S2_DASH_DISTANCE)
+                } else {
+                    return None;
+                };
+                let dir = unit(to.0 as f64 - from.0 as f64, to.1 as f64 - from.1 as f64);
+                let landing = (
+                    (from.0 as f64 + travel * dir.0).max(0.0) as u64,
+                    (from.1 as f64 + travel * dir.1).max(0.0) as u64,
                 );
-                return Some(InputV1::action(
-                    InputKindV1::Skill2,
-                    InputTargetV1::pos(target_pos.0, target_pos.1),
-                ));
-            }
-            if stage3 {
-                self.approach_s2_used = true;
-            }
-            let s1_recast_range = if stage3 {
-                S1_FINISHER_APPROACH_RANGE
-            } else {
-                S1_RANGE
-            };
-            if (stage2 || stage3) && skill_unlocked && target_distance <= s1_recast_range {
-                if stage3 {
-                    self.combo_phase = ChouComboPhase::AwaitFinisher;
-                }
-                log_chou_ai(
-                    ctx,
-                    caster_id,
-                    format!(
-                        "combo S1 recast stage={} target#{target_id} distance={target_distance:.0}",
-                        if stage3 { 3 } else { 2 }
-                    ),
-                );
-                self.s1_lock_until = tick.saturating_add(S1_ACTION_LOCK + 2);
-                return Some(InputV1::action(
-                    InputKindV1::Skill,
-                    InputTargetV1::pos(target_pos.0, target_pos.1),
-                ));
-            }
-            if (stage2 || stage3) && !skill_unlocked && self.combo_wait_count < 5 {
-                self.combo_wait_count += 1;
-                self.combo_lock_until = tick.saturating_add(3);
-                log_chou_ai(
-                    ctx,
-                    caster_id,
-                    format!(
-                        "combo waiting for S1 charge target#{target_id} stage2={stage2} stage3={stage3} wait={}",
-                        self.combo_wait_count
-                    ),
-                );
-                return None;
-            }
-            if !stage2 && !stage3 && skill_unlocked && self.combo_retry_count == 0 {
-                self.combo_retry_count = 1;
-                self.combo_wait_count = 0;
-                self.s1_lock_until = tick.saturating_add(S1_ACTION_LOCK + 2);
-                log_chou_ai(
-                    ctx,
-                    caster_id,
-                    format!("combo retrying initial S1 target#{target_id} distance={target_distance:.0}"),
-                );
-                return Some(InputV1::action(
-                    InputKindV1::Skill,
-                    InputTargetV1::pos(target_pos.0, target_pos.1),
-                ));
-            }
-            log_chou_ai(
-                ctx,
-                caster_id,
-                format!(
-                    "combo aborted before S1 finisher target#{target_id} distance={target_distance:.0} stage2={stage2} stage3={stage3} skill_ready={skill_unlocked} retries={}",
-                    self.combo_retry_count
-                ),
-            );
-            self.failed_kick_target = Some(target_id);
-            self.clear_combo();
-            return None;
-        }
-
-        // The impact helper marks a confirmed hero hit and resets Shunpo. Only then
-        // spend the refreshed S2 to move to the far side of the chosen kick line.
-        if self.combo_phase == ChouComboPhase::AwaitFinisher {
-            let confirmed_hit = ctx
-                .sim()
-                .is_some_and(|sim| crate::has_named_buff(&sim, caster_id, S1_FINISHER_HIT));
-            if !confirmed_hit || !skill2_unlocked {
-                if (!confirmed_hit || !skill2_unlocked) && self.combo_wait_count < 5 {
-                    self.combo_wait_count += 1;
-                    self.combo_lock_until = tick.saturating_add(3);
-                    log_chou_ai(
-                        ctx,
-                        caster_id,
-                        format!(
-                            "combo waiting after finisher target#{target_id} confirmed_hit={confirmed_hit} s2_ready={skill2_unlocked} wait={}",
-                            self.combo_wait_count
-                        ),
-                    );
+                if !route_is_safe(&sim, id, landing) {
                     return None;
                 }
-                log_chou_ai(
-                    ctx,
-                    caster_id,
-                    format!(
-                        "combo aborted after S1 finisher target#{target_id} confirmed_hit={confirmed_hit} s2_ready={skill2_unlocked}"
-                    ),
-                );
-                self.failed_kick_target = Some(target_id);
-                self.clear_combo();
-                return None;
-            }
-            let (goal_pos, goal_id) = ctx
-                .sim()
-                .map(|sim| kick_goal_position(&sim, caster_id, target_id, pos, target_pos))
-                .unwrap_or((target_pos, None));
-            let back_pos = point_behind_target(target_pos, goal_pos, S2_BACKSTEP_DISTANCE);
-            log_chou_ai(
-                ctx,
-                caster_id,
-                format!(
-                    "combo S2 behind target#{target_id} goal_entity={goal_id:?} goal=({},{}) s2_aim=({},{})",
-                    goal_pos.0, goal_pos.1, back_pos.0, back_pos.1
-                ),
-            );
-            self.combo_phase = ChouComboPhase::AwaitPosition;
-            self.combo_lock_until = tick.saturating_add(S2_ACTION_LOCK);
-            return Some(InputV1::action(
-                InputKindV1::Skill2,
-                InputTargetV1::pos(back_pos.0, back_pos.1),
-            ));
-        }
-
-        // Confirm the S2 actually put Chou on the correct side before kicking.
-        if self.combo_phase == ChouComboPhase::AwaitPosition {
-            let (goal_pos, goal_id) = ctx
-                .sim()
-                .map(|sim| kick_goal_position(&sim, caster_id, target_id, pos, target_pos))
-                .unwrap_or((target_pos, None));
-            let behind = is_on_kick_back_side(pos, target_pos, goal_pos);
-            if !behind || target_distance > ULT_FIRST_AI_RANGE || !ult_unlocked {
-                log_chou_ai(
-                    ctx,
-                    caster_id,
-                    format!(
-                        "combo kick cancelled target#{target_id}; behind={behind} distance={target_distance:.0} ai_range={ULT_FIRST_AI_RANGE:.0} ult_ready={ult_unlocked} goal_entity={goal_id:?} caster=({},{}) target=({},{})",
-                        pos.0, pos.1, target_pos.0, target_pos.1
-                    ),
-                );
-                self.failed_kick_target = Some(target_id);
-                self.clear_combo();
-                return None;
-            }
-            log_chou_ai(
-                ctx,
-                caster_id,
-                format!(
-                    "combo kick target#{target_id} toward goal_entity={goal_id:?} distance={target_distance:.0}"
-                ),
-            );
-            self.ult_target = Some(target_id);
-            self.ult_expires = tick.saturating_add(ULT_WINDOW);
-            self.clear_combo();
-            return Some(InputV1::action(
-                InputKindV1::Ult,
-                InputTargetV1::target(target_id),
-            ));
-        }
-
-        // Preserve the existing staged S1 behavior when this isn't an Ultimate combo.
-        let s1_recast_range = if stage3 {
-            S1_FINISHER_APPROACH_RANGE
-        } else {
-            S1_RANGE
-        };
-        if (stage2 || stage3) && skill_unlocked && target_distance <= s1_recast_range {
-            crate::wlog(format!(
-                "Chou AI tick={tick}: issued S1 recast stage={} target#{target_id} distance={target_distance:.0}",
-                if stage3 { 3 } else { 2 }
-            ));
-            self.s1_lock_until = tick.saturating_add(S1_ACTION_LOCK + 2);
-            return Some(InputV1::action(
-                InputKindV1::Skill,
-                InputTargetV1::pos(target_pos.0, target_pos.1),
-            ));
-        }
-        if ult_unlocked
-            && !ult_recast
-            && !stage2
-            && !stage3
-            && target_distance <= ULT_FIRST_AI_RANGE
-            && self.failed_kick_target != Some(target_id)
-            && !(target_is_champion && skill_unlocked)
-        {
-            crate::wlog(format!(
-                "Chou AI tick={tick}: issued first Ultimate on target#{target_id} distance={target_distance:.0}"
-            ));
-            self.ult_target = Some(target_id);
-            self.ult_expires = tick.saturating_add(ULT_WINDOW);
-            return Some(InputV1::action(
-                InputKindV1::Ult,
-                InputTargetV1::target(target_id),
-            ));
-        }
-        if !stage2 && !stage3 && skill_unlocked && target_distance <= S1_RANGE {
-            if ult_unlocked && target_is_champion {
-                self.combo_target = Some(target_id);
-                self.combo_phase = ChouComboPhase::S1Chain;
-                self.approach_s2_used = false;
-                self.failed_kick_target = None;
-                self.combo_retry_count = 0;
-                self.combo_wait_count = 0;
-                log_chou_ai(
-                    ctx,
-                    caster_id,
-                    format!("started Insec combo target#{target_id} distance={target_distance:.0}"),
-                );
+                InputV1::action(kind, InputTargetV1::pos(to.0, to.1))
             } else {
-                crate::wlog(format!(
-                    "Chou AI tick={tick}: issued S1 first cast target#{target_id} distance={target_distance:.0}"
-                ));
+                return None;
             }
-            self.s1_lock_until = tick.saturating_add(S1_ACTION_LOCK + 2);
-            return Some(InputV1::action(
-                InputKindV1::Skill,
-                InputTargetV1::pos(target_pos.0, target_pos.1),
-            ));
-        }
-        if skill2_unlocked && target_distance > 32_000.0 && target_distance <= 90_000.0 {
-            return Some(InputV1::action(
-                InputKindV1::Skill2,
-                InputTargetV1::pos(target_pos.0, target_pos.1),
-            ));
-        }
-        None
+        };
+        ctx.is_valid_input(&proposed).then_some(proposed)
     }
 }
 
@@ -1370,21 +1049,29 @@ pub(crate) fn register(module: &mut StableMod) {
         ("chou_s2_start", ChouEffectKind::S2Start),
         ("chou_s2_end", ChouEffectKind::S2End),
         ("chou_ult_first", ChouEffectKind::UltFirst),
+        ("chou_ult_kick", ChouEffectKind::UltKick),
         ("chou_ult_airborne", ChouEffectKind::UltAirborne),
-        ("chou_ult_recast_ready", ChouEffectKind::UltRecastReady),
-        ("chou_ult_recast", ChouEffectKind::UltRecast),
-        ("chou_ult_range", ChouEffectKind::UltRange),
+        ("chou_ult_chase", ChouEffectKind::UltChase),
+        ("chou_ult_arrive", ChouEffectKind::UltArrive),
     ] {
         module.add_native_effect(format!("mlbb_heroes:{name}"), ChouEffect { kind });
     }
-    module.add_player_input_ai(ChouAi::default());
+    for (hit, name) in ULT_HIT_EFFECTS.iter().enumerate() {
+        module.add_native_effect(
+            *name,
+            ChouEffect {
+                kind: ChouEffectKind::UltHit(hit),
+            },
+        );
+    }
+    module.add_player_input_ai(ChouAi);
 }
 
 #[cfg(test)]
 mod tests {
     use super::{
         chou_s1_damage, chou_ult_first_damage, chou_ult_recast_damage, extra_attack, level_value,
-        ult_recast_range_bonus, unit,
+        unit,
     };
 
     #[test]
@@ -1404,18 +1091,8 @@ mod tests {
         assert_eq!(super::S1_DASH_DISTANCE, 20_000.0);
         assert_eq!(super::S1_FINISHER_RADIUS, 30_000.0);
         assert_eq!(super::S1_FINISHER_APPROACH_RANGE, 50_000.0);
-        assert_eq!(super::S1_ACTION_LOCK, 45);
         assert_eq!(super::S1_FINISHER_IMPACT_DELAY + 2, 11);
-        assert_eq!(super::ULT_FIRST_RANGE, 20_000.0);
-        assert_eq!(super::ULT_FIRST_AI_RANGE, 18_000.0);
-        assert_eq!(super::ULT_RECAST_RANGE_BONUS, 125_000);
-        assert_eq!(ult_recast_range_bonus(false), 0);
-        assert_eq!(ult_recast_range_bonus(true), 125_000);
-        assert_eq!(
-            super::ULT_FIRST_RANGE as u64 + ult_recast_range_bonus(true),
-            145_000
-        );
-        assert_eq!(super::ULT_TARGET_RANGE, 145_000.0);
+        assert!(super::S2_BACKSTEP_DISTANCE < super::ULT_FIRST_RANGE);
     }
 
     #[test]
@@ -1443,14 +1120,140 @@ mod tests {
     }
 
     #[test]
-    fn experimental_ultimate_first_kick_displacement_is_100k() {
-        assert_eq!(super::ULT_KNOCKBACK_SPEED, 10_000);
-        assert_eq!(super::ULT_KNOCKBACK_TICKS, 10);
+    fn chase_reaches_the_kicked_target_and_preserves_total_damage() {
+        let from = (100_000, 200_000);
+        let target = (180_000, 200_000);
+        let (landing, ticks) = super::chase_destination(from, target).unwrap();
+        assert_eq!(landing, (170_000, 200_000));
+        assert_eq!(ticks, 9);
+        assert!(super::distance_sq(landing, target) < (super::ULT_STRIKE_RANGE as u128).pow(2));
+        assert!(super::chase_destination(from, (200_000, 200_000)).is_none());
+        for total in [330, 500, 562, 631] {
+            let sum: usize = (0..super::ULT_FLURRY_HITS)
+                .map(|hit| super::flurry_damage(total, hit))
+                .sum();
+            assert_eq!(sum, total);
+        }
+    }
+
+    #[test]
+    fn follow_up_keeps_target_and_pays_only_after_arrival() {
+        use super::*;
+        use crate::hanzo::tests::Host;
+
+        let mut h = Host::new();
+        h.knockback_allowed = true;
+        h.record_queued_effects = true;
+        // Select a clear 80k stretch in the host's map fixture.
+        let origin = h
+            .sim(|sim| {
+                (10..70)
+                    .flat_map(|x| (10..70).map(move |y| (x * 12_000, y * 12_000)))
+                    .find(|&(x, y)| {
+                        sim.entity_set_pos(1, x, y);
+                        sim.entity_set_pos(2, x + 15_000, y);
+                        route_is_safe(sim, 1, (x + 65_000, y))
+                    })
+            })
+            .expect("open route");
+        let (x, y) = origin;
+        let target = InputTargetV1::target(2);
+        h.set_unit_max_hp(2, 1500);
+        h.respawn_unit(2, (x + 15_000, y));
+        let hp = |host: &mut Host| host.sim(|sim| sim.get_entity(2).unwrap().hp().0);
+
+        assert!(h
+            .think_with(&mut ChouAi, Some(InputV1::return_home()))
+            .is_none());
+        assert!(h
+            .think_with(&mut ChouAi, Some(InputV1::move_to(x, y)))
+            .is_none());
+        h.sim(|sim| ultimate_first(sim, 1, target));
+        assert_eq!(hp(&mut h), 1500);
         assert_eq!(
-            super::ULT_KNOCKBACK_SPEED * super::ULT_KNOCKBACK_TICKS,
-            100_000
+            h.queued.remove(0),
+            (
+                "mlbb_heroes:chou_ult_kick".into(),
+                1,
+                target,
+                ULT_KICK_DELAY
+            )
         );
-        assert_eq!(super::S2_BACKSTEP_DISTANCE, 20_000.0);
+        h.sim(|sim| ultimate_kick(sim, 1, target));
+        assert_eq!(h.queued.len(), 2);
+        assert!(h.queued.iter().all(|(_, _, input, _)| *input == target));
+        h.queued.clear();
+
+        // In the host fixture we advance the knockback and ForceMove positions.
+        h.set_unit_position(2, (x + 75_000, y));
+        let kicked_hp = hp(&mut h);
+        h.sim(|sim| ultimate_chase(sim, 1, target));
+        assert_eq!(hp(&mut h), kicked_hp);
+        assert_eq!(h.queued.remove(0).0, "mlbb_heroes:chou_ult_arrive");
+        h.sim(|sim| ultimate_arrive(sim, 1, target));
+        assert_eq!(hp(&mut h), kicked_hp);
+        assert!(h.queued.is_empty());
+
+        h.set_unit_position(1, (x + 65_000, y));
+        let total = h.sim(|sim| {
+            let e = sim.get_entity(1).unwrap();
+            chou_ult_recast_damage(e.stat().attack, e.level())
+        });
+        h.sim(|sim| ultimate_arrive(sim, 1, target));
+        for (hit, (name, caster, input, delay)) in
+            std::mem::take(&mut h.queued).into_iter().enumerate()
+        {
+            assert_eq!(
+                (name.as_str(), caster, input, delay),
+                (ULT_HIT_EFFECTS[hit], 1, target, 1 + hit * ULT_HIT_SPACING)
+            );
+            h.sim(|sim| ultimate_hit(sim, caster, input, hit));
+        }
+        assert_eq!(hp(&mut h), kicked_hp - total);
+        assert!(!h.sim(|sim| crate::has_named_buff(sim, 1, ULT_SEQUENCE)));
+    }
+
+    #[test]
+    fn native_combat_target_gets_a_reachable_shunpo_and_in_range_kick() {
+        use super::*;
+        use crate::hanzo::tests::{add_unit, Host};
+        let mut h = Host::new();
+        add_unit(&mut h, 3, EntityKindV1::Champion, 0, (200_000, 200_000));
+        let (x, y) = h
+            .sim(|sim| {
+                (10..70)
+                    .flat_map(|x| (10..70).map(move |y| (x * 12_000, y * 12_000)))
+                    .find(|&(x, y)| {
+                        sim.entity_set_pos(1, x + 28_000, y);
+                        sim.entity_set_pos(2, x + 15_000, y);
+                        sim.entity_set_pos(3, x + 60_000, y);
+                        route_is_safe(sim, 1, (x + 3_000, y))
+                    })
+            })
+            .expect("open Shunpo route");
+        let attack = Some(InputV1::action(
+            InputKindV1::Attack,
+            InputTargetV1::target(2),
+        ));
+        assert!(
+            h.think_with(&mut ChouAi, attack).is_none(),
+            "ordinary native attack"
+        );
+        h.sim(|sim| sim.add_buff(2, &BuffV1::timed(&finisher_mark(1), 30)));
+        let dash = h.think_with(&mut ChouAi, attack).expect("Shunpo");
+        assert_eq!(dash.kind, InputKindV1::Skill2.code());
+        assert_eq!((dash.target.x, dash.target.y), (x + 3_000, y));
+        h.set_unit_position(1, (dash.target.x, dash.target.y));
+        let kick = h
+            .think_with(&mut ChouAi, attack)
+            .expect("kick from the actual landing");
+        assert_eq!(
+            kick,
+            InputV1::action(InputKindV1::Ult, InputTargetV1::target(2))
+        );
+        assert!(h
+            .think_with(&mut ChouAi, Some(InputV1::return_home()))
+            .is_none());
     }
 
     #[test]

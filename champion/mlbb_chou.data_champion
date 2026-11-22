@@ -54,7 +54,7 @@
  "skill": {
   "action_name": "skill",
   "description": "#asset/base/text/champion?description.mlbb_chou.skill",
-  "duration": 45,
+  "duration": 26,
   "cooltime": 540,
   "cooltime_use_count": 3,
   "start_timing": 2,
@@ -76,7 +76,7 @@
        {
         "type": "CasterAnimation",
         "name": "skill_finisher",
-        "tick": 45
+        "tick": 26
        },
        {
         "type": "Native",
@@ -123,7 +123,7 @@
         {
          "type": "CasterAnimation",
          "name": "skill_recast",
-         "tick": 45
+         "tick": 26
         },
         {
          "type": "Native",
@@ -137,7 +137,7 @@
         {
          "type": "CasterAnimation",
          "name": "skill",
-         "tick": 45
+         "tick": 26
         },
         {
          "type": "Native",
@@ -157,7 +157,7 @@
  "skill2": {
   "action_name": "skill2",
   "description": "#asset/base/text/champion?description.mlbb_chou.skill2",
-  "duration": 50,
+  "duration": 14,
   "cooltime": 390,
   "start_timing": 1,
   "cancelable": false,
@@ -194,7 +194,7 @@
  "ult": {
   "action_name": "ult",
   "description": "#asset/base/text/champion?description.mlbb_chou.ult",
-  "duration": 60,
+  "duration": 30,
   "cooltime": 1980,
   "start_timing": 1,
   "cancelable": false,
@@ -207,48 +207,17 @@
    "type": "Combine",
    "effects": [
     {
-     "type": "Native",
-     "effect_ref": "mlbb_heroes:chou_ult_range"
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 30
     },
     {
-     "type": "SwitchByBuff",
-     "buff_name": "mlbb_chou_ult_recast",
-     "effect_buff": {
-      "type": "Combine",
-      "effects": [
-       {
-        "type": "CasterAnimation",
-        "name": "ult_recast",
-        "tick": 60
-       },
-       {
-        "type": "Airborne",
-        "duration": 60
-       },
-       {
-        "type": "Native",
-        "effect_ref": "mlbb_heroes:chou_ult_recast"
-       }
-      ]
-     },
-     "effect_none": {
-      "type": "Combine",
-      "effects": [
-       {
-        "type": "CasterAnimation",
-        "name": "ult",
-        "tick": 44
-       },
-       {
-        "type": "Native",
-        "effect_ref": "mlbb_heroes:audio_voice_chou_ult"
-       },
-       {
-        "type": "Native",
-        "effect_ref": "mlbb_heroes:chou_ult_first"
-       }
-      ]
-     }
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:audio_voice_chou_ult"
+    },
+    {
+     "type": "Native",
+     "effect_ref": "mlbb_heroes:chou_ult_first"
     }
    ]
   }

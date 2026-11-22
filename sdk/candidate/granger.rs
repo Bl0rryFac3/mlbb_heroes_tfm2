@@ -160,7 +160,7 @@ fn foe(sim: &StableSim<'_>, owner: usize, target: usize, structures: bool) -> bo
         && a.team() != b.team()
         && (structures || !matches!(b.kind(), Some(EntityKindV1::Tower | EntityKindV1::Nexus)))
 }
-fn blocked(sim: &StableSim<'_>, id: usize, moving: bool) -> bool {
+pub(crate) fn blocked(sim: &StableSim<'_>, id: usize, moving: bool) -> bool {
     let Some(e) = sim.get_entity(id) else {
         return true;
     };
@@ -381,7 +381,7 @@ fn launch(
 
 // Uses Fanny's captured real wall cells but removes its virtual cable border.
 // The short dash checks real ground at each movement step.
-fn ground(sim: &StableSim<'_>) -> crate::Grid {
+pub(crate) fn ground(sim: &StableSim<'_>) -> crate::Grid {
     let live: Vec<_> = (0..sim.champion_count())
         .filter_map(|i| sim.get_entity(sim.champion_id_at(i)))
         .map(|e| e.pos())
@@ -404,7 +404,7 @@ fn ground(sim: &StableSim<'_>) -> crate::Grid {
     g.bounds = None;
     g
 }
-fn legal_step(g: &crate::Grid, from: Pos, direction: (f64, f64), length: f64) -> Pos {
+pub(crate) fn legal_step(g: &crate::Grid, from: Pos, direction: (f64, f64), length: f64) -> Pos {
     let mut result = from;
     let n = (length / 1000.).ceil().max(1.) as usize;
     for i in 1..=n {
