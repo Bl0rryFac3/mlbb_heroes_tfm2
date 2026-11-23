@@ -15,9 +15,9 @@
   "asset/mlbb_heroes/icons/estes_ult"
  ],
  "stat": {
-  "attack": 85,
+  "attack": 48,
   "magic_power": 55,
-  "hp": 690,
+  "hp": 720,
   "defence": 26,
   "magic_resistance": 30,
   "move_speed": 1030,
@@ -40,7 +40,7 @@
   "action_name": "attack",
   "description": "#asset/base/text/champion?description.mlbb_estes.attack",
   "duration": 20,
-  "cooltime": 60,
+  "cooltime": 90,
   "start_timing": 6,
   "cancelable": true,
   "range": 62000,

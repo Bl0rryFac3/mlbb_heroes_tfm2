@@ -2,11 +2,11 @@
  "mod_id": "mlbb_heroes",
  "name": "MLBB Heroes",
  "author": "Bl0rryFac3",
- "version": "1.1.178",
+ "version": "1.1.179",
  "mod_type": "native",
  "contains_code": true,
- "last_updated": "2026-11-22",
- "description": "Adds 29 Mobile Legends heroes to Teamfight Manager 2. Includes Valir.",
+ "last_updated": "2026-11-23",
+ "description": "Adds 29 Mobile Legends heroes to Teamfight Manager 2. Roster balance update.",
  "dependencies": [
   {
    "mod_id": "base",

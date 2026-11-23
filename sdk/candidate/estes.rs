@@ -115,7 +115,7 @@ fn estes_base_stat(level: usize, stack: usize) -> StatV1 {
     StatV1 {
         attack: 48 + 3 * growth,
         magic_power: 55 + 8 * growth,
-        hp: 690 + 92 * growth,
+        hp: 720 + 92 * growth,
         defence: 26 + 4 * growth,
         magic_resistance: 30 + 4 * growth,
         move_speed: 1030,

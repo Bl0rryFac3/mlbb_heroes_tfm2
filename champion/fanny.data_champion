@@ -13,9 +13,9 @@
   "asset/mlbb_heroes/icons/fanny_ult"
  ],
  "stat": {
-  "attack": 110,
+  "attack": 62,
   "magic_power": 0,
-  "hp": 720,
+  "hp": 750,
   "defence": 28,
   "magic_resistance": 26,
   "move_speed": 1100,

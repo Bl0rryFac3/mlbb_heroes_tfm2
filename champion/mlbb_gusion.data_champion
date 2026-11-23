@@ -13,9 +13,9 @@
   "asset/mlbb_heroes/icons/gusion_ult"
  ],
  "stat": {
-  "attack": 103,
+  "attack": 58,
   "magic_power": 78,
-  "hp": 710,
+  "hp": 740,
   "defence": 20,
   "magic_resistance": 20,
   "move_speed": 1180,

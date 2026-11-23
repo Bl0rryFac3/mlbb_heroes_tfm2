@@ -1,9 +1,9 @@
-"""Build TFM2 assets from the owner's original Lesley sheets."""
+"""Build Lesley's TFM2 art from the supplied sheets and official skill icons."""
 from copy import deepcopy
 from pathlib import Path
 import json
 
-from PIL import Image, ImageDraw, ImageOps
+from PIL import Image, ImageOps
 
 root = Path(__file__).resolve().parents[1]
 art = root / 'source/lesley/animations'
@@ -134,25 +134,18 @@ def action(name, duration, cooldown, timing, reach, cast, target, moving=False):
         'effect': {'type': 'Native', 'effect_ref': 'mlbb_heroes:lesley_' + name},
     }
 
-def icon(output, source, size, frame):
-    img = frames(source, size)[frame]
-    art = img.crop(img.getbbox())
-    art.thumbnail((52, 52), Image.Resampling.NEAREST)
-    canvas = Image.new('RGBA', (64, 64), '#15192e')
-    border = ImageDraw.Draw(canvas)
-    border.rounded_rectangle((1, 1, 62, 62), radius=8, fill='#262444', outline='#8c78ca', width=2)
-    canvas.alpha_composite(art, ((64 - art.width) // 2, (64 - art.height) // 2))
-    canvas.save(root / 'icons' / f'lesley_{output}.png')
-
-icon('skill', 'camouflage_edge', (48, 48), 2)
-icon('skill2', 'grenade_fan', grenade_fan_cell, 2)
-icon('ult', 'ult_projectile', projectile_cell, 2)
+icon_slots = ('skill', 'skill2', 'ult')
+for index, slot in enumerate(icon_slots, start=1):
+    source = root / 'source' / 'lesley' / 'icons' / f'skill-{index}.png'
+    with Image.open(source) as image:
+        icon = image.convert('RGBA').resize((64, 64), Image.Resampling.LANCZOS)
+        icon.save(root / 'icons' / f'lesley_{slot}.png')
 
 original = json.loads((root / 'champion/mlbb_granger.data_champion').read_text())
 champion = {
     'id': 'mlbb_lesley', 'category': 'Range', 'tags': ['AD', 'Range'],
     'sprite': 'asset/mlbb_heroes/sprite/lesley', 'anim_prefix': '',
-    'skill_icons': [f'asset/mlbb_heroes/icons/lesley_{slot}' for slot in ('skill', 'skill2', 'ult')],
+    'skill_icons': [f'asset/mlbb_heroes/icons/lesley_{slot}' for slot in icon_slots],
     'stat': {**original['stat'], 'attack': 104, 'hp': 680},
     'growth': {**original['growth'], 'attack': 6},
     'attack': action('attack', 21, 66, 8, 75000, 'Targeting', 'Enemy'),
@@ -164,7 +157,14 @@ champion = {
     'view_projectiles': projectiles,
     'view_buffs': buffs,
 }
-save(root / 'champion/mlbb_lesley.data_champion', champion)
+champion_path = root / 'champion/mlbb_lesley.data_champion'
+if champion_path.is_file():
+    # Rebuilding art preserves the gameplay data from the current build.
+    existing = json.loads(champion_path.read_text())
+    for key in ('sprite', 'anim_prefix', 'skill_icons', 'view_effects', 'view_projectiles', 'view_buffs'):
+        existing[key] = champion[key]
+    champion = existing
+save(champion_path, champion)
 styles = root / 'style/champion_view.champion_view'
 layout = json.loads(styles.read_text())
 for part in layout.values():

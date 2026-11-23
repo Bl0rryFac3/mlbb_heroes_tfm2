@@ -18,7 +18,7 @@
  "stat": {
   "attack": 96,
   "magic_power": 25,
-  "hp": 800,
+  "hp": 820,
   "defence": 38,
   "magic_resistance": 30,
   "move_speed": 1040,
@@ -41,7 +41,7 @@
   "action_name": "attack",
   "description": "#asset/base/text/champion?description.mlbb_uranus.attack",
   "duration": 20,
-  "cooltime": 54,
+  "cooltime": 70,
   "start_timing": 5,
   "cancelable": true,
   "range": 14000,

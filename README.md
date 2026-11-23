@@ -4,9 +4,9 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ---
 
-## Roster (`v2.10.0`)
+## Roster (`v3.0.0`)
 
-29 heroes. The Mods menu shows build **1.1.178**.
+29 heroes. The Mods menu shows build **1.1.179**.
 
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
@@ -15,7 +15,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 | **Lancelot** | `mlbb_lancelot` | Assassin (`Melee`, `AD`) | Data-Driven + Native AI/Effects | **Soul Cutter** timed stacks (`+7.5%` damage each, up to `+30%`); target-following **Puncture** and **Phantom Execution**; three-wave **Thorned Rose**. |
 | **Estes** *(Moon Elf King)* | `mlbb_estes` | Support (`AP`, `Heal`, `Shield`, `Range`) | Data-Driven + Native Tether Renderer | **Moonlight Immersion** healing link, **Domain of Moon Goddess** area effect, and **Blessing of Moon Goddess** team healing. |
 | **Gusion** *(Dagger Specialist)* | `mlbb_gusion` | Assassin (`AP`, `Melee`) | Data-Driven + Native Rust Passive/Effects | Four-rune empowered hit; **Sword Spike** mark and recast dash; five-dagger **Shadowblade Slaughter**; two-phase **Incandescence**. |
-| **Alpha** | `mlbb_alpha` | Melee | Data + native Rust | Beta follows marked targets and skill paths with true damage. |
+| **Alpha** | `mlbb_alpha` | Melee | Data + native Rust | Beta follows Rotary Impact and Force Swing with true damage. His passive laser and ultimate volley deal physical damage. |
 | **Angela** | `mlbb_angela` | Util | Data + native Rust | Heals and marks enemies with **Love Waves** and attaches to an ally with **Heartguard**. |
 | **Arlott** | `mlbb_arlott` | Melee | Data + native Rust | Crowd control marks enemies. **Vengeance** resets and heals against marked targets. |
 | **Atlas** | `mlbb_atlas` | Tank | Data + native Rust | **Perfect Match** separates the pilot from his suit. **Fatal Links** pulls and slams nearby enemy champions. |
@@ -128,11 +128,11 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ### 7. Alpha (`mlbb_alpha`)
 
-- **Passive — `Beta, Advance!`**. Every second basic attack marks the target. Beta follows with a laser that deals true damage and slows by 30%.
+- **Passive — `Beta, Advance!`**. Every third eligible hit on an enemy champion calls Beta’s physical-damage laser and slows the target by 30% for 1s.
 - **Basic attack**. Basic attacks deal 100% AD physical damage.
-- **Skill 1 — `Rotary Impact`**. Sends an energy wave forward, dealing 100 + 90% AD physical damage and slowing by 40% for 1s. Beta strafes the same path for true damage.
-- **Skill 2 — `Force Swing`**. After a short wind-up, sweeps a wide area for 250 + 100% AD physical damage. Restores 100 + 30% AD HP for each enemy hit.
-- **Ultimate — `Spear of Alpha`**. Beta dives onto the target, stunning for 1s. Alpha follows, knocking enemies airborne and slamming them down for 250 + 100% AD physical damage and a 40% slow for 1.5s. Beta then strafes 5 times for true damage.
+- **Skill 1 — `Rotary Impact`**. Sends an energy wave forward, dealing 70 + 80% Attack physical damage and slowing by 40% for 1s. Beta strafes the same path for true damage.
+- **Skill 2 — `Force Swing`**. Sweeps forward for 100 + 80% Attack physical damage. Beta follows with true damage. Alpha heals for 100 + 20% Attack once per cast.
+- **Ultimate — `Spear of Alpha`**. Beta’s dive deals 70 + 20% Attack physical damage and stuns for 1s. Alpha lands for 130 + 80% Attack physical damage with knock-up and slow. Beta then fires five physical hits of 8 + 10% Attack.
 
 ---
 
@@ -161,7 +161,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 - **Passive — `Bloodthirst`**. Restores 5% maximum HP after killing a minion or jungle monster, and 10% after a hero kill or assist.
 - **Basic attack**. Basic attacks deal 100% AD physical damage.
 - **Skill 1 — `Soul Lock`**. Charges toward the chosen position, dealing 150–275 + 60% AD physical damage along the path. Hits an enemy hero near the endpoint, briefly knocking them back and slowing by 40% for 3s.
-- **Skill 2 — `Cyclone Sweep`**. Spins for 3s, dealing 14 hits of 30–55 + 1.3% maximum HP + 25% AD physical damage. Each hit reduces the target’s Armor by 5%, stacking up to 8 times. Gains 15% Movement Speed while spinning.
+- **Skill 2 — `Cyclone Sweep`**. Spins for 3s, dealing 14 hits of 24–44 + 1.3% maximum HP + 25% AD physical damage. Each hit reduces the target’s Armor by 5%, stacking up to 8 times. Gains 15% Movement Speed while spinning.
 - **Ultimate — `Lethal Counter`**. Strikes a wide area in front of him for 150 + 70% AD + 30–45% of each target’s missing HP as true damage. Damage against non-heroes is capped at 1,000 / 1,500 / 2,000, based on level.
 
 ---
@@ -210,7 +210,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 - **Passive — `Wasteland Force`**. After 5s without taking damage, gains 10% Movement Speed, restores 1% maximum HP per second and builds up to 10 stacks. His next skill consumes them for up to 150% bonus skill damage.
 - **Basic attack**. Basic attacks deal 100% AD physical damage.
-- **Skill 1 — `Iron Hook`**. Throws a hook at the first enemy hit, dealing 220 + 100% AD physical damage and pulling them toward Franco. Stuns before pulling. Enemies that cannot be pulled can still be stunned.
+- **Skill 1 — `Iron Hook`**. Throws a hook at the first enemy hit, dealing 190 + 100% AD physical damage and pulling them toward Franco. Stuns before pulling. Enemies that cannot be pulled can still be stunned.
 - **Skill 2 — `Fury Shock`**. Deals 160 + 4% maximum HP physical damage to nearby enemies and slows by 70% for 1.5s. Can target jungle monsters and objectives.
 - **Ultimate — `Bloody Hunt`**. Suppresses an enemy hero for 1.8s and strikes 6 times, each dealing 50 + 70% AD physical damage. Ends early if Franco is crowd controlled.
 
@@ -265,7 +265,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 - **Passive — `Electro Airbag`**. Dropping below 30% HP grants a 120 + 240% Armor shield for 10s. Cooldown: 100s.
 - **Basic attack**. Basic attacks deal 100% AD physical damage.
-- **Skill 1 — `Impact Wrench`**. Throws his wrench, dealing 70 + 110% Armor magic damage along its path and stunning enemies near the landing point for 0.8s.
+- **Skill 1 — `Impact Wrench`**. Throws his wrench, dealing 80 + 110% Armor magic damage along its path and stunning enemies near the landing point for 0.8s.
 - **Skill 2 — `Electromagnetic Waves`**. Raises his shield, dealing 40 + 45% Armor magic damage in front of him and reducing enemy Movement Speed and Magic Resist, stacking up to 3 times.
 - **Ultimate — `Full Throttle`**. Transforms into a car and picks up a nearby allied hero. Crashing into an enemy hero deals 90 + 150–220% Armor magic damage, stuns for 0.5–1s based on driving time and leaves an electrified zone. Can also drive his passenger to safety.
 
@@ -344,7 +344,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ### 28. Lesley — Deadly Sniper (`mlbb_lesley`)
 
-- **Lethal Shot.** Each skill, or five seconds without taking damage, readies an extended-range attack for 75 + 125% Attack true damage to champions.
+- **Lethal Shot.** Each skill, or five seconds without taking damage, readies an attack with 17 extra range for 75 + 110% Attack true damage to champions. Lane and jungle enemies take 75 + 125% Attack physical damage.
 - **Master of Camouflage.** Conceals Lesley and grants movement speed for up to 2.5s.
 - **Tactical Grenade.** Blasts a cone and knocks enemy champions away as Lesley steps back.
 - **Ultimate Snipe.** Fires four shots for 70 + 32% Attack + 6% missing HP each. Other enemy champions can intercept.
@@ -362,12 +362,12 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ## Installation
 
-1. Download the Windows ZIP (`mlbb_heroes_v2.10.0.zip`) and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
+1. Download the Windows ZIP (`mlbb_heroes_v3.0.0.zip`) and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
    ```text
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
 2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, Estes, or Gusion mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
-3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.178**.
+3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.179**.
 4. See `Install_Guide.html` for the screenshot guide. The optional MLBB Champ Info companion adds basic attack and passive cards.
 
 ---
@@ -400,6 +400,13 @@ mlbb_heroes/
 ```
 
 ---
+
+## v3.0.0
+
+- Increased starting HP for 24 heroes and slowed basic attacks for five tanks, two supports, and four mages.
+- Reduced excess damage on Alpha, Balmond, Franco, and Lesley. Increased Johnson’s Impact Wrench damage.
+- Adjusted Angela’s basic reach and improved Eudora’s Forked Lightning targeting against minions.
+- Updated Lesley’s skill descriptions and original Mobile Legends skill icons. See the [complete changes and playtest checklist](docs/V3.0.0_BALANCE.md).
 
 ## v2.10.0
 

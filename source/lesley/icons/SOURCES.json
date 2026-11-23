@@ -1,0 +1,26 @@
+{
+  "reference": "https://mlbb.tools/heroes/lesley",
+  "icons": [
+    {
+      "skill": "Master of Camouflage",
+      "source_file": "skill-1.png",
+      "runtime_file": "icons/lesley_skill.png",
+      "source_url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_a8caf30fc02cfaa2f500311936dbfc31.png",
+      "source_sha256": "c6f09cda7191daec0dddc6e0cd3a05d865a55de3649565daa371232247f62479"
+    },
+    {
+      "skill": "Tactical Grenade",
+      "source_file": "skill-2.png",
+      "runtime_file": "icons/lesley_skill2.png",
+      "source_url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_18a15ed9f8facd0926ea8a8ecd200e25.png",
+      "source_sha256": "26dfd73130cfbf670070265a6ef155b44958800e6df9d35070777c1dd8af829d"
+    },
+    {
+      "skill": "Ultimate Snipe",
+      "source_file": "skill-3.png",
+      "runtime_file": "icons/lesley_ult.png",
+      "source_url": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1235_1/100_c6126c3a551ed56f43e76df1f21510d2.png",
+      "source_sha256": "4f7cc8f60a352b1feefaf8766b72e9c3a0f3f0228ab6b65758d331d82e886dba"
+    }
+  ]
+}

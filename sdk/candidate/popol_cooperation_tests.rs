@@ -157,7 +157,7 @@ fn kupa_inherits_level_equipment_defenses_and_bonus_health_without_free_healing(
     h.entities.get_mut(&k).unwrap().hp = 200;
     h.levels.insert(1, 5);
     let owner = h.entities.get_mut(&1).unwrap();
-    owner.stat.hp = 660 + 4 * 90 + 400;
+    owner.stat.hp = 700 + 4 * 90 + 400;
     owner.stat.defence = 85;
     owner.stat.magic_resistance = 70;
     h.step(1);
@@ -176,14 +176,14 @@ fn inherited_stats_do_not_accumulate_and_alpha_is_applied_once() {
     h.start(1);
     let k = h.pet(1);
     h.cast(1, Op::Alpha, 1);
-    h.entities.get_mut(&1).unwrap().stat.hp = 1060;
+    h.entities.get_mut(&1).unwrap().stat.hp = 700 + 400;
     h.step(1);
     assert_eq!(max_hp(&h.entities[&k]), 1026);
     let writes = h.stat_writes;
     h.step(90);
     assert_eq!(max_hp(&h.entities[&k]), 1026);
     assert_eq!(h.stat_writes, writes);
-    h.entities.get_mut(&1).unwrap().stat.hp = 660;
+    h.entities.get_mut(&1).unwrap().stat.hp = 700;
     h.step(30);
     assert_eq!(max_hp(&h.entities[&k]), 756);
     assert!(h.entities[&k].hp <= 756);

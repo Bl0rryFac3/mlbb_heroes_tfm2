@@ -16,9 +16,9 @@
   "asset/mlbb_heroes/icons/mlbb_aldous_ult"
  ],
  "stat": {
-  "attack": 116,
+  "attack": 65,
   "magic_power": 0,
-  "hp": 650,
+  "hp": 700,
   "defence": 35,
   "magic_resistance": 32,
   "move_speed": 1050,

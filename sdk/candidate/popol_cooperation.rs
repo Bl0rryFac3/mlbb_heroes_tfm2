@@ -135,7 +135,7 @@ pub(super) fn companion_stat(sim: &StableSim<'_>, owner: usize) -> StatV1 {
     let level = e.level().saturating_sub(1);
     let stat = e.stat();
     StatV1 {
-        hp: 560 + level * 80 + stat.hp.saturating_sub(660 + level * 90) / 2,
+        hp: 560 + level * 80 + stat.hp.saturating_sub(700 + level * 90) / 2,
         defence: stat.defence,
         magic_resistance: stat.magic_resistance,
         ..Default::default()

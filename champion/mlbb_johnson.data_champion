@@ -17,7 +17,7 @@
  "stat": {
   "attack": 92,
   "magic_power": 0,
-  "hp": 860,
+  "hp": 910,
   "defence": 42,
   "magic_resistance": 24,
   "move_speed": 1040,
@@ -40,7 +40,7 @@
   "action_name": "attack",
   "description": "#asset/base/text/champion?description.mlbb_johnson.attack",
   "duration": 20,
-  "cooltime": 55,
+  "cooltime": 70,
   "start_timing": 8,
   "cancelable": true,
   "range": 24000,

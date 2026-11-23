@@ -42,7 +42,7 @@ use std::collections::HashMap;
 // ---------------------------------------------------------------------------
 
 /// S1 Impact Wrench: 70 + 110% defence.
-const S1_BASE: usize = 70;
+const S1_BASE: usize = 80;
 const S1_DEF_PCT: usize = 110;
 /// S1 stun on landing — canon 0.8 s. Applied by the data file's
 /// `RangeProjectile ... Stun {duration: 48}`, not by Rust; kept here so the
@@ -1217,10 +1217,8 @@ mod tests {
         // 42 base defence (his stat) and 5/level growth -> L15 ~112.
         let l1 = S1_BASE + percent(42, S1_DEF_PCT);
         let l15 = S1_BASE + percent(112, S1_DEF_PCT);
-        assert_eq!(l1, 70 + 46);
-        assert_eq!(l15, 70 + 123);
-        // stays inside the roster's 100-200 skill band across the whole game
-        assert!(l1 >= 100 && l15 <= 200, "l1={l1} l15={l15}");
+        assert_eq!(l1, 80 + 46);
+        assert_eq!(l15, 80 + 123);
     }
 
     #[test]

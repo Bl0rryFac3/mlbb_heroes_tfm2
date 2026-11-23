@@ -16,6 +16,8 @@ struct Entity {
     buffs: Vec<BuffV1>,
     banished_until: usize,
     shield: usize,
+    radius: usize,
+    move_speed: usize,
 }
 struct Host {
     ap: usize,
@@ -70,6 +72,8 @@ impl Host {
                     buffs: vec![],
                     banished_until: 0,
                     shield: 0,
+                    radius: 0,
+                    move_speed: 0,
                 },
             );
         }
@@ -96,6 +100,7 @@ impl Host {
         t.entity_is_valid = Some(valid);
         t.entity_pos = Some(pos);
         t.entity_stat = Some(stat);
+        t.entity_radius = Some(radius);
         t.entity_hp = Some(hp);
         t.entity_team = Some(team);
         t.entity_is_alive = Some(alive);
@@ -183,12 +188,16 @@ unsafe extern "C" fn pos(p: *const c_void, id: EntityHandleV1, x: *mut u64, y: *
         false
     }
 }
-unsafe extern "C" fn stat(p: *const c_void, _: EntityHandleV1, out: *mut StatV1) -> bool {
+unsafe extern "C" fn stat(p: *const c_void, id: EntityHandleV1, out: *mut StatV1) -> bool {
     *out = StatV1 {
         magic_power: h(p).ap,
+        move_speed: h(p).e[&id.id().unwrap()].move_speed,
         ..StatV1::default()
     };
     true
+}
+unsafe extern "C" fn radius(p: *const c_void, id: EntityHandleV1) -> usize {
+    h(p).e[&id.id().unwrap()].radius
 }
 unsafe extern "C" fn hp(
     p: *const c_void,
@@ -369,7 +378,77 @@ fn mark(h:&mut Host,c:usize,t:usize){h.sim(|s|{let k=crate::entity_key(s,c);appl
 #[test]fn group_ai_sets_up_a_mark_and_engine_rejection_returns_the_base_input(){let mut h=Host::new();h.e.get_mut(&3).unwrap().team=1;let i=h.ai(None).unwrap();assert_eq!(i.kind,InputKindV1::Skill.code());assert_eq!(i.target.kind,InputTargetKindV1::Pos.code());h.ai_valid=false;assert!(h.ai(None).is_none());}
 #[test]fn single_target_ai_uses_stun_then_ult_without_ignoring_cooldowns(){let mut h=Host::new();assert_eq!(h.ai(None).unwrap().kind,InputKindV1::Skill2.code());h.ready[2]=false;assert_eq!(h.ai(None).unwrap().kind,InputKindV1::Ult.code());h.ready[3]=false;assert_eq!(h.ai(None).unwrap().kind,InputKindV1::Skill.code());h.ready[1]=false;assert!(h.ai(None).is_none());}
 #[test]fn marks_and_damage_are_isolated_between_simulation_copies(){let mut a=Host::new();let mut b=Host::new();b.seed=a.seed;mark(&mut a,1,2);apply(&mut a,Op::Fork,2);apply(&mut b,Op::Fork,2);b.step(60);assert_eq!(b.damage.len(),1);a.step(60);assert_eq!(a.damage.len(),6);}
-#[test]fn fan_rejects_rear_and_out_of_range_targets(){assert!(!cone((100_000,100_000),(90_000,100_000),(1.,0.)));assert!(!cone((100_000,100_000),(170_001,100_000),(1.,0.)));assert!(cone((100_000,100_000),(170_000,100_000),(1.,0.)));}
+#[test]
+fn fan_rejects_rear_and_out_of_range_targets() {
+    let from = (100_000, 100_000);
+    let east = (1., 0.);
+    assert!(!fork_hits(from, (90_000, 100_000), east, 3_000.));
+    assert!(!fork_hits(from, (170_001, 100_000), east, 0.));
+    assert!(fork_hits(from, (170_000, 100_000), east, 0.));
+}
+
+#[test]
+fn fork_releases_at_an_overlapping_lane_minion() {
+    let mut host = Host::new();
+    let origin = host.e[&1].p;
+    let minion = host.e.get_mut(&2).unwrap();
+    minion.kind = EntityKindV1::Minion;
+    minion.p = origin;
+    host.sim(|sim| Op::Fork.apply(sim, 0, 1, InputTargetV1::pos(origin.0, origin.1)));
+    assert_eq!(host.damage, [(1, 2, 270)]);
+}
+
+#[test]
+fn signed_fork_keeps_its_bearing_at_the_map_edge() {
+    let mut host = Host::new();
+    host.e.get_mut(&1).unwrap().p = (1_000, 40_000);
+    let minion = host.e.get_mut(&2).unwrap();
+    minion.kind = EntityKindV1::Minion;
+    minion.p = (100, 39_700);
+    host.sim(|sim| Op::Fork.apply(sim, 0, 1, InputTargetV1::dir(-30_000, -12_000)));
+    assert_eq!(host.damage, [(1, 2, 270)]);
+    assert!(host.views.iter().any(|(name, _)| name == "eudora_fan_9"));
+}
+
+#[test]
+fn minion_collision_radius_counts_at_fan_arc_and_side() {
+    let mut host = Host::new();
+    let minion = host.e.get_mut(&2).unwrap();
+    minion.kind = EntityKindV1::Minion;
+    minion.radius = 3_000;
+    for (point, expected) in [
+        ((272_000, 200_000), true),
+        ((273_001, 200_000), false),
+        ((220_000, 225_000), true),
+        ((220_000, 231_000), false),
+    ] {
+        host.e.get_mut(&2).unwrap().p = point;
+        host.damage.clear();
+        host.sim(|sim| Op::Fork.apply(sim, 0, 1, InputTargetV1::dir(1, 0)));
+        assert_eq!(!host.damage.is_empty(), expected, "point {point:?}");
+    }
+}
+
+#[test]
+fn lane_ai_waits_at_the_range_edge_and_aims_at_a_windup_safe_minion() {
+    let mut host = Host::new();
+    let minion = host.e.get_mut(&2).unwrap();
+    minion.kind = EntityKindV1::Minion;
+    minion.radius = 3_000;
+    minion.move_speed = 1_000;
+    minion.p = (266_000, 200_000);
+    let base = InputV1::action(InputKindV1::Skill, InputTargetV1::pos(200_000, 250_000));
+    assert_eq!(host.ai(Some(base)), None);
+
+    let near = (264_000, 200_000);
+    host.e.get_mut(&2).unwrap().p = near;
+    let corrected = host.ai(Some(base)).unwrap();
+    assert_eq!(corrected.target, InputTargetV1::pos(near.0, near.1));
+    assert_eq!(host.ai(Some(corrected)), Some(corrected));
+
+    host.ai_valid = false;
+    assert_eq!(host.ai(Some(base)), None);
+}
 
 #[test]fn tick_rewind_discards_pending_timers_even_if_the_host_reuses_identity(){let mut h=Host::new();h.now=100;mark(&mut h,1,2);apply(&mut h,Op::Ult,2);h.step(1);h.now=0;h.step(60);assert_eq!(h.damage.len(),1);}
 #[test]fn unknown_render_origin_does_not_hide_effects(){let mut h=Host::new();let mut t=Host::table();t.sim_origin=None;let mut raw=SimCtxV1{size:size_of::<SimCtxV1>(),sim:&t,frame:std::ptr::null(),state:&mut h as *mut _ as *mut c_void};let mut sim=unsafe{StableSim::from_raw(&mut raw).unwrap()};Op::Fork.apply(&mut sim,0,1,InputTargetV1::target(2));assert!(h.views.iter().any(|(n,_)|n.starts_with("eudora_fan_")));}

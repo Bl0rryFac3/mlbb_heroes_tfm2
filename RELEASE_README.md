@@ -1,5 +1,5 @@
-# MLBB Heroes v2.10.0
+# MLBB Heroes v3.0.0
 
-Valir joins as the 29th hero. Burst Fireball has two charges and a delayed explosion. Searing Torrent pushes back champions, lane minions and regular jungle monsters. Vengeance Flame breaks supported crowd control and empowers Valir's next four casts.
+This Windows update balances the existing 29-hero roster. Most heroes gain starting HP. Tanks and several spell-oriented heroes attack less often. Alpha, Balmond, Franco, and Lesley have targeted damage adjustments. Eudora's Forked Lightning handles close and edge-of-cone minion hits more reliably, and Lesley uses the original Mobile Legends skill icons.
 
-Extract `mlbb_heroes` into the game’s `mods` folder and enable MLBB Heroes. The Mods menu shows **1.1.178**. Requires Teamfight Manager 2 0.7.3 or newer on Windows.
+Requires **Teamfight Manager 2 0.7.3 or newer**. Move the previous mod folder out of the game's `mods` directory. Extract `mlbb_heroes` into `mods`, then enable it from the Mods menu. Check for internal build **1.1.179**. See `Install_Guide.html` for screenshots.

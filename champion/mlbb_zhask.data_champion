@@ -18,7 +18,7 @@
  "stat": {
   "attack": 82,
   "magic_power": 62,
-  "hp": 690,
+  "hp": 725,
   "defence": 22,
   "magic_resistance": 24,
   "move_speed": 1040,
@@ -41,7 +41,7 @@
   "action_name": "attack",
   "description": "#asset/base/text/champion?description.mlbb_zhask.attack",
   "duration": 18,
-  "cooltime": 60,
+  "cooltime": 90,
   "start_timing": 6,
   "cancelable": true,
   "range": 46000,

@@ -11,11 +11,11 @@
       },
       "mlbb_lesley": {
         "name": "Lesley",
-        "attack": "Fires a rifle shot for 100% Attack physical damage.",
-        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
-        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
-        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
-        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+        "attack": "Fires a rifle shot for <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "<#5ad0e6ff>Lethal Shot<>. Casting a skill or going 5s without taking damage readies the next basic. It gains <#ffb900ff>17 range<> and deals <#ff9028ff>75 + 110% Attack<> true damage to champions or <#ff9028ff>75 + 125% Attack<> physical damage to lane and jungle enemies. Structures take normal basic damage.",
+        "skill": "<#5ad0e6ff>Master of Camouflage<>. Camouflages for up to <#ffb900ff>2.5s<> and gains 30% Movement Speed. Enemies lose direct targeting, but area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends camouflage.",
+        "skill2": "<#5ad0e6ff>Tactical Grenade<>. Deals <#ff9028ff>115 + 65% Attack<> physical damage in a short cone and pushes surviving enemy champions away. Lesley hops backward if the path is clear. During Ultimate Snipe, she fires an available round before ending the volley.",
+        "ult": "<#e64a6aff>Ultimate Snipe<>. Locks onto an enemy champion and fires up to <#ffb900ff>four rounds<>. Each deals <#ff9028ff>70 + 32% Attack + 6% of the target’s missing HP<> as physical damage. Another enemy champion in the firing line can intercept a round."
       },
       "mlbb_aldous": {
         "name": "Aldous",
@@ -102,16 +102,16 @@
         "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
         "passive": "<#5ad0e6ff>Bloodthirst<>: Restores <#ffb900ff>5%<> maximum HP after killing a minion or jungle monster, and <#ffb900ff>10%<> after a hero kill or assist.",
         "skill": "<#5ad0e6ff>Soul Lock<>: Charges toward the chosen position, dealing <#ffb900ff>150–275<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>60% AD<> physical damage along the path. Hits an enemy hero near the endpoint, briefly knocking them back and slowing by <#ffb900ff>40%<> for <#ffb900ff>3<>s.",
-        "skill2": "<#5ad0e6ff>Cyclone Sweep<>: Spins for <#ffb900ff>3<>s, dealing <#ffb900ff>14<> hits of <#ffb900ff>30–55<> + <#ffb900ff>1.3%<> maximum HP + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>25% AD<> physical damage. Each hit reduces the target’s Armor by <#ffb900ff>5%<>, stacking up to <#ffb900ff>8<> times. Gains <#ffb900ff>15%<> Movement Speed while spinning.",
+        "skill2": "<#5ad0e6ff>Cyclone Sweep<>: Spins for <#ffb900ff>3<>s, dealing <#ffb900ff>14<> hits of <#ffb900ff>24–44<> + <#ffb900ff>1.3%<> maximum HP + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>25% AD<> physical damage. Each hit reduces the target’s Armor by <#ffb900ff>5%<>, stacking up to <#ffb900ff>8<> times. Gains <#ffb900ff>15%<> Movement Speed while spinning.",
         "ult": "<#e64a6aff>Lethal Counter<>: Strikes a wide area in front of him for <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>150 + 70% AD<> + <#ffb900ff>30–45%<> of each target’s missing HP as true damage. Damage against non-heroes is capped at <#ffb900ff>1,000<> / <#ffb900ff>1,500<> / <#ffb900ff>2,000<>, based on level."
       },
       "mlbb_alpha": {
         "name": "Alpha",
         "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
-        "passive": "<#5ad0e6ff>Beta, Advance!<>: Every second basic attack marks the target. Beta follows with a laser that deals true damage and slows by <#ffb900ff>30%<>.",
-        "skill": "<#5ad0e6ff>Rotary Impact<>: Sends an energy wave forward, dealing <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100 + 90% AD<> physical damage and slowing by <#ffb900ff>40%<> for <#ffb900ff>1<>s. Beta strafes the same path for true damage.",
-        "skill2": "<#5ad0e6ff>Force Swing<>: After a short wind-up, sweeps a wide area for <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>250 + 100% AD<> physical damage. Restores <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100 + 30% AD<> HP for each enemy hit.",
-        "ult": "<#e64a6aff>Spear of Alpha<>: Beta dives onto the target, stunning for <#ffb900ff>1<>s. Alpha follows, knocking enemies airborne and slamming them down for <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>250 + 100% AD<> physical damage and a <#ffb900ff>40%<> slow for <#ffb900ff>1.5<>s. Beta then strafes <#ffb900ff>5<> times for true damage."
+        "passive": "<#5ad0e6ff>Beta, Advance!<> Every third eligible hit on an enemy champion calls Beta’s laser for 30 + 3 per level after level 1 + 15% Attack as physical damage and slows by 30% for 1s.",
+        "skill": "<#5ad0e6ff>Rotary Impact<> Sends a wave for 70 + 80% Attack physical damage and a 40% slow for 1s. Beta follows for 25 + 1 per level after level 1 + 20% Attack true damage.",
+        "skill2": "<#5ad0e6ff>Force Swing<> Sweeps forward for 100 + 80% Attack physical damage. Beta follows for 25 + 1 per level after level 1 + 20% Attack true damage. Alpha heals for 100 + 20% Attack once per cast.",
+        "ult": "<#e64a6aff>Spear of Alpha<> Beta’s dive deals 70 + 20% Attack physical damage and stuns for 1s. Alpha’s landing deals 130 + 80% Attack physical damage, knocks enemies airborne for 0.67s, and slows by 30% for 1.25s. Beta fires five physical hits of 8 + 10% Attack."
       },
       "mlbb_arlott": {
         "name": "Arlott",
@@ -124,7 +124,7 @@
       "mlbb_franco": {
         "name": "Franco",
         "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
-        "skill": "<#5ad0e6ff>Iron Hook<>: Throws a hook at the first enemy hit, dealing <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>220 + 100% AD<> physical damage and pulling them toward Franco. Stuns before pulling. Enemies that cannot be pulled can still be stunned.",
+        "skill": "<#5ad0e6ff>Iron Hook<>: Throws a hook at the first enemy hit, dealing <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>190 + 100% AD<> physical damage and pulling them toward Franco. Stuns before pulling. Enemies that cannot be pulled can still be stunned.",
         "skill2": "<#5ad0e6ff>Fury Shock<>: Deals <#ffb900ff>160<> + <#ffb900ff>4%<> maximum HP physical damage to nearby enemies and slows by <#ffb900ff>70%<> for <#ffb900ff>1.5<>s. Can target jungle monsters and objectives.",
         "ult": "<#e64a6aff>Bloody Hunt<>: Suppresses an enemy hero for <#ffb900ff>1.8<>s and strikes <#ffb900ff>6<> times, each dealing <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>50 + 70% AD<> physical damage. Ends early if Franco is crowd controlled.",
         "passive": "<#5ad0e6ff>Wasteland Force<>: After <#ffb900ff>5<>s without taking damage, gains <#ffb900ff>10%<> Movement Speed, restores <#ffb900ff>1%<> maximum HP per second and builds up to <#ffb900ff>10<> stacks. His next skill consumes them for up to <#ffb900ff>150%<> bonus skill damage."
@@ -165,7 +165,7 @@
         "name": "Johnson",
         "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
         "passive": "<#5ad0e6ff>Electro Airbag<>: Dropping below <#ffb900ff>30%<> HP grants a <#ffb900ff>120<> + <#ffb900ff>240%<> Armor shield for <#ffb900ff>10<>s. Cooldown: <#ffb900ff>100<>s.",
-        "skill": "<#5ad0e6ff>Impact Wrench<>: Throws his wrench, dealing <#ffb900ff>70<> + <#ffb900ff>110%<> Armor magic damage along its path and stunning enemies near the landing point for <#ffb900ff>0.8<>s.",
+        "skill": "<#5ad0e6ff>Impact Wrench<>: Throws his wrench, dealing <#ffb900ff>80<> + <#ffb900ff>110%<> Armor magic damage along its path and stunning enemies near the landing point for <#ffb900ff>0.8<>s.",
         "skill2": "<#5ad0e6ff>Electromagnetic Waves<>: Raises his shield, dealing <#ffb900ff>40<> + <#ffb900ff>45%<> Armor magic damage in front of him and reducing enemy Movement Speed and Magic Resist, stacking up to <#ffb900ff>3<> times.",
         "ult": "<#e64a6aff>Full Throttle<>: Transforms into a car and picks up a nearby allied hero. Crashing into an enemy hero deals <#ffb900ff>90<> + <#ffb900ff>150–220%<> Armor magic damage, stuns for <#ffb900ff>0.5–1<>s based on driving time and leaves an electrified zone. Can also drive his passenger to safety."
       },
@@ -423,11 +423,11 @@
       },
       "mlbb_lesley": {
         "name": "Lesley",
-        "attack": "Fires a rifle shot for 100% Attack physical damage.",
-        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
-        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
-        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
-        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+        "attack": "Fires a rifle shot for <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "<#5ad0e6ff>Lethal Shot<>. Casting a skill or going 5s without taking damage readies the next basic. It gains <#ffb900ff>17 range<> and deals <#ff9028ff>75 + 110% Attack<> true damage to champions or <#ff9028ff>75 + 125% Attack<> physical damage to lane and jungle enemies. Structures take normal basic damage.",
+        "skill": "<#5ad0e6ff>Master of Camouflage<>. Camouflages for up to <#ffb900ff>2.5s<> and gains 30% Movement Speed. Enemies lose direct targeting, but area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends camouflage.",
+        "skill2": "<#5ad0e6ff>Tactical Grenade<>. Deals <#ff9028ff>115 + 65% Attack<> physical damage in a short cone and pushes surviving enemy champions away. Lesley hops backward if the path is clear. During Ultimate Snipe, she fires an available round before ending the volley.",
+        "ult": "<#e64a6aff>Ultimate Snipe<>. Locks onto an enemy champion and fires up to <#ffb900ff>four rounds<>. Each deals <#ff9028ff>70 + 32% Attack + 6% of the target’s missing HP<> as physical damage. Another enemy champion in the firing line can intercept a round."
       },
       "mlbb_aldous": {
         "name": "奥尔德斯",
@@ -512,10 +512,10 @@
       "mlbb_alpha": {
         "name": "Alpha",
         "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<>的物理伤害。",
-        "passive": "<#5ad0e6ff>贝塔，前进！<>：每第<#ffb900ff>2<>次普攻会标记目标；贝塔发射锁定激光造成<#ff9028ff>真实伤害<>并减速<#ffb900ff>30%<>。",
-        "skill": "<#5ad0e6ff>回旋冲击<>：沿直线发射能量波，对路径上的敌人造成<#ff9028ff>100 + 90%总物理攻击<>物理伤害并减速<#ffb900ff>40%<>，持续<#ffb900ff>1秒<>。贝塔沿同一路径扫射，造成真实伤害。",
-        "skill2": "<#5ad0e6ff>强力挥击<>：短暂延迟后挥击，对扇形区域造成<#ff9028ff>250 + 100%总物理攻击<>物理伤害，并为阿尔法恢复每个命中敌人<#ffb900ff>100 + 30%总物理攻击<>的生命值。",
-        "ult": "<#e64a6aff>阿尔法之矛<>：贝塔先俯冲，造成<#ffb900ff>1秒<><#ef5350ff>眩晕<>。阿尔法随后跃向目标，将敌人击飞并砸下，造成<#ff9028ff>250 + 100%总物理攻击<>物理伤害与<#ffb900ff>40%<>减速，持续<#ffb900ff>1.5秒<>。贝塔扫射<#ffb900ff>5<>次，造成真实伤害。"
+        "passive": "<#5ad0e6ff>贝塔，前进！<> 对敌方英雄的每第三次有效命中召唤贝塔发射激光，造成30 + 1级后每级3 + 15%攻击力的物理伤害，并减速30%，持续1秒。",
+        "skill": "<#5ad0e6ff>回旋冲击<> 发射能量波，造成70 + 80%攻击力的物理伤害，并减速40%，持续1秒。贝塔追击造成25 + 1级后每级1 + 20%攻击力的真实伤害。",
+        "skill2": "<#5ad0e6ff>强力挥击<> 向前横扫，造成100 + 80%攻击力的物理伤害。贝塔追击造成25 + 1级后每级1 + 20%攻击力的真实伤害。每次施放回复100 + 20%攻击力的生命值。",
+        "ult": "<#e64a6aff>阿尔法之矛<> 贝塔俯冲造成70 + 20%攻击力的物理伤害并眩晕1秒。阿尔法落地产生130 + 80%攻击力的物理伤害，击飞0.67秒并减速30%，持续1.25秒。贝塔再攻击5次，每次造成8 + 10%攻击力的物理伤害。"
       },
       "mlbb_arlott": {
         "name": "阿尔洛特",
@@ -528,7 +528,7 @@
       "mlbb_franco": {
         "name": "弗兰克",
         "attack": "挥舞战锤造成 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>物理伤害<>。",
-        "skill": "<#5ad0e6ff>铁钩<>：掷出铁钩，钩住命中的第一个敌人，造成 <#ff9028ff>220<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>物理伤害<>并将其拖向弗兰克。铁钩先<#ef5350ff>眩晕<>，再拉拽——即使目标无法被拖动，也会被定住。",
+        "skill": "<#5ad0e6ff>铁钩<>：掷出铁钩，钩住命中的第一个敌人，造成 <#ff9028ff>190<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>物理伤害<>并将其拖向弗兰克。铁钩先<#ef5350ff>眩晕<>，再拉拽——即使目标无法被拖动，也会被定住。",
         "skill2": "<#5ad0e6ff>狂怒震慑<>：挥击四周，对附近敌人造成 <#ff9028ff>160<> + 自身<#ffb900ff>最大生命值<>的 <#ff9028ff>4%<> 的 <#ff9028ff>物理伤害<>，并使其<#ffb900ff>减速<> <#ffb900ff>70%<>，持续 <#ffb900ff>1.5秒<>。可对野怪与远古生物释放。移动中可施放。",
         "ult": "<#e64a6aff>血猎<>：<#ef5350ff>压制<>一名敌方英雄 <#ffb900ff>1.8秒<>，期间攻击 <#ffb900ff>六<> 次，战锤与铁钩交替，每次造成 <#ff9028ff>50<> + <#ff9028ff>70% AD<> 伤害。若弗兰克被控制，技能会提前结束。",
         "passive": "<#5ad0e6ff>荒原之力<>：<#ffb900ff>5秒<>内未受到伤害后，弗兰克获得 <#ffb900ff>10%<> 移动速度、每秒回复 <#ffb900ff>1%<> 最大生命值，并最多积累 <#ffb900ff>10<> 层。下一次技能将消耗全部层数，最多提升 <#ffb900ff>+150%<> 技能伤害。"
@@ -538,7 +538,7 @@
         "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<>的物理伤害。",
         "passive": "<#5ad0e6ff>嗜血<>：击杀小兵或野怪后恢复<#ffb900ff>5%<>最大生命值，击杀或助攻英雄后恢复<#ffb900ff>10%<>。",
         "skill": "<#5ad0e6ff>灵魂锁定<>：冲向选定的敌方英雄，沿直线对沿途敌人造成<#ff9028ff>150–275 + 60%总物理攻击<>物理伤害。被击中的英雄会被短暂击退并减速<#ffb900ff>40%<>，持续<#ffb900ff>3秒<>。TFM2原型改为瞄准位置冲刺；保留直线路径伤害，抵达后对最近的敌方英雄造成伤害。",
-        "skill2": "<#5ad0e6ff>旋风扫击<>：旋转<#ffb900ff>3秒<>，共造成14段伤害。每段造成<#ff9028ff>30–55 + 1.3%总生命值 + 25%总物理攻击<>物理伤害，并使目标的物理防御降低<#ffb900ff>5%<>，最多<#ffb900ff>8层<>。持续期间获得<#ffb900ff>15%<>移动速度。",
+        "skill2": "<#5ad0e6ff>旋风扫击<>：旋转<#ffb900ff>3秒<>，共造成14段伤害。每段造成<#ff9028ff>24–44 + 1.3%总生命值 + 25%总物理攻击<>物理伤害，并使目标的物理防御降低<#ffb900ff>5%<>，最多<#ffb900ff>8层<>。持续期间获得<#ffb900ff>15%<>移动速度。",
         "ult": "<#e64a6aff>致命反击<>：对前方大范围造成<#ff9028ff>150 + 70%总物理攻击 + 每个目标已损失生命值的30–45%<>真实伤害。对非英雄单位的伤害上限为<#ffb900ff>1,000 / 1,500 / 2,000<>（按英雄等级段）。"
       },
       "mlbb_obsidia": {
@@ -577,7 +577,7 @@
         "name": "强森",
         "attack": "挥动重型扳手，造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ffb900ff>100% 物理攻击<>的<#ff9028ff>物理伤害<>。",
         "passive": "<#5ad0e6ff>电子安全气囊<>: 生命值低于<#ffb900ff>30%<>时获得<#a974ffff>120 (+240% 总物理防御)<>的护盾，持续<#ffb900ff>10秒<>。冷却<#ffb900ff>100秒<>。",
-        "skill": "<#5ad0e6ff>冲击扳手<>: 投掷扳手，对路径上的敌人造成<#a974ffff>70 (+110% 总物理防御)<>魔法伤害。落点附近的敌人被眩晕<#ffb900ff>0.8秒<>。",
+        "skill": "<#5ad0e6ff>冲击扳手<>: 投掷扳手，对路径上的敌人造成<#a974ffff>80 (+110% 总物理防御)<>魔法伤害。落点附近的敌人被眩晕<#ffb900ff>0.8秒<>。",
         "skill2": "<#5ad0e6ff>电磁波<>: 举起盾牌，对身前敌人造成<#a974ffff>40 (+45% 总物理防御)<>魔法伤害，并降低其移动速度与魔法防御。最多叠加<#ffb900ff>3<>层。",
         "ult": "<#5ad0e6ff>全速前进<>: 变身为赛车，附近友方英雄可上车。撞到敌方英雄时爆炸，造成<#a974ffff>90 (+150% 至 +220% 总物理防御)<>魔法伤害，按行驶时间眩晕<#ffb900ff>0.5秒至1秒<>，并留下电磁区域。也可载着队友驶向安全地带。"
       },
@@ -835,11 +835,11 @@
       },
       "mlbb_lesley": {
         "name": "Lesley",
-        "attack": "Fires a rifle shot for 100% Attack physical damage.",
-        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
-        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
-        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
-        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+        "attack": "Fires a rifle shot for <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "<#5ad0e6ff>Lethal Shot<>. Casting a skill or going 5s without taking damage readies the next basic. It gains <#ffb900ff>17 range<> and deals <#ff9028ff>75 + 110% Attack<> true damage to champions or <#ff9028ff>75 + 125% Attack<> physical damage to lane and jungle enemies. Structures take normal basic damage.",
+        "skill": "<#5ad0e6ff>Master of Camouflage<>. Camouflages for up to <#ffb900ff>2.5s<> and gains 30% Movement Speed. Enemies lose direct targeting, but area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends camouflage.",
+        "skill2": "<#5ad0e6ff>Tactical Grenade<>. Deals <#ff9028ff>115 + 65% Attack<> physical damage in a short cone and pushes surviving enemy champions away. Lesley hops backward if the path is clear. During Ultimate Snipe, she fires an available round before ending the volley.",
+        "ult": "<#e64a6aff>Ultimate Snipe<>. Locks onto an enemy champion and fires up to <#ffb900ff>four rounds<>. Each deals <#ff9028ff>70 + 32% Attack + 6% of the target’s missing HP<> as physical damage. Another enemy champion in the firing line can intercept a round."
       },
       "mlbb_aldous": {
         "name": "奧爾德斯",
@@ -924,10 +924,10 @@
       "mlbb_alpha": {
         "name": "Alpha",
         "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<>的物理傷害。",
-        "passive": "<#5ad0e6ff>貝塔，前進！<>：每第<#ffb900ff>2<>次普攻會標記目標；貝塔發射鎖定雷射造成<#ff9028ff>真實傷害<>並減速<#ffb900ff>30%<>。",
-        "skill": "<#5ad0e6ff>迴旋衝擊<>：沿直線發射能量波，對路徑上的敵人造成<#ff9028ff>100 + 90%總物理攻擊<>物理傷害並減速<#ffb900ff>40%<>，持續<#ffb900ff>1秒<>。貝塔沿同一路徑掃射，造成真實傷害。",
-        "skill2": "<#5ad0e6ff>強力揮擊<>：短暫延遲後揮擊，對扇形區域造成<#ff9028ff>250 + 100%總物理攻擊<>物理傷害，並為阿爾法恢復每個命中敵人<#ffb900ff>100 + 30%總物理攻擊<>的生命值。",
-        "ult": "<#e64a6aff>阿爾法之矛<>：貝塔先俯衝，造成<#ffb900ff>1秒<><#ef5350ff>眩暈<>。阿爾法隨後躍向目標，將敵人擊飛並砸下，造成<#ff9028ff>250 + 100%總物理攻擊<>物理傷害與<#ffb900ff>40%<>減速，持續<#ffb900ff>1.5秒<>。貝塔掃射<#ffb900ff>5<>次，造成真實傷害。"
+        "passive": "<#5ad0e6ff>貝塔，前進！<> 對敵方英雄的每第三次有效命中召喚貝塔發射雷射，造成30 + 1級後每級3 + 15%攻擊力的物理傷害，並緩速30%，持續1秒。",
+        "skill": "<#5ad0e6ff>迴旋衝擊<> 發射能量波，造成70 + 80%攻擊力的物理傷害，並緩速40%，持續1秒。貝塔追擊造成25 + 1級後每級1 + 20%攻擊力的真實傷害。",
+        "skill2": "<#5ad0e6ff>強力揮擊<> 向前橫掃，造成100 + 80%攻擊力的物理傷害。貝塔追擊造成25 + 1級後每級1 + 20%攻擊力的真實傷害。每次施放回復100 + 20%攻擊力的生命值。",
+        "ult": "<#e64a6aff>阿爾法之矛<> 貝塔俯衝造成70 + 20%攻擊力的物理傷害並暈眩1秒。阿爾法落地造成130 + 80%攻擊力的物理傷害，擊飛0.67秒並緩速30%，持續1.25秒。貝塔再攻擊5次，每次造成8 + 10%攻擊力的物理傷害。"
       },
       "mlbb_arlott": {
         "name": "阿爾洛特",
@@ -940,7 +940,7 @@
       "mlbb_franco": {
         "name": "弗蘭克",
         "attack": "揮舞戰錘造成 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>物理傷害<>。",
-        "skill": "<#5ad0e6ff>鐵鉤<>：擲出鐵鉤，鉤住命中的第一個敵人，造成 <#ff9028ff>220<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>物理傷害<>並將其拖向弗蘭克。鐵鉤先<#ef5350ff>暈眩<>，再拉拽——即使目標無法被拖動，也會被定住。",
+        "skill": "<#5ad0e6ff>鐵鉤<>：擲出鐵鉤，鉤住命中的第一個敵人，造成 <#ff9028ff>190<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>物理傷害<>並將其拖向弗蘭克。鐵鉤先<#ef5350ff>暈眩<>，再拉拽——即使目標無法被拖動，也會被定住。",
         "skill2": "<#5ad0e6ff>狂怒震懾<>：揮擊四周，對附近敵人造成 <#ff9028ff>160<> + 自身<#ffb900ff>最大生命值<>的 <#ff9028ff>4%<> 的 <#ff9028ff>物理傷害<>，並使其<#ffb900ff>減速<> <#ffb900ff>70%<>，持續 <#ffb900ff>1.5秒<>。可對野怪與遠古生物釋放。移動中可施放。",
         "ult": "<#e64a6aff>血獵<>：<#ef5350ff>壓制<>一名敵方英雄 <#ffb900ff>1.8秒<>，期間攻擊 <#ffb900ff>六<> 次，戰錘與鐵鉤交替，每次造成 <#ff9028ff>50<> + <#ff9028ff>70% AD<> 傷害。若弗蘭克被控制，技能會提前結束。",
         "passive": "<#5ad0e6ff>荒原之力<>：<#ffb900ff>5秒<>內未受到傷害後，弗蘭克獲得 <#ffb900ff>10%<> 移動速度、每秒回復 <#ffb900ff>1%<> 最大生命值，並最多累積 <#ffb900ff>10<> 層。下一次技能將消耗全部層數，最多提升 <#ffb900ff>+150%<> 技能傷害。"
@@ -950,7 +950,7 @@
         "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<>的物理傷害。",
         "passive": "<#5ad0e6ff>嗜血<>：擊殺小兵或野怪後恢復<#ffb900ff>5%<>最大生命值，擊殺或助攻英雄後恢復<#ffb900ff>10%<>。",
         "skill": "<#5ad0e6ff>靈魂鎖定<>：衝向選定的敵方英雄，沿直線對沿途敵人造成<#ff9028ff>150–275 + 60%總物理攻擊<>物理傷害。被擊中的英雄會被短暫擊退並減速<#ffb900ff>40%<>，持續<#ffb900ff>3秒<>。TFM2原型改為瞄準位置衝刺；保留直線路徑傷害，抵達後對最近的敵方英雄造成傷害。",
-        "skill2": "<#5ad0e6ff>旋風掃擊<>：旋轉<#ffb900ff>3秒<>，共造成14段傷害。每段造成<#ff9028ff>30–55 + 1.3%總生命值 + 25%總物理攻擊<>物理傷害，並使目標的物理防禦降低<#ffb900ff>5%<>，最多<#ffb900ff>8層<>。持續期間獲得<#ffb900ff>15%<>移動速度。",
+        "skill2": "<#5ad0e6ff>旋風掃擊<>：旋轉<#ffb900ff>3秒<>，共造成14段傷害。每段造成<#ff9028ff>24–44 + 1.3%總生命值 + 25%總物理攻擊<>物理傷害，並使目標的物理防禦降低<#ffb900ff>5%<>，最多<#ffb900ff>8層<>。持續期間獲得<#ffb900ff>15%<>移動速度。",
         "ult": "<#e64a6aff>致命反擊<>：對前方大範圍造成<#ff9028ff>150 + 70%總物理攻擊 + 每個目標已損失生命值的30–45%<>真實傷害。對非英雄單位的傷害上限為<#ffb900ff>1,000 / 1,500 / 2,000<>（按英雄等級段）。"
       },
       "mlbb_obsidia": {
@@ -989,7 +989,7 @@
         "name": "強森",
         "attack": "揮動重型扳手,造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ffb900ff>100% 物理攻擊<>的<#ff9028ff>物理傷害<>。",
         "passive": "<#5ad0e6ff>電子安全氣囊<>: 生命值低於<#ffb900ff>30%<>時獲得<#a974ffff>120 (+240% 總物理防禦)<>的護盾,持續<#ffb900ff>10秒<>。冷卻<#ffb900ff>100秒<>。",
-        "skill": "<#5ad0e6ff>衝擊扳手<>: 投擲扳手,對路徑上的敵人造成<#a974ffff>70 (+110% 總物理防禦)<>魔法傷害。落點附近的敵人被暈眩<#ffb900ff>0.8秒<>。",
+        "skill": "<#5ad0e6ff>衝擊扳手<>: 投擲扳手,對路徑上的敵人造成<#a974ffff>80 (+110% 總物理防禦)<>魔法傷害。落點附近的敵人被暈眩<#ffb900ff>0.8秒<>。",
         "skill2": "<#5ad0e6ff>電磁波<>: 舉起盾牌,對身前敵人造成<#a974ffff>40 (+45% 總物理防禦)<>魔法傷害,並降低其移動速度與魔法防禦。最多疊加<#ffb900ff>3<>層。",
         "ult": "<#5ad0e6ff>全速前進<>: 變身為賽車,附近友方英雄可上車。撞到敵方英雄時爆炸,造成<#a974ffff>90 (+150% 至 +220% 總物理防禦)<>魔法傷害,按行駛時間暈眩<#ffb900ff>0.5秒至1秒<>,並留下電磁區域。也可載著隊友駛向安全地帶。"
       },
@@ -1247,11 +1247,11 @@
       },
       "mlbb_lesley": {
         "name": "Lesley",
-        "attack": "Fires a rifle shot for 100% Attack physical damage.",
-        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
-        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
-        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
-        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+        "attack": "Fires a rifle shot for <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "<#5ad0e6ff>Lethal Shot<>. Casting a skill or going 5s without taking damage readies the next basic. It gains <#ffb900ff>17 range<> and deals <#ff9028ff>75 + 110% Attack<> true damage to champions or <#ff9028ff>75 + 125% Attack<> physical damage to lane and jungle enemies. Structures take normal basic damage.",
+        "skill": "<#5ad0e6ff>Master of Camouflage<>. Camouflages for up to <#ffb900ff>2.5s<> and gains 30% Movement Speed. Enemies lose direct targeting, but area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends camouflage.",
+        "skill2": "<#5ad0e6ff>Tactical Grenade<>. Deals <#ff9028ff>115 + 65% Attack<> physical damage in a short cone and pushes surviving enemy champions away. Lesley hops backward if the path is clear. During Ultimate Snipe, she fires an available round before ending the volley.",
+        "ult": "<#e64a6aff>Ultimate Snipe<>. Locks onto an enemy champion and fires up to <#ffb900ff>four rounds<>. Each deals <#ff9028ff>70 + 32% Attack + 6% of the target’s missing HP<> as physical damage. Another enemy champion in the firing line can intercept a round."
       },
       "mlbb_aldous": {
         "name": "올더스",
@@ -1336,10 +1336,10 @@
       "mlbb_alpha": {
         "name": "Alpha",
         "attack": "기본 공격은 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 100%<> 물리 피해를 줍니다.",
-        "passive": "<#5ad0e6ff>베타, 전진!<>：두 번째 기본 공격마다 대상에게 표식을 남기고, 베타가 락온 레이저를 발사해 <#e64a6aff>고정 피해<>를 주며 <#ffb900ff>30%<> 둔화시킵니다.",
-        "skill": "<#5ad0e6ff>로터리 임팩트<>：직선으로 에너지 파를 발사해 경로상의 적에게 <#ff9028ff>100 + 총 물리 공격력의 90%<> 물리 피해를 주고 <#ffb900ff>1초<> 동안 <#ffb900ff>40%<> 둔화시킵니다. 베타가 같은 경로를 기총 소사해 고정 피해를 줍니다.",
-        "skill2": "<#5ad0e6ff>포스 스윙<>：짧은 지연 후 휘둘러 부채꼴 범위에 <#ff9028ff>250 + 총 물리 공격력의 100%<> 물리 피해를 주고, 적중한 적 하나당 <#ffb900ff>100 + 총 물리 공격력의 30%<>만큼 알파의 체력을 회복합니다.",
-        "ult": "<#e64a6aff>알파의 창<>：베타가 먼저 급강하해 <#ffb900ff>1초<> <#ef5350ff>기절<>을 부여합니다. 이후 알파가 대상에게 도약해 적을 띄운 뒤 내려찍어 <#ff9028ff>250 + 총 물리 공격력의 100%<> 물리 피해와 <#ffb900ff>1.5초<> 동안 <#ffb900ff>40%<> 둔화를 줍니다. 베타가 <#ffb900ff>5<>회 기총 소사해 고정 피해를 줍니다."
+        "passive": "<#5ad0e6ff>베타, 전진!<> 적 영웅에게 유효한 타격을 세 번 적중시키면 베타가 30 + 1레벨 이후 레벨당 3 + 공격력의 15%의 물리 피해를 주고 1초 동안 30% 둔화시킵니다.",
+        "skill": "<#5ad0e6ff>로터리 임팩트<> 파동으로 70 + 공격력의 80%의 물리 피해를 주고 1초 동안 40% 둔화시킵니다. 베타가 25 + 1레벨 이후 레벨당 1 + 공격력의 20%의 고정 피해를 줍니다.",
+        "skill2": "<#5ad0e6ff>포스 스윙<> 전방을 휩쓸어 100 + 공격력의 80%의 물리 피해를 줍니다. 베타가 25 + 1레벨 이후 레벨당 1 + 공격력의 20%의 고정 피해를 줍니다. 시전당 한 번 100 + 공격력의 20%만큼 회복합니다.",
+        "ult": "<#e64a6aff>알파의 창<> 베타가 돌진하여 70 + 공격력의 20%의 물리 피해를 주고 1초 기절시킵니다. 알파는 착지 시 130 + 공격력의 80%의 물리 피해, 0.67초 공중에 뜸, 1.25초 동안 30% 둔화를 적용합니다. 베타가 8 + 공격력의 10%의 물리 피해를 다섯 번 줍니다."
       },
       "mlbb_arlott": {
         "name": "알로트",
@@ -1352,7 +1352,7 @@
       "mlbb_franco": {
         "name": "프랑코",
         "attack": "전투 망치를 휘둘러 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>물리 피해<>를 입힙니다.",
-        "skill": "<#5ad0e6ff>강철 갈고리<>: 갈고리를 던져 처음 맞는 적을 걸고, <#ff9028ff>220<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>물리 피해<>를 입힌 뒤 프랑코 쪽으로 끌어옵니다. 갈고리는 먼저 <#ef5350ff>기절<>시키고 그다음 끌어오므로, 끌 수 없는 대상도 이동이 봉쇄됩니다.",
+        "skill": "<#5ad0e6ff>강철 갈고리<>: 갈고리를 던져 처음 맞는 적을 걸고, <#ff9028ff>190<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>물리 피해<>를 입힌 뒤 프랑코 쪽으로 끌어옵니다. 갈고리는 먼저 <#ef5350ff>기절<>시키고 그다음 끌어오므로, 끌 수 없는 대상도 이동이 봉쇄됩니다.",
         "skill2": "<#5ad0e6ff>분노의 진동<>: 주변을 후려쳐 적에게 <#ff9028ff>160<> + 프랑코 <#ffb900ff>최대 체력<>의 <#ff9028ff>4%<> 만큼의 <#ff9028ff>물리 피해<>를 입히고 <#ffb900ff>1.5초<> 동안 <#ffb900ff>70%<> <#ffb900ff>둔화<>시킵니다. 정글 몬스터와 오브젝트에도 사용할 수 있습니다. 이동 중 시전 가능.",
         "ult": "<#e64a6aff>피의 사냥<>: 적 챔피언을 <#ffb900ff>1.8초<> 동안 <#ef5350ff>제압<>하고 <#ffb900ff>6<> 회 공격하며 망치와 갈고리를 번갈아 사용해 매회 <#ff9028ff>50<> + <#ff9028ff>70% AD<> 피해를 입힙니다. 프랑코가 군중 제어에 걸리면 스킬이 조기 종료됩니다.",
         "passive": "<#5ad0e6ff>황야의 힘<>: <#ffb900ff>5초<> 동안 피해를 받지 않으면 이동 속도 <#ffb900ff>10%<>, 초당 최대 체력 <#ffb900ff>1%<> 회복, 최대 <#ffb900ff>10<>중첩을 쌓습니다. 다음 스킬이 중첩을 모두 소모해 스킬 피해를 최대 <#ffb900ff>+150%<> 높입니다."
@@ -1362,7 +1362,7 @@
         "attack": "기본 공격은 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 100%<> 물리 피해를 줍니다.",
         "passive": "<#5ad0e6ff>흡혈<>：미니언 또는 정글 몬스터 처치 시 최대 체력의 <#ffb900ff>5%<>를, 적 영웅 처치 또는 어시스트 시 <#ffb900ff>10%<>를 회복합니다.",
         "skill": "<#5ad0e6ff>소울 락<>：선택한 적 영웅에게 돌진하며 직선 경로의 적에게 <#ff9028ff>150–275 + 총 물리 공격력의 60%<> 물리 피해를 줍니다. 맞은 영웅은 짧게 밀려나며 <#ffb900ff>3초<> 동안 <#ffb900ff>40%<> 둔화됩니다. TFM2 프로토타입은 위치를 지정해 돌진하며, 직선 경로 피해는 유지되고 도착 지점 근처의 가장 가까운 적 영웅이 피해를 받습니다.",
-        "skill2": "<#5ad0e6ff>사이클론 스윕<>: <#ffb900ff>3초<> 동안 회전하며 14회 피해를 줍니다. 각 타격은 <#ff9028ff>30–55 + 총 체력의 1.3% + 총 물리 공격력의 25%<> 물리 피해를 주고 대상의 물리 방어력을 회당 <#ffb900ff>5%<> 감소시킵니다(최대 <#ffb900ff>8중첩<>). 지속 중 이동 속도가 <#ffb900ff>15%<> 증가합니다.",
+        "skill2": "<#5ad0e6ff>사이클론 스윕<>: <#ffb900ff>3초<> 동안 회전하며 14회 피해를 줍니다. 각 타격은 <#ff9028ff>24–44 + 총 체력의 1.3% + 총 물리 공격력의 25%<> 물리 피해를 주고 대상의 물리 방어력을 회당 <#ffb900ff>5%<> 감소시킵니다(최대 <#ffb900ff>8중첩<>). 지속 중 이동 속도가 <#ffb900ff>15%<> 증가합니다.",
         "ult": "<#e64a6aff>리탈 카운터<>：전방 넓은 범위에 <#ff9028ff>150 + 총 물리 공격력의 70% + 대상이 잃은 체력의 30–45%<>에 해당하는 고정 피해를 줍니다. 영웅이 아닌 대상에게는 영웅 레벨 구간별로 <#ffb900ff>1,000 / 1,500 / 2,000<>으로 제한됩니다."
       },
       "mlbb_obsidia": {
@@ -1401,7 +1401,7 @@
         "name": "존슨",
         "attack": "무거운 렌치를 휘둘러 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ffb900ff>100% AD<>의 <#ff9028ff>물리 피해<>를 입힙니다.",
         "passive": "<#5ad0e6ff>전자 에어백<>: 체력이 <#ffb900ff>30%<> 이하로 떨어지면 <#a974ffff>120 (+총 물리 방어력의 240%)<>에 해당하는 보호막을 <#ffb900ff>10초<>간 얻습니다. 재사용 대기시간 <#ffb900ff>100초<>.",
-        "skill": "<#5ad0e6ff>임팩트 렌치<>: 렌치를 던져 경로상의 적에게 <#a974ffff>70 (+총 물리 방어력의 110%)<>의 마법 피해를 입힙니다. 착지 지점 주변의 적은 <#ffb900ff>0.8초<>간 기절합니다.",
+        "skill": "<#5ad0e6ff>임팩트 렌치<>: 렌치를 던져 경로상의 적에게 <#a974ffff>80 (+총 물리 방어력의 110%)<>의 마법 피해를 입힙니다. 착지 지점 주변의 적은 <#ffb900ff>0.8초<>간 기절합니다.",
         "skill2": "<#5ad0e6ff>전자기파<>: 방패를 들어 앞의 적에게 <#a974ffff>40 (+총 물리 방어력의 45%)<>의 마법 피해를 입히고 이동 속도와 마법 방어력을 낮춥니다. 최대 <#ffb900ff>3<>회 중첩됩니다.",
         "ult": "<#5ad0e6ff>풀 스로틀<>: 자동차로 변신합니다. 주변 아군 영웅이 탑승합니다. 적 영웅과 충돌하면 폭발하여 <#a974ffff>90 (+총 물리 방어력의 150%~220%)<>의 마법 피해를 입히고 주행 시간에 따라 <#ffb900ff>0.5초~1초<>간 기절시킨 뒤 전자기 지대를 남깁니다. 아군을 태우고 안전한 곳으로 이동할 수도 있습니다."
       },
@@ -1659,11 +1659,11 @@
       },
       "mlbb_lesley": {
         "name": "Lesley",
-        "attack": "Fires a rifle shot for 100% Attack physical damage.",
-        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
-        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
-        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
-        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+        "attack": "Fires a rifle shot for <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "<#5ad0e6ff>Lethal Shot<>. Casting a skill or going 5s without taking damage readies the next basic. It gains <#ffb900ff>17 range<> and deals <#ff9028ff>75 + 110% Attack<> true damage to champions or <#ff9028ff>75 + 125% Attack<> physical damage to lane and jungle enemies. Structures take normal basic damage.",
+        "skill": "<#5ad0e6ff>Master of Camouflage<>. Camouflages for up to <#ffb900ff>2.5s<> and gains 30% Movement Speed. Enemies lose direct targeting, but area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends camouflage.",
+        "skill2": "<#5ad0e6ff>Tactical Grenade<>. Deals <#ff9028ff>115 + 65% Attack<> physical damage in a short cone and pushes surviving enemy champions away. Lesley hops backward if the path is clear. During Ultimate Snipe, she fires an available round before ending the volley.",
+        "ult": "<#e64a6aff>Ultimate Snipe<>. Locks onto an enemy champion and fires up to <#ffb900ff>four rounds<>. Each deals <#ff9028ff>70 + 32% Attack + 6% of the target’s missing HP<> as physical damage. Another enemy champion in the firing line can intercept a round."
       },
       "mlbb_aldous": {
         "name": "オルダス",
@@ -1748,10 +1748,10 @@
       "mlbb_alpha": {
         "name": "Alpha",
         "attack": "通常攻撃は<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>攻撃力の100%<>の<#ff9028ff>物理ダメージ<>を与える。",
-        "passive": "<#5ad0e6ff>ベータ、前進！<>：<#ffb900ff>2回<>ごとの通常攻撃で対象に印を付与し、ベータがロックオンレーザーを発射して<#e64a6aff>真ダメージ<>を与え、<#ffb900ff>30%<>の移動速度低下を与える。",
-        "skill": "<#5ad0e6ff>ロータリーインパクト<>：直線上にエネルギー波を放ち、経路上の敵に<#ff9028ff>100 + 総物理攻撃力の90%<>の物理ダメージを与え、<#ffb900ff>1秒<>間<#ffb900ff>40%<>の移動速度低下を与える。ベータが同じ経路を機銃掃射し、真ダメージを与える。",
-        "skill2": "<#5ad0e6ff>フォーススイング<>：短い遅延の後に振り抜き、扇形範囲に<#ff9028ff>250 + 総物理攻撃力の100%<>の物理ダメージを与え、命中した敵1体につき<#ffb900ff>100 + 総物理攻撃力の30%<>のHPをアルファが回復する。",
-        "ult": "<#e64a6aff>アルファの槍<>：ベータが先に急降下して<#ffb900ff>1秒<>の<#ef5350ff>スタン<>を与える。続いてアルファが対象へ跳躍し、敵を打ち上げて叩き落とし、<#ff9028ff>250 + 総物理攻撃力の100%<>の物理ダメージと<#ffb900ff>1.5秒<>間<#ffb900ff>40%<>の移動速度低下を与える。ベータが<#ffb900ff>5<>回機銃掃射し、真ダメージを与える。"
+        "passive": "<#5ad0e6ff>ベータ、前進！<> 敵ヒーローへの有効な攻撃が3回命中すると、ベータのレーザーが30 + Lv1以降のレベルごとに3 + 攻撃力の15%の物理ダメージを与え、1秒間30%スローを付与する。",
+        "skill": "<#5ad0e6ff>ロータリーインパクト<> 前方に波を放ち、70 + 攻撃力の80%の物理ダメージと1秒間の40%スローを与える。ベータが25 + Lv1以降のレベルごとに1 + 攻撃力の20%の確定ダメージで追撃する。",
+        "skill2": "<#5ad0e6ff>フォーススイング<> 前方を薙ぎ払い、100 + 攻撃力の80%の物理ダメージを与える。ベータが25 + Lv1以降のレベルごとに1 + 攻撃力の20%の確定ダメージで追撃する。発動ごとに1回、100 + 攻撃力の20%のHPを回復する。",
+        "ult": "<#e64a6aff>アルファの槍<> ベータの突撃は70 + 攻撃力の20%の物理ダメージを与え、1秒間スタンさせる。アルファの着地は130 + 攻撃力の80%の物理ダメージ、0.67秒の打ち上げ、1.25秒間の30%スローを与える。ベータはさらに5回、各8 + 攻撃力の10%の物理ダメージを与える。"
       },
       "mlbb_arlott": {
         "name": "アーロット",
@@ -1764,7 +1764,7 @@
       "mlbb_franco": {
         "name": "フランコ",
         "attack": "戦槌を振り回し <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> の <#ff9028ff>物理ダメージ<>を与える。",
-        "skill": "<#5ad0e6ff>アイアンフック<>：鉤爪を投げ、最初に当たった敵を引っ掛けて <#ff9028ff>220<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> の <#ff9028ff>物理ダメージ<>を与え、フランコの元へ引き寄せる。フックは先に<#ef5350ff>スタン<>させ、その後に引くため、引き寄せられない相手も足止めされる。",
+        "skill": "<#5ad0e6ff>アイアンフック<>：鉤爪を投げ、最初に当たった敵を引っ掛けて <#ff9028ff>190<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> の <#ff9028ff>物理ダメージ<>を与え、フランコの元へ引き寄せる。フックは先に<#ef5350ff>スタン<>させ、その後に引くため、引き寄せられない相手も足止めされる。",
         "skill2": "<#5ad0e6ff>フューリーショック<>：周囲を薙ぎ払い、敵に <#ff9028ff>160<> + 自身の<#ffb900ff>最大HP<>の <#ff9028ff>4%<> の <#ff9028ff>物理ダメージ<>を与え、<#ffb900ff>1.5秒<> の間 <#ffb900ff>70%<> <#ffb900ff>スロウ<>を付与する。ジャングルモンスターやオブジェクトにも使用可能。移動しながら使用できる。",
         "ult": "<#e64a6aff>ブラッディハント<>：敵チャンピオンを <#ffb900ff>1.8秒<> の間 <#ef5350ff>サプレッション<>し、<#ffb900ff>6<> 回攻撃する。ハンマーとフックを交互に使い、毎回 <#ff9028ff>50<> + <#ff9028ff>70% AD<> のダメージを与える。フランコが群衆制御を受けると途中で終了する。",
         "passive": "<#5ad0e6ff>ウェイストランドフォース<>：<#ffb900ff>5秒<> 間ダメージを受けないと、移動速度 <#ffb900ff>10%<>、毎秒最大HPの <#ffb900ff>1%<> を回復し、最大 <#ffb900ff>10<> スタックを蓄積する。次のスキルが全スタックを消費し、スキルダメージを最大 <#ffb900ff>+150%<> 増加させる。"
@@ -1774,7 +1774,7 @@
         "attack": "通常攻撃は<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>攻撃力の100%<>の<#ff9028ff>物理ダメージ<>を与える。",
         "passive": "<#5ad0e6ff>ブラッドサースト<>：ミニオンまたは中立モンスターを倒すと最大HPの<#ffb900ff>5%<>を、敵英雄の撃破またはアシストで<#ffb900ff>10%<>を回復する。",
         "skill": "<#5ad0e6ff>ソウルロック<>：選択した敵英雄へ突進し、直線上の敵に<#ff9028ff>150–275 + 総物理攻撃力の60%<>の物理ダメージを与える。命中した英雄は短くノックバックし、<#ffb900ff>3秒<>間<#ffb900ff>40%<>の移動速度低下を受ける。TFM2プロトタイプでは位置を指定して突進し、直線経路上のダメージは維持され、到着地点付近の最も近い敵英雄がダメージを受ける。",
-        "skill2": "<#5ad0e6ff>サイクロンスイープ<>：<#ffb900ff>3秒<>間回転し、14回に分けてダメージを与える。各命中は<#ff9028ff>30–55 + 総HPの1.3% + 総物理攻撃力の25%<>の物理ダメージを与え、対象の物理防御を命中ごとに<#ffb900ff>5%<>低下させる（最大<#ffb900ff>8スタック<>）。持続中は移動速度が<#ffb900ff>15%<>上昇する。",
+        "skill2": "<#5ad0e6ff>サイクロンスイープ<>：<#ffb900ff>3秒<>間回転し、14回に分けてダメージを与える。各命中は<#ff9028ff>24–44 + 総HPの1.3% + 総物理攻撃力の25%<>の物理ダメージを与え、対象の物理防御を命中ごとに<#ffb900ff>5%<>低下させる（最大<#ffb900ff>8スタック<>）。持続中は移動速度が<#ffb900ff>15%<>上昇する。",
         "ult": "<#e64a6aff>リーサルカウンター<>：前方の広範囲に<#ff9028ff>150 + 総物理攻撃力の70% + 対象の減少HPの30–45%<>に相当する<#e64a6aff>真ダメージ<>を与える。英雄以外へのダメージは英雄レベル区分ごとに<#ffb900ff>1,000 / 1,500 / 2,000<>で上限となる。"
       },
       "mlbb_obsidia": {
@@ -1813,7 +1813,7 @@
         "name": "ジョンソン",
         "attack": "重いレンチを振り回し、<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ffb900ff>100% AD<>の<#ff9028ff>物理ダメージ<>を与える。",
         "passive": "<#5ad0e6ff>エレクトロエアバッグ<>: HPが<#ffb900ff>30%<>を下回ると、<#a974ffff>120 (+物理防御の240%)<>のシールドを<#ffb900ff>10秒<>間獲得する。クールダウン<#ffb900ff>100秒<>。",
-        "skill": "<#5ad0e6ff>インパクトレンチ<>: レンチを投げつけ、直線上の敵に<#a974ffff>70 (+物理防御の110%)<>の魔法ダメージを与える。着弾地点付近の敵は<#ffb900ff>0.8秒<>間スタンする。",
+        "skill": "<#5ad0e6ff>インパクトレンチ<>: レンチを投げつけ、直線上の敵に<#a974ffff>80 (+物理防御の110%)<>の魔法ダメージを与える。着弾地点付近の敵は<#ffb900ff>0.8秒<>間スタンする。",
         "skill2": "<#5ad0e6ff>電磁波<>: 盾を掲げ、前方の敵に<#a974ffff>40 (+物理防御の45%)<>の魔法ダメージを与え、移動速度と魔法防御を低下させる。最大<#ffb900ff>3<>回までスタックする。",
         "ult": "<#5ad0e6ff>フルスロットル<>: 車に変形する。近くの味方英雄が乗り込む。敵英雄に命中すると爆発し、<#a974ffff>90 (+物理防御の150%~220%)<>の魔法ダメージを与え、走行時間に応じて<#ffb900ff>0.5秒~1秒<>間スタンさせ、電撃地帯を残す。味方を乗せたまま安全な場所へ走ることもできる。"
       },
@@ -2071,11 +2071,11 @@
       },
       "mlbb_lesley": {
         "name": "Lesley",
-        "attack": "Fires a rifle shot for 100% Attack physical damage.",
-        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
-        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
-        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
-        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+        "attack": "Fires a rifle shot for <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "<#5ad0e6ff>Lethal Shot<>. Casting a skill or going 5s without taking damage readies the next basic. It gains <#ffb900ff>17 range<> and deals <#ff9028ff>75 + 110% Attack<> true damage to champions or <#ff9028ff>75 + 125% Attack<> physical damage to lane and jungle enemies. Structures take normal basic damage.",
+        "skill": "<#5ad0e6ff>Master of Camouflage<>. Camouflages for up to <#ffb900ff>2.5s<> and gains 30% Movement Speed. Enemies lose direct targeting, but area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends camouflage.",
+        "skill2": "<#5ad0e6ff>Tactical Grenade<>. Deals <#ff9028ff>115 + 65% Attack<> physical damage in a short cone and pushes surviving enemy champions away. Lesley hops backward if the path is clear. During Ultimate Snipe, she fires an available round before ending the volley.",
+        "ult": "<#e64a6aff>Ultimate Snipe<>. Locks onto an enemy champion and fires up to <#ffb900ff>four rounds<>. Each deals <#ff9028ff>70 + 32% Attack + 6% of the target’s missing HP<> as physical damage. Another enemy champion in the firing line can intercept a round."
       },
       "mlbb_aldous": {
         "name": "Aldous",
@@ -2088,10 +2088,10 @@
       "mlbb_alpha": {
         "name": "Alpha",
         "attack": "Les attaques de base infligent <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% d'AD<> en dégâts physiques.",
-        "passive": "<#5ad0e6ff>Beta, en avant !<> : toutes les <#ffb900ff>2<> attaques de base marquent la cible ; Beta tire un laser de verrouillage infligeant des <#ff9028ff>dégâts bruts<> et ralentissant de <#ffb900ff>30%<>.",
-        "skill": "<#5ad0e6ff>Impact rotatif<> : lance une vague d'énergie en ligne droite, infligeant <#ff9028ff>100 + 90% de l'Attaque Physique Totale<> en dégâts physiques et ralentissant les ennemis sur la trajectoire de <#ffb900ff>40%<> pendant <#ffb900ff>1 s<>. Beta mitraille la même trajectoire pour des dégâts bruts.",
-        "skill2": "<#5ad0e6ff>Frappe de force<> : frappe après un court délai, infligeant <#ff9028ff>250 + 100% de l'Attaque Physique Totale<> en dégâts physiques dans une zone en éventail et soignant Alpha de <#ffb900ff>100 + 30% de l'Attaque Physique Totale<> par ennemi touché.",
-        "ult": "<#e64a6aff>Lance d'Alpha<> : Beta plonge en premier, étourdissant pendant <#ffb900ff>1 s<>. Alpha bondit ensuite vers la cible, soulève les ennemis dans les airs et les écrase au sol en infligeant <#ff9028ff>250 + 100% de l'Attaque Physique Totale<> en dégâts physiques et un ralentissement de <#ffb900ff>40%<> pendant <#ffb900ff>1,5 s<>. Beta mitraille <#ffb900ff>5<> fois pour des dégâts bruts."
+        "passive": "<#5ad0e6ff>Beta, en avant !<> Toutes les trois touches admissibles sur un héros ennemi, le laser de Bêta inflige 30 + 3 par niveau après le niveau 1 + 15% de l’attaque en dégâts physiques et ralentit de 30% pendant 1 s.",
+        "skill": "<#5ad0e6ff>Impact rotatif<> L’onde inflige 70 + 80% de l’attaque en dégâts physiques et ralentit de 40% pendant 1 s. Bêta inflige ensuite 25 + 1 par niveau après le niveau 1 + 20% de l’attaque en dégâts bruts.",
+        "skill2": "<#5ad0e6ff>Frappe de force<> Le balayage inflige 100 + 80% de l’attaque en dégâts physiques. Bêta ajoute 25 + 1 par niveau après le niveau 1 + 20% de l’attaque en dégâts bruts. Alpha récupère 100 + 20% de l’attaque en PV une fois par lancement.",
+        "ult": "<#e64a6aff>Lance d'Alpha<> Bêta plonge, inflige 70 + 20% de l’attaque en dégâts physiques et étourdit pendant 1 s. Alpha atterrit, inflige 130 + 80% de l’attaque en dégâts physiques, projette en l’air pendant 0,67 s et ralentit de 30% pendant 1,25 s. Bêta tire cinq fois, infligeant 8 + 10% de l’attaque en dégâts physiques par tir."
       },
       "mlbb_arlott": {
         "name": "Arlott",
@@ -2106,7 +2106,7 @@
         "attack": "Les attaques de base infligent <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% d'AD<> en dégâts physiques.",
         "passive": "<#5ad0e6ff>Soif de sang<> : rend <#ffb900ff>5%<> des PV max après un sbire ou un monstre tué, et <#ffb900ff>10%<> après un héros tué ou une assistance.",
         "skill": "<#5ad0e6ff>Verrou d'âme<> : charge le héros ennemi sélectionné, blessant les ennemis sur sa trajectoire rectiligne pour <#ff9028ff>150–275 + 60% de l'Attaque Physique Totale<> en dégâts physiques. Le héros touché est brièvement repoussé et ralenti de <#ffb900ff>40%<> pendant <#ffb900ff>3 s<>. Le prototype TFM2 vise une position et s'y rue ; les dégâts de trajectoire rectiligne sont conservés, et le héros ennemi le plus proche à l'arrivée encaisse le coup.",
-        "skill2": "<#5ad0e6ff>Balayage cyclone<> : tournoie pendant <#ffb900ff>3 s<>, infligeant des dégâts en 14 pulses. Chaque touche inflige <#ff9028ff>30–55 + 1,3% des PV totaux + 25% de l'Attaque Physique Totale<> en dégâts physiques et réduit la Défense Physique de la cible de <#ffb900ff>5%<> par touche, jusqu'à <#ffb900ff>8 cumuls<>. Octroie <#ffb900ff>15%<> de vitesse de déplacement pendant l'activation.",
+        "skill2": "<#5ad0e6ff>Balayage cyclone<> : tournoie pendant <#ffb900ff>3 s<>, infligeant des dégâts en 14 pulses. Chaque touche inflige <#ff9028ff>24–44 + 1,3% des PV totaux + 25% de l'Attaque Physique Totale<> en dégâts physiques et réduit la Défense Physique de la cible de <#ffb900ff>5%<> par touche, jusqu'à <#ffb900ff>8 cumuls<>. Octroie <#ffb900ff>15%<> de vitesse de déplacement pendant l'activation.",
         "ult": "<#e64a6aff>Contre létal<> : frappe une large zone frontale pour <#ff9028ff>150 + 70% de l'Attaque Physique Totale + 30–45% des PV perdus de chaque cible<> en dégâts bruts. Les dégâts contre les non-héros sont plafonnés à <#ffb900ff>1 000 / 1 500 / 2 000<> selon le palier de niveau."
       },
       "mlbb_chou": {
@@ -2137,7 +2137,7 @@
         "name": "Franco",
         "attack": "Balance son marteau de guerre pour <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% d'AD<> en <#ff9028ff>dégâts physiques<>.",
         "passive": "<#5ad0e6ff>Force des friches<> : après <#ffb900ff>5 s<> sans subir de dégâts, Franco gagne <#ffb900ff>10%<> de vitesse de déplacement, récupère <#ffb900ff>1%<> de ses PV max par seconde et accumule jusqu'à <#ffb900ff>10<> charges. Sa prochaine compétence les consomme toutes pour jusqu'à <#ffb900ff>+150%<> de dégâts.",
-        "skill": "<#5ad0e6ff>Crochet de fer<> : lance un crochet qui attrape le premier ennemi touché, infligeant <#ff9028ff>220<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% d'AD<> de <#ff9028ff>dégâts physiques<> et le tire vers Franco. Le crochet <#ef5350ff>étourdit<> d'abord, puis tire — une cible qui ne peut pas être déplacée est tout de même immobilisée.",
+        "skill": "<#5ad0e6ff>Crochet de fer<> : lance un crochet qui attrape le premier ennemi touché, infligeant <#ff9028ff>190<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% d'AD<> de <#ff9028ff>dégâts physiques<> et le tire vers Franco. Le crochet <#ef5350ff>étourdit<> d'abord, puis tire — une cible qui ne peut pas être déplacée est tout de même immobilisée.",
         "skill2": "<#5ad0e6ff>Choc de furie<> : frappe, infligeant <#ff9028ff>160<> + <#ff9028ff>4%<> des <#ffb900ff>PV max<> de Franco en <#ff9028ff>dégâts physiques<> aux ennemis proches et les <#ffb900ff>ralentissant<> de <#ffb900ff>70%<> pendant <#ffb900ff>1,5 s<>. Utilisable sur les monstres de la jungle et les objectifs.",
         "ult": "<#e64a6aff>Chasse sanglante<> : <#ef5350ff>neutralise<> un héros ennemi pendant <#ffb900ff>1,8 s<> et le frappe <#ffb900ff>six<> fois, alternant marteau et crochet, pour <#ff9028ff>50<> + <#ff9028ff>70% d'AD<> chacun. La compétence s'interrompt si Franco subit un contrôle de foule."
       },
@@ -2225,7 +2225,7 @@
         "name": "Johnson",
         "attack": "Frappe avec sa lourde clé en infligeant <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ffb900ff>100% AD<> de <#ff9028ff>dégâts physiques<>.",
         "passive": "<#5ad0e6ff>Airbag électronique<>: quand Johnson passe sous <#ffb900ff>30% de PV<>, il gagne un bouclier de <#a974ffff>120 (+240% de la Défense physique totale)<> pendant <#ffb900ff>10 s<>. Recharge <#ffb900ff>100 s<>.",
-        "skill": "<#5ad0e6ff>Clé à chocs<>: lance sa clé, infligeant <#a974ffff>70 (+110% de la Défense physique totale)<> dégâts magiques aux ennemis sur sa trajectoire. Les ennemis proches du point d'arrivée sont étourdis <#ffb900ff>0,8 s<>.",
+        "skill": "<#5ad0e6ff>Clé à chocs<>: lance sa clé, infligeant <#a974ffff>80 (+110% de la Défense physique totale)<> dégâts magiques aux ennemis sur sa trajectoire. Les ennemis proches du point d'arrivée sont étourdis <#ffb900ff>0,8 s<>.",
         "skill2": "<#5ad0e6ff>Ondes électromagnétiques<>: lève son bouclier, infligeant <#a974ffff>40 (+45% de la Défense physique totale)<> dégâts magiques devant lui et réduisant la Vitesse de déplacement et la Défense magique ennemies. Cumulable <#ffb900ff>3<> fois.",
         "ult": "<#5ad0e6ff>Pleins gaz<>: se transforme en voiture. Un héros allié proche peut monter à bord. En percutant un héros ennemi, la voiture explose et inflige <#a974ffff>90 (+150% à +220% de la Défense physique totale)<> dégâts magiques, étourdit <#ffb900ff>0,5 s à 1 s<> selon la durée de conduite, et laisse une zone électrifiée. Il peut aussi conduire son passager en lieu sûr."
       },
@@ -2483,11 +2483,11 @@
       },
       "mlbb_lesley": {
         "name": "Lesley",
-        "attack": "Fires a rifle shot for 100% Attack physical damage.",
-        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
-        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
-        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
-        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+        "attack": "Fires a rifle shot for <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "<#5ad0e6ff>Lethal Shot<>. Casting a skill or going 5s without taking damage readies the next basic. It gains <#ffb900ff>17 range<> and deals <#ff9028ff>75 + 110% Attack<> true damage to champions or <#ff9028ff>75 + 125% Attack<> physical damage to lane and jungle enemies. Structures take normal basic damage.",
+        "skill": "<#5ad0e6ff>Master of Camouflage<>. Camouflages for up to <#ffb900ff>2.5s<> and gains 30% Movement Speed. Enemies lose direct targeting, but area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends camouflage.",
+        "skill2": "<#5ad0e6ff>Tactical Grenade<>. Deals <#ff9028ff>115 + 65% Attack<> physical damage in a short cone and pushes surviving enemy champions away. Lesley hops backward if the path is clear. During Ultimate Snipe, she fires an available round before ending the volley.",
+        "ult": "<#e64a6aff>Ultimate Snipe<>. Locks onto an enemy champion and fires up to <#ffb900ff>four rounds<>. Each deals <#ff9028ff>70 + 32% Attack + 6% of the target’s missing HP<> as physical damage. Another enemy champion in the firing line can intercept a round."
       },
       "mlbb_aldous": {
         "name": "Алдус",
@@ -2500,10 +2500,10 @@
       "mlbb_alpha": {
         "name": "Альфа",
         "attack": "Обычные атаки наносят <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> физического урона.",
-        "passive": "<#5ad0e6ff>Бета, вперёд!<> : каждый <#ffb900ff>2-й<> обычный удар помечает цель; Бета стреляет лазером наведения, нанося <#ff9028ff>чистый урон<> и замедляя на <#ffb900ff>30%<>.",
-        "skill": "<#5ad0e6ff>Роторный удар<> : выпускает энергетическую волну по прямой, нанося <#ff9028ff>100 + 90% общей физической атаки<> физического урона и замедляя врагов на пути на <#ffb900ff>40%<> на <#ffb900ff>1 с<>. Бета обстреливает тот же путь, нанося чистый урон.",
-        "skill2": "<#5ad0e6ff>Силовой замах<> : бьёт после короткой задержки, нанося <#ff9028ff>250 + 100% общей физической атаки<> физического урона в секторе и исцеляя Альфу на <#ffb900ff>100 + 30% общей физической атаки<> за каждого задетого врага.",
-        "ult": "<#e64a6aff>Копьё Альфы<> : Бета пикирует первой, <#ef5350ff>оглушая<> на <#ffb900ff>1 с<>. Затем Альфа прыгает к цели, подбрасывает врагов и ударяет о землю, нанося <#ff9028ff>250 + 100% общей физической атаки<> физического урона и замедляя на <#ffb900ff>40%<> на <#ffb900ff>1,5 с<>. Бета обстреливает <#ffb900ff>5<> раз, нанося чистый урон."
+        "passive": "<#5ad0e6ff>Бета, вперёд!<> Каждое третье подходящее попадание по вражескому герою вызывает лазер Беты. Он наносит 30 + 3 за уровень после первого + 15% атаки физического урона и замедляет на 30% на 1 с.",
+        "skill": "<#5ad0e6ff>Роторный удар<> Волна наносит 70 + 80% атаки физического урона и замедляет на 40% на 1 с. Бета дополнительно наносит 25 + 1 за уровень после первого + 20% атаки чистого урона.",
+        "skill2": "<#5ad0e6ff>Силовой замах<> Взмах наносит 100 + 80% атаки физического урона. Бета наносит ещё 25 + 1 за уровень после первого + 20% атаки чистого урона. Альфа восстанавливает 100 + 20% атаки здоровья один раз за применение.",
+        "ult": "<#e64a6aff>Копьё Альфы<> Бета пикирует, нанося 70 + 20% атаки физического урона и оглушая на 1 с. Приземление Альфы наносит 130 + 80% атаки физического урона, подбрасывает на 0,67 с и замедляет на 30% на 1,25 с. Бета наносит пять ударов по 8 + 10% атаки физического урона."
       },
       "mlbb_arlott": {
         "name": "Арлотт",
@@ -2518,7 +2518,7 @@
         "attack": "Обычные атаки наносят <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> физического урона.",
         "passive": "<#5ad0e6ff>Жажда крови<> : восстанавливает <#ffb900ff>5%<> макс. HP после убийства миньона или монстра и <#ffb900ff>10%<> после убийства героя или ассиста.",
         "skill": "<#5ad0e6ff>Оковы души<> : бросается к выбранному вражескому герою, раня врагов на прямой траектории на <#ff9028ff>150–275 + 60% общей физической атаки<> физического урона. Задетый герой ненадолго отбрасывается и замедляется на <#ffb900ff>40%<> на <#ffb900ff>3 с<>. Прототип TFM2 целится в точку и бросается туда; урон по прямой сохраняется, удар получает ближайший враг у точки прибытия.",
-        "skill2": "<#5ad0e6ff>Вихрь-сметание<> : крутится <#ffb900ff>3 с<>, нанося урон 14 импульсами. Каждое попадание наносит <#ff9028ff>30–55 + 1,3% общего HP + 25% общей физической атаки<> физического урона и снижает физическую защиту цели на <#ffb900ff>5%<> за попадание, до <#ffb900ff>8 зарядов<>. Даёт <#ffb900ff>15%<> скорости передвижения.",
+        "skill2": "<#5ad0e6ff>Вихрь-сметание<> : крутится <#ffb900ff>3 с<>, нанося урон 14 импульсами. Каждое попадание наносит <#ff9028ff>24–44 + 1,3% общего HP + 25% общей физической атаки<> физического урона и снижает физическую защиту цели на <#ffb900ff>5%<> за попадание, до <#ffb900ff>8 зарядов<>. Даёт <#ffb900ff>15%<> скорости передвижения.",
         "ult": "<#e64a6aff>Смертельный ответ<> : бьёт по широкой зоне впереди, нанося <#ff9028ff>150 + 70% общей физической атаки + 30–45% потерянного HP каждой цели<> чистым уроном. Урон не-героям ограничен <#ffb900ff>1 000 / 1 500 / 2 000<> по уровню героя."
       },
       "mlbb_chou": {
@@ -2549,7 +2549,7 @@
         "name": "Франко",
         "attack": "Размахивает боевым молотом, нанося <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>физического урона<>.",
         "passive": "<#5ad0e6ff>Сила пустошей<> : после <#ffb900ff>5 с<> без получения урона Франко получает <#ffb900ff>10%<> скорости передвижения, восстанавливает <#ffb900ff>1%<> макс. HP в секунду и копит до <#ffb900ff>10<> зарядов. Следующий навык расходует их все, давая до <#ffb900ff>+150%<> урона.",
-        "skill": "<#5ad0e6ff>Железный крюк<> : запускает крюк, цепляющий первого врага, нанося <#ff9028ff>220<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>физического урона<> и притягивая его к Франко. Крюк сначала <#ef5350ff>оглушает<>, затем тянет — цель, которую нельзя сдвинуть, всё равно обездвижена.",
+        "skill": "<#5ad0e6ff>Железный крюк<> : запускает крюк, цепляющий первого врага, нанося <#ff9028ff>190<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> <#ff9028ff>физического урона<> и притягивая его к Франко. Крюк сначала <#ef5350ff>оглушает<>, затем тянет — цель, которую нельзя сдвинуть, всё равно обездвижена.",
         "skill2": "<#5ad0e6ff>Яростный разряд<> : бьёт, нанося <#ff9028ff>160<> + <#ff9028ff>4%<> от <#ffb900ff>макс. HP<> Франко <#ff9028ff>физического урона<> ближайшим врагам и <#ffb900ff>замедляя<> их на <#ffb900ff>70%<> на <#ffb900ff>1,5 с<>. Применимо к монстрам джунглей и объектам.",
         "ult": "<#e64a6aff>Кровавая охота<> : <#ef5350ff>подавляет<> вражеского героя на <#ffb900ff>1,8 с<> и бьёт его <#ffb900ff>шесть<> раз, чередуя молот и крюк, по <#ff9028ff>50<> + <#ff9028ff>70% AD<> за удар. Способность прерывается, если Франко попадает под контроль."
       },
@@ -2637,7 +2637,7 @@
         "name": "Джонсон",
         "attack": "Размахивает тяжёлым ключом, нанося <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ffb900ff>100% AD<> <#ff9028ff>физического урона<>.",
         "passive": "<#5ad0e6ff>Электронная подушка<>: когда здоровье Джонсона падает ниже <#ffb900ff>30%<>, он получает щит на <#a974ffff>120 (+240% от общей физической защиты)<> на <#ffb900ff>10 с<>. Перезарядка <#ffb900ff>100 с<>.",
-        "skill": "<#5ad0e6ff>Ударный ключ<>: бросает ключ, нанося <#a974ffff>70 (+110% от общей физической защиты)<> магического урона врагам на пути. Враги у точки приземления оглушаются на <#ffb900ff>0,8 с<>.",
+        "skill": "<#5ad0e6ff>Ударный ключ<>: бросает ключ, нанося <#a974ffff>80 (+110% от общей физической защиты)<> магического урона врагам на пути. Враги у точки приземления оглушаются на <#ffb900ff>0,8 с<>.",
         "skill2": "<#5ad0e6ff>Электромагнитные волны<>: поднимает щит, нанося <#a974ffff>40 (+45% от общей физической защиты)<> магического урона перед собой и снижая скорость передвижения и магическую защиту врагов. Складывается до <#ffb900ff>3<> раз.",
         "ult": "<#5ad0e6ff>Полный газ<>: превращается в автомобиль. Ближайший союзный герой может сесть в него. При столкновении с вражеским героем машина взрывается, нанося <#a974ffff>90 (+150% до +220% от общей физической защиты)<> магического урона, оглушая на <#ffb900ff>0,5–1 с<> в зависимости от времени езды и оставляя электризованную зону. Он также может увезти пассажира в безопасное место."
       },
@@ -2895,11 +2895,11 @@
       },
       "mlbb_lesley": {
         "name": "Lesley",
-        "attack": "Fires a rifle shot for 100% Attack physical damage.",
-        "passive": "After 5s without taking damage or after casting a skill, the next basic attack gains range and deals 75 + 125% Attack true damage to champions. Lane and jungle enemies take physical damage. Structures take normal damage.",
-        "skill": "Camouflages for up to 2.5s and gains 30% Movement Speed. Enemies lose direct targeting while she is concealed. Area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends the effect.",
-        "skill2": "Throws a grenade in a short cone for 115 + 65% Attack physical damage. Enemy champions are knocked back and Lesley hops away if the path is clear.",
-        "ult": "Locks onto an enemy champion, then fires four rounds. Each deals 70 + 32% Attack + 6% of the target’s missing HP as physical damage. Enemy champions standing in the firing line can intercept rounds."
+        "attack": "Fires a rifle shot for <#ff9028ff>100% Attack<> physical damage.",
+        "passive": "<#5ad0e6ff>Lethal Shot<>. Casting a skill or going 5s without taking damage readies the next basic. It gains <#ffb900ff>17 range<> and deals <#ff9028ff>75 + 110% Attack<> true damage to champions or <#ff9028ff>75 + 125% Attack<> physical damage to lane and jungle enemies. Structures take normal basic damage.",
+        "skill": "<#5ad0e6ff>Master of Camouflage<>. Camouflages for up to <#ffb900ff>2.5s<> and gains 30% Movement Speed. Enemies lose direct targeting, but area effects can still hit her. Attacking, casting another skill, or taking damage after the first 0.5s ends camouflage.",
+        "skill2": "<#5ad0e6ff>Tactical Grenade<>. Deals <#ff9028ff>115 + 65% Attack<> physical damage in a short cone and pushes surviving enemy champions away. Lesley hops backward if the path is clear. During Ultimate Snipe, she fires an available round before ending the volley.",
+        "ult": "<#e64a6aff>Ultimate Snipe<>. Locks onto an enemy champion and fires up to <#ffb900ff>four rounds<>. Each deals <#ff9028ff>70 + 32% Attack + 6% of the target’s missing HP<> as physical damage. Another enemy champion in the firing line can intercept a round."
       },
       "mlbb_aldous": {
         "name": "Aldous",
@@ -2912,10 +2912,10 @@
       "mlbb_alpha": {
         "name": "Alpha",
         "attack": "Đòn đánh thường gây <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% Công Vật Lý<> sát thương vật lý.",
-        "passive": "<#5ad0e6ff>Beta, Tiến Lên!<> : mỗi <#ffb900ff>2<> đòn đánh thường đánh dấu mục tiêu; Beta bắn tia laser Khóa Mục Tiêu gây <#ff9028ff>sát thương chuẩn<> và làm chậm <#ffb900ff>30%<>.",
-        "skill": "<#5ad0e6ff>Xoáy Ốc Xung Kích<> : bắn sóng năng lượng theo đường thẳng, gây <#ff9028ff>100 + 90% Tổng Công Vật Lý<> sát thương vật lý và làm chậm kẻ địch trên đường đi <#ffb900ff>40%<> trong <#ffb900ff>1 giây<>. Beta quét cùng đường đó gây sát thương chuẩn.",
-        "skill2": "<#5ad0e6ff>Cú Vung Lực<> : vung sau một khoảng trễ ngắn, gây <#ff9028ff>250 + 100% Tổng Công Vật Lý<> sát thương vật lý trong vùng hình quạt và hồi máu cho Alpha <#ffb900ff>100 + 30% Tổng Công Vật Lý<> cho mỗi kẻ địch trúng đòn.",
-        "ult": "<#e64a6aff>Thương Alpha<> : Beta lao xuống trước, <#ef5350ff>choáng<> trong <#ffb900ff>1 giây<>. Alpha sau đó nhảy tới mục tiêu, hất kẻ địch lên không và đập xuống gây <#ff9028ff>250 + 100% Tổng Công Vật Lý<> sát thương vật lý cùng hiệu ứng làm chậm <#ffb900ff>40%<> trong <#ffb900ff>1,5 giây<>. Beta quét <#ffb900ff>5<> lần gây sát thương chuẩn."
+        "passive": "<#5ad0e6ff>Beta, Tiến Lên!<> Mỗi ba đòn hợp lệ trúng tướng địch, tia laze của Beta gây 30 + 3 mỗi cấp sau cấp 1 + 15% Công vật lý sát thương vật lý và làm chậm 30% trong 1 giây.",
+        "skill": "<#5ad0e6ff>Xoáy Ốc Xung Kích<> Sóng gây 70 + 80% Công vật lý sát thương vật lý và làm chậm 40% trong 1 giây. Beta bắn theo, gây 25 + 1 mỗi cấp sau cấp 1 + 20% Công vật lý sát thương chuẩn.",
+        "skill2": "<#5ad0e6ff>Cú Vung Lực<> Quét về phía trước, gây 100 + 80% Công vật lý sát thương vật lý. Beta gây thêm 25 + 1 mỗi cấp sau cấp 1 + 20% Công vật lý sát thương chuẩn. Alpha hồi 100 + 20% Công vật lý máu một lần mỗi lần dùng chiêu.",
+        "ult": "<#e64a6aff>Thương Alpha<> Beta lao xuống gây 70 + 20% Công vật lý sát thương vật lý và làm choáng 1 giây. Alpha đáp xuống gây 130 + 80% Công vật lý sát thương vật lý, hất tung 0,67 giây và làm chậm 30% trong 1,25 giây. Beta bắn 5 lần, mỗi lần gây 8 + 10% Công vật lý sát thương vật lý."
       },
       "mlbb_arlott": {
         "name": "Arlott",
@@ -2930,7 +2930,7 @@
         "attack": "Đòn đánh thường gây <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% Công Vật Lý<> sát thương vật lý.",
         "passive": "<#5ad0e6ff>Khát Máu<> : hồi <#ffb900ff>5%<> Máu Tối Đa sau khi tiêu diệt lính hoặc quái, và <#ffb900ff>10%<> sau khi hạ gục hoặc hỗ trợ hạ gục tướng.",
         "skill": "<#5ad0e6ff>Khóa Linh Hồn<> : lao tới tướng địch được chọn, gây sát thương cho kẻ địch dọc đường thẳng với <#ff9028ff>150–275 + 60% Tổng Công Vật Lý<> sát thương vật lý. Tướng trúng đòn bị đẩy lùi ngắn và làm chậm <#ffb900ff>40%<> trong <#ffb900ff>3 giây<>. Bản thử nghiệm TFM2 nhắm vào một vị trí rồi lao tới; sát thương đường thẳng được giữ lại, và tướng địch gần nhất khi tới nơi sẽ chịu đòn.",
-        "skill2": "<#5ad0e6ff>Quét Lốc Xoáy<> : xoay trong <#ffb900ff>3 giây<>, gây sát thương qua 14 nhịp. Mỗi nhịp gây <#ff9028ff>30–55 + 1,3% Tổng Máu + 25% Tổng Công Vật Lý<> sát thương vật lý và giảm Phòng Thủ Vật Lý của mục tiêu <#ffb900ff>5%<> mỗi nhịp, tối đa <#ffb900ff>8 điểm cộng dồn<>. Nhận <#ffb900ff>15%<> Tốc Chạy khi đang dùng.",
+        "skill2": "<#5ad0e6ff>Quét Lốc Xoáy<> : xoay trong <#ffb900ff>3 giây<>, gây sát thương qua 14 nhịp. Mỗi nhịp gây <#ff9028ff>24–44 + 1,3% Tổng Máu + 25% Tổng Công Vật Lý<> sát thương vật lý và giảm Phòng Thủ Vật Lý của mục tiêu <#ffb900ff>5%<> mỗi nhịp, tối đa <#ffb900ff>8 điểm cộng dồn<>. Nhận <#ffb900ff>15%<> Tốc Chạy khi đang dùng.",
         "ult": "<#e64a6aff>Đòn Đáp Trả Chí Mạng<> : đánh vùng rộng phía trước gây <#ff9028ff>150 + 70% Tổng Công Vật Lý + 30–45% Máu đã mất của mỗi mục tiêu<> dưới dạng sát thương chuẩn. Sát thương lên mục tiêu không phải tướng bị giới hạn ở <#ffb900ff>1.000 / 1.500 / 2.000<> theo cấp tướng."
       },
       "mlbb_chou": {
@@ -2961,7 +2961,7 @@
         "name": "Franco",
         "attack": "Vung chiến búa gây <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% Công Vật Lý<> <#ff9028ff>sát thương vật lý<>.",
         "passive": "<#5ad0e6ff>Sức Mạnh Hoang Dã<> : sau <#ffb900ff>5 giây<> không chịu sát thương, Franco nhận <#ffb900ff>10%<> Tốc Chạy, hồi <#ffb900ff>1%<> Máu Tối Đa mỗi giây và tích lũy tối đa <#ffb900ff>10<> điểm. Chiêu kế tiếp tiêu hao toàn bộ điểm để nhận tới <#ffb900ff>+150%<> sát thương chiêu.",
-        "skill": "<#5ad0e6ff>Móc Sắt<> : phóng móc sắt trúng kẻ địch đầu tiên, gây <#ff9028ff>220<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% Công Vật Lý<> <#ff9028ff>sát thương vật lý<> và kéo họ về phía Franco. Móc <#ef5350ff>choáng<> trước, rồi mới kéo — mục tiêu không thể di chuyển vẫn bị đứng yên.",
+        "skill": "<#5ad0e6ff>Móc Sắt<> : phóng móc sắt trúng kẻ địch đầu tiên, gây <#ff9028ff>190<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% Công Vật Lý<> <#ff9028ff>sát thương vật lý<> và kéo họ về phía Franco. Móc <#ef5350ff>choáng<> trước, rồi mới kéo — mục tiêu không thể di chuyển vẫn bị đứng yên.",
         "skill2": "<#5ad0e6ff>Chấn Động Thịnh Nộ<> : quất ra, gây <#ff9028ff>160<> + <#ff9028ff>4%<> <#ffb900ff>Máu Tối Đa<> của Franco thành <#ff9028ff>sát thương vật lý<> lên kẻ địch gần đó và <#ffb900ff>làm chậm<> chúng <#ffb900ff>70%<> trong <#ffb900ff>1,5 giây<>. Có thể dùng lên quái rừng và mục tiêu lớn.",
         "ult": "<#e64a6aff>Săn Máu<> : <#ef5350ff>khống chế<> tướng địch trong <#ffb900ff>1,8 giây<> và đánh <#ffb900ff>sáu<> nhát, xen kẽ búa và móc, mỗi nhát <#ff9028ff>50<> + <#ff9028ff>70% Công Vật Lý<>. Chiêu kết thúc sớm nếu Franco bị khống chế."
       },
@@ -3049,7 +3049,7 @@
         "name": "Johnson",
         "attack": "Vung cờ lê hạng nặng, gây <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ffb900ff>100% AD<> <#ff9028ff>sát thương vật lý<>.",
         "passive": "<#5ad0e6ff>Túi Khí Điện Tử<>: khi máu dưới <#ffb900ff>30%<>, nhận khiên <#a974ffff>120 (+240% Tổng Phòng Thủ Vật Lý)<> trong <#ffb900ff>10 giây<>. Hồi chiêu <#ffb900ff>100 giây<>.",
-        "skill": "<#5ad0e6ff>Cờ Lê Xung Kích<>: ném cờ lê, gây <#a974ffff>70 (+110% Tổng Phòng Thủ Vật Lý)<> sát thương phép lên kẻ địch trên đường đi. Kẻ địch gần điểm rơi bị choáng <#ffb900ff>0,8 giây<>.",
+        "skill": "<#5ad0e6ff>Cờ Lê Xung Kích<>: ném cờ lê, gây <#a974ffff>80 (+110% Tổng Phòng Thủ Vật Lý)<> sát thương phép lên kẻ địch trên đường đi. Kẻ địch gần điểm rơi bị choáng <#ffb900ff>0,8 giây<>.",
         "skill2": "<#5ad0e6ff>Sóng Điện Từ<>: giương khiên, gây <#a974ffff>40 (+45% Tổng Phòng Thủ Vật Lý)<> sát thương phép phía trước và giảm Tốc Độ Di Chuyển cùng Phòng Thủ Phép của kẻ địch. Cộng dồn tối đa <#ffb900ff>3<> lần.",
         "ult": "<#5ad0e6ff>Tăng Tốc Tối Đa<>: biến thành xe hơi. Tướng đồng minh gần đó có thể lên xe. Khi đâm vào tướng địch, xe phát nổ gây <#a974ffff>90 (+150% đến +220% Tổng Phòng Thủ Vật Lý)<> sát thương phép, choáng <#ffb900ff>0,5 đến 1 giây<> theo thời gian lái, và để lại vùng điện từ. Anh ta cũng có thể chở đồng minh đến nơi an toàn."
       },

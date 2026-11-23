@@ -216,7 +216,7 @@ fn gusion_base_stat(level: usize, stack: usize) -> StatV1 {
     StatV1 {
         attack: 58 + 4 * growth,
         magic_power: 78 + 8 * growth,
-        hp: 710 + 96 * growth,
+        hp: 740 + 96 * growth,
         defence: 20 + 3 * growth,
         magic_resistance: 20 + 2 * growth,
         move_speed: 1180 + 5 * growth,

@@ -12,6 +12,8 @@ pub const LINK_PERIOD: usize = 15;
 pub const REFUND: usize = 90;
 pub const BURST_DELAY: usize = 36;
 pub const S1_RANGE: f64 = 70_000.;
+const S1_WINDUP_TICKS: usize = 8;
+const S1_HALF_ANGLE_DEGREES: f64 = 50.;
 pub const S2_RANGE: f64 = 75_000.;
 pub const ULT_RANGE: f64 = 80_000.;
 const BREAK_RANGE: f64 = 95_000.;
@@ -72,9 +74,79 @@ fn apply_mark(sim:&mut StableSim<'_>,k:EntityKey,t:usize) {
     }
 }
 fn magic(sim:&mut StableSim<'_>,c:usize,t:usize,n:usize) {sim.deal_damage_typed(c,t,n,DamageTypeV1::Ap,AttackTypeV1::Skill);}
-fn cone(from:Pos,to:Pos,aim:(f64,f64))->bool {
-    let x=to.0 as f64-from.0 as f64;let y=to.1 as f64-from.1 as f64;let r=x.hypot(y);
-    r<=S1_RANGE&&(r<1.||(x*aim.0+y*aim.1)/r>=50f64.to_radians().cos())
+fn offset(from: Pos, to: Pos) -> (f64, f64) {
+    (to.0 as f64 - from.0 as f64, to.1 as f64 - from.1 as f64)
+}
+
+fn fork_hits(from: Pos, to: Pos, direction: (f64, f64), radius: f64) -> bool {
+    let (x, y) = offset(from, to);
+    let forward = x * direction.0 + y * direction.1;
+    let across = (y * direction.0 - x * direction.1).abs();
+    let (sin, cos) = S1_HALF_ANGLE_DEGREES.to_radians().sin_cos();
+
+    if across * cos <= forward * sin {
+        return x.hypot(y) <= S1_RANGE + radius;
+    }
+
+    // Outside the angular span, the closest point is on the nearer radial edge.
+    let edge = (forward * cos + across * sin).clamp(0., S1_RANGE);
+    (forward - edge * cos).hypot(across - edge * sin) <= radius
+}
+
+fn fork_direction(sim: &StableSim<'_>, caster: usize, from: Pos, input: InputTargetV1) -> Option<(f64, f64)> {
+    let (x, y) = match InputTargetKindV1::from_code(input.kind)? {
+        InputTargetKindV1::Target => offset(from, pos(sim, input.target_id)?),
+        InputTargetKindV1::Pos => offset(from, (input.x, input.y)),
+        InputTargetKindV1::Dir => (input.dir_x as f64, input.dir_y as f64),
+        _ => return None,
+    };
+    let length = x.hypot(y);
+    if length > 0. {
+        return Some((x / length, y / length));
+    }
+
+    // An enemy at the cone's origin can be hit in any direction. Look for a
+    // direction within its hit circle before accepting a zero-length cast.
+    for id in foes(sim, caster) {
+        let Some(enemy) = sim.get_entity(id) else { continue };
+        let (dx, dy) = offset(from, enemy.pos());
+        let distance = dx.hypot(dy);
+        if distance <= fork_target_radius(&enemy) {
+            return Some(if distance > 0. { (dx / distance, dy / distance) } else { (1., 0.) });
+        }
+    }
+    None
+}
+
+fn fork_target_radius(target: &StableEntity<'_, '_>) -> f64 {
+    if target.is_minion() { target.radius() as f64 } else { 0. }
+}
+
+fn fork_ready_target(from: Pos, target: &StableEntity<'_, '_>) -> bool {
+    let (dx, dy) = offset(from, target.pos());
+    let runout = if target.is_minion() { target.stat().move_speed * S1_WINDUP_TICKS } else { 0 };
+    let distance = dx.hypot(dy);
+    distance <= S1_RANGE && distance + runout as f64 <= S1_RANGE + fork_target_radius(target)
+}
+
+fn fork_fallback(sim: &StableSim<'_>, caster: usize, from: Pos, input: InputV1) -> Option<InputV1> {
+    let direction = fork_direction(sim, caster, from, input.target);
+    let mut nearest_minion = None;
+    for id in foes(sim, caster) {
+        let Some(enemy) = sim.get_entity(id) else { continue };
+        if !fork_ready_target(from, &enemy) {
+            continue;
+        }
+        let point = enemy.pos();
+        if direction.is_some_and(|direction| fork_hits(from, point, direction, fork_target_radius(&enemy))) {
+            return Some(input);
+        }
+        let distance = d2(from, point);
+        if enemy.is_minion() && nearest_minion.is_none_or(|(_, best)| distance < best) {
+            nearest_minion = Some((point, distance));
+        }
+    }
+    nearest_minion.map(|((x, y), _)| InputV1::action(InputKindV1::Skill, InputTargetV1::pos(x, y)))
 }
 fn aim(sim:&StableSim<'_>,c:usize,i:InputTargetV1)->Option<(Pos,(f64,f64))> {
     let from=pos(sim,c)?;
@@ -122,16 +194,16 @@ fn wire(sim:&mut StableSim<'_>,c:usize,t:usize) {
 }
 fn fork(sim:&mut StableSim<'_>,c:usize,input:InputTargetV1) {
     if !sim.get_entity(c).is_some_and(|e|e.is_alive()&&e.is_targetable()){return}
-    let Some((_,dir))=aim(sim,c,input) else{return};let Some(from)=pos(sim,c) else{return};
+    let Some(from)=pos(sim,c) else{return};
+    let Some(dir)=fork_direction(sim,c,from,input) else{return};
     let (k,mut s)=take(sim,c);let ap=power(sim,c);let now=sim.tick();let n=marker(k);let mut links=vec![];
     fx(sim,&format!("eudora_fan_{}",angle_bucket(dir,16)),c,from,18);
     for t in foes(sim,c) {
-        if !pos(sim,t).is_some_and(|p|cone(from,p,dir)){continue}
+        let Some(entity) = sim.get_entity(t) else { continue };
+        if !fork_hits(from, entity.pos(), dir, fork_target_radius(&entity)) { continue }
+        let damage = if entity.is_champion() { spell(FORK_HERO, ap) }
+            else { spell(FORK_HIT, ap) * if entity.is_minion() { 2 } else { 1 } };
         let enhanced=markable(sim,t)&&named(sim,t,&n);
-        let damage = sim.get_entity(t).map_or(0, |entity| {
-            if entity.is_champion() { spell(FORK_HERO, ap) }
-            else { spell(FORK_HIT, ap) * if entity.is_minion() { 2 } else { 1 } }
-        });
         let target_key=enhanced.then(||crate::entity_key(sim,t));
         magic(sim,c,t,damage);
         apply_mark(sim,k,t);
@@ -270,7 +342,7 @@ impl StablePlayerAi for EudoraAi {
     fn matches(&self,i:&StableAiInit)->bool{i.champion_name.to_ascii_lowercase().contains("eudora")}
     fn think(&mut self,ctx:&mut StableAiContext<'_>,base:Option<InputV1>)->Option<InputV1>{
         let player=ctx.player_id();
-        let proposals={let sim=ctx.sim()?;let c=sim.get_player(player)?.champion()?;let id=c.id();let from=c.pos();
+        let (proposals,fallback)={let sim=ctx.sim()?;let c=sim.get_player(player)?.champion()?;let id=c.id();let from=c.pos();
             if !c.is_alive()||!c.is_targetable(){return base}
             let k=crate::entity_key_ro(&sim,id);let n=marker(k);
             let mut targets:Vec<_>=foes(&sim,id).into_iter().filter(|t|sim.get_entity(*t).is_some_and(|e|e.is_champion())&&pos(&sim,*t).is_some_and(|p|within(from,p,ULT_RANGE))).collect();
@@ -283,8 +355,15 @@ impl StablePlayerAi for EudoraAi {
                 if ready(SkillSlotV1::Skill2)&&within(from,p,S2_RANGE){out.push(InputV1::action(InputKindV1::Skill2,InputTargetV1::target(t)));}
                 if ready(SkillSlotV1::Ult){out.push(InputV1::action(InputKindV1::Ult,InputTargetV1::pos(p.0,p.1)));}
                 if ready(SkillSlotV1::Skill)&&within(from,p,S1_RANGE){out.push(InputV1::action(InputKindV1::Skill,InputTargetV1::pos(p.0,p.1)));}
-            }out};
-        for i in proposals {if ctx.is_valid_input(&i){return Some(i)}}base
+            }
+            let fallback = match base {
+                Some(input) if input.kind == InputKindV1::Skill.code() => fork_fallback(&sim, id, from, input),
+                _ => base,
+            };
+            (out,fallback)
+        };
+        for i in proposals {if ctx.is_valid_input(&i){return Some(i)}}
+        fallback.filter(|input| Some(*input) == base || ctx.is_valid_input(input))
     }
 }
 pub fn register(m:&mut StableMod){

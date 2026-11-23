@@ -97,6 +97,11 @@ fn apply_slow(sim: &mut StableSim<'_>, target: usize, name: &str, pct: i32, tick
     buff.move_speed_mult = -pct;
     sim.add_buff(target, &buff);
 }
+fn cyclone_hit_damage(attack: usize, max_hp: usize, level: usize) -> usize {
+    level_linear(24, 44, level)
+        .saturating_add(percent(attack, 25))
+        .saturating_add(max_hp.saturating_mul(13) / 1000)
+}
 fn missing_hp_damage(max_hp: usize, current_hp: usize, ratio_tenths_pct: usize) -> usize {
     max_hp
         .saturating_sub(current_hp)
@@ -154,9 +159,7 @@ impl BalmondBloodthirst {
         let stat = me.stat();
         let (_, max_hp) = me.hp();
         let level = me.level().max(1);
-        let damage = level_linear(30, 55, level)
-            .saturating_add(percent(stat.attack, 25))
-            .saturating_add(max_hp.saturating_mul(13) / 1000);
+        let damage = cyclone_hit_damage(stat.attack, max_hp, level);
         let ids: Vec<usize> = (0..sim.entity_count())
             .filter_map(|i| sim.entity_at(i).map(|e| e.id()))
             .collect();
@@ -438,7 +441,7 @@ pub fn register(module: &mut StableMod) {
 #[cfg(test)]
 mod tests {
     use super::{
-        bounded_position_path, distance, lethal_counter_damage, level_linear, missing_hp_damage,
+        bounded_position_path, cyclone_hit_damage, distance, lethal_counter_damage, missing_hp_damage,
         path_projection, percent, soul_lock_damage, ult_nonhero_cap, ult_ratio_tenths_pct,
     };
     #[test]
@@ -447,9 +450,10 @@ mod tests {
         assert_eq!(percent(2000, 10), 200);
     }
     #[test]
-    fn skill_damage_levels_interpolate() {
-        assert_eq!(level_linear(30, 55, 1), 30);
-        assert_eq!(level_linear(30, 55, 15), 55);
+    fn cyclone_hit_scales_with_level_attack_and_health() {
+        assert_eq!(cyclone_hit_damage(100, 1000, 1), 62);
+        assert_eq!(cyclone_hit_damage(100, 1000, 8), 72);
+        assert_eq!(cyclone_hit_damage(100, 1000, 15), 82);
     }
     #[test]
     fn soul_lock_damage_and_position_geometry_are_stable() {

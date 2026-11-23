@@ -17,7 +17,7 @@
  "stat": {
   "attack": 48,
   "magic_power": 64,
-  "hp": 700,
+  "hp": 740,
   "defence": 22,
   "magic_resistance": 24,
   "move_speed": 1040,
@@ -40,7 +40,7 @@
   "action_name": "attack",
   "description": "#asset/base/text/champion?description.mlbb_gord.attack",
   "duration": 20,
-  "cooltime": 60,
+  "cooltime": 90,
   "start_timing": 6,
   "cancelable": false,
   "range": 62000,

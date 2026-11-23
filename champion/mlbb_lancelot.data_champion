@@ -13,9 +13,9 @@
   "asset/mlbb_heroes/icons/lancelot_ult"
  ],
  "stat": {
-  "attack": 124,
+  "attack": 70,
   "magic_power": 0,
-  "hp": 760,
+  "hp": 790,
   "defence": 24,
   "magic_resistance": 22,
   "move_speed": 1150,

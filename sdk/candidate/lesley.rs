@@ -17,6 +17,10 @@ const CAMO_DURATION: usize = 150;
 const CAMO_HIT_GRACE: usize = 30;
 const CAMO_REFRESH: usize = 2;
 
+fn lethal_shot_champion_damage(attack: usize) -> usize {
+    75 + attack * 110 / 100
+}
+
 #[derive(Clone, Copy)]
 struct Volley {
     target: EntityKey,
@@ -268,6 +272,7 @@ fn damage(sim: &mut StableSim<'_>, caster: usize, target: usize, shot: Shot) {
     let amount = match shot {
         Shot::Basic => attack,
         Shot::Lethal if structure => attack,
+        Shot::Lethal if victim.is_champion() => lethal_shot_champion_damage(attack),
         Shot::Lethal => 75 + attack * 125 / 100,
         Shot::Ultimate => 70 + attack * 32 / 100 + max_hp.saturating_sub(hp) * 6 / 100,
     };
@@ -484,7 +489,7 @@ impl StableEffectType for Op {
         (
             match self {
                 Self::Attack | Self::Hit(Shot::Basic) => ad,
-                Self::Hit(Shot::Lethal) => 75 + ad * 125 / 100,
+                Self::Hit(Shot::Lethal) => lethal_shot_champion_damage(ad),
                 Self::Camouflage => 0,
                 Self::Grenade => 115 + ad * 65 / 100,
                 Self::Ult => 4 * (70 + ad * 32 / 100),
@@ -614,6 +619,15 @@ mod tests {
     ) -> bool {
         (*(host as *mut Vec<usize>)).push(ticks);
         true
+    }
+
+    #[test]
+    fn lethal_shot_expected_champion_damage_uses_new_attack_ratio() {
+        let stats = StatV1 {
+            attack: 104,
+            ..StatV1::default()
+        };
+        assert_eq!(Op::Hit(Shot::Lethal).expected_damage(&stats), (189, 0));
     }
 
     #[test]

@@ -93,7 +93,7 @@ fn lancelot_base_stat(level: usize, stack: usize) -> StatV1 {
     StatV1 {
         attack: 70 + 6 * growth,
         magic_power: 0,
-        hp: 760 + 100 * growth,
+        hp: 790 + 100 * growth,
         defence: 24 + 4 * growth,
         magic_resistance: 22 + 3 * growth,
         move_speed: 1150 + 5 * growth,

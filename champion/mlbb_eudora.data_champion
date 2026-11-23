@@ -11,7 +11,7 @@
  "stat": {
   "attack": 80,
   "magic_power": 64,
-  "hp": 680,
+  "hp": 720,
   "defence": 20,
   "magic_resistance": 24,
   "move_speed": 1040,
@@ -1578,7 +1578,7 @@
   "action_name": "attack",
   "description": "#asset/base/text/champion?description.mlbb_eudora.attack",
   "duration": 24,
-  "cooltime": 60,
+  "cooltime": 90,
   "start_timing": 8,
   "cancelable": false,
   "range": 62000,

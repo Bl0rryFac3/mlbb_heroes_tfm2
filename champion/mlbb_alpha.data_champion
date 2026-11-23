@@ -149,7 +149,7 @@
      "effects": [
       {
        "type": "Attack",
-       "damage": 120,
+       "damage": 100,
        "attack_ratio": 80,
        "attack_effect_type": "Target"
       },

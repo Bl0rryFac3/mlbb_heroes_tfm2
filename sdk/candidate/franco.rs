@@ -66,19 +66,8 @@ const HOOK_STUN_TICKS: u64 = 60;
 /// that is what lets one constant cover a hook that lands at 8,000 units and
 /// one that lands at 100,000.
 const HOOK_GRAB_SPEED: usize = 2_500;
-/// Rebalanced v2.0.11: **220 + 100% AD**. Was 400 + 100% AD, which paid 452
-/// at level 1 — 59% of a 760 HP squishy, so the hook alone took half a health
-/// bar before Franco did anything else.
-///
-/// The flat component carries almost no scaling on its own (452 -> 508 across
-/// 14 levels), which makes it the right knob: cutting the flat fixes level 1
-/// without gutting the late game. The 100% AD ratio is deliberately untouched,
-/// so Franco's build still decides the damage.
-///
-/// Paid by the pull native, against the ONE victim the hook latched — not by an
-/// `Attack` in `applied_effects`, which the engine runs once per enemy the line
-/// overlaps (that was the wave clear).
-const HOOK_HIT_FLAT: usize = 220;
+/// The pull native pays 190 + 100% AD once against the hooked target.
+const HOOK_HIT_FLAT: usize = 190;
 const HOOK_HIT_AD_RATIO: usize = 100;
 /// The bite glyph — shorter than the stun, so it marks the impact rather than
 /// the whole CC window.
@@ -1507,15 +1496,14 @@ mod tests {
 
     /// Damage must not silently become zero when it moved into code.
     #[test]
-    fn hook_damage_is_220_plus_full_attack() {
-        assert_eq!(HOOK_HIT_FLAT, 220);
+    fn hook_damage_is_190_plus_full_attack() {
+        assert_eq!(HOOK_HIT_FLAT, 190);
         assert_eq!(HOOK_HIT_AD_RATIO, 100);
         let at = 52usize; // Franco's base attack
         let paid = HOOK_HIT_FLAT.saturating_add(percent(at, HOOK_HIT_AD_RATIO));
-        assert_eq!(paid, 272, "220 + 100% of 52");
-        // and it must scale with AD, not be a flat 220
+        assert_eq!(paid, 242, "190 + 100% of 52");
         let geared = HOOK_HIT_FLAT.saturating_add(percent(200, HOOK_HIT_AD_RATIO));
-        assert_eq!(geared, 420);
+        assert_eq!(geared, 390);
     }
 
     /// The rebalance target: one hook must not take half a squishy's health at
@@ -1524,7 +1512,7 @@ mod tests {
     fn the_level_one_hook_no_longer_halves_a_squishy() {
         const SQUISHY_HP: usize = 760;
         let paid = HOOK_HIT_FLAT.saturating_add(percent(52, HOOK_HIT_AD_RATIO));
-        assert_eq!(paid, 272);
+        assert_eq!(paid, 242);
         let pct = paid * 100 / SQUISHY_HP;
         assert!(
             pct < 40,

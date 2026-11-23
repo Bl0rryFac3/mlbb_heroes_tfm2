@@ -543,7 +543,7 @@ fn fanny_base_stat(level: usize, stack: usize) -> StatV1 {
     StatV1 {
         attack: 62 + 5 * lvl_growth,
         magic_power: 0,
-        hp: 720 + 98 * lvl_growth,
+        hp: 750 + 98 * lvl_growth,
         defence: 28 + 5 * lvl_growth,
         magic_resistance: 26 + 3 * lvl_growth,
         move_speed: 1100 + 5 * lvl_growth,
@@ -2335,7 +2335,7 @@ fn aldous_base_stat(level: usize, stack: usize) -> StatV1 {
     StatV1 {
         attack: 65 + 4 * lvl_growth,
         magic_power: 0,
-        hp: 650 + 110 * lvl_growth,
+        hp: 700 + 110 * lvl_growth,
         defence: 35 + 5 * lvl_growth,
         magic_resistance: 32 + 2 * lvl_growth,
         move_speed: 1050,
