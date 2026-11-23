@@ -6,7 +6,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ## Roster (`v3.0.0`)
 
-29 heroes. The Mods menu shows build **1.1.179**.
+**New hero: Valir, Son of Flames.** Valir joins as hero 29 alongside the v3.0.0 roster balance pass. The Mods menu shows build **1.1.179**.
 
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
