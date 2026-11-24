@@ -2,7 +2,9 @@
 
 Adds 30 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, skill effects, and voice lines.
 
-**New in v3.0.1 — Sun, the Monkey King.** Throw the Golden Staff, fight alongside two doppelgangers, and bring them together for Instantaneous Move. Fanny gets 10 Steel Cable charges and can use a cable to escape. Lesley’s Ultimate Snipe is easier to see, and Lesley and Valir have their default English voices.
+**New in v3.0.1 — Sun, the Monkey King.** Throw the Golden Staff, fight alongside two doppelgangers, and bring them together for Instantaneous Move.
+
+**Fanny revamp — Blade Dancer.** Fanny gets new sprites and effects, 10 Steel Cable charges, midair redirects, and escape cables. Lesley’s Ultimate Snipe is easier to see, and Lesley and Valir have their default English voices.
 
 [Download v3.0.1 and read the patch notes](https://github.com/Bl0rryFac3/mlbb_heroes_tfm2/releases/tag/v3.0.1)
 
@@ -407,7 +409,7 @@ mlbb_heroes/
 ## v3.0.1
 
 - Sun joins as hero 30, with two doppelgangers, official skill icons, and default English voice lines.
-- Fanny gets 10 Steel Cable charges, midair redirects, retreat cables, and updated sprites and effects.
+- **Fanny revamp.** Updated sprites and effects, 10 Steel Cable charges, midair redirects, and retreat cables.
 - Ultimate Snipe shots are easier to see. Lesley and Valir have their default English voice lines.
 
 ## v3.0.0

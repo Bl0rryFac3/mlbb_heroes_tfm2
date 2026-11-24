@@ -21,9 +21,11 @@ Sun joins the roster as hero **30**. He’s a melee Fighter who wears down enemi
 
 **Ult — Clone Techniques.** Summons a stronger copy that can fight alongside the staff clone. It lasts up to **8s**, has **75% of Sun’s max HP**, deals **65% damage**, and takes **20% more damage**. The **32s cooldown** starts when it disappears.
 
-## Fanny, Lesley, and Valir
+## Fanny revamp — Blade Dancer
 
-- **Fanny — Steel Cable.** Stores **10 charges**, spends one per launch, and can chain up to **10 casts** in a flight. Fresh hooks can redirect her while she’s airborne, and she can latch onto walls, map edges, and standing towers. Charges recover one at a time on the ground. Fanny follows her assigned lane or jungle role and can use a safe cable to retreat. Her sprite animations, cable effects, Tornado Strike, and Prey Marks have all been refreshed.
+**Steel Cable.** Fanny now stores **10 charges**, spends one per launch, and can chain up to **10 casts** in a flight. Fresh hooks can redirect her while she’s airborne, and she can latch onto walls, map edges, and standing towers. Charges recover one at a time on the ground. Fanny follows her assigned lane or jungle role and can use a safe cable to retreat. The revamp also brings new character animations, cable wires and hooks, Tornado Strike effects, and Prey Marks.
+## Lesley, Valir, and roster fixes
+
 - **Lesley — Ultimate Snipe.** Fired rounds have a brighter muzzle flash and a longer tracer. An interrupted volley clears its target marker. Lesley also gets her default English voice lines for attacks, abilities, movement, kills, death, and respawn.
 - **Valir** gets his default English voice lines for movement, Burst Fireball, Searing Torrent, Vengeance Flame, and death.
 - **Fanny’s roster entry** now consistently lists her **750 base HP**. The [v3.0.0 roster balance](https://github.com/Bl0rryFac3/mlbb_heroes_tfm2/releases/tag/v3.0.0) carries forward, including **900 base HP for Belerick**.
