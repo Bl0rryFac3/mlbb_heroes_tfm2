@@ -392,6 +392,20 @@
         "y": -10
       }
     },
+    "mlbb_sun": {
+      "face": {
+        "x": 0,
+        "y": -32
+      },
+      "center": {
+        "x": 0,
+        "y": -14
+      },
+      "banpick_center": {
+        "x": 0,
+        "y": -10
+      }
+    },
     "mlbb_valir": {
       "face": {
         "x": 0,

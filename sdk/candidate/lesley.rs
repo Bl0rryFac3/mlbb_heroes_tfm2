@@ -1,4 +1,4 @@
-use crate::{entity_key, entity_key_ro, sim_copy_of, EntityKey};
+use crate::{audio, entity_key, entity_key_ro, sim_copy_of, EntityKey};
 use mod_api_stable::*;
 use std::{
     collections::HashMap,
@@ -16,6 +16,33 @@ const CADENCE: usize = 21;
 const CAMO_DURATION: usize = 150;
 const CAMO_HIT_GRACE: usize = 30;
 const CAMO_REFRESH: usize = 2;
+const MOVE_LINES: &[&str] = &[
+    "mlbb_lesley_voice_move01",
+    "mlbb_lesley_voice_move02",
+    "mlbb_lesley_voice_move03",
+    "mlbb_lesley_voice_move04",
+    "mlbb_lesley_voice_move05",
+    "mlbb_lesley_voice_move06",
+    "mlbb_lesley_voice_move07",
+    "mlbb_lesley_voice_move08",
+    "mlbb_lesley_voice_move09",
+    "mlbb_lesley_voice_move10",
+    "mlbb_lesley_voice_move11",
+    "mlbb_lesley_voice_move12",
+];
+const BASIC_LINES: &[&str] = &[
+    "mlbb_lesley_voice_basic01",
+    "mlbb_lesley_voice_basic02",
+    "mlbb_lesley_voice_basic03",
+];
+const KILL_LINES: &[&str] = &[
+    "mlbb_lesley_voice_kill01",
+    "mlbb_lesley_voice_kill02",
+    "mlbb_lesley_voice_kill03",
+];
+const ULT_LINES: &[&str] = &["mlbb_lesley_voice_ult01", "mlbb_lesley_voice_ult02"];
+const DEATH_LINES: &[&str] = &["mlbb_lesley_voice_death01", "mlbb_lesley_voice_death02"];
+const RESPAWN_LINES: &[&str] = &["mlbb_lesley_voice_respawn01", "mlbb_lesley_voice_respawn02"];
 
 fn lethal_shot_champion_damage(attack: usize) -> usize {
     75 + attack * 110 / 100
@@ -362,7 +389,9 @@ fn grenade(sim: &mut StableSim<'_>, caster: usize, input: InputTargetV1) {
     } else {
         "mlbb_lesley_grenade_fan"
     };
-    cue(sim, caster, "grenade");
+    if audio::voice_in_match_view(sim) {
+        audio::play_voice(sim, caster, "mlbb_lesley_voice_skill02");
+    }
     ground_fx(sim, caster, from, name);
     for (id, point, champion) in targets {
         sim.deal_damage_typed(
@@ -396,7 +425,7 @@ enum Op {
 }
 
 impl StableEffectType for Op {
-    fn apply(&self, sim: &mut StableSim<'_>, _: u64, caster: usize, target: InputTargetV1) {
+    fn apply(&self, sim: &mut StableSim<'_>, seed: u64, caster: usize, target: InputTargetV1) {
         if let Self::Hit(shot) = *self {
             if target.kind == InputTargetKindV1::Target.code() {
                 damage(sim, caster, target.target_id, shot);
@@ -421,8 +450,17 @@ impl StableEffectType for Op {
                     } else {
                         Shot::Basic
                     };
-                    if fire(sim, caster, target.target_id, shot) && shot == Shot::Lethal {
-                        unprime(sim, caster, &mut state, now);
+                    if fire(sim, caster, target.target_id, shot) {
+                        if shot == Shot::Lethal {
+                            unprime(sim, caster, &mut state, now);
+                        }
+                        if audio::voice_in_match_view(sim) {
+                            audio::play_voice(
+                                sim,
+                                caster,
+                                BASIC_LINES[seed as usize % BASIC_LINES.len()],
+                            );
+                        }
                     }
                 }
             }
@@ -439,7 +477,9 @@ impl StableEffectType for Op {
                         ..BuffV1::timed(CAMO, CAMO_DURATION)
                     },
                 );
-                cue(sim, caster, "camouflage");
+                if audio::voice_in_match_view(sim) {
+                    audio::play_voice(sim, caster, "mlbb_lesley_voice_skill01");
+                }
                 refresh_camouflage(sim, caster, &mut state, now);
                 if let Some(p) = position(sim, caster) {
                     ground_fx(sim, caster, p, "mlbb_lesley_camouflage_ripple");
@@ -476,6 +516,13 @@ impl StableEffectType for Op {
                         sim.add_buff(id, &BuffV1::timed(&name, 94));
                         sim.entity_remove_buff(id, LOCK);
                         sim.add_buff(id, &BuffV1::timed(LOCK, 94));
+                        if audio::voice_in_match_view(sim) {
+                            audio::play_priority_voice(
+                                sim,
+                                caster,
+                                ULT_LINES[seed as usize % ULT_LINES.len()],
+                            );
+                        }
                     }
                 }
             }
@@ -503,6 +550,7 @@ impl StableEffectType for Op {
 #[derive(Default)]
 struct Passive {
     owner: Option<EntityKey>,
+    voice: audio::VoiceLifecycle,
 }
 
 impl StablePassive for Passive {
@@ -510,10 +558,22 @@ impl StablePassive for Passive {
         Box::new(Self::default())
     }
 
-    fn on_spawn(&mut self, sim: &mut StableSim<'_>, _: usize, id: usize) {
+    fn on_spawn(&mut self, sim: &mut StableSim<'_>, player: usize, id: usize) {
+        if audio::voice_in_match_view(sim) {
+            let deaths = sim.get_player(player).map_or(0, |p| p.deaths());
+            let line = if deaths == 0 {
+                "mlbb_lesley_voice_select"
+            } else {
+                RESPAWN_LINES[(deaths - 1) % RESPAWN_LINES.len()]
+            };
+            self.voice.on_spawn(sim, id, Some(line));
+        }
         let key = entity_key(sim, id);
         if let Some(old) = self.owner.replace(key) {
-            take(old);
+            let mut state = take(old);
+            if old.scope == key.scope {
+                clear_lock(sim, &mut state, old.entity_id);
+            }
         }
         put(
             key,
@@ -531,6 +591,9 @@ impl StablePassive for Passive {
         let Some(key) = self.owner else { return };
         if !sim.get_entity(caster).is_some_and(|e| e.is_alive()) {
             return;
+        }
+        if audio::voice_in_match_view(sim) {
+            self.voice.on_update(sim, caster, &[], MOVE_LINES);
         }
         let mut state = take(key);
         let now = sim.tick();
@@ -581,7 +644,18 @@ impl StablePassive for Passive {
         put(key, state);
     }
 
-    fn on_dead(&mut self, sim: &mut StableSim<'_>, _: usize) {
+    fn on_kill(&mut self, sim: &mut StableSim<'_>, _: usize, owner: usize, victim: usize) {
+        if audio::voice_in_match_view(sim)
+            && sim.get_entity(victim).is_some_and(|e| e.is_champion())
+        {
+            audio::play_voice(sim, owner, KILL_LINES[sim.tick() % KILL_LINES.len()]);
+        }
+    }
+
+    fn on_dead(&mut self, sim: &mut StableSim<'_>, player: usize) {
+        if audio::voice_in_match_view(sim) {
+            self.voice.on_dead(sim, player, DEATH_LINES);
+        }
         if let Some(key) = self.owner.take() {
             let mut state = take(key);
             let now = sim.tick();

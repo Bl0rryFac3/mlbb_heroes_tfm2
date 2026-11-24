@@ -3,7 +3,7 @@ from copy import deepcopy
 from pathlib import Path
 import json
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageEnhance, ImageOps
 
 root = Path(__file__).resolve().parents[1]
 art = root / 'source/lesley/animations'
@@ -97,8 +97,13 @@ body_clips['ult'] = (ult, len(ult))
 sheet('sprite', 'lesley', body_clips, (0.5, 62 / 72))
 
 view_effects, projectiles, buffs = [], [], []
-def effect(name, size, ticks, anchor=(.5, .5), kind='effect', mirrored=False):
+def effect(name, size, ticks, anchor=(.5, .5), kind='effect', mirrored=False, display=None):
     images = frames(name, size)
+    if display is not None:
+        images = [
+            ImageEnhance.Brightness(im.resize(display, Image.Resampling.NEAREST)).enhance(1.28)
+            for im in images
+        ]
     for suffix in ('', '_left') if mirrored else ('',):
         basename = 'lesley_' + name + suffix
         selected = [ImageOps.mirror(im) for im in images] if suffix else images
@@ -116,8 +121,13 @@ projectile_cell = (48, 16)
 grenade_fan_cell = (96, 64)
 for prefix, impact, muzzle in [('basic', (24, 24), (24, 24)), ('lethal', (52, 52), (24, 24)), ('ult', (32, 32), (32, 32))]:
     effect(prefix + '_impact', impact, 16)
-    effect(prefix + '_muzzle', muzzle, 9, mirrored=True)
-    effect(prefix + ('_projectile' if prefix == 'ult' else '_tracer'), projectile_cell, 9, kind='projectile')
+    if prefix == 'ult':
+        effect('ult_muzzle', muzzle, 13, mirrored=True, display=(42, 42))
+        effect('ult_projectile', projectile_cell, 9, kind='projectile',
+               anchor=(.69, .5), display=(82, 20))
+    else:
+        effect(prefix + '_muzzle', muzzle, 9, mirrored=True)
+        effect(prefix + '_tracer', projectile_cell, 9, kind='projectile')
 effect('lethal_ready', (24, 24), 20, (.5, .87), 'buff')
 effect('camouflage_edge', (48, 48), 20, (.5, .9), 'buff')
 effect('camouflage_ripple', (72, 40), 15)

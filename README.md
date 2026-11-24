@@ -1,17 +1,19 @@
-# MLBB Heroes (`mlbb_heroes`) — Teamfight Manager 2 Mod Pack
+# MLBB Heroes — Teamfight Manager 2
 
-A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfight Manager 2 (`v0.7.3+`)**, combining custom pixel-art sprites, multi-frame VFX, custom SFX, localization (`EN`, `KO`, `JA`, `ZH-Hans`, `ZH-Hant`, `FR`, `RU`, `VI`), and native Rust (`mod-api-stable`) gameplay mechanics into a single modular package (`mods/mlbb_heroes/`).
+Adds 30 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, skill effects, and voice lines.
+
+**New in v3.0.1 — Sun, the Monkey King.** Throw the Golden Staff, fight alongside two doppelgangers, and bring them together for Instantaneous Move. Fanny gets 10 Steel Cable charges and can use a cable to escape. Lesley’s Ultimate Snipe is easier to see, and Lesley and Valir have their default English voices.
+
+[Download v3.0.1 and read the patch notes](https://github.com/Bl0rryFac3/mlbb_heroes_tfm2/releases/tag/v3.0.1)
 
 ---
 
-## Roster (`v3.0.0`)
-
-**New hero: Valir, Son of Flames.** Valir joins as hero 29 alongside the v3.0.0 roster balance pass. The Mods menu shows build **1.1.179**.
+## Roster
 
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
 | **Aldous** *(Soul Contractor)* | `mlbb_aldous` | Melee (`AD`, `Tank`, `Shield`, `CC`) | Data-Driven + Native Companion (`v4.3.0`) | **Soul Steal** stacks (max `1,000`) add `+2.5` raw damage each to Skill 1 (`+2,500` at cap), **3D Crimson Shield** passive, AoE stun barrier, and global **Chase Fate** spiral drill dash. |
-| **Fanny** *(Blade Dancer)* | `mlbb_fanny` | Assassin (`Melee`, `AD`) | Native Rust Wall-Cable Engine (`v0.2.0`) | Raycasted **Steel Cable** wall-grappling (`165,000` range, 2-hop lookahead chaining, outer lane + jungle walls), **5-Charge Stack System** on Skill 2 badge, mid-flight **Tornado Strike**, **Prey Marks**, and **Cut Throat** finisher. |
+| **Fanny** *(Blade Dancer)* | `mlbb_fanny` | Assassin (`Melee`, `AD`) | Native Rust Wall-Cable Engine (`v0.2.0`) | Raycasted **Steel Cable** wall-grappling (`165,000` range, 2-hop lookahead chaining, outer lane + jungle walls), **10 Steel Cable charges** on Skill 2 badge, mid-flight **Tornado Strike**, **Prey Marks**, and **Cut Throat** finisher. |
 | **Lancelot** | `mlbb_lancelot` | Assassin (`Melee`, `AD`) | Data-Driven + Native AI/Effects | **Soul Cutter** timed stacks (`+7.5%` damage each, up to `+30%`); target-following **Puncture** and **Phantom Execution**; three-wave **Thorned Rose**. |
 | **Estes** *(Moon Elf King)* | `mlbb_estes` | Support (`AP`, `Heal`, `Shield`, `Range`) | Data-Driven + Native Tether Renderer | **Moonlight Immersion** healing link, **Domain of Moon Goddess** area effect, and **Blessing of Moon Goddess** team healing. |
 | **Gusion** *(Dagger Specialist)* | `mlbb_gusion` | Assassin (`AP`, `Melee`) | Data-Driven + Native Rust Passive/Effects | Four-rune empowered hit; **Sword Spike** mark and recast dash; five-dagger **Shadowblade Slaughter**; two-phase **Incandescence**. |
@@ -39,6 +41,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 | **Yu Zhong** *(Black Dragon)* | `mlbb_yu_zhong` | Melee | Data + native Rust | **Sha Residue** damages marked targets and heals Yu Zhong. **Black Dragon Form** lets him fly and extends his skill reach after landing. |
 | **Lesley** *(Deadly Sniper)* | `mlbb_lesley` | Range | Data + native Rust | **Lethal Shot** primes after every skill. **Master of Camouflage** conceals her, **Tactical Grenade** creates space, and **Ultimate Snipe** fires four rounds. |
 | **Valir** *(Son of Flames)* | `mlbb_valir` | Magician | Data + native Rust | **Ashing** detonates at three stacks. **Searing Torrent** pushes back enemies, and **Vengeance Flame** cleanses crowd control and empowers four casts. |
+| **Sun** *(Monkey King)* | `mlbb_sun` | Melee Fighter | Data + native Rust | **Simian God** reduces Defense. **Endless Variety / Swift Exchange** and **Clone Techniques** each summon a clone. **Instantaneous Move** brings all three together. |
 
 ---
 
@@ -64,7 +67,7 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
   - Colliding with an enemy during Steel Cable triggers a mid-air strike for `40 + 70% AD` physical damage and applies Prey Marks to enemy heroes.
 - **Skill 2 — `Steel Cable` (`mlbb_heroes:cable` + `mlbb_heroes:cable_ai`)**:
   - Fires a grappling claw hook (`"hook"`) and directional thin steel wire (`"wire_0".."wire_11"`) into arena obstacles or outer lane walls within `165,000` range and pulls Fanny at `5,200` speed.
-  - **Visible 5-Charge Stack System (`stack_skill_index: 1`)**: Holds up to **5 Cable Charges** displayed directly on her Skill 2 icon. Regenerates one charge every 95 ticks while grounded.
+  - **Steel Cable charges**. Holds up to **10 charges**, visible on the skill icon. Charges return one at a time while grounded.
   - **2-Hop Lookahead AI**: Evaluates 72 raycast angles and 2-hop wall chains (`Priority 1`: visible Enemy Champions; `Priority 2`: nearby Jungle Monsters when no enemy champions are visible).
 - **Ultimate — `Cut Throat` (`mlbb_heroes:cut_throat`)**:
   - Dashes to an enemy for `100 + 125% AD` physical damage. Each Prey Mark adds `35% AD`, up to two marks, and the hit consumes them.
@@ -362,12 +365,12 @@ A unified **Mobile Legends: Bang Bang (MLBB)** hero expansion pack for **Teamfig
 
 ## Installation
 
-1. Download the Windows ZIP (`mlbb_heroes_v3.0.0.zip`) and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
+1. Download the Windows ZIP (`mlbb_heroes_v3.0.1.zip`) and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
    ```text
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
 2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, Estes, or Gusion mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
-3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.179**.
+3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.188**.
 4. See `Install_Guide.html` for the screenshot guide. The optional MLBB Champ Info companion adds basic attack and passive cards.
 
 ---
@@ -400,6 +403,12 @@ mlbb_heroes/
 ```
 
 ---
+
+## v3.0.1
+
+- Sun joins as hero 30, with two doppelgangers, official skill icons, and default English voice lines.
+- Fanny gets 10 Steel Cable charges, midair redirects, retreat cables, and updated sprites and effects.
+- Ultimate Snipe shots are easier to see. Lesley and Valir have their default English voice lines.
 
 ## v3.0.0
 
@@ -449,7 +458,7 @@ Because `mlbb_heroes` is structured as a multi-hero pack, you can add new MLBB h
 
 ## Building From Source (Optional)
 
-`mlbb_heroes.dll` is included as a precompiled Windows x64 library; v2.9.0 was built with the Windows GNU target. Rebuild from the native crate after editing `sdk/candidate/lib.rs`:
+`mlbb_heroes.dll` is included as a precompiled Windows x64 library. Rebuild from the native crate after editing the source:
 
 - **Windows (PowerShell)**:
   ```powershell

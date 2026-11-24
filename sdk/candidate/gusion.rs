@@ -1730,7 +1730,6 @@ mod tower_safety_tests {
             champion: !tower,
             tower,
             monster: false,
-            level: 1,
             radius: 10_000.0,
             hp,
             max_hp,

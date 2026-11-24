@@ -1,0 +1,52 @@
+[
+  {
+    "asset_id": "de937742-e629-4bae-9b16-423f4431cf40",
+    "sha12": "3d17105e5b2e",
+    "label": "Sun master sprite"
+  },
+  {
+    "asset_id": "21141e14-996e-4bb4-91b2-793e05d5be65",
+    "sha12": "63444a83f6d0",
+    "label": "Sun clone summon VFX frame 01"
+  },
+  {
+    "asset_id": "5cfa27b6-8227-437c-ae5a-66b12d7db14c",
+    "sha12": "abba3d018b65",
+    "label": "Sun staff projectile VFX frame 01"
+  },
+  {
+    "asset_id": "6bbcc361-d050-4997-ab29-0b752bbe7861",
+    "sha12": "b6c1d41bbd27",
+    "label": "Sun staff hit spark VFX frame 01"
+  },
+  {
+    "asset_id": "0e657464-3abc-4d17-a45b-ab0123b96cd4",
+    "sha12": "d231b26bdb1c",
+    "label": "Sun Instantaneous Move rear slash VFX frame 01"
+  },
+  {
+    "asset_id": "1692c3d2-2484-4aec-b612-18e70ac145c5",
+    "sha12": "aaaad9f06480",
+    "label": "Sun Simian God armor shred marker"
+  },
+  {
+    "asset_id": "ff9e4e0a-e92b-43c7-98e3-08cb40dd5242",
+    "sha12": "c390bd4223d6",
+    "label": "Sun Simian God owner healing pulse"
+  },
+  {
+    "asset_id": "6b414865-b32d-4094-84aa-09c9a0972bcb",
+    "sha12": "c86c94a17f93",
+    "label": "Sun clone spawn and exchange smoke"
+  },
+  {
+    "asset_id": "ec2c0ec6-cff5-4775-9bd4-9c29feb9b842",
+    "sha12": "26a619cd4dbc",
+    "label": "Sun Instantaneous Move dash streak"
+  },
+  {
+    "asset_id": "80ec5f4a-9d6a-4aa0-b001-a0afb09dff99",
+    "sha12": "0e33064b7eda",
+    "label": "Sun basic staff swing arc"
+  }
+]

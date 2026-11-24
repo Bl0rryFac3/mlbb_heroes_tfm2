@@ -390,6 +390,14 @@ impl StablePassive for BelerickDeadlyThorns {
     fn on_spawn(&mut self, sim: &mut StableSim<'_>, _player: usize, entity: usize) {
         self.hits = 0;
         self.floor = THORN_FLOOR_TICKS;
+        if let Some(e) = sim.get_entity(entity) {
+            let (hp, max_hp) = e.hp();
+            crate::wlog(format!(
+                "[roster] Belerick build={} origin={:?} tick={} level={} hp={}/{} effective_stat_hp={} basic_interval_ticks={}",
+                env!("CARGO_PKG_VERSION"), sim.sim_origin().map(|o| o.kind), sim.tick(),
+                e.level(), hp, max_hp, e.stat().hp, e.attack_interval(),
+            ));
+        }
         self.voice.on_spawn(sim, entity, Some(SELECT_LINE));
     }
 

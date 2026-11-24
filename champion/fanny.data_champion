@@ -20,7 +20,7 @@
   "magic_resistance": 26,
   "move_speed": 1100,
   "hp_regen": 6,
-  "stack": 5,
+  "stack": 10,
   "crit_chance": 0
  },
  "growth": {
@@ -110,11 +110,11 @@
  "skill2": {
   "action_name": "skill2",
   "description": "#asset/base/text/champion?description.mlbb_fanny.skill2",
-  "duration": 10,
-  "cooltime": 18,
+  "duration": 4,
+  "cooltime": 6,
   "start_timing": 1,
   "cancelable": false,
-  "range": 1350000,
+  "range": 165000,
   "casting_type": "Targeting",
   "casting_target": "EnemyWithoutTower",
   "attack_type": "Skill",
@@ -225,6 +225,174 @@
    "name": "mlbb_fanny_cable_hook",
    "anim": "asset/mlbb_heroes/effects/fanny_hook",
    "tag": "hook",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_0",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_0",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_1",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_1",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_2",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_2",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_3",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_3",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_4",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_4",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_5",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_5",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_6",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_6",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_7",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_7",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_8",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_8",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_9",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_9",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_10",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_10",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_11",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_11",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_12",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_12",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_13",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_13",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_14",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_14",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_15",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_15",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_16",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_16",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_17",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_17",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_18",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_18",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_19",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_19",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_20",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_20",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_21",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_21",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_22",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_22",
+   "z": 1
+  },
+  {
+   "type": "Animation",
+   "name": "mlbb_fanny_cable_hook_23",
+   "anim": "asset/mlbb_heroes/effects/fanny_hook",
+   "tag": "hook_23",
    "z": 1
   },
   {

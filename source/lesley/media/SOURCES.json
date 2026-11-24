@@ -1,0 +1,222 @@
+{
+  "origin": "Mobile Legends: Bang Bang · Lesley · default English voice",
+  "audio_wiki": "https://mobile-legends.fandom.com/wiki/Lesley/Audio#Default",
+  "assets": [
+    {
+      "kind": "voice",
+      "cue": "select",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-select.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/0/06/Audio531-select.ogg",
+      "source_file": "Audio531-select.ogg",
+      "source_sha256": "862966355abfc1c399ce83988674f5ec3cc07b2423fefceec1bfbe7f0e3ca021"
+    },
+    {
+      "kind": "voice",
+      "cue": "move01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/d0/Audio531-move01.ogg",
+      "source_file": "Audio531-move01.ogg",
+      "source_sha256": "a7671214687194ac5e3b150b99d8aba77539f00afbe80fd3fdfad8f99bfb7224"
+    },
+    {
+      "kind": "voice",
+      "cue": "move02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/88/Audio531-move02.ogg",
+      "source_file": "Audio531-move02.ogg",
+      "source_sha256": "a69d2c1604e709b9757183b21f611c466a34d447afea02df2ad1cc2cb3b8a530"
+    },
+    {
+      "kind": "voice",
+      "cue": "move03",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/5/52/Audio531-move03.ogg",
+      "source_file": "Audio531-move03.ogg",
+      "source_sha256": "e6413a9d319d49534154fc5013296abd4b0af1c6153e7ee59556e7f599fb33db"
+    },
+    {
+      "kind": "voice",
+      "cue": "move04",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move04.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/87/Audio531-move04.ogg",
+      "source_file": "Audio531-move04.ogg",
+      "source_sha256": "e778680b1d02094c6f6aaffd2530c38c9bc386ce1871096bb77679c0e0559669"
+    },
+    {
+      "kind": "voice",
+      "cue": "move05",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move05.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/a/a0/Audio531-move05.ogg",
+      "source_file": "Audio531-move05.ogg",
+      "source_sha256": "4481495e8bc69058d0dc62da0b7536a50efc260a49c02b74e9888c34845fa42c"
+    },
+    {
+      "kind": "voice",
+      "cue": "move06",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move06.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/32/Audio531-move06.ogg",
+      "source_file": "Audio531-move06.ogg",
+      "source_sha256": "18eec8ff06af1110fbff550500cfeb5dbbb23118663f079288b3fef53969fb73"
+    },
+    {
+      "kind": "voice",
+      "cue": "move07",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move07.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/41/Audio531-move07.ogg",
+      "source_file": "Audio531-move07.ogg",
+      "source_sha256": "ca45756afc316e8a79f45e9c3b6524590ad2382ebff9de79b7ecc9cbf0ebf595"
+    },
+    {
+      "kind": "voice",
+      "cue": "move08",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move08.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/b2/Audio531-move08.ogg",
+      "source_file": "Audio531-move08.ogg",
+      "source_sha256": "0e2bbdea0f90dad57c765e09d59228d7badbb016cf8a338a8c5481b10f6e49f4"
+    },
+    {
+      "kind": "voice",
+      "cue": "move09",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move09.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/dc/Audio531-move09.ogg",
+      "source_file": "Audio531-move09.ogg",
+      "source_sha256": "18db93ab5f6fbaa521394a510c86b39730456852bb8a8460245266b6a325e331"
+    },
+    {
+      "kind": "voice",
+      "cue": "move10",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move10.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/d0/Audio531-move10.ogg",
+      "source_file": "Audio531-move10.ogg",
+      "source_sha256": "6728ee7a37e161df91f1ec64e38dd3caf37b3ea1fe6af4211cac346b81927a57"
+    },
+    {
+      "kind": "voice",
+      "cue": "move11",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move11.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/f/f1/Audio531-move11.ogg",
+      "source_file": "Audio531-move11.ogg",
+      "source_sha256": "feaea8ad660a0a99c14bb324c8d877762a1add57add168df63d1922d2b028771"
+    },
+    {
+      "kind": "voice",
+      "cue": "move12",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-move12.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/5/56/Audio531-move12.ogg",
+      "source_file": "Audio531-move12.ogg",
+      "source_sha256": "7fb0a807e077b8ef262bf2d161ccabf1d54d87bf78215b0ddc443133112b54c4"
+    },
+    {
+      "kind": "voice",
+      "cue": "basic01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-basic01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/b/bf/Audio531-basic01.ogg",
+      "source_file": "Audio531-basic01.ogg",
+      "source_sha256": "3199ac20c2bbf4b86ddac25009f9d5f38014b90cf2923cbad08311ea26063f19"
+    },
+    {
+      "kind": "voice",
+      "cue": "basic02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-basic02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/6f/Audio531-basic02.ogg",
+      "source_file": "Audio531-basic02.ogg",
+      "source_sha256": "fca0274640a6641f35b182868db31a31ecc5d7c6d5c97bc0cc55b8000ae32c47"
+    },
+    {
+      "kind": "voice",
+      "cue": "basic03",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-basic03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/cb/Audio531-basic03.ogg",
+      "source_file": "Audio531-basic03.ogg",
+      "source_sha256": "9a96ae95dc7e9777bbcf2a20ac1833b143d440a3053f58f84beb95467e77c987"
+    },
+    {
+      "kind": "voice",
+      "cue": "kill01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-kill01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/5/5b/Audio531-kill01.ogg",
+      "source_file": "Audio531-kill01.ogg",
+      "source_sha256": "9e59c9e42f41fa52d6231916cd60483445a617bb39e00b0073e9bae99ff4bb70"
+    },
+    {
+      "kind": "voice",
+      "cue": "kill02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-kill02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/42/Audio531-kill02.ogg",
+      "source_file": "Audio531-kill02.ogg",
+      "source_sha256": "2cb0e741da5aa628a1a2835bf01b25f8556001af8d34300e4b1ab32ccc6044bb"
+    },
+    {
+      "kind": "voice",
+      "cue": "kill03",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-kill03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/1/1a/Audio531-kill03.ogg",
+      "source_file": "Audio531-kill03.ogg",
+      "source_sha256": "b5884ed63264f97030e180f88002e32a8b514ed9bd9aa9eef6d08b5e76e8c0d1"
+    },
+    {
+      "kind": "voice",
+      "cue": "skill01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-skill01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/cb/Audio531-skill01.ogg",
+      "source_file": "Audio531-skill01.ogg",
+      "source_sha256": "f14c3fa987b2c63fb87470e43fb84e4d75a61118f804b8247c86879d1b3e89b7"
+    },
+    {
+      "kind": "voice",
+      "cue": "skill02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-skill02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/9/9c/Audio531-skill02.ogg",
+      "source_file": "Audio531-skill02.ogg",
+      "source_sha256": "1cbfbf71f68dc26ddf8bedbb2a348cb42fc832d9f43014da49bd1934ae6e3e24"
+    },
+    {
+      "kind": "voice",
+      "cue": "ult01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-ult01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/4c/Audio531-ult01.ogg",
+      "source_file": "Audio531-ult01.ogg",
+      "source_sha256": "cd0a3a2018688513d1c3fcec7e2e27004b87ae6fd60730756b23005734e04edc"
+    },
+    {
+      "kind": "voice",
+      "cue": "ult02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-ult02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/5/53/Audio531-ult02.ogg",
+      "source_file": "Audio531-ult02.ogg",
+      "source_sha256": "7498e5869df1fa3c80352768fcc244281ae27a74fe5329d53d1d0d98abe01cd2"
+    },
+    {
+      "kind": "voice",
+      "cue": "death01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-death01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/9/96/Audio531-death01.ogg",
+      "source_file": "Audio531-death01.ogg",
+      "source_sha256": "277c8089164e0d972b9228165f586472399eec5e7052aa45ae250f280173511e"
+    },
+    {
+      "kind": "voice",
+      "cue": "death02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-death02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/87/Audio531-death02.ogg",
+      "source_file": "Audio531-death02.ogg",
+      "source_sha256": "4eac9c98515c887a74a11893f63eedce2c10d8f2936c252c079446d43c1460ee"
+    },
+    {
+      "kind": "voice",
+      "cue": "respawn01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-respawn01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/9/9a/Audio531-respawn01.ogg",
+      "source_file": "Audio531-respawn01.ogg",
+      "source_sha256": "2eb9dafb52b19901d842cb7dc43ac422b05fb7ad79690eb38ad2436a020a8cc8"
+    },
+    {
+      "kind": "voice",
+      "cue": "respawn02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Audio531-respawn02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/6a/Audio531-respawn02.ogg",
+      "source_file": "Audio531-respawn02.ogg",
+      "source_sha256": "9e680640d17a6dce5cc2b83502c3da9a5f8f6d2617f70ad1aed7a144635fcee9"
+    }
+  ]
+}

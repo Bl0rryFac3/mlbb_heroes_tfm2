@@ -95,6 +95,12 @@ def validate_assets(files: list[Path], library_file: Path, library_name: str, pl
     if info.get("version") != cargo.get("package", {}).get("version"):
         raise SystemExit("mod.mod_info and Cargo.toml versions do not match")
 
+    fanny = json.loads((ROOT / "champion/fanny.data_champion").read_text())
+    fanny_override = json.loads((ROOT / "override/fanny_native.data_champion").read_text())
+    for field in ("stat", "growth"):
+        if fanny[field] != fanny_override[field]:
+            raise SystemExit(f"Fanny's roster and override {field} values do not match")
+
     # Ensure all Estes's Rust view-effect names resolve to champion bindings and the 12 frames.
     rust = (ROOT / SDK_CRATE / "estes.rs").read_text()
     data = json.loads((ROOT / "champion/mlbb_estes.data_champion").read_text())
@@ -153,6 +159,21 @@ def validate_assets(files: list[Path], library_file: Path, library_name: str, pl
     overrides = json.loads((ROOT / "mod.override_info").read_text())
     from validate_override_info import validate as validate_override_info
     validate_override_info(overrides)
+
+    # Native summons resolve an atlas by unit name in the base namespace.
+    # Data-driven champion sprites already use an explicit asset path.
+    for animation in (ROOT / "champions").glob("*#anim.fanim"):
+        stem = "champions/" + animation.name.removesuffix("#anim.fanim")
+        if f"asset/mlbb_heroes/{stem}" in refs:
+            continue
+        for suffix, extension in (("anim", "fanim"), ("sheet", "png")):
+            base_key = f"asset/base/aseprite_resources/{stem}#{suffix}"
+            mod_key = f"asset/mlbb_heroes/{stem}#{suffix}"
+            if overrides.get(base_key) != {"type": "override", "remapping": mod_key}:
+                raise SystemExit(f"Missing summoned unit atlas override: {base_key} -> {mod_key}")
+            if f"{stem}#{suffix}.{extension}" not in included:
+                raise SystemExit(f"Summoned unit atlas would be omitted: {mod_key}")
+
     sound_dir = ROOT / "sound" / "sfx"
     for sound_info in sorted(sound_dir.glob("*.sound_info")):
         event = sound_info.stem

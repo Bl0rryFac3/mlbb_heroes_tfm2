@@ -1,0 +1,249 @@
+{
+  "id": "mlbb_sun",
+  "category": "Melee",
+  "tags": [
+    "AD",
+    "Melee",
+    "Heal"
+  ],
+  "sprite": "asset/mlbb_heroes/sprite/sun",
+  "anim_prefix": "",
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/sun_skill",
+    "asset/mlbb_heroes/icons/sun_skill2",
+    "asset/mlbb_heroes/icons/sun_ult"
+  ],
+  "stat": {
+    "attack": 100,
+    "magic_power": 0,
+    "hp": 930,
+    "defence": 32,
+    "magic_resistance": 23,
+    "move_speed": 1040,
+    "hp_regen": 7,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "growth": {
+    "attack": 8,
+    "magic_power": 0,
+    "hp": 96,
+    "defence": 6,
+    "magic_resistance": 3,
+    "move_speed": 5,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_sun.attack",
+    "duration": 22,
+    "cooltime": 60,
+    "start_timing": 8,
+    "cancelable": true,
+    "range": 22000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "attack_type": "BaseAttack",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:sun_basic"
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_sun.skill",
+    "duration": 24,
+    "cooltime": 708,
+    "start_timing": 7,
+    "cancelable": false,
+    "range": 54000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:sun_staff"
+    }
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_sun.skill2",
+    "duration": 30,
+    "cooltime": 360,
+    "start_timing": 4,
+    "cancelable": false,
+    "range": 46000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:sun_strike"
+    }
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_sun.ult",
+    "duration": 32,
+    "cooltime": 2400,
+    "start_timing": 13,
+    "cancelable": false,
+    "range": 52000,
+    "casting_type": "Targeting",
+    "casting_target": "EnemyWithoutTower",
+    "attack_type": "Skill",
+    "can_use_with_move": false,
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:sun_ultimate"
+    }
+  },
+  "passive": {
+    "passive_ref": "mlbb_heroes:sun_passive",
+    "params": {}
+  },
+  "view_effects": [
+    {
+      "type": "Animation",
+      "name": "sun_basic_staff_swing_arc",
+      "anim": "asset/mlbb_heroes/effects/sun_basic_staff_swing_arc",
+      "tag": "play",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_hit_spark",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_hit_spark",
+      "tag": "play",
+      "z": 3,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_clone_spawn_smoke",
+      "anim": "asset/mlbb_heroes/effects/sun_clone_spawn_smoke",
+      "tag": "play",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_clone_summon",
+      "anim": "asset/mlbb_heroes/effects/sun_clone_summon",
+      "tag": "play",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_clone_expire",
+      "anim": "asset/mlbb_heroes/effects/sun_clone_expire",
+      "tag": "play",
+      "z": 1,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_simian_heal_pulse",
+      "anim": "asset/mlbb_heroes/effects/sun_simian_heal_pulse",
+      "tag": "play",
+      "z": 3,
+      "is_follow": true
+    },
+    {
+      "type": "Animation",
+      "name": "sun_instantaneous_dash_streak",
+      "anim": "asset/mlbb_heroes/effects/sun_instantaneous_dash_streak",
+      "tag": "play",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_0",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_0",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_1",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_1",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_2",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_2",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_3",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_3",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_4",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_4",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_5",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_5",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_6",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_6",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_7",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_7",
+      "z": 2,
+      "is_follow": false
+    },
+    {
+      "type": "Animation",
+      "name": "sun_staff_step_8",
+      "anim": "asset/mlbb_heroes/effects/sun_staff_projectile",
+      "tag": "step_8",
+      "z": 2,
+      "is_follow": false
+    }
+  ],
+  "view_buffs": [
+    {
+      "type": "Animated",
+      "name": "mlbb_sun_armor_shred",
+      "anim": "asset/mlbb_heroes/effects/sun_armor_shred_stacks",
+      "tag": "play",
+      "z": 3
+    }
+  ]
+}

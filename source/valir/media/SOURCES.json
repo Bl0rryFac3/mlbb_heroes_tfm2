@@ -1,0 +1,134 @@
+{
+  "origin": "Mobile Legends: Bang Bang · Valir · default English voice",
+  "audio_wiki": "https://mobile-legends.fandom.com/wiki/Valir/Audio#Default",
+  "assets": [
+    {
+      "kind": "voice",
+      "cue": "select",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.select.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/c/c7/Valir.select.ogg",
+      "source_file": "Valir.select.ogg",
+      "source_sha256": "8820411b2520d5be7a26639653aa4a4ed88d95ebfacf380184cd99dd7daa5ce1"
+    },
+    {
+      "kind": "voice",
+      "cue": "move01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.move01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/35/Valir.move01.ogg",
+      "source_file": "Valir.move01.ogg",
+      "source_sha256": "0d74768a7920d627e499c8acc31ea07cc2eb87a33ba4e16b042a6c1c86611027"
+    },
+    {
+      "kind": "voice",
+      "cue": "move02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.move02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/8a/Valir.move02.ogg",
+      "source_file": "Valir.move02.ogg",
+      "source_sha256": "73827610c2ff8e55593f3a6fbdf1725714367e0d1e80abc7206375147a037b2c"
+    },
+    {
+      "kind": "voice",
+      "cue": "move03",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.move03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/43/Valir.move03.ogg",
+      "source_file": "Valir.move03.ogg",
+      "source_sha256": "9847cb03a262a7a5ea08354eeefbcf4ad47f6f6f23290524d04ff0ddd190b3f4"
+    },
+    {
+      "kind": "voice",
+      "cue": "move04",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.move04.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/2/21/Valir.move04.ogg",
+      "source_file": "Valir.move04.ogg",
+      "source_sha256": "c2f6c17a1168a346e14d5ef6aef64b6f265d5f3a9ce6c8addcb738a83e456a3f"
+    },
+    {
+      "kind": "voice",
+      "cue": "move05",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.move05.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/5/58/Valir.move05.ogg",
+      "source_file": "Valir.move05.ogg",
+      "source_sha256": "0d5439e895543da096cbccaaf2228dadb684940c208344f154822f4bd558c1bc"
+    },
+    {
+      "kind": "voice",
+      "cue": "move06",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.move06.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/4/47/Valir.move06.ogg",
+      "source_file": "Valir.move06.ogg",
+      "source_sha256": "5c810667ebc09f93320d409274291a54c6192c2f43ee778334cdb4e6dd6e6de8"
+    },
+    {
+      "kind": "voice",
+      "cue": "move07",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.move07.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/0/07/Valir.move07.ogg",
+      "source_file": "Valir.move07.ogg",
+      "source_sha256": "06d74e9cc447c828e40e738426a1c07994da58d41b37e47bcb526374612d0752"
+    },
+    {
+      "kind": "voice",
+      "cue": "skill01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.skill01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/68/Valir.skill01.ogg",
+      "source_file": "Valir.skill01.ogg",
+      "source_sha256": "d19baea4a7252619ac3f0f649749fc8a357813c34c1c7eabf93e7b33f84789bc"
+    },
+    {
+      "kind": "voice",
+      "cue": "skill02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.skill02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/3/34/Valir.skill02.ogg",
+      "source_file": "Valir.skill02.ogg",
+      "source_sha256": "493456c0da9fc9a0a4c8de0e75bb41cefb402f7ecbf4d86c604c8ab103bc0171"
+    },
+    {
+      "kind": "voice",
+      "cue": "skill03",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.skill03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/d6/Valir.skill03.ogg",
+      "source_file": "Valir.skill03.ogg",
+      "source_sha256": "6daca6c59c7410a27a172600d8a2aae39e10d7ca77db245a257a18b065370a3c"
+    },
+    {
+      "kind": "voice",
+      "cue": "skill04",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.skill04.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/0/0d/Valir.skill04.ogg",
+      "source_file": "Valir.skill04.ogg",
+      "source_sha256": "8cd2fe4fb35bd3904689b05d6c7daff4fe0a36885c3e77218c0bfb3b114bbc8a"
+    },
+    {
+      "kind": "voice",
+      "cue": "ult",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.ult.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/6/6e/Valir.ult.ogg",
+      "source_file": "Valir.ult.ogg",
+      "source_sha256": "44a94692d97275b605a3343808d2ca48844ee1956ce016b388e043bc9755b5e9"
+    },
+    {
+      "kind": "voice",
+      "cue": "death01",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.death01.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/8/8e/Valir.death01.ogg",
+      "source_file": "Valir.death01.ogg",
+      "source_sha256": "b88f938aaa3af1c331ccc576852f76a40dab578014616674451a19802b6a0817"
+    },
+    {
+      "kind": "voice",
+      "cue": "death02",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.death02.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/d/df/Valir.death02.ogg",
+      "source_file": "Valir.death02.ogg",
+      "source_sha256": "c1f793d17f1dd60a37a6caab3b45089616d2e792df31ba237fd0d4396fceb7bf"
+    },
+    {
+      "kind": "voice",
+      "cue": "death03",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Valir.death03.ogg",
+      "source_url": "https://static.wikia.nocookie.net/mobile-legends/images/9/92/Valir.death03.ogg",
+      "source_file": "Valir.death03.ogg",
+      "source_sha256": "6f4a8ae42cd07c789169ab2a301e8d3c321a52b003d27bdf14a16fef32c1e943"
+    }
+  ]
+}

@@ -1,11 +1,12 @@
 //! Stable-ABI native gameplay for the multi-hero MLBB Heroes pack.
 //!
-//! Existing Aldous and Fanny behavior is preserved. Lancelot is registered in
-//! `lancelot.rs`; his visual timelines and skill geometry remain data-driven.
+//! Lancelot is registered in `lancelot.rs`; his visual timelines and skill geometry remain data-driven.
 
 mod alpha;
 mod angela;
 mod eudora;
+mod fanny_flight;
+mod fanny_map;
 mod julian;
 mod popol_probe;
 mod popol_menu;
@@ -33,6 +34,7 @@ mod hanabi;
 mod karrie;
 mod lancelot;
 mod obsidia;
+mod sun;
 mod uranus;
 mod zhask;
 
@@ -54,7 +56,7 @@ const CELL: f64 = 32_000.0;
 const CABLE_RANGE: f64 = 165_000.0; // Reaches across MOBA wall clusters (median gap 91k, max 145k) and lane outer walls.
 const CABLE_SPEED: f64 = 5_200.0; // Fast pro-Fanny cable flight speed.
 const MIN_ENGAGE_CABLE_DISTANCE: f64 = 24_000.0;
-const TARGET_PASS_BUFFER: f64 = 28_000.0; // Matches mid-flight Tornado hit check.
+const TARGET_PASS_BUFFER: f64 = FLIGHT_TORNADO_RADIUS;
 const TARGET_PASS_BONUS: f64 = 65_000.0;
 const WALL_GAP: f64 = 1_000.0;
 const WALL_STANDOFF: f64 = 14_000.0;
@@ -64,27 +66,19 @@ const WALL_MIN: f64 = 8_000.0;
 const RAY_DIRS: usize = 72;
 
 const CABLE_CHAIN: &str = "mlbb_fanny_cable_chain";
-const CABLE_ESCAPE: &str = "mlbb_fanny_cable_escape";
 const CABLE_IMPACT_EFFECT: &str = "mlbb_heroes:cable_impact";
 const CABLE_DRAW_EFFECT: &str = "mlbb_heroes:cable_draw";
 const FLYING: &str = "mlbb_fanny_flying";
 
-// Allow target acquisition across the standard 5v5 map.
-const SKILL2_RANGE: f64 = 1_350_000.0;
-const CHAMP_ENGAGE_RANGE: f64 = 1_350_000.0;
-const JUNGLE_CABLE_RANGE: f64 = 420_000.0;
-const JUNGLE_COMMIT_RADIUS: f64 = 160_000.0;
+// Only the stock-selected local target can initiate a combat cable.
+const SKILL2_RANGE: f64 = CABLE_RANGE;
 const TOWER_DANGER_RADIUS: f64 = 52_000.0;
 const ESCAPE_ROUTE_RADIUS: f64 = 180_000.0;
 const PREY_1: &str = "mlbb_fanny_prey_1";
 const PREY_2: &str = "mlbb_fanny_prey_2";
-const CABLE_RECHARGE_LOCK: &str = "mlbb_fanny_cable_recharge_lock";
 const HEAL_COOLDOWN_BUFF: &str = "mlbb_fanny_heal_cd";
 const HEAL_COOLDOWN_TICKS: usize = 45; // 0.75s ICD on 4.5%..6.5% Max HP heal
-const FOUNTAIN_RADIUS: f64 = 135_000.0;
-const BASE_CABLE_CHARGES: usize = 5;
-const MAX_CABLE_CHARGES: usize = 5;
-const MIN_CHARGES_TO_START_CHAIN: usize = 2;
+const MAX_CABLE_CHARGES: usize = 10;
 const CABLE_REGEN_TICKS: usize = 95; // +1 cable charge every ~1.58s when not flying.
 const CHAIN_WINDOW: usize = 150; // 2.5 seconds recast chain window.
 const MARK_DURATION: usize = 300; // 5 seconds.
@@ -108,7 +102,6 @@ const MODES: [GameModeKindV1; 3] = [
     GameModeKindV1::SingleLane,
     GameModeKindV1::DeathMatch,
 ];
-const LOG_EVERY: usize = 30;
 
 static LOG_LOCK: Mutex<()> = Mutex::new(());
 
@@ -326,8 +319,9 @@ struct FannyMapReader;
 
 impl StableMapCustomizer for FannyMapReader {
     fn customize(&self, mode: Option<GameModeKindV1>, doc: &mut StableJsonDoc<'_>) {
-        if let (Some(mode), Some(raw)) = (mode, doc.get_json("walls")) {
-            if let Some(mut grid) = parse_int_grid(&raw) {
+        if let Some(mode) = mode {
+            fanny_map::capture(mode, doc.get_json("towers").as_deref().unwrap_or_default());
+            if let Some(mut grid) = doc.get_json("walls").as_deref().and_then(parse_int_grid) {
                 if mode == GameModeKindV1::Moba {
                     grid.bounds = Some(MOBA_BOUNDS);
                 }
@@ -350,7 +344,6 @@ struct UnitSnap {
     champion: bool,
     tower: bool,
     monster: bool,
-    level: usize,
     radius: f64,
     hp: usize,
     max_hp: usize,
@@ -462,70 +455,6 @@ fn entity_key_ro(sim: &StableSim<'_>, entity_id: usize) -> EntityKey {
 static SPIN_HISTORY: LazyLock<Mutex<HashMap<EntityKey, (usize, usize)>>> =
     LazyLock::new(|| Mutex::new(HashMap::new()));
 
-// Exact Fountain (Well) spawn position per Fanny entity, plus hysteresis latch so she heals to >= 93% HP!
-static FOUNTAIN_POS: LazyLock<Mutex<HashMap<EntityKey, (f64, f64)>>> =
-    LazyLock::new(|| Mutex::new(HashMap::new()));
-static HEALING_UNTIL_FULL: LazyLock<Mutex<HashMap<EntityKey, bool>>> =
-    LazyLock::new(|| Mutex::new(HashMap::new()));
-
-fn get_fountain_pos(key: EntityKey, team: usize) -> (f64, f64) {
-    if let Some(pos) = FOUNTAIN_POS
-        .lock()
-        .unwrap_or_else(|p| p.into_inner())
-        .get(&key)
-        .copied()
-    {
-        return pos;
-    }
-    if team == 0 {
-        (96_000.0, 864_000.0)
-    } else {
-        (864_000.0, 96_000.0)
-    }
-}
-
-/// Updates and returns whether Fanny is currently latched in Well-Heal / Low-HP Retreat mode.
-/// - Latches ON when:
-///   (a) Fanny is inside/near her Fountain (`<= FOUNTAIN_RADIUS`) with `< 92% HP`, OR
-///   (b) Fanny is low HP (`<= 42% HP`) and safe (`!escaping`, no enemy champion within 150k).
-/// - Stays ON until her HP reaches `>= 93% Max HP`!
-fn update_and_check_well_heal_lock(
-    key: EntityKey,
-    all: &[UnitSnap],
-    caster: &UnitSnap,
-    escaping: bool,
-) -> bool {
-    let hp_pct = caster.hp.saturating_mul(100) / caster.max_hp.max(1);
-    let mut map = HEALING_UNTIL_FULL.lock().unwrap_or_else(|p| p.into_inner());
-    if hp_pct >= 93 {
-        map.insert(key, false);
-        return false;
-    }
-    let fountain = get_fountain_pos(key, caster.team);
-    let dist_to_fountain = distance(caster.pos, fountain);
-    let in_fountain_area = dist_to_fountain <= FOUNTAIN_RADIUS;
-    let enemy_close = all.iter().any(|u| {
-        u.alive
-            && u.targetable
-            && u.champion
-            && u.team != caster.team
-            && distance(caster.pos, u.pos) <= 150_000.0
-    });
-    if in_fountain_area && hp_pct < 92 {
-        map.insert(key, true);
-        return true;
-    }
-    if !escaping && !enemy_close && hp_pct <= 42 {
-        map.insert(key, true);
-        return true;
-    }
-    let currently_latched = map.get(&key).copied().unwrap_or(false);
-    if currently_latched && !escaping && !enemy_close {
-        return true;
-    }
-    false
-}
-
 fn record_spin_hit_and_get_count(key: EntityKey, now_tick: usize) -> usize {
     let mut map = SPIN_HISTORY.lock().unwrap_or_else(|p| p.into_inner());
     let entry = map.entry(key).or_insert((0, 0));
@@ -574,11 +503,7 @@ fn refund_cable_charge_and_heal_with_marks(
     marks: usize,
 ) {
     let current = get_cable_charges(sim, caster_id);
-    let next = (current + bonus_charges).min(MAX_CABLE_CHARGES);
-    set_cable_charges(sim, caster_id, next);
-    if next >= MIN_CHARGES_TO_START_CHAIN {
-        sim.entity_remove_buff(caster_id, CABLE_RECHARGE_LOCK);
-    }
+    set_cable_charges(sim, caster_id, current.saturating_add(bonus_charges));
     if !has_named_buff(sim, caster_id, HEAL_COOLDOWN_BUFF) {
         sim.add_buff(
             caster_id,
@@ -615,7 +540,6 @@ fn units(sim: &StableSim<'_>) -> Vec<UnitSnap> {
                 champion,
                 tower,
                 monster,
-                level: entity.level().max(1),
                 radius: entity.radius().max(8_000) as f64,
                 hp,
                 max_hp,
@@ -755,72 +679,64 @@ fn compute_swing_landing(
 /// map edge. The hook `anchor` sits on the wall surface (`low - WALL_GAP`),
 /// while `(x, y)` is Fanny's swing landing position.
 pub fn wall_hits(grid: &Grid, origin: (f64, f64), range: f64) -> Vec<WallHit> {
-    let mut hits = Vec::new();
-    let origin_in_solid = grid.solid(origin.0, origin.1);
-    for index in 0..RAY_DIRS {
+    (0..RAY_DIRS).filter_map(|index| {
         let angle = index as f64 * std::f64::consts::TAU / RAY_DIRS as f64;
-        let direction = (angle.cos(), angle.sin());
-        let mut sample_distance = WALL_STEP;
-        // If Fanny is currently mid-flight over a wall cell (`ignore_wall: true`),
-        // step out of the current wall first before searching for the next wall.
-        if origin_in_solid {
-            while sample_distance <= range {
-                let sample = point_on_ray(origin, direction, sample_distance);
-                if !grid.solid(sample.0, sample.1) {
-                    break;
-                }
-                sample_distance += WALL_STEP;
-            }
-        }
-        let mut free_distance = sample_distance;
-        while sample_distance <= range + WALL_GAP {
+        wall_hit_on_ray(grid, origin, (angle.cos(), angle.sin()), range)
+    }).collect()
+}
+
+fn wall_hit_on_ray(
+    grid: &Grid, origin: (f64, f64), direction: (f64, f64), range: f64,
+) -> Option<WallHit> {
+    let mut sample_distance = WALL_STEP;
+    if grid.solid(origin.0, origin.1) {
+        while sample_distance <= range {
             let sample = point_on_ray(origin, direction, sample_distance);
-            if grid.bounds.is_none() && !grid.on_map(sample.0, sample.1) {
+            if !grid.solid(sample.0, sample.1) {
                 break;
             }
-            if grid.solid(sample.0, sample.1) {
-                let (mut low, mut high) = (free_distance, sample_distance);
-                for _ in 0..14 {
-                    let middle = (low + high) / 2.0;
-                    let point = point_on_ray(origin, direction, middle);
-                    if grid.solid(point.0, point.1) {
-                        high = middle;
-                    } else {
-                        low = middle;
-                    }
-                }
-                let hook_distance = (low - WALL_GAP).max(0.0);
-                let anchor = point_on_ray(origin, direction, hook_distance);
-                if hook_distance >= WALL_MIN
-                    && hook_distance <= range
-                    && !grid.is_wall(anchor.0, anchor.1)
-                    && !grid.beyond_edge(anchor.0, anchor.1)
-                {
-                    let landing = if range >= 100_000.0 {
-                        compute_swing_landing(grid, origin, direction, low)
-                    } else {
-                        anchor
-                    };
-                    let flight_dist = distance(origin, landing).max(hook_distance);
-                    if !grid.is_wall(landing.0, landing.1)
-                        && !grid.beyond_edge(landing.0, landing.1)
-                    {
-                        hits.push(WallHit {
-                            x: landing.0,
-                            y: landing.1,
-                            distance: flight_dist,
-                            anchor_x: anchor.0,
-                            anchor_y: anchor.1,
-                        });
-                    }
-                }
-                break;
-            }
-            free_distance = sample_distance;
             sample_distance += WALL_STEP;
         }
     }
-    hits
+    let mut free_distance = sample_distance;
+    while sample_distance <= range + WALL_GAP {
+        let sample = point_on_ray(origin, direction, sample_distance);
+        if grid.bounds.is_none() && !grid.on_map(sample.0, sample.1) {
+            return None;
+        }
+        if grid.solid(sample.0, sample.1) {
+            let (mut low, mut high) = (free_distance, sample_distance);
+            for _ in 0..14 {
+                let middle = (low + high) / 2.0;
+                let point = point_on_ray(origin, direction, middle);
+                if grid.solid(point.0, point.1) {
+                    high = middle;
+                } else {
+                    low = middle;
+                }
+            }
+            let hook_distance = (low - WALL_GAP).max(0.0);
+            let anchor = point_on_ray(origin, direction, hook_distance);
+            if !(WALL_MIN..=range).contains(&hook_distance) || grid.solid(anchor.0, anchor.1) {
+                return None;
+            }
+            let landing = if range >= 100_000.0 {
+                compute_swing_landing(grid, origin, direction, low)
+            } else {
+                anchor
+            };
+            return (!grid.solid(landing.0, landing.1)).then(|| WallHit {
+                x: landing.0,
+                y: landing.1,
+                distance: distance(origin, landing).max(hook_distance),
+                anchor_x: anchor.0,
+                anchor_y: anchor.1,
+            });
+        }
+        free_distance = sample_distance;
+        sample_distance += WALL_STEP;
+    }
+    None
 }
 
 fn segment_distance(point: (f64, f64), a: (f64, f64), b: (f64, f64)) -> f64 {
@@ -949,178 +865,22 @@ fn is_unsafe_under_enemy_tower_with_margin(
     false
 }
 
-fn is_unsafe_under_enemy_tower(all: &[UnitSnap], caster: &UnitSnap, target: &UnitSnap) -> bool {
-    is_unsafe_under_enemy_tower_with_margin(all, caster, target, 0.0)
-}
-
-/// Unified target selection with Jungle-Camp Commitment + Realistic Champion Engage Range + Tower-Dive Safety:
-/// - Prevents Fanny from pacing back and forth between Jungle Monsters and distant Enemy Champions!
-fn select_smart_target<'a>(
-    sim: &StableSim<'_>,
-    all: &'a [UnitSnap],
-    caster: &UnitSnap,
-    preferred_id: Option<usize>,
-    escaping: bool,
-) -> Option<&'a UnitSnap> {
-    let valid_enemy_champ = |unit: &&UnitSnap| {
-        unit.id != caster.id
-            && unit.team != caster.team
-            && unit.alive
-            && unit.targetable
-            && unit.champion
-            && is_unit_visible(sim, caster.team, unit)
-            && (escaping || !is_unsafe_under_enemy_tower(all, caster, unit))
-    };
-
-    let valid_monster = |unit: &&UnitSnap| {
-        unit.id != caster.id
-            && unit.team != caster.team
-            && unit.alive
-            && unit.targetable
-            && unit.monster
-            && is_unit_visible(sim, caster.team, unit)
-            && distance(caster.pos, unit.pos) <= JUNGLE_CABLE_RANGE
-    };
-
-    if escaping {
-        return all
-            .iter()
-            .filter(|u| valid_enemy_champ(u) && distance(caster.pos, u.pos) <= CHAMP_ENGAGE_RANGE)
-            .min_by(|a, b| distance(caster.pos, a.pos).total_cmp(&distance(caster.pos, b.pos)));
-    }
-
-    // Check if an enemy champion is immediately fighting/threatening Fanny in close proximity (<= 195k)
-    let close_threat_champ = all
-        .iter()
-        .filter(|u| valid_enemy_champ(u) && distance(caster.pos, u.pos) <= 195_000.0)
-        .min_by(|a, b| distance(caster.pos, a.pos).total_cmp(&distance(caster.pos, b.pos)));
-    if let Some(champ) = close_threat_champ {
-        return Some(champ);
-    }
-
-    // JUNGLE COMMITMENT: If Fanny is currently clearing a Jungle camp (monster within 155k, or already
-    // damaged monster within 220k, or base AI explicitly targeted a monster within 260k) and no enemy
-    // champion is within 195k, stay committed to finishing the Jungle Monster so she NEVER paces back and forth!
-    if let Some(pref_id) = preferred_id {
-        if let Some(pref_monster) = all.iter().find(|u| {
-            u.id == pref_id && valid_monster(u) && distance(caster.pos, u.pos) <= 260_000.0
-        }) {
-            return Some(pref_monster);
-        }
-    }
-    if let Some(active_monster) = all
-        .iter()
-        .filter(|u| {
-            valid_monster(u)
-                && (distance(caster.pos, u.pos) <= JUNGLE_COMMIT_RADIUS
-                    || (u.hp < u.max_hp && distance(caster.pos, u.pos) <= 220_000.0))
-        })
-        .min_by(|a, b| distance(caster.pos, a.pos).total_cmp(&distance(caster.pos, b.pos)))
-    {
-        return Some(active_monster);
-    }
-
-    // Otherwise, no nearby Jungle Monster is holding Fanny -> use full-map range (1,350,000) to gank any lane!
-    if let Some(pref_id) = preferred_id {
-        if let Some(pref_champ) = all.iter().find(|u| {
-            u.id == pref_id
-                && valid_enemy_champ(u)
-                && distance(caster.pos, u.pos) <= CHAMP_ENGAGE_RANGE
-        }) {
-            return Some(pref_champ);
-        }
-    }
-    if let Some(champ) = all
-        .iter()
-        .filter(|u| valid_enemy_champ(u) && distance(caster.pos, u.pos) <= CHAMP_ENGAGE_RANGE)
-        .min_by(|a, b| distance(caster.pos, a.pos).total_cmp(&distance(caster.pos, b.pos)))
-    {
-        return Some(champ);
-    }
-
-    // Finally, fall back to any visible Jungle Monster on the map so she never sits in the Well
-    all.iter()
-        .filter(|u| {
-            u.id != caster.id
-                && u.team != caster.team
-                && u.alive
-                && u.targetable
-                && u.monster
-                && is_unit_visible(sim, caster.team, u)
-        })
-        .min_by(|a, b| distance(caster.pos, a.pos).total_cmp(&distance(caster.pos, b.pos)))
-}
-
-fn choose_target<'a>(
+fn stock_target<'a>(
     sim: &StableSim<'_>,
     all: &'a [UnitSnap],
     caster: &UnitSnap,
     input: InputTargetV1,
 ) -> Option<&'a UnitSnap> {
-    let preferred_id = (input.kind == InputTargetKindV1::Target.code()).then_some(input.target_id);
-    select_smart_target(sim, all, caster, preferred_id, false)
-}
-
-fn dangerous_escape(all: &[UnitSnap], caster: &UnitSnap) -> bool {
-    let hp_pct = caster.hp.saturating_mul(100) / caster.max_hp.max(1);
-    // Check if Fanny is inside an alive enemy Tower's danger radius!
-    let under_enemy_tower = all.iter().any(|u| {
-        if !u.tower || !u.alive || u.team == caster.team {
-            return false;
-        }
-        if distance(caster.pos, u.pos) > TOWER_DANGER_RADIUS {
-            return false;
-        }
-        let allies_tanking = all
-            .iter()
-            .filter(|a| {
-                a.alive
-                    && a.team == caster.team
-                    && a.id != caster.id
-                    && distance(a.pos, u.pos) <= TOWER_DANGER_RADIUS * 0.90
-            })
-            .count();
-        let execute_target_here = all.iter().any(|e| {
-            e.alive
-                && e.targetable
-                && e.champion
-                && e.team != caster.team
-                && distance(caster.pos, e.pos) <= 36_000.0
-                && e.hp.saturating_mul(100) <= e.max_hp.max(1).saturating_mul(30)
-        });
-        hp_pct <= 60 || (allies_tanking < 2 && !execute_target_here)
-    });
-    if under_enemy_tower {
-        return true;
+    if input.kind != InputTargetKindV1::Target.code() {
+        return None;
     }
-
-    let nearby_foes: Vec<&UnitSnap> = all
-        .iter()
-        .filter(|unit| {
-            unit.alive
-                && unit.targetable
-                && unit.champion
-                && unit.team != caster.team
-                && distance(caster.pos, unit.pos) <= 48_000.0
-        })
-        .collect();
-    let nearby_allies = all
-        .iter()
-        .filter(|unit| {
-            unit.alive
-                && unit.champion
-                && unit.team == caster.team
-                && unit.id != caster.id
-                && distance(caster.pos, unit.pos) <= 42_000.0
-        })
-        .count();
-    let low_hp = hp_pct <= 30;
-    (low_hp && !nearby_foes.is_empty())
-        || (nearby_foes.len() >= 2 && nearby_allies == 0 && hp_pct <= 55)
-        || (nearby_foes.len() >= 3 && nearby_allies <= 1 && hp_pct <= 65)
+    all.iter().find(|target| {
+        target.id == input.target_id && target.alive && target.targetable
+            && target.team != caster.team && !target.tower
+            && is_unit_visible(sim, caster.team, target)
+    })
 }
 
-#[cfg(test)]
 fn choose_engage_hit(
     hits: &[WallHit],
     here: (f64, f64),
@@ -1251,42 +1011,6 @@ fn choose_escape_hit(hits: &[WallHit], here: (f64, f64), enemies: &[&UnitSnap]) 
         .map(|(_, hit)| hit)
 }
 
-fn choose_cable_route(
-    all: &[UnitSnap],
-    caster: &UnitSnap,
-    target: &UnitSnap,
-    escaping: bool,
-) -> Option<WallHit> {
-    let grid = current_grid(all);
-    let hits = wall_hits(&grid, caster.pos, CABLE_RANGE);
-    if escaping {
-        let enemies: Vec<&UnitSnap> = all
-            .iter()
-            .filter(|unit| {
-                unit.alive
-                    && (unit.champion || unit.tower)
-                    && unit.team != caster.team
-                    && distance(caster.pos, unit.pos) <= ESCAPE_ROUTE_RADIUS
-            })
-            .collect();
-        choose_escape_hit(&hits, caster.pos, &enemies)
-    } else {
-        let hostile_towers: Vec<UnitSnap> = all
-            .iter()
-            .filter(|unit| unit.tower && unit.alive && unit.team != caster.team)
-            .cloned()
-            .collect();
-        choose_engage_hit_with_grid(
-            Some(&grid),
-            &hits,
-            caster.pos,
-            target.pos,
-            target.radius,
-            &hostile_towers,
-        )
-    }
-}
-
 fn force_move(
     sim: &mut StableSim<'_>,
     entity_id: usize,
@@ -1331,7 +1055,7 @@ const CABLE_WIRE_EFFECTS: [&str; 12] = [
 ];
 
 /// Draw the directional thin steel cable wire (`mlbb_fanny_cable_wire_0..11`) along the
-/// tether and a SINGLE hook head (`mlbb_fanny_cable_hook`) at the wall anchor (`anchor`).
+/// tether and one directional hook head at its current endpoint.
 fn draw_cable_frame(
     sim: &mut StableSim<'_>,
     caster_id: usize,
@@ -1350,12 +1074,12 @@ fn draw_cable_frame(
     );
 
     let length = distance(from, anchor);
+    let dx = anchor.0 - from.0;
+    let dy = anchor.1 - from.1;
+    let angle = dy.atan2(dx).rem_euclid(std::f64::consts::TAU);
+    let heading = ((angle * 24.0 / std::f64::consts::TAU).round() as usize) % 24;
     if length >= 12_000.0 {
-        let dx = anchor.0 - from.0;
-        let dy = anchor.1 - from.1;
-        let theta = dy.atan2(dx).rem_euclid(std::f64::consts::PI);
-        let bucket = (((theta / std::f64::consts::PI) * 12.0).round() as usize) % 12;
-        let wire_effect = CABLE_WIRE_EFFECTS[bucket];
+        let wire_effect = CABLE_WIRE_EFFECTS[heading % CABLE_WIRE_EFFECTS.len()];
         // Stop wire segments 10,000 units before the wall anchor so the wire feeds cleanly into the single hook head
         let wire_len = (length - 10_000.0).max(4_000.0);
         let step = 13_000.0;
@@ -1371,7 +1095,8 @@ fn draw_cable_frame(
     }
     if draw_hook {
         let anchor_target = InputTargetV1::pos(world_u64(anchor.0), world_u64(anchor.1));
-        let _ = sim.play_view_effect("mlbb_fanny_cable_hook", caster_id, &anchor_target, 0, 0, 0);
+        let effect = format!("mlbb_fanny_cable_hook_{heading}");
+        let _ = sim.play_view_effect(&effect, caster_id, &anchor_target, 0, 0, 0);
     }
 
     let length = length.max(1.0);
@@ -1393,32 +1118,6 @@ fn draw_cable_frame(
         );
     }
     sim.debug_draw_circle(world_u64(anchor.0), world_u64(anchor.1), 1_500, HOOK);
-}
-
-fn queue_cable_frames(
-    sim: &mut StableSim<'_>,
-    caster_id: usize,
-    from: (f64, f64),
-    anchor: (f64, f64),
-    flight_ticks: usize,
-) -> usize {
-    draw_cable_frame(sim, caster_id, from, anchor, true);
-    let input = InputTargetV1::pos(world_u64(anchor.0), world_u64(anchor.1));
-    let mut queued = 0;
-    for delay in (4..=flight_ticks).step_by(4) {
-        if sim.queue_effect(
-            CABLE_DRAW_EFFECT,
-            AttackTypeV1::Skill,
-            caster_id,
-            &input,
-            delay,
-        ) {
-            queued += 1;
-        } else {
-            break;
-        }
-    }
-    queued
 }
 
 struct CableDraw;
@@ -1460,89 +1159,44 @@ impl StableEffectType for SteelCable {
             ));
             return;
         };
-        let Some(target) = choose_target(sim, &all, caster, input) else {
-            wlog(format!(
-                "{} CABLE REFUSED: no visible enemy champion or jungle monster",
-                sim_head(sim, caster_id)
-            ));
+        if caster.stack == 0 || fanny_flight::blocked(sim, caster_id) {
             return;
+        }
+        let key = entity_key(sim, caster_id);
+        let flight = fanny_flight::read(key);
+        let grid = fanny_flight::grid(sim, flight.as_ref(), &all);
+        use fanny_flight::CableAim;
+        let retreat = input.kind == InputTargetKindV1::Pos.code();
+        let aim = if retreat {
+            CableAim::Retreat((input.x as f64, input.y as f64))
+        } else {
+            if flight.as_ref().is_some_and(fanny_flight::Flight::is_retreating) {
+                return;
+            }
+            let prior = flight.as_ref().and_then(fanny_flight::Flight::target);
+            let Some(target) = stock_target(sim, &all, caster, input)
+                .filter(|target| prior.is_none_or(|id| id == target.id))
+                .filter(|target| distance(caster.pos, target.pos) <= SKILL2_RANGE)
+            else { return; };
+            CableAim::Engage(target)
         };
-        let target_distance = distance(caster.pos, target.pos);
-        if !within_cable_approach_range(target_distance) {
-            wlog(format!(
-                "{} CABLE REFUSED: target #{} is {:.0} away (action range {:.0})",
-                sim_head(sim, caster_id),
-                target.id,
-                target_distance,
-                SKILL2_RANGE
-            ));
-            return;
-        }
-        let chain_active = has_named_buff(sim, caster_id, CABLE_CHAIN);
-        let escaping = dangerous_escape(&all, caster)
-            || (chain_active && has_named_buff(sim, caster_id, CABLE_ESCAPE));
-        if !escaping && update_and_check_well_heal_lock(
-                entity_key(sim, caster.id), &all, caster, escaping
-            ) {
-            wlog(format!(
-                "{} CABLE REFUSED: holding in Well / retreating until full HP ({}/{})",
-                sim_head(sim, caster_id),
-                caster.hp,
-                caster.max_hp
-            ));
-            return;
-        }
-        let Some(destination) = choose_cable_route(&all, caster, target, escaping) else {
-            wlog(format!(
-                "{} CABLE REFUSED: no valid wall route toward target #{} at ({:.0},{:.0})",
-                sim_head(sim, caster_id),
-                target.id,
-                target.pos.0,
-                target.pos.1
-            ));
-            return;
+        let Some(anchor) = fanny_flight::planned_anchor(
+            &grid, flight.as_ref(), &all, caster, aim, sim.tick(),
+        ) else { return; };
+        let target = match aim {
+            CableAim::Engage(unit) => Some(unit.id),
+            CableAim::Retreat(_) => None,
         };
-
-        let current_charges = caster.stack;
-        if current_charges == 0 {
-            wlog(format!(
-                "{} CABLE REFUSED: 0 cable charges remaining (recharging)",
-                sim_head(sim, caster_id)
-            ));
+        if !fanny_flight::launch(
+            sim, key, flight, grid, caster_id, caster.pos, anchor, target, retreat,
+        ) {
             return;
         }
-        let flight_ticks = force_move(sim, caster_id, caster.pos, destination.pos(), CABLE_SPEED);
-        if flight_ticks == 0 {
-            return;
-        }
-        let remaining_charges = current_charges.saturating_sub(1);
+        let remaining_charges = caster.stack - 1;
         set_cable_charges(sim, caster_id, remaining_charges);
-        if remaining_charges == 0 {
-            sim.entity_remove_buff(caster_id, CABLE_RECHARGE_LOCK);
-            sim.add_buff(
-                caster_id,
-                &BuffV1::timed(CABLE_RECHARGE_LOCK, CABLE_REGEN_TICKS * 2),
-            );
-        }
-        let wall_anchor = destination.anchor();
-        let impact_at = InputTargetV1::pos(world_u64(wall_anchor.0), world_u64(wall_anchor.1));
-        let draw_ticks = queue_cable_frames(sim, caster_id, caster.pos, wall_anchor, flight_ticks);
-        let impact_queued = sim.queue_effect(
-            CABLE_IMPACT_EFFECT,
-            AttackTypeV1::Skill,
-            caster_id,
-            &impact_at,
-            flight_ticks,
-        );
-        sim.entity_remove_buff(caster_id, FLYING);
-        sim.add_buff(caster_id, &BuffV1::timed(FLYING, flight_ticks + 1));
         sim.entity_remove_buff(caster_id, CABLE_CHAIN);
         sim.add_buff(caster_id, &BuffV1::timed(CABLE_CHAIN, CHAIN_WINDOW));
-        sim.entity_remove_buff(caster_id, CABLE_ESCAPE);
-        if escaping {
-            sim.add_buff(caster_id, &BuffV1::timed(CABLE_ESCAPE, CHAIN_WINDOW));
-        }
-        let start_effect = sim.play_view_effect(
+        let _ = sim.play_view_effect(
             "mlbb_fanny_cable_start",
             caster_id,
             &InputTargetV1::target(caster_id),
@@ -1557,20 +1211,7 @@ impl StableEffectType for SteelCable {
             1001,
             &InputTargetV1::target(caster_id),
         );
-        wlog(format!(
-            "{} CABLE CAST -> target #{} (champ={}, monster={}) ({:.0},{:.0}), anchor ({:.0},{:.0}) -> swing ({:.0},{:.0}), {:.0} units, {flight_ticks} ticks, {draw_ticks} line frames, chain={chain_active}, escape={escaping}, start_fx={start_effect}, impact_queued={impact_queued}",
-            sim_head(sim, caster_id),
-            target.id,
-            target.champion,
-            target.monster,
-            target.pos.0,
-            target.pos.1,
-            wall_anchor.0,
-            wall_anchor.1,
-            destination.x,
-            destination.y,
-            destination.distance
-        ));
+
     }
 
     fn expected_damage(&self, caster_stat: &StatV1) -> (usize, usize) {
@@ -1614,11 +1255,36 @@ impl StableEffectType for CableImpact {
 fn play_tornado(
     sim: &mut StableSim<'_>,
     caster_id: usize,
+    from: (f64, f64),
     at: (f64, f64),
     team: usize,
     speed: f64,
-) {
+    nearby_hits: &mut HashSet<usize>,
+    cooldown_ready: bool,
+) -> bool {
     let all = units(sim);
+    nearby_hits.retain(|target| all.iter().any(|unit| {
+        unit.id == *target && unit.alive
+            && distance(from, unit.pos) <= FLIGHT_TORNADO_RADIUS + unit.radius + 10_000.0
+    }));
+    if !cooldown_ready {
+        return false;
+    }
+    let targets: Vec<(usize, bool)> = all
+        .iter()
+        .filter(|unit| {
+            unit.alive
+                && unit.targetable
+                && !unit.tower
+                && unit.team != team
+                && !nearby_hits.contains(&unit.id)
+                && segment_distance(unit.pos, from, at) <= FLIGHT_TORNADO_RADIUS + unit.radius
+        })
+        .map(|unit| (unit.id, unit.champion))
+        .collect();
+    if targets.is_empty() {
+        return false;
+    }
     let attack = sim
         .get_entity(caster_id)
         .map_or(0, |entity| entity.stat().attack);
@@ -1640,19 +1306,9 @@ fn play_tornado(
     let now_tick = sim.tick();
     let base_damage = FLIGHT_TORNADO_FLAT + attack * FLIGHT_TORNADO_AD / 100;
     let speed_bonus_pct = (12 + (speed / 450.0) as usize).min(24);
-    let targets: Vec<(usize, bool)> = all
-        .iter()
-        .filter(|unit| {
-            unit.alive
-                && unit.targetable
-                && !unit.tower
-                && unit.team != team
-                && distance(at, unit.pos) <= FLIGHT_TORNADO_RADIUS + unit.radius
-        })
-        .map(|unit| (unit.id, unit.champion))
-        .collect();
     let mut refunded_this_spin = false;
     for (target_id, is_champ) in targets {
+        nearby_hits.insert(target_id);
         let marks = if is_champ {
             mark_level(sim, target_id)
         } else {
@@ -1693,18 +1349,17 @@ fn play_tornado(
             );
         }
     }
+    true
 }
 
 #[derive(Clone, Default)]
 struct AirSuperiority {
     voice: audio::VoiceLifecycle,
-    last_pos: Option<(f64, f64)>,
-    last_dir: Option<(f64, f64)>,
     was_flying: bool,
     last_speed: f64,
     last_tornado_tick: Option<usize>,
     last_regen_tick: usize,
-    tornado_targets_this_flight: HashSet<usize>,
+    nearby_tornado_hits: HashSet<usize>,
 }
 
 impl StablePassive for AirSuperiority {
@@ -1716,31 +1371,21 @@ impl StablePassive for AirSuperiority {
         self.voice
             .on_spawn(sim, entity_id, Some("mlbb_fanny_voice_idle"));
         sim.entity_remove_buff(entity_id, CABLE_CHAIN);
-        sim.entity_remove_buff(entity_id, CABLE_ESCAPE);
-        sim.entity_remove_buff(entity_id, CABLE_RECHARGE_LOCK);
-        sim.entity_remove_buff(entity_id, FLYING);
-        set_cable_charges(sim, entity_id, BASE_CABLE_CHARGES);
+        set_cable_charges(sim, entity_id, MAX_CABLE_CHARGES);
         // Tag this copy of Fanny before the closure borrows `sim` immutably.
         let spawn_key = entity_key(sim, entity_id);
-        self.last_pos = sim.get_entity(entity_id).map(|entity| {
-            let (x, y) = entity.pos();
-            let pos = (x as f64, y as f64);
-            FOUNTAIN_POS
-                .lock()
-                .unwrap_or_else(|p| p.into_inner())
-                .entry(spawn_key)
-                .or_insert(pos);
-            HEALING_UNTIL_FULL
-                .lock()
-                .unwrap_or_else(|p| p.into_inner())
-                .insert(spawn_key, false);
-            pos
-        });
+        fanny_flight::clear(sim, entity_id, spawn_key);
         self.was_flying = false;
         self.last_speed = 0.0;
         self.last_tornado_tick = None;
         self.last_regen_tick = sim.tick();
-        self.tornado_targets_this_flight.clear();
+        self.nearby_tornado_hits.clear();
+    }
+
+    fn on_dead(&mut self, sim: &mut StableSim<'_>, entity_id: usize) {
+        fanny_flight::clear(sim, entity_id, entity_key_ro(sim, entity_id));
+        self.was_flying = false;
+        self.last_speed = 0.0;
     }
 
     fn on_attack(
@@ -1792,115 +1437,65 @@ impl StablePassive for AirSuperiority {
             &["mlbb_fanny_voice_run"],
         );
         let tick = sim.tick();
-        let Some((here, team, alive)) = sim.get_entity(entity_id).map(|entity| {
+        let Some((position, team, alive)) = sim.get_entity(entity_id).map(|entity| {
             let (x, y) = entity.pos();
             ((x as f64, y as f64), entity.team(), entity.is_alive())
         }) else {
             return;
         };
+        let key = entity_key_ro(sim, entity_id);
         if !alive {
+            if self.was_flying || has_named_buff(sim, entity_id, FLYING) {
+                fanny_flight::clear(sim, entity_id, key);
+            }
             self.was_flying = false;
-            self.last_pos = Some(here);
+            self.last_speed = 0.0;
             return;
         }
 
-        let flying = has_named_buff(sim, entity_id, FLYING);
+        let airborne = fanny_flight::advance(sim, entity_id, key, position);
+        let flying = airborne.is_some();
+        let here = airborne.unwrap_or(position);
         if flying && !self.was_flying {
-            self.tornado_targets_this_flight.clear();
-            self.last_dir = None;
-            self.last_pos = Some(here);
+            self.nearby_tornado_hits.clear();
         }
         if flying {
-            let from = self.last_pos.unwrap_or(here);
-            let speed = distance(from, here);
+            let speed = distance(position, here);
             if speed > 0.0 {
-                let dir = ((here.0 - from.0) / speed, (here.1 - from.1) / speed);
-                if let Some(prev_dir) = self.last_dir {
-                    let dot = prev_dir.0 * dir.0 + prev_dir.1 * dir.1;
-                    // New cable hop changed flight angle -> allow Tornado Strike to hit targets again on the new swing!
-                    if dot < 0.94 {
-                        self.tornado_targets_this_flight.clear();
-                    }
-                }
-                self.last_dir = Some(dir);
                 self.last_speed = speed;
-                let all = units(sim);
-                let newly_crossed = all.iter().find(|unit| {
-                    unit.id != entity_id
-                        && unit.alive
-                        && unit.targetable
-                        && !unit.tower
-                        && unit.team != team
-                        && !self.tornado_targets_this_flight.contains(&unit.id)
-                        && segment_distance(unit.pos, from, here)
-                            <= unit.radius + TARGET_PASS_BUFFER
-                });
-                if let Some(target) = newly_crossed {
-                    let target_id = target.id;
-                    self.tornado_targets_this_flight.insert(target_id);
-                    let cooldown_ready = self
-                        .last_tornado_tick
-                        .is_none_or(|last| tick.saturating_sub(last) >= FLIGHT_TORNADO_COOLDOWN);
-                    if cooldown_ready {
-                        play_tornado(sim, entity_id, here, team, speed);
-                        self.last_tornado_tick = Some(tick);
-                    }
+                let cooldown_ready = self
+                    .last_tornado_tick
+                    .is_none_or(|last| tick.saturating_sub(last) >= FLIGHT_TORNADO_COOLDOWN);
+                if play_tornado(
+                    sim, entity_id, position, here, team, speed, &mut self.nearby_tornado_hits, cooldown_ready
+                ) {
+                    self.last_tornado_tick = Some(tick);
                 }
             }
             self.last_regen_tick = tick;
         } else {
             if self.was_flying {
                 self.last_speed = 0.0;
-                self.last_dir = None;
                 self.last_regen_tick = tick;
             }
             let current_charges = get_cable_charges(sim, entity_id);
-            if current_charges < BASE_CABLE_CHARGES {
-                if tick.saturating_sub(self.last_regen_tick) >= CABLE_REGEN_TICKS {
-                    let next_charges = (current_charges + 1).min(BASE_CABLE_CHARGES);
-                    set_cable_charges(sim, entity_id, next_charges);
-                    self.last_regen_tick = tick;
-                    if next_charges >= MIN_CHARGES_TO_START_CHAIN {
-                        sim.entity_remove_buff(entity_id, CABLE_RECHARGE_LOCK);
-                    }
-                }
-            } else {
+            if current_charges >= MAX_CABLE_CHARGES {
                 self.last_regen_tick = tick;
-                sim.entity_remove_buff(entity_id, CABLE_RECHARGE_LOCK);
+            } else if tick.saturating_sub(self.last_regen_tick) >= CABLE_REGEN_TICKS {
+                set_cable_charges(sim, entity_id, current_charges + 1);
+                self.last_regen_tick = tick;
             }
         }
-        self.last_pos = Some(here);
         self.was_flying = flying;
     }
 }
 
 #[derive(Clone, Default)]
-struct FannyCableAi {
-    last_log_tick: Option<usize>,
-}
+struct FannyCableAi;
 
-fn cable_action_ready(
-    caster_level: usize,
-    skill2_cooldown: Option<usize>,
-    has_route: bool,
-) -> bool {
-    caster_level >= 3 && skill2_cooldown == Some(0) && has_route
-}
-
-fn within_cable_approach_range(distance: f64) -> bool {
-    distance <= SKILL2_RANGE
-}
-
-impl FannyCableAi {
-    fn log_once_in_a_while(&mut self, tick: usize, message: impl AsRef<str>) {
-        if self
-            .last_log_tick
-            .is_none_or(|last| tick >= last.saturating_add(LOG_EVERY))
-        {
-            self.last_log_tick = Some(tick);
-            wlog(message);
-        }
-    }
+fn stock_retreat_goal(base: InputV1, retreat: Option<InputV1>) -> Option<(u64, u64)> {
+    // Walking toward a wave or camp must never become a native cable command.
+    (base.kind == InputKindV1::Move.code() && retreat == Some(base)).then_some((base.x, base.y))
 }
 
 impl StablePlayerAi for FannyCableAi {
@@ -1925,267 +1520,54 @@ impl StablePlayerAi for FannyCableAi {
         ctx: &mut StableAiContext<'_>,
         base_input: Option<InputV1>,
     ) -> Option<InputV1> {
-        let athlete_id = ctx.athlete_id();
-        let player_id = ctx.player_id();
-        let tick = ctx.tick();
-        let base_wants_cable =
-            base_input.is_some_and(|input| input.kind == InputKindV1::Skill2.code());
-        let base_wants_ult = base_input.is_some_and(|input| input.kind == InputKindV1::Ult.code());
-        let preferred = base_input
-            .filter(|input| input.target.kind == InputTargetKindV1::Target.code())
-            .map(|input| input.target.target_id);
-
-        let (
-            caster_pos,
-            caster_level,
-            cable_charges,
-            recharge_locked,
-            target_id,
-            target_pos,
-            target_is_champ,
-            route,
-            fallback_target,
-            skill1_cooldown,
-            skill2_cooldown,
-            ult_cooldown,
-            ult_target,
-            chain_active,
-            flying,
-            escaping,
-            line,
-        ) = {
+        use fanny_flight::CableAim;
+        let retreat = if let Some(base) = base_input.filter(|i| i.kind == InputKindV1::Move.code()) {
+            stock_retreat_goal(base, ctx.run_away_without_skill_input())
+        } else {
+            None
+        };
+        if base_input.is_some_and(|input| input.kind == InputKindV1::Return.code()) {
+            return None;
+        }
+        let player = ctx.player_id();
+        let candidate = {
             let sim = ctx.sim()?;
-            let all = units(&sim);
-            let player = sim.get_player(player_id)?;
-            // Official 0.6.4 pattern: resolve controlled champion entity via player.champion()
-            // first, falling back to athlete_id only if needed.
-            let caster_id = player
-                .champion()
-                .map(|champ| champ.id())
-                .unwrap_or(athlete_id);
-            let caster = all.iter().find(|unit| unit.id == caster_id && unit.alive)?;
-            let skill1_cooldown = player.cooldowns().map(|cooldowns| cooldowns.1);
-            let skill2_cooldown = player.cooldowns().map(|cooldowns| cooldowns.2);
-            let ult_cooldown = player.cooldowns().map(|cooldowns| cooldowns.3);
-            let player_level = (player.level() as usize).max(caster.level);
-            let cable_charges = caster.stack;
-            let recharge_locked = has_named_buff(&sim, caster.id, CABLE_RECHARGE_LOCK);
-            let chain_active = has_named_buff(&sim, caster.id, CABLE_CHAIN);
-            let flying = has_named_buff(&sim, caster.id, FLYING);
-            let escaping = (chain_active && has_named_buff(&sim, caster.id, CABLE_ESCAPE))
-                || dangerous_escape(&all, caster);
-                        // `think` is read-only: mutations are inert here, so we cannot tag.
-            // Read the tag if it is already present; copy 0 otherwise.
-            let think_key = entity_key_ro(&sim, caster.id);
-            if !escaping && update_and_check_well_heal_lock(think_key, &all, caster, escaping) {
-                let fpos = get_fountain_pos(think_key, caster.team);
-                if distance(caster.pos, fpos) <= 220_000.0 || base_wants_cable || base_wants_ult {
-                    return Some(InputV1::move_to(world_u64(fpos.0), world_u64(fpos.1)));
-                }
+            let entity = sim.get_player(player)?.champion()?;
+            let id = entity.id();
+            let flight = fanny_flight::read(entity_key_ro(&sim, id));
+            let cd = entity.cooldown(SkillSlotV1::Skill2)?;
+            if !cd.unlocked || cd.remaining != 0 || entity.stat().stack == 0
+                || fanny_flight::blocked(&sim, id)
+            {
                 return None;
             }
-
-            let ult_target = if player_level >= 5 && ult_cooldown == Some(0) && !escaping {
-                all.iter()
-                    .filter(|unit| {
-                        unit.id != caster.id
-                            && unit.team != caster.team
-                            && unit.alive
-                            && unit.targetable
-                            && unit.champion
-                            && is_unit_visible(&sim, caster.team, unit)
-                            && distance(caster.pos, unit.pos) <= ULT_RANGE
-                            && !is_unsafe_under_enemy_tower(&all, caster, unit)
-                    })
-                    .filter_map(|unit| {
-                        let marks = mark_level(&sim, unit.id);
-                        let low_hp =
-                            unit.hp.saturating_mul(100) <= unit.max_hp.max(1).saturating_mul(65);
-                        if marks > 0 || low_hp || chain_active || base_wants_ult {
-                            let hp_pct = unit.hp.saturating_mul(100) / unit.max_hp.max(1);
-                            Some((unit.id, marks, hp_pct, distance(caster.pos, unit.pos)))
-                        } else {
-                            None
-                        }
-                    })
-                    .max_by(|a, b| {
-                        a.1.cmp(&b.1)
-                            .then_with(|| b.2.cmp(&a.2))
-                            .then_with(|| b.3.total_cmp(&a.3))
-                    })
-                    .map(|(uid, marks, hp_pct, _)| (uid, marks, hp_pct))
+            let all = units(&sim);
+            let caster = all.iter().find(|unit| unit.id == id && unit.alive)?;
+            let (input, aim) = if let Some((x, y)) = retreat {
+                // A position keeps retreat intent in the submitted action, including replays.
+                let goal = (x as f64, y as f64);
+                let span = distance(caster.pos, goal);
+                if span <= 1.0 {
+                    return None;
+                }
+                let ratio = ((SKILL2_RANGE - 12_000.0) / span).min(1.0);
+                let x = world_u64(caster.pos.0 + (goal.0 - caster.pos.0) * ratio);
+                let y = world_u64(caster.pos.1 + (goal.1 - caster.pos.1) * ratio);
+                (InputTargetV1::pos(x, y), CableAim::Retreat((x as f64, y as f64)))
             } else {
-                None
+                let target_id = flight.as_ref()?.target()?;
+                let target_input = InputTargetV1::target(target_id);
+                let target = stock_target(&sim, &all, caster, target_input)?;
+                if distance(caster.pos, target.pos) > SKILL2_RANGE {
+                    return None;
+                }
+                (target_input, CableAim::Engage(target))
             };
-
-            let target = select_smart_target(&sim, &all, caster, preferred, escaping);
-
-            let route =
-                target.and_then(|target| choose_cable_route(&all, caster, target, escaping));
-            let fallback_target = target.map(|unit| (unit.id, unit.pos)).or_else(|| {
-                all.iter()
-                    .filter(|u| {
-                        u.id != caster.id
-                            && u.team != caster.team
-                            && u.alive
-                            && u.targetable
-                            && (u.champion || u.monster)
-                            && is_unit_visible(&sim, caster.team, u)
-                    })
-                    .min_by(|a, b| {
-                        distance(caster.pos, a.pos).total_cmp(&distance(caster.pos, b.pos))
-                    })
-                    .map(|u| {
-                        // Stand off outside enemy tower danger zone if approaching a tower-hugging champion
-                        let mut goal = u.pos;
-                        for t in all
-                            .iter()
-                            .filter(|t| t.tower && t.alive && t.team != caster.team)
-                        {
-                            let d_t = distance(goal, t.pos);
-                            if d_t <= TOWER_DANGER_RADIUS && d_t > 1.0 {
-                                let dir = (
-                                    (caster.pos.0 - t.pos.0) / distance(caster.pos, t.pos).max(1.0),
-                                    (caster.pos.1 - t.pos.1) / distance(caster.pos, t.pos).max(1.0),
-                                );
-                                goal = (
-                                    t.pos.0 + dir.0 * (TOWER_DANGER_RADIUS + 14_000.0),
-                                    t.pos.1 + dir.1 * (TOWER_DANGER_RADIUS + 14_000.0),
-                                );
-                            }
-                        }
-                        (u.id, goal)
-                    })
-            });
-            (
-                caster.pos,
-                player_level,
-                cable_charges,
-                recharge_locked,
-                target.map(|unit| unit.id),
-                target.map(|unit| unit.pos),
-                target.is_some_and(|unit| unit.champion),
-                route,
-                fallback_target,
-                skill1_cooldown,
-                skill2_cooldown,
-                ult_cooldown,
-                ult_target,
-                chain_active,
-                flying,
-                escaping,
-                sim_head(&sim, caster.id),
-            )
+            let grid = fanny_flight::grid(&sim, flight.as_ref(), &all);
+            fanny_flight::planned_anchor(&grid, flight.as_ref(), &all, caster, aim, sim.tick())?;
+            InputV1::action(InputKindV1::Skill2, input)
         };
-
-        // Priority 0: Execute Cut Throat (Ult) when unlocked, off cooldown, not mid-cable-flight,
-        // and either a smart Ult target (Prey Mark / low HP / post-cable combo) is in range or base AI requested Ult.
-        if !flying && caster_level >= 5 && ult_cooldown == Some(0) {
-            if let Some((ult_tid, marks, hp_pct)) = ult_target {
-                let ult_input = InputV1::action(InputKindV1::Ult, InputTargetV1::target(ult_tid));
-                self.log_once_in_a_while(
-                    tick,
-                    format!(
-                        "{line} AI ULT INPUT (Cut Throat): target #{ult_tid} (marks={marks}, hp={hp_pct}%), chain={chain_active}"
-                    ),
-                );
-                return Some(ult_input);
-            }
-            if base_wants_ult {
-                return base_input;
-            }
-        }
-
-        let cooldown_ready = skill2_cooldown == Some(0);
-        // Require >= 2 charges to start a fresh chain from the ground, or >= 1 charge to continue an active chain!
-        let charges_ready = if chain_active && !recharge_locked {
-            cable_charges >= 1
-        } else {
-            !recharge_locked && cable_charges >= MIN_CHARGES_TO_START_CHAIN
-        };
-        // Wait for the current cable flight (`flying`) to reach its swing-past landing point
-        // before firing the next cable so long cables (>18 ticks) are never cut short mid-flight.
-        let can_attempt = !flying
-            && charges_ready
-            && cable_action_ready(caster_level, skill2_cooldown, route.is_some());
-        if can_attempt {
-            if let (Some(target_id), Some(route)) = (target_id, route) {
-                let candidate =
-                    InputV1::action(InputKindV1::Skill2, InputTargetV1::target(target_id));
-                let prevalidated = ctx.is_valid_input(&candidate);
-                let input_status = if prevalidated {
-                    "prevalidate=true"
-                } else {
-                    "prevalidate=false, overriding after local gates"
-                };
-                self.log_once_in_a_while(
-                    tick,
-                    format!(
-                        "{line} AI CABLE INPUT: target #{target_id} (champ={target_is_champ}) at ({:.0},{:.0}), anchor ({:.0},{:.0}) -> swing ({:.0},{:.0}) dist {:.0}, cooldown={skill2_cooldown:?}, chain={chain_active}, escape={escaping}, {input_status}",
-                        target_pos.map_or(0.0, |p| p.0),
-                        target_pos.map_or(0.0, |p| p.1),
-                        route.anchor_x,
-                        route.anchor_y,
-                        route.x,
-                        route.y,
-                        route.distance
-                    ),
-                );
-                return Some(candidate);
-            }
-        }
-
-        // Keep Fanny moving forward along her multi-cable chain during the brief
-        // cooldown window between cables while she still has charges!
-        if chain_active && charges_ready && !cooldown_ready && !flying {
-            if let Some(route) = route {
-                return Some(InputV1::move_to(world_u64(route.x), world_u64(route.y)));
-            }
-            if !escaping {
-                if let Some((_tid, tpos)) = fallback_target {
-                    if distance(caster_pos, tpos) > 22_000.0 {
-                        return Some(InputV1::move_to(world_u64(tpos.0), world_u64(tpos.1)));
-                    }
-                }
-            }
-        }
-
-        if base_wants_cable {
-            let reason = if caster_level < 3 {
-                format!("skill2 locked at level {caster_level}")
-            } else if !charges_ready {
-                format!("recharging cable charges ({cable_charges}/{BASE_CABLE_CHARGES})")
-            } else if !cooldown_ready {
-                format!("skill2 cooldown {:?}", skill2_cooldown)
-            } else if target_id.is_none() {
-                "no visible enemy champion or jungle monster found".to_string()
-            } else if route.is_none() {
-                "no valid wall route; repositioning toward target".to_string()
-            } else {
-                "TFM2 rejected the planned cable input".to_string()
-            };
-            self.log_once_in_a_while(tick, format!("{line} AI HOLD: {reason}"));
-            if let Some((tid, tpos)) = fallback_target {
-                let d = distance(caster_pos, tpos);
-                // While recharging cable charges, use Ground Skill 1 (Tornado Strike) or Basic Attack in melee range!
-                if !flying && skill1_cooldown == Some(0) && d <= 36_000.0 {
-                    return Some(InputV1::action(
-                        InputKindV1::Skill,
-                        InputTargetV1::target(tid),
-                    ));
-                }
-                if !flying && d <= 24_000.0 {
-                    return Some(InputV1::action(
-                        InputKindV1::Attack,
-                        InputTargetV1::target(tid),
-                    ));
-                }
-                return Some(InputV1::move_to(world_u64(tpos.0), world_u64(tpos.1)));
-            }
-            // Never move_to(caster_pos) (which freezes Fanny inside the Well); roam toward map center if idle!
-            return Some(InputV1::move_to(480_000, 480_000));
-        }
-        None
+        ctx.is_valid_input(&candidate).then_some(candidate)
     }
 }
 
@@ -2197,7 +1579,7 @@ impl StableEffectType for CutThroat {
         let Some(caster) = all.iter().find(|unit| unit.id == caster_id && unit.alive) else {
             return;
         };
-        let Some(target) = choose_target(sim, &all, caster, input) else {
+        let Some(target) = stock_target(sim, &all, caster, input).filter(|target| target.champion) else {
             return;
         };
         let target_distance = distance(caster.pos, target.pos);
@@ -2206,7 +1588,7 @@ impl StableEffectType for CutThroat {
             return;
         }
         let grid = current_grid(&all);
-        sim.entity_remove_buff(caster_id, FLYING);
+        fanny_flight::clear(sim, caster_id, entity_key_ro(sim, caster_id));
         let travel_distance = (target_distance - ULT_CONTACT).max(0.0);
         let raw_dest = if target_distance > 1.0 {
             (
@@ -2523,11 +1905,11 @@ fn init(host: &StableHost) -> StableMod {
         "=== MLBB Heroes {} loaded (Granger technical probe; published Popol & Kupa and Julian audio preserved)",
         env!("CARGO_PKG_VERSION")
     ));
-    wlog("=== MLBB Fanny wall add-on v0.2.0 loaded: 2-hop multi-wall chaining, outer lane walls, champion/jungle priority, energy-free ===");
+    wlog("=== Sun candidate loaded with Fanny stock-AI cable routing ===");
     wlog("[HANABI v5] Petal projectile owner-team fix active; use per-origin PETAL_SPAWN/PETAL_HIT traces to verify in match.");
     host.log(
         LogLevel::Info,
-        "MLBB Fanny wall add-on v0.2.0 loaded: multi-hop Steel Cable chaining, outer lane walls, champion-first/jungle-second priority, Prey Marks and Cut Throat.",
+        "Sun candidate loaded. Fanny follows stock AI and retains airborne cable redirects.",
     );
     let mut module = StableMod::new(MOD_ID);
     audio::register_native_cues(&mut module);
@@ -2581,6 +1963,7 @@ fn init(host: &StableHost) -> StableMod {
     belerick::register(&mut module);
     cecilion::register(&mut module);
     johnson::register(&mut module);
+    sun::register(&mut module);
     module.add_player_input_ai(FannyCableAi::default());
     module.set_map_customizer(FannyMapReader);
     module
@@ -2613,25 +1996,6 @@ mod tests {
         // The same hit remains below the corresponding level-15 Aldous tank threshold.
         let tank_raw = (2190 * (100 + 35) + 99) / 100;
         assert!(damage < tank_raw);
-    }
-
-    #[test]
-    fn native_cable_input_range_covers_the_standard_map_diagonal() {
-        let map_width = MOBA_BOUNDS.2 - MOBA_BOUNDS.0;
-        let map_height = MOBA_BOUNDS.3 - MOBA_BOUNDS.1;
-        assert!(SKILL2_RANGE >= map_width.hypot(map_height));
-        assert!(within_cable_approach_range(SKILL2_RANGE));
-        assert!(!within_cable_approach_range(SKILL2_RANGE + 1.0));
-    }
-
-    #[test]
-    fn cable_ai_requires_level3_cooldown_and_a_wall_route_without_energy() {
-        assert!(cable_action_ready(3, Some(0), true));
-        assert!(cable_action_ready(5, Some(0), true));
-        assert!(!cable_action_ready(2, Some(0), true));
-        assert!(!cable_action_ready(3, Some(1), true));
-        assert!(!cable_action_ready(3, Some(0), false));
-        assert!(!cable_action_ready(3, None, true));
     }
 
     #[test]
@@ -2756,6 +2120,15 @@ mod tests {
     }
 
     #[test]
+    fn cables_only_replace_the_stock_retreat_move() {
+        let flee = InputV1::move_to(120_000, 380_000);
+        assert_eq!(stock_retreat_goal(flee, Some(flee)), Some((120_000, 380_000)));
+        assert_eq!(stock_retreat_goal(InputV1::move_to(130_000, 380_000), Some(flee)), None);
+        assert_eq!(stock_retreat_goal(flee, None), None);
+        assert_eq!(stock_retreat_goal(InputV1::return_home(), Some(InputV1::return_home())), None);
+    }
+
+    #[test]
     fn escape_route_increases_the_nearest_enemy_distance() {
         let here = (160_000.0, 160_000.0);
         let enemies = [UnitSnap {
@@ -2767,7 +2140,6 @@ mod tests {
             champion: true,
             tower: false,
             monster: false,
-            level: 5,
             radius: 10_000.0,
             hp: 500,
             max_hp: 1_000,

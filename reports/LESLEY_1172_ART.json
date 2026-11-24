@@ -1,0 +1,198 @@
+{
+  "ult_aim": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 9
+  },
+  "ult_recoil": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 5
+  },
+  "ult_hold": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 5
+  },
+  "ult_recover": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 5
+  },
+  "idle": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 9
+  },
+  "run": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 9
+  },
+  "attack": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 9
+  },
+  "camouflage_enter": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 9
+  },
+  "grenade": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 9
+  },
+  "hit": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 5
+  },
+  "dead": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 9
+  },
+  "lethal_shot": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 9
+  },
+  "camouflage_exit": {
+    "cell": [
+      80,
+      72
+    ],
+    "frames": 5
+  },
+  "basic_impact": {
+    "cell": [
+      24,
+      24
+    ],
+    "frames": 4
+  },
+  "basic_muzzle": {
+    "cell": [
+      24,
+      24
+    ],
+    "frames": 3
+  },
+  "basic_tracer": {
+    "cell": [
+      48,
+      16
+    ],
+    "frames": 5
+  },
+  "lethal_impact": {
+    "cell": [
+      52,
+      52
+    ],
+    "frames": 5
+  },
+  "lethal_muzzle": {
+    "cell": [
+      24,
+      24
+    ],
+    "frames": 5
+  },
+  "lethal_tracer": {
+    "cell": [
+      48,
+      16
+    ],
+    "frames": 5
+  },
+  "ult_impact": {
+    "cell": [
+      32,
+      32
+    ],
+    "frames": 4
+  },
+  "ult_muzzle": {
+    "cell": [
+      32,
+      32
+    ],
+    "frames": 5
+  },
+  "ult_projectile": {
+    "cell": [
+      48,
+      16
+    ],
+    "frames": 5
+  },
+  "lethal_ready": {
+    "cell": [
+      24,
+      24
+    ],
+    "frames": 5
+  },
+  "camouflage_edge": {
+    "cell": [
+      48,
+      48
+    ],
+    "frames": 5
+  },
+  "camouflage_ripple": {
+    "cell": [
+      72,
+      40
+    ],
+    "frames": 5
+  },
+  "grenade_fan": {
+    "cell": [
+      96,
+      64
+    ],
+    "frames": 9
+  },
+  "grenade_impact": {
+    "cell": [
+      32,
+      32
+    ],
+    "frames": 3
+  },
+  "ult_lock": {
+    "cell": [
+      48,
+      48
+    ],
+    "frames": 5
+  }
+}

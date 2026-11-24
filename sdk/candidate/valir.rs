@@ -1,4 +1,4 @@
-use crate::{entity_key, entity_key_ro, sim_copy_of, EntityKey};
+use crate::{audio, entity_key, entity_key_ro, sim_copy_of, EntityKey};
 use mod_api_stable::*;
 use std::{
     collections::HashMap,
@@ -11,6 +11,22 @@ const RECAST: usize = 108;
 const REFUND_GATE: usize = 216;
 const SPEED: u64 = 6_000;
 const TORRENT_RANGE: f64 = 38_000.;
+const MOVE_LINES: &[&str] = &[
+    "mlbb_valir_voice_move01",
+    "mlbb_valir_voice_move02",
+    "mlbb_valir_voice_move03",
+    "mlbb_valir_voice_move04",
+    "mlbb_valir_voice_select",
+    "mlbb_valir_voice_move06",
+    "mlbb_valir_voice_move07",
+];
+const FIREBALL_LINES: &[&str] = &["mlbb_valir_voice_skill01", "mlbb_valir_voice_skill02"];
+const TORRENT_LINES: &[&str] = &["mlbb_valir_voice_skill03", "mlbb_valir_voice_skill04"];
+const DEATH_LINES: &[&str] = &[
+    "mlbb_valir_voice_death01",
+    "mlbb_valir_voice_death02",
+    "mlbb_valir_voice_death03",
+];
 const TORRENT_PUSH_SPEED: usize = 4_000;
 const TORRENT_PUSH_TICKS: usize = 12;
 const EMPOWER_WINDOW: usize = 540;
@@ -299,7 +315,9 @@ fn ignite_vengeance(sim: &mut StableSim<'_>, id: usize, state: &mut State, now: 
     if let Some(point) = pos(sim, id) {
         fx(sim, id, point, "cleanse_flash", 0);
     }
-    cue(sim, id, "ult");
+    if audio::voice_in_match_view(sim) {
+        audio::play_priority_voice(sim, id, "mlbb_valir_voice_ult");
+    }
 }
 
 fn update_vengeance(sim: &mut StableSim<'_>, id: usize, state: &mut State, now: usize) {
@@ -420,7 +438,7 @@ enum Op {
     Ult,
 }
 impl StableEffectType for Op {
-    fn apply(&self, sim: &mut StableSim<'_>, _: u64, id: usize, i: InputTargetV1) {
+    fn apply(&self, sim: &mut StableSim<'_>, seed: u64, id: usize, i: InputTargetV1) {
         let Some(c) = sim.get_entity(id).filter(|e| e.is_alive()) else {
             return;
         };
@@ -506,7 +524,13 @@ impl StableEffectType for Op {
                                 arrival: now + reach.div_ceil(SPEED) as usize + 2,
                                 power: stat.magic_power,
                             });
-                            cue(sim, id, "fireball");
+                            if audio::voice_in_match_view(sim) {
+                                audio::play_voice(
+                                    sim,
+                                    id,
+                                    FIREBALL_LINES[seed as usize % FIREBALL_LINES.len()],
+                                );
+                            }
                         } else {
                             s.charges = (s.charges + 1).min(2);
                             if empowered {
@@ -539,7 +563,13 @@ impl StableEffectType for Op {
                         "torrent_wave"
                     };
                     fx(sim, id, from, &format!("{name}_{bucket}"), 0);
-                    cue(sim, id, "torrent");
+                    if audio::voice_in_match_view(sim) {
+                        audio::play_voice(
+                            sim,
+                            id,
+                            TORRENT_LINES[seed as usize % TORRENT_LINES.len()],
+                        );
+                    }
                     for (target, _) in targets(sim, id, |p| in_torrent(from, p, d)) {
                         damage(sim, id, target, torrent_damage(stat.magic_power));
                         if sim.get_entity(target).as_ref().is_some_and(torrent_pushes) {
@@ -693,12 +723,18 @@ fn update(sim: &mut StableSim<'_>, id: usize, s: &mut State) {
 struct Passive {
     owner: Option<EntityKey>,
     reactive_ult_until: usize,
+    voice: audio::VoiceLifecycle,
 }
 impl StablePassive for Passive {
     fn clone_box(&self) -> Box<dyn StablePassive> {
         Box::new(Self::default())
     }
-    fn on_spawn(&mut self, sim: &mut StableSim<'_>, _: usize, id: usize) {
+    fn on_spawn(&mut self, sim: &mut StableSim<'_>, player: usize, id: usize) {
+        if audio::voice_in_match_view(sim) {
+            let initial = sim.get_player(player).is_none_or(|p| p.deaths() == 0);
+            self.voice
+                .on_spawn(sim, id, initial.then_some("mlbb_valir_voice_move05"));
+        }
         let key = entity_key(sim, id);
         if let Some(old) = self.owner.replace(key) {
             take(old);
@@ -723,12 +759,18 @@ impl StablePassive for Passive {
         }
         let Some(key) = self.owner else { return };
         if let Some(mut s) = take(key) {
+            if s.last_tick != Some(sim.tick()) && audio::voice_in_match_view(sim) {
+                self.voice.on_update(sim, id, &[], MOVE_LINES);
+            }
             update(sim, id, &mut s);
             self.reactive_ult_until = s.reactive_ult_until;
             put(key, s);
         }
     }
-    fn on_dead(&mut self, sim: &mut StableSim<'_>, _: usize) {
+    fn on_dead(&mut self, sim: &mut StableSim<'_>, player: usize) {
+        if audio::voice_in_match_view(sim) {
+            self.voice.on_dead(sim, player, DEATH_LINES);
+        }
         if let Some(key) = self.owner.take() {
             if let Some(s) = take(key) {
                 for target in s.marks.keys() {

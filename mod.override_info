@@ -539,6 +539,14 @@
     "remapping": "asset/mlbb_heroes/champions/mlbb_zhask_fused_spawn#sheet",
     "type": "override"
   },
+  "asset/base/aseprite_resources/champions/mlbb_sun_clone#anim": {
+    "remapping": "asset/mlbb_heroes/champions/mlbb_sun_clone#anim",
+    "type": "override"
+  },
+  "asset/base/aseprite_resources/champions/mlbb_sun_clone#sheet": {
+    "remapping": "asset/mlbb_heroes/champions/mlbb_sun_clone#sheet",
+    "type": "override"
+  },
   "asset/base/sound/sfx/mlbb_zhask_voice_ult01": {
     "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_zhask_voice_ult01",
     "type": "override"
@@ -1925,6 +1933,558 @@
   },
   "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_ult": {
     "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_ult",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_select": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_select",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_select": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_select",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move04": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move04",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move04": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move04",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move05": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move05",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move05": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move05",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move06": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move06",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move06": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move06",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move07": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move07",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move07": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move07",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move08": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move08",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move08": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move08",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move09": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move09",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move09": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move09",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move10": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move10",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move10": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move10",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_move11": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_move11",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move11": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_move11",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_basic01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_basic01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_basic01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_basic01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_basic02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_basic02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_basic02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_basic02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_basic03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_basic03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_basic03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_basic03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_kill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_kill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_kill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_kill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_kill02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_kill02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_kill02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_kill02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_kill03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_kill03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_kill03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_kill03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_skill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_skill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_skill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_skill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_skill03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_skill03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_skill03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_skill03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_ult01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_ult01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_ult01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_ult01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_ult02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_ult02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_ult02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_ult02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_death01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_death01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_death01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_death01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_death02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_death02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_death02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_death02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_respawn01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_respawn01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_respawn01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_respawn01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_sun_voice_respawn02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_sun_voice_respawn02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_respawn02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_sun_voice_respawn02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_select": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_select",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_select": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_select",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move04": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move04",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move04": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move04",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move05": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move05",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move05": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move05",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move06": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move06",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move06": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move06",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move07": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move07",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move07": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move07",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move08": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move08",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move08": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move08",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move09": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move09",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move09": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move09",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move10": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move10",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move10": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move10",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move11": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move11",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move11": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move11",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_move12": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_move12",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move12": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_move12",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_basic01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_basic01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_basic01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_basic01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_basic02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_basic02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_basic02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_basic02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_basic03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_basic03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_basic03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_basic03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_kill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_kill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_kill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_kill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_kill02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_kill02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_kill02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_kill02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_kill03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_kill03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_kill03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_kill03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_skill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_skill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_skill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_skill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_skill02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_skill02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_skill02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_skill02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_ult01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_ult01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_ult01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_ult01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_ult02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_ult02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_ult02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_ult02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_death01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_death01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_death01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_death01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_death02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_death02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_death02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_death02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_respawn01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_respawn01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_respawn01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_respawn01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_lesley_voice_respawn02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_lesley_voice_respawn02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_respawn02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_lesley_voice_respawn02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_select": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_select",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_select": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_select",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_move01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_move01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_move02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_move02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_move03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_move03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_move04": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_move04",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move04": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move04",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_move05": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_move05",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move05": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move05",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_move06": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_move06",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move06": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move06",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_move07": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_move07",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move07": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_move07",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_skill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_skill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_skill01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_skill01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_skill02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_skill02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_skill02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_skill02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_skill03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_skill03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_skill03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_skill03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_skill04": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_skill04",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_skill04": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_skill04",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_ult": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_ult",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_ult": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_ult",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_death01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_death01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_death01": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_death01",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_death02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_death02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_death02": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_death02",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_valir_voice_death03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_valir_voice_death03",
+    "type": "override"
+  },
+  "asset/base/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_death03": {
+    "remapping": "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_valir_voice_death03",
     "type": "override"
   }
 }

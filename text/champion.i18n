@@ -1,6 +1,14 @@
 {
   "en": {
     "description": {
+      "mlbb_sun": {
+        "name": "Sun",
+        "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
+        "passive": "<#5ad0e6ff>Simian God<>. Damaging hits reduce Defense by <#ffb900ff>5% per stack for 4s<>, up to <#ffb900ff>6 stacks (30%)<>. Clone basics and primary Instantaneous Move hits heal Sun for <#76df9cff>10 + 8% of the clone’s Attack<>. Structures grant neither shred nor healing.",
+        "skill": "<#5ad0e6ff>Endless Variety / Swift Exchange<>. Throws a staff for <#ff9028ff>52 + 45% Attack<> physical damage at up to <#ffb900ff>54,000<> range. Creates a clone on contact with a champion or regular jungle monster, or at the end of the throw. With a safe approach to a champion, Sun travels concealed with the staff and leaves the clone at his starting point. The clone lasts up to <#ffb900ff>5s<>, has <#ffb900ff>55% of Sun’s max HP<>, deals <#ff9028ff>42% damage<>, and takes <#ef5350ff>50% more damage<>. The shared <#ffb900ff>6.5s<> cooldown begins when the clone disappears.",
+        "skill2": "<#5ad0e6ff>Instantaneous Move<>. Sun and nearby clones converge on the chosen enemy at up to <#ffb900ff>46,000<> range. Sun deals <#ff9028ff>60 + 50% Attack<> physical damage. Clones strike for their respective share. Enemies behind the target take <#ff9028ff>55%<> of the corresponding strike. Each hit <#ef5350ff>slows by 12% for 1.5s<>, up to <#ef5350ff>36%<>. Cooldown <#ffb900ff>6s<>.",
+        "ult": "<#e64a6aff>Clone Techniques<>. Summons a stronger copy for up to <#ffb900ff>8s<>. It has <#ffb900ff>75% of Sun’s max HP<>, deals <#ff9028ff>65% damage<>, and takes <#ef5350ff>20% more damage<>. It can fight alongside the staff clone. The <#ffb900ff>32s<> cooldown starts when the ultimate clone disappears."
+      },
       "mlbb_valir": {
         "name": "Valir",
         "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
@@ -29,7 +37,7 @@
         "name": "Fanny",
         "attack": "Basic attacks deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> physical damage.",
         "skill": "<#5ad0e6ff>Tornado Strike<>: Spins to deal <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>35 + 80% AD<> physical damage around her. Colliding with an enemy during Steel Cable triggers a mid-air strike for <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>40 + 70% AD<> physical damage and marks enemy heroes.",
-        "skill2": "<#5ad0e6ff>Steel Cable<>: Fires a cable at a wall or lane boundary and swings toward her target. Can chain wall swings without an energy cost. Prioritizes visible enemy heroes, then nearby jungle monsters.",
+        "skill2": "<#5ad0e6ff>Steel Cable<>. Hooks onto terrain or a standing tower within <#ffb900ff>165,000<> units. Recast in the air to change direction. Each launch spends <#ffb900ff>1 of 10 charges<>. Charges recover one at a time while grounded. Up to <#ffb900ff>10 casts<> per flight.",
         "ult": "<#e64a6aff>Cut Throat<>: Dashes to an enemy and deals <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100 + 125% AD<> physical damage. Each Prey Mark adds <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>35% AD<> damage, up to <#ffb900ff>2<> marks. Consumes the marks on hit.",
         "passive": "<#5ad0e6ff>Air Superiority<>: Gains <#ffb900ff>10–25%<> bonus damage while flying, based on flight speed. Hitting an enemy hero in flight triggers Tornado Strike and applies a Prey Mark for <#ffb900ff>5<>s, stacking up to <#ffb900ff>2<> times."
       },
@@ -413,6 +421,14 @@
   },
   "zh-hans": {
     "description": {
+      "mlbb_sun": {
+        "name": "Sun",
+        "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
+        "passive": "<#5ad0e6ff>Simian God<>. Damaging hits reduce Defense by <#ffb900ff>5% per stack for 4s<>, up to <#ffb900ff>6 stacks (30%)<>. Clone basics and primary Instantaneous Move hits heal Sun for <#76df9cff>10 + 8% of the clone’s Attack<>. Structures grant neither shred nor healing.",
+        "skill": "<#5ad0e6ff>Endless Variety / Swift Exchange<>. Throws a staff for <#ff9028ff>52 + 45% Attack<> physical damage at up to <#ffb900ff>54,000<> range. Creates a clone on contact with a champion or regular jungle monster, or at the end of the throw. With a safe approach to a champion, Sun travels concealed with the staff and leaves the clone at his starting point. The clone lasts up to <#ffb900ff>5s<>, has <#ffb900ff>55% of Sun’s max HP<>, deals <#ff9028ff>42% damage<>, and takes <#ef5350ff>50% more damage<>. The shared <#ffb900ff>6.5s<> cooldown begins when the clone disappears.",
+        "skill2": "<#5ad0e6ff>Instantaneous Move<>. Sun and nearby clones converge on the chosen enemy at up to <#ffb900ff>46,000<> range. Sun deals <#ff9028ff>60 + 50% Attack<> physical damage. Clones strike for their respective share. Enemies behind the target take <#ff9028ff>55%<> of the corresponding strike. Each hit <#ef5350ff>slows by 12% for 1.5s<>, up to <#ef5350ff>36%<>. Cooldown <#ffb900ff>6s<>.",
+        "ult": "<#e64a6aff>Clone Techniques<>. Summons a stronger copy for up to <#ffb900ff>8s<>. It has <#ffb900ff>75% of Sun’s max HP<>, deals <#ff9028ff>65% damage<>, and takes <#ef5350ff>20% more damage<>. It can fight alongside the staff clone. The <#ffb900ff>32s<> cooldown starts when the ultimate clone disappears."
+      },
       "mlbb_valir": {
         "name": "Valir",
         "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
@@ -441,7 +457,7 @@
         "name": "芬妮",
         "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻击力<>的物理伤害。",
         "skill": "<#ff9028ff>飓风突刺<>：造成<#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻击力<>伤害，范围<#ffb900ff>22,000<>。钢索飞行时撞到敌人会自动触发空中飓风突刺，造成<#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70%攻击力<>伤害。",
-        "skill2": "<#ff9028ff>钢索<>：向最佳墙体或边路外墙射出钢索（射程<#ffb900ff>165,000<>），无能量消耗连续多段荡墙追击或撤退。优先锁定可见敌方英雄，无敌方英雄视野时可荡墙清理野怪。",
+        "skill2": "<#5ad0e6ff>钢索<>：钩住<#ffb900ff>165,000<>范围内的地形或未摧毁的防御塔。空中再次施放可改变方向。每次消耗<#ffb900ff>1层<>，最多储存<#ffb900ff>10层<>。落地后逐层恢复，每次飞行最多施放<#ffb900ff>10次<>。",
         "ult": "<#ff9028ff>割喉<>：冲向目标，造成<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125%攻击力<>伤害；每层猎物印记额外造成<#ff9028ff>35%攻击力<>（最多2层）。命中后消耗印记。",
         "passive": "<#ff9028ff>空中优势<>：钢索飞行时，芬妮根据飞行速度获得<#ffb900ff>10–25%<>伤害加成。飞行中命中敌方英雄会施加或升级<#ff9028ff>猎物印记<>（最多2层，持续<#ffb900ff>5秒<>），并触发飓风突刺。"
       },
@@ -825,6 +841,14 @@
   },
   "zh-hant": {
     "description": {
+      "mlbb_sun": {
+        "name": "Sun",
+        "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
+        "passive": "<#5ad0e6ff>Simian God<>. Damaging hits reduce Defense by <#ffb900ff>5% per stack for 4s<>, up to <#ffb900ff>6 stacks (30%)<>. Clone basics and primary Instantaneous Move hits heal Sun for <#76df9cff>10 + 8% of the clone’s Attack<>. Structures grant neither shred nor healing.",
+        "skill": "<#5ad0e6ff>Endless Variety / Swift Exchange<>. Throws a staff for <#ff9028ff>52 + 45% Attack<> physical damage at up to <#ffb900ff>54,000<> range. Creates a clone on contact with a champion or regular jungle monster, or at the end of the throw. With a safe approach to a champion, Sun travels concealed with the staff and leaves the clone at his starting point. The clone lasts up to <#ffb900ff>5s<>, has <#ffb900ff>55% of Sun’s max HP<>, deals <#ff9028ff>42% damage<>, and takes <#ef5350ff>50% more damage<>. The shared <#ffb900ff>6.5s<> cooldown begins when the clone disappears.",
+        "skill2": "<#5ad0e6ff>Instantaneous Move<>. Sun and nearby clones converge on the chosen enemy at up to <#ffb900ff>46,000<> range. Sun deals <#ff9028ff>60 + 50% Attack<> physical damage. Clones strike for their respective share. Enemies behind the target take <#ff9028ff>55%<> of the corresponding strike. Each hit <#ef5350ff>slows by 12% for 1.5s<>, up to <#ef5350ff>36%<>. Cooldown <#ffb900ff>6s<>.",
+        "ult": "<#e64a6aff>Clone Techniques<>. Summons a stronger copy for up to <#ffb900ff>8s<>. It has <#ffb900ff>75% of Sun’s max HP<>, deals <#ff9028ff>65% damage<>, and takes <#ef5350ff>20% more damage<>. It can fight alongside the staff clone. The <#ffb900ff>32s<> cooldown starts when the ultimate clone disappears."
+      },
       "mlbb_valir": {
         "name": "Valir",
         "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
@@ -853,7 +877,7 @@
         "name": "芬妮",
         "attack": "普攻造成<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100%攻擊力<>的物理傷害。",
         "skill": "<#ff9028ff>颶風突刺<>：造成<#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80%攻擊力<>傷害，範圍<#ffb900ff>22,000<>。鋼索飛行時撞到敵人會自動觸發空中颶風突刺，造成<#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70%攻擊力<>傷害。",
-        "skill2": "<#ff9028ff>鋼索<>：向最佳牆體或邊路外牆射出鋼索（射程<#ffb900ff>165,000<>），無能量消耗連續多段盪牆追擊或撤退。優先鎖定可見敵方英雄，無敵方英雄視野時可盪牆清理野怪。",
+        "skill2": "<#5ad0e6ff>鋼索<>：勾住<#ffb900ff>165,000<>範圍內的地形或未摧毀的防禦塔。空中再次施放可改變方向。每次消耗<#ffb900ff>1層<>，最多儲存<#ffb900ff>10層<>。落地後逐層恢復，每次飛行最多施放<#ffb900ff>10次<>。",
         "ult": "<#ff9028ff>割喉<>：衝向目標，造成<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125%攻擊力<>傷害；每層獵物印記額外造成<#ff9028ff>35%攻擊力<>（最多2層）。命中後消耗印記。",
         "passive": "<#ff9028ff>空中優勢<>：鋼索飛行時，芬妮根據飛行速度獲得<#ffb900ff>10–25%<>傷害加成。飛行中命中敵方英雄會施加或升級<#ff9028ff>獵物印記<>（最多2層，持續<#ffb900ff>5秒<>），並觸發颶風突刺。"
       },
@@ -1237,6 +1261,14 @@
   },
   "ko": {
     "description": {
+      "mlbb_sun": {
+        "name": "Sun",
+        "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
+        "passive": "<#5ad0e6ff>Simian God<>. Damaging hits reduce Defense by <#ffb900ff>5% per stack for 4s<>, up to <#ffb900ff>6 stacks (30%)<>. Clone basics and primary Instantaneous Move hits heal Sun for <#76df9cff>10 + 8% of the clone’s Attack<>. Structures grant neither shred nor healing.",
+        "skill": "<#5ad0e6ff>Endless Variety / Swift Exchange<>. Throws a staff for <#ff9028ff>52 + 45% Attack<> physical damage at up to <#ffb900ff>54,000<> range. Creates a clone on contact with a champion or regular jungle monster, or at the end of the throw. With a safe approach to a champion, Sun travels concealed with the staff and leaves the clone at his starting point. The clone lasts up to <#ffb900ff>5s<>, has <#ffb900ff>55% of Sun’s max HP<>, deals <#ff9028ff>42% damage<>, and takes <#ef5350ff>50% more damage<>. The shared <#ffb900ff>6.5s<> cooldown begins when the clone disappears.",
+        "skill2": "<#5ad0e6ff>Instantaneous Move<>. Sun and nearby clones converge on the chosen enemy at up to <#ffb900ff>46,000<> range. Sun deals <#ff9028ff>60 + 50% Attack<> physical damage. Clones strike for their respective share. Enemies behind the target take <#ff9028ff>55%<> of the corresponding strike. Each hit <#ef5350ff>slows by 12% for 1.5s<>, up to <#ef5350ff>36%<>. Cooldown <#ffb900ff>6s<>.",
+        "ult": "<#e64a6aff>Clone Techniques<>. Summons a stronger copy for up to <#ffb900ff>8s<>. It has <#ffb900ff>75% of Sun’s max HP<>, deals <#ff9028ff>65% damage<>, and takes <#ef5350ff>20% more damage<>. It can fight alongside the staff clone. The <#ffb900ff>32s<> cooldown starts when the ultimate clone disappears."
+      },
       "mlbb_valir": {
         "name": "Valir",
         "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
@@ -1265,7 +1297,7 @@
         "name": "파니",
         "attack": "기본 공격은 <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 100%<> 물리 피해를 줍니다.",
         "skill": "<#ff9028ff>토네이도 스트라이크<>: 반경<#ffb900ff>22,000<> 안의 적에게 <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 80%<> 피해를 줍니다. 케이블 비행 중 적과 충돌하면 <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 70%<> 토네이도 스트라이크를 자동 발동합니다.",
-        "skill2": "<#ff9028ff>스틸 케이블<>: 최적의 벽이나 외곽 라인 경계로 케이블(사거리 <#ffb900ff>165,000<>)을 발사해 에너지 소모 없이 연속 다중 벽 타기로 추격하거나 탈출합니다. 시야 내 적 영웅을 최우선으로 조준하며, 적 영웅이 없을 때만 정글 몬스터에게 케이블을 사용합니다.",
+        "skill2": "<#5ad0e6ff>스틸 케이블<>: 사거리 <#ffb900ff>165,000<> 내 지형이나 남아 있는 포탑에 케이블을 겁니다. 공중에서 다시 사용하면 방향을 바꿉니다. 최대 <#ffb900ff>10회<> 충전되며 발사할 때마다 <#ffb900ff>1회<>를 소모합니다. 지상에서 한 번씩 충전되며 비행당 최대 <#ffb900ff>10회<> 발사할 수 있습니다.",
         "ult": "<#ff9028ff>컷 스로트<>: 대상에게 돌진해<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>공격력의 125%<> 피해를 줍니다. 먹잇감 표식마다<#ff9028ff>공격력의 35%<> 추가 피해 (최대 2중첩). 적중하면 표식을 소모합니다.",
         "passive": "<#ff9028ff>공중 우세<>: 케이블 비행 중 이동 속도에 따라<#ffb900ff>10–25%<> 피해가 증가합니다. 비행 중 적 영웅을 맞히면<#ff9028ff>먹잇감 표식<>을 적용/강화(최대 2중첩,<#ffb900ff>5초<>)하고 토네이도 스트라이크를 발동합니다."
       },
@@ -1649,6 +1681,14 @@
   },
   "ja": {
     "description": {
+      "mlbb_sun": {
+        "name": "Sun",
+        "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
+        "passive": "<#5ad0e6ff>Simian God<>. Damaging hits reduce Defense by <#ffb900ff>5% per stack for 4s<>, up to <#ffb900ff>6 stacks (30%)<>. Clone basics and primary Instantaneous Move hits heal Sun for <#76df9cff>10 + 8% of the clone’s Attack<>. Structures grant neither shred nor healing.",
+        "skill": "<#5ad0e6ff>Endless Variety / Swift Exchange<>. Throws a staff for <#ff9028ff>52 + 45% Attack<> physical damage at up to <#ffb900ff>54,000<> range. Creates a clone on contact with a champion or regular jungle monster, or at the end of the throw. With a safe approach to a champion, Sun travels concealed with the staff and leaves the clone at his starting point. The clone lasts up to <#ffb900ff>5s<>, has <#ffb900ff>55% of Sun’s max HP<>, deals <#ff9028ff>42% damage<>, and takes <#ef5350ff>50% more damage<>. The shared <#ffb900ff>6.5s<> cooldown begins when the clone disappears.",
+        "skill2": "<#5ad0e6ff>Instantaneous Move<>. Sun and nearby clones converge on the chosen enemy at up to <#ffb900ff>46,000<> range. Sun deals <#ff9028ff>60 + 50% Attack<> physical damage. Clones strike for their respective share. Enemies behind the target take <#ff9028ff>55%<> of the corresponding strike. Each hit <#ef5350ff>slows by 12% for 1.5s<>, up to <#ef5350ff>36%<>. Cooldown <#ffb900ff>6s<>.",
+        "ult": "<#e64a6aff>Clone Techniques<>. Summons a stronger copy for up to <#ffb900ff>8s<>. It has <#ffb900ff>75% of Sun’s max HP<>, deals <#ff9028ff>65% damage<>, and takes <#ef5350ff>20% more damage<>. It can fight alongside the staff clone. The <#ffb900ff>32s<> cooldown starts when the ultimate clone disappears."
+      },
       "mlbb_valir": {
         "name": "Valir",
         "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
@@ -1677,7 +1717,7 @@
         "name": "ファニー",
         "attack": "通常攻撃は<i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>攻撃力の100%<>の<#ff9028ff>物理ダメージ<>を与える。",
         "skill": "<#ff9028ff>トルネードストライク<>：半径<#ffb900ff>22,000<>以内の敵に<#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>攻撃力の80%<>のダメージを与える。スチールケーブル飛行中に敵と衝突すると、<#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>攻撃力の70%<>の空中トルネードストライクが自動で発動する。",
-        "skill2": "<#ff9028ff>スチールケーブル<>：最適な壁または外周レーン境界へケーブル（射程<#ffb900ff>165,000<>）を投げ、エネルギー消費<#ffb900ff>0<>で連続壁乗りにより追撃または離脱する。視界内の敵英雄を最優先に狙い、敵英雄が視界にいない場合のみジャングルモンスターに使用する。",
+        "skill2": "<#5ad0e6ff>スチールケーブル<>：射程<#ffb900ff>165,000<>以内の地形や残存するタワーに引っ掛ける。空中で再使用すると方向転換する。最大<#ffb900ff>10チャージ<>を保持し、発射ごとに<#ffb900ff>1<>消費。地上で1つずつ回復し、1回の飛行で最大<#ffb900ff>10回<>発射できる。",
         "ult": "<#ff9028ff>カットスロート<>：対象へ突進し<#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>攻撃力の125%<>のダメージを与える。獲物の印1つごとに<#ff9028ff>攻撃力の35%<>の追加ダメージ（最大2スタック）。命中すると印を消費する。",
         "passive": "<#ff9028ff>空中優勢<>：ケーブル飛行中、移動速度に応じて<#ffb900ff>10–25%<>のダメージが増加する。飛行中に敵英雄へ命中すると<#ff9028ff>獲物の印<>を付与・強化（最大2スタック、<#ffb900ff>5秒<>）し、トルネードストライクを発動する。"
       },
@@ -2061,6 +2101,14 @@
   },
   "fr": {
     "description": {
+      "mlbb_sun": {
+        "name": "Sun",
+        "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
+        "passive": "<#5ad0e6ff>Simian God<>. Damaging hits reduce Defense by <#ffb900ff>5% per stack for 4s<>, up to <#ffb900ff>6 stacks (30%)<>. Clone basics and primary Instantaneous Move hits heal Sun for <#76df9cff>10 + 8% of the clone’s Attack<>. Structures grant neither shred nor healing.",
+        "skill": "<#5ad0e6ff>Endless Variety / Swift Exchange<>. Throws a staff for <#ff9028ff>52 + 45% Attack<> physical damage at up to <#ffb900ff>54,000<> range. Creates a clone on contact with a champion or regular jungle monster, or at the end of the throw. With a safe approach to a champion, Sun travels concealed with the staff and leaves the clone at his starting point. The clone lasts up to <#ffb900ff>5s<>, has <#ffb900ff>55% of Sun’s max HP<>, deals <#ff9028ff>42% damage<>, and takes <#ef5350ff>50% more damage<>. The shared <#ffb900ff>6.5s<> cooldown begins when the clone disappears.",
+        "skill2": "<#5ad0e6ff>Instantaneous Move<>. Sun and nearby clones converge on the chosen enemy at up to <#ffb900ff>46,000<> range. Sun deals <#ff9028ff>60 + 50% Attack<> physical damage. Clones strike for their respective share. Enemies behind the target take <#ff9028ff>55%<> of the corresponding strike. Each hit <#ef5350ff>slows by 12% for 1.5s<>, up to <#ef5350ff>36%<>. Cooldown <#ffb900ff>6s<>.",
+        "ult": "<#e64a6aff>Clone Techniques<>. Summons a stronger copy for up to <#ffb900ff>8s<>. It has <#ffb900ff>75% of Sun’s max HP<>, deals <#ff9028ff>65% damage<>, and takes <#ef5350ff>20% more damage<>. It can fight alongside the staff clone. The <#ffb900ff>32s<> cooldown starts when the ultimate clone disappears."
+      },
       "mlbb_valir": {
         "name": "Valir",
         "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
@@ -2130,7 +2178,7 @@
         "attack": "Les attaques de base infligent <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% d'AD<> en dégâts physiques.",
         "passive": "<#ff9028ff>Supériorité aérienne<> : en vol câblé, Fanny gagne <#ffb900ff>10–25%<> de dégâts bonus selon sa vitesse de vol. Toucher un champion ennemi en vol applique ou améliore une <#ff9028ff>Marque de proie<> (max 2 cumuls, <#ffb900ff>5 s<>) et déclenche Frappe Tornade.",
         "skill": "<#ff9028ff>Frappe Tornade<> : inflige <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% d'AD<> dans un rayon de <#ffb900ff>22 000<>. Pendant le vol du Câble d'acier, heurter un ennemi déclenche automatiquement une Frappe Tornade aérienne pour <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70% d'AD<> et applique une Marque de proie aux champions ennemis.",
-        "skill2": "<#ff9028ff>Câble d'acier<> : lance un câble (portée <#ffb900ff>165 000<>) vers le meilleur mur ou la limite extérieure de voie et propulse Fanny par-dessus l'obstacle vers sa cible, enchaînant plusieurs sauts muraux à travers la carte pour <#ffb900ff>0<> coût d'énergie. Cible en priorité les champions ennemis visibles, ou les monstres de la jungle à proximité si aucun champion n'est visible.",
+        "skill2": "<#5ad0e6ff>Câble d’acier<>. S’accroche au terrain ou à une tourelle intacte à <#ffb900ff>165 000<> unités ou moins. Relancez en plein vol pour changer de direction. Chaque tir dépense <#ffb900ff>1 charge sur 10<>. Les charges reviennent une à une au sol. Jusqu’à <#ffb900ff>10 tirs<> par vol.",
         "ult": "<#ff9028ff>Égorgement<> : bondit vers l'ennemi ciblé et inflige <#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125% d'AD<> ; chaque Marque de proie ajoute <#ff9028ff>35% d'AD<> (jusqu'à 2 marques). Une touche réussie consomme les marques."
       },
       "mlbb_franco": {
@@ -2473,6 +2521,14 @@
   },
   "ru": {
     "description": {
+      "mlbb_sun": {
+        "name": "Sun",
+        "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
+        "passive": "<#5ad0e6ff>Simian God<>. Damaging hits reduce Defense by <#ffb900ff>5% per stack for 4s<>, up to <#ffb900ff>6 stacks (30%)<>. Clone basics and primary Instantaneous Move hits heal Sun for <#76df9cff>10 + 8% of the clone’s Attack<>. Structures grant neither shred nor healing.",
+        "skill": "<#5ad0e6ff>Endless Variety / Swift Exchange<>. Throws a staff for <#ff9028ff>52 + 45% Attack<> physical damage at up to <#ffb900ff>54,000<> range. Creates a clone on contact with a champion or regular jungle monster, or at the end of the throw. With a safe approach to a champion, Sun travels concealed with the staff and leaves the clone at his starting point. The clone lasts up to <#ffb900ff>5s<>, has <#ffb900ff>55% of Sun’s max HP<>, deals <#ff9028ff>42% damage<>, and takes <#ef5350ff>50% more damage<>. The shared <#ffb900ff>6.5s<> cooldown begins when the clone disappears.",
+        "skill2": "<#5ad0e6ff>Instantaneous Move<>. Sun and nearby clones converge on the chosen enemy at up to <#ffb900ff>46,000<> range. Sun deals <#ff9028ff>60 + 50% Attack<> physical damage. Clones strike for their respective share. Enemies behind the target take <#ff9028ff>55%<> of the corresponding strike. Each hit <#ef5350ff>slows by 12% for 1.5s<>, up to <#ef5350ff>36%<>. Cooldown <#ffb900ff>6s<>.",
+        "ult": "<#e64a6aff>Clone Techniques<>. Summons a stronger copy for up to <#ffb900ff>8s<>. It has <#ffb900ff>75% of Sun’s max HP<>, deals <#ff9028ff>65% damage<>, and takes <#ef5350ff>20% more damage<>. It can fight alongside the staff clone. The <#ffb900ff>32s<> cooldown starts when the ultimate clone disappears."
+      },
       "mlbb_valir": {
         "name": "Valir",
         "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
@@ -2542,7 +2598,7 @@
         "attack": "Обычные атаки наносят <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% AD<> физического урона.",
         "passive": "<#ff9028ff>Воздушное превосходство<> : во время полёта на тросе Фанни получает <#ffb900ff>10–25%<> доп. урона в зависимости от скорости полёта. Попадание по вражескому чемпиону в полёте накладывает или усиливает <#ff9028ff>Метку добычи<> (макс. 2 заряда, <#ffb900ff>5 с<>) и вызывает Удар торнадо.",
         "skill": "<#ff9028ff>Удар торнадо<> : наносит <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% AD<> в радиусе <#ffb900ff>22 000<>. Во время полёта на Стальном тросе столкновение с врагом автоматически вызывает Удар торнадо в воздухе на <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70% AD<> и накладывает Метку добычи на вражеских чемпионов.",
-        "skill2": "<#ff9028ff>Стальной трос<> : бросает трос (дальность <#ffb900ff>165 000<>) к лучшей стене или внешней границе линии и проносит Фанни через препятствие к цели, совершая серию прыжков через стены по карте с затратой <#ffb900ff>0<> энергии. В приоритете видимые вражеские чемпионы, иначе — ближайшие монстры джунглей.",
+        "skill2": "<#5ad0e6ff>Стальной трос<>. Цепляется за препятствие или целую башню на расстоянии до <#ffb900ff>165 000<>. Повторный бросок в воздухе меняет направление. Каждый бросок расходует <#ffb900ff>1 заряд из 10<>. Заряды восстанавливаются по одному на земле. До <#ffb900ff>10 бросков<> за полёт.",
         "ult": "<#ff9028ff>Перерезание горла<> : бросается к цели и наносит <#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125% AD<>; каждая Метка добычи добавляет <#ff9028ff>35% AD<> (до 2 меток). Успешное попадание расходует метки."
       },
       "mlbb_franco": {
@@ -2885,6 +2941,14 @@
   },
   "vi": {
     "description": {
+      "mlbb_sun": {
+        "name": "Sun",
+        "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
+        "passive": "<#5ad0e6ff>Simian God<>. Damaging hits reduce Defense by <#ffb900ff>5% per stack for 4s<>, up to <#ffb900ff>6 stacks (30%)<>. Clone basics and primary Instantaneous Move hits heal Sun for <#76df9cff>10 + 8% of the clone’s Attack<>. Structures grant neither shred nor healing.",
+        "skill": "<#5ad0e6ff>Endless Variety / Swift Exchange<>. Throws a staff for <#ff9028ff>52 + 45% Attack<> physical damage at up to <#ffb900ff>54,000<> range. Creates a clone on contact with a champion or regular jungle monster, or at the end of the throw. With a safe approach to a champion, Sun travels concealed with the staff and leaves the clone at his starting point. The clone lasts up to <#ffb900ff>5s<>, has <#ffb900ff>55% of Sun’s max HP<>, deals <#ff9028ff>42% damage<>, and takes <#ef5350ff>50% more damage<>. The shared <#ffb900ff>6.5s<> cooldown begins when the clone disappears.",
+        "skill2": "<#5ad0e6ff>Instantaneous Move<>. Sun and nearby clones converge on the chosen enemy at up to <#ffb900ff>46,000<> range. Sun deals <#ff9028ff>60 + 50% Attack<> physical damage. Clones strike for their respective share. Enemies behind the target take <#ff9028ff>55%<> of the corresponding strike. Each hit <#ef5350ff>slows by 12% for 1.5s<>, up to <#ef5350ff>36%<>. Cooldown <#ffb900ff>6s<>.",
+        "ult": "<#e64a6aff>Clone Techniques<>. Summons a stronger copy for up to <#ffb900ff>8s<>. It has <#ffb900ff>75% of Sun’s max HP<>, deals <#ff9028ff>65% damage<>, and takes <#ef5350ff>20% more damage<>. It can fight alongside the staff clone. The <#ffb900ff>32s<> cooldown starts when the ultimate clone disappears."
+      },
       "mlbb_valir": {
         "name": "Valir",
         "attack": "Throws an ember that deals <#ff9028ff>100% Attack<> physical damage.",
@@ -2954,7 +3018,7 @@
         "attack": "Đòn đánh thường gây <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>100% Công Vật Lý<> sát thương vật lý.",
         "passive": "<#ff9028ff>Ưu Thế Trên Không<> : khi bay bằng cáp, Fanny nhận <#ffb900ff>10–25%<> sát thương cộng thêm dựa trên tốc độ bay. Trúng tướng địch khi đang bay sẽ áp dụng hoặc nâng cấp <#ff9028ff>Dấu Ấn Con Mồi<> (tối đa 2 điểm, <#ffb900ff>5 giây<>) và kích hoạt Đột Kích Lốc Xoáy.",
         "skill": "<#ff9028ff>Đột Kích Lốc Xoáy<> : gây <#ff9028ff>35<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>80% Công Vật Lý<> trong bán kính <#ffb900ff>22.000<>. Khi đang bay bằng Cáp Thép, va vào kẻ địch sẽ tự động kích hoạt Đột Kích Lốc Xoáy trên không gây <#ff9028ff>40<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>70% Công Vật Lý<> và áp dụng Dấu Ấn Con Mồi lên tướng địch.",
-        "skill2": "<#ff9028ff>Cáp Thép<> : phóng cáp (tầm <#ffb900ff>165.000<>) vào bức tường tốt nhất hoặc ranh giới ngoài của đường, đưa Fanny vượt qua vật cản hướng tới mục tiêu, nối nhiều cú bám tường xuyên bản đồ với chi phí năng lượng <#ffb900ff>0<>. Ưu tiên tướng địch trong tầm nhìn, hoặc quái rừng gần đó khi không có tướng địch nào khả kiến.",
+        "skill2": "<#5ad0e6ff>Cáp Thép<>. Móc vào địa hình hoặc trụ còn đứng trong tầm <#ffb900ff>165.000<>. Tái sử dụng khi đang bay để đổi hướng. Mỗi lần phóng tốn <#ffb900ff>1 trong 10 điểm tích trữ<>. Hồi từng điểm khi ở trên mặt đất. Tối đa <#ffb900ff>10 lần phóng<> mỗi chuyến bay.",
         "ult": "<#ff9028ff>Cắt Cổ<> : lao tới mục tiêu và gây <#ff9028ff>100<> + <i#asset/base/ui/banpick/champion_stat_icon:ad_0><#ff9028ff>125% Công Vật Lý<>; mỗi Dấu Ấn Con Mồi cộng thêm <#ff9028ff>35% Công Vật Lý<> (tối đa 2 dấu). Trúng đòn sẽ tiêu hao các dấu ấn."
       },
       "mlbb_franco": {
