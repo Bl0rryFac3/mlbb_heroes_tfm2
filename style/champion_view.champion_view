@@ -1,5 +1,10 @@
 {
   "entries": {
+    "mlbb_minotaur": {
+      "face": {"x": 0, "y": -38},
+      "center": {"x": 0, "y": -16},
+      "banpick_center": {"x": 0, "y": -11}
+    },
     "mlbb_aldous": {
       "face": {
         "x": 3,

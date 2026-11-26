@@ -1146,8 +1146,8 @@ mod tests {
                     "{line} not in mod.override_info — Hanabi will be silent like Arlott was"
                 );
                 assert!(
-                    text.contains(&format!("mlbb_heroes_clip_{clip}")),
-                    "clip twin for {clip} not in mod.override_info"
+                    text.contains(&format!("\"asset/base/sound/sfx/{clip}\"")),
+                    "the clip named by the event, {clip}, is missing from mod.override_info"
                 );
             }
         }

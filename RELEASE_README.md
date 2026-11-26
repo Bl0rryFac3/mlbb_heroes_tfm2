@@ -1,25 +1,23 @@
-# MLBB Heroes v3.1.0
+# MLBB Heroes v3.2.0
 
-MLBB Heroes adds 31 Mobile Legends heroes to Teamfight Manager 2. This Windows release was playtested on Teamfight Manager 2 0.7.4. The Mods menu shows build 1.1.201.
+MLBB Heroes adds 32 Mobile Legends heroes to Teamfight Manager 2. This Windows release was playtested on Teamfight Manager 2 0.7.4. The Mods menu shows build 1.1.204.
 
-## X.Borg
+## Minotaur
 
-X.Borg switches between armored and armorless forms. His overhead bar shows Firaga reserve or recharge. Fire Missiles hits a cone and restores HP and Firaga when it damages enemy champions or monsters. Fire Stake pulls targets and collects supplies. Last Insanity spins for up to 3 seconds and deals increased blast damage to overheated targets. Both forms can attack enemy structures.
+Minotaur joins as a tank support. Despair Stomp leaves a shockwave at the landing point and empowers his next two eligible basic attacks. Motivation Roar heals Minotaur and a nearby ally. Minoan Fury lands three slams and triggers 12 seconds of Enraged, widening the stomp and allowing the roar to heal all nearby allied champions.
 
-X.Borg has an animated champion-selection idle, official skill icons, and 29 default English voice clips.
+Minotaur has an animated champion-select idle, official ability icons, and one English voice clip each for his basic attack, two skills, and ultimate.
 
-## Other changes
+## Voice audio
 
-- Fanny's Steel Cable can plan up to three anchors ahead and target movement waypoints.
-- Aldous has updated idle and combat animations, including a rotating drill and arrival recovery for Chase Fate.
-- Balmond has updated sprites and a visible Cyclone Sweep effect.
+The compact voice bank keeps one recording per retained cue. Combat sound effects are preserved. The Windows ZIP is about 38 MB, down from about 84 MB in v3.1.0.
 
 ## Install on Windows
 
-1. Open `mlbb_heroes_v3.1.0.zip`.
-2. Move the `mlbb_heroes` folder into the Teamfight Manager 2 `mods` folder.
-3. Enable MLBB Heroes in the Mods menu and check for build `1.1.201`.
+1. Close the game. Move any existing `mlbb_heroes` folder out of the `mods` folder.
+2. Open `mlbb_heroes_v3.2.0.zip` and move the bundled `mlbb_heroes` folder into the Teamfight Manager 2 `mods` folder.
+3. Enable MLBB Heroes in the Mods menu and check for build `1.1.204`.
 
 The screenshot guide is included as `Install_Guide.html`.
 
-Mod by Bl0rryFac3. Mobile Legends characters and names belong to Moonton.
+Mod by Bl0rryFac3. Mobile Legends characters, icons, and voice recordings belong to Moonton.

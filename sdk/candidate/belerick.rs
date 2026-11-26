@@ -785,11 +785,13 @@ mod tests {
         // because build_release_zip.py rejects a clip that shares the event's
         // own name — "TFM2 can fail to play same-ID event/clip routes".
         for line in LIFECYCLE_LINES {
-            let clip = format!("mlbb_heroes_clip_{line}");
             let info = dir.join(format!("{line}.sound_info"));
-            assert!(info.is_file(), "missing {info:?}");
             let body = std::fs::read_to_string(&info).expect("read sound_info");
-            assert!(body.contains(&clip), "{line}.sound_info must reference {clip}, got: {body}");
+            let clip = body
+                .split_once("\"clip\"")
+                .and_then(|(_, value)| value.split('"').nth(1))
+                .expect("voice clip asset ID");
+            assert!(clip.starts_with("mlbb_heroes_clip_mlbb_belerick_voice_"), "{line} -> {clip}");
             assert!(dir.join(format!("{clip}.wav")).is_file(), "missing {clip}.wav");
         }
     }

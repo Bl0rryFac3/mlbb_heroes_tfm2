@@ -12,6 +12,7 @@ mod popol_probe;
 mod popol_menu;
 mod granger;
 mod lesley;
+mod minotaur;
 mod valir;
 mod hanzo;
 mod atlas;
@@ -1817,6 +1818,7 @@ fn init(host: &StableHost) -> StableMod {
     atlas::register(&mut module);
     yu_zhong::register(&mut module);
     xborg::register(&mut module);
+    minotaur::register(&mut module);
     module.set_extension(hanzo::Extension);
     franco::register(&mut module);
     balmond::register(&mut module);

@@ -18,6 +18,7 @@ pub(crate) enum Hero {
     Atlas,
     YuZhong,
     Xborg,
+    Minotaur,
 }
 
 impl Hero {
@@ -29,6 +30,7 @@ impl Hero {
             "Atlas" | "mlbb_atlas" => Some(Self::Atlas),
             "Yu Zhong" | "mlbb_yu_zhong" => Some(Self::YuZhong),
             "X.Borg" | "mlbb_xborg" => Some(Self::Xborg),
+            "Minotaur" | "mlbb_minotaur" => Some(Self::Minotaur),
             _ => None,
         }
     }
@@ -43,6 +45,7 @@ impl Hero {
             Self::Atlas => ("atlas_draft_idle", frame, 96. / 88.),
             Self::YuZhong => ("yu_zhong_draft_idle", frame, 1.),
             Self::Xborg => ("xborg_draft_idle", frame, 96. / 80.),
+            Self::Minotaur => ("minotaur_draft_idle", frame, 96. / 88.),
         };
         (format!("asset/mlbb_heroes/icons/{name}_{frame}"), aspect)
     }

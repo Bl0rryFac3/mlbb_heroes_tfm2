@@ -1,0 +1,83 @@
+{
+  "hero": "Minotaur",
+  "hero_wiki": "https://mobile-legends.fandom.com/wiki/Minotaur",
+  "audio_wiki": "https://mobile-legends.fandom.com/wiki/Minotaur/Audio#Default",
+  "icon_mirror_reference": "https://mlbb-knowledge.vercel.app/heroes/19",
+  "icons": [
+    {
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Rage_Incarnate.png",
+      "url": "https://static.wikia.nocookie.net/mobile-legends/images/7/7b/Rage_Incarnate.png",
+      "name": "Rage_Incarnate.webp",
+      "dimensions": [
+        100,
+        100
+      ],
+      "sha256": "6eee054cfc8006607b9f666f52b433f51f3e41b925d5458deba9ace50bc53fb1",
+      "slot": "passive"
+    },
+    {
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Despair_Stomp.png",
+      "url": "https://static.wikia.nocookie.net/mobile-legends/images/b/b9/Despair_Stomp.png",
+      "name": "Despair_Stomp.webp",
+      "dimensions": [
+        100,
+        100
+      ],
+      "sha256": "a49bd110ece7dd54e5fb3b60da2be28767389509de4368229122e27c48a13a30",
+      "slot": "skill"
+    },
+    {
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Motivation_Roar.png",
+      "url": "https://mlbb-knowledge.vercel.app/mlbb/heroes/skills/skill-1920.png",
+      "name": "Motivation_Roar.png",
+      "dimensions": [
+        100,
+        100
+      ],
+      "sha256": "af37187deebf67e6c416522b6667f7ff3f9afa18b35fbc59e325aa4fb129e28e",
+      "slot": "skill2"
+    },
+    {
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Minoan_Fury.png",
+      "url": "https://static.wikia.nocookie.net/mobile-legends/images/2/27/Minoan_Fury.png",
+      "name": "Minoan_Fury.webp",
+      "dimensions": [
+        100,
+        100
+      ],
+      "sha256": "5985a79bf31b727511f76b3cc1af359dcd4c1a35c1bf735a9f32b9d2799d9dc3",
+      "slot": "ult"
+    }
+  ],
+  "default_english_voices": [
+    {
+      "slot": "basic",
+      "source": "Minotaur.projnext.skill03.ogg",
+      "sha256": "66e17d47a57efc0e95212b3a1af13228049fde16ed07ef96fe58ce206edc1bf0",
+      "url": "https://static.wikia.nocookie.net/mobile-legends/images/e/ed/Minotaur.projnext.skill03.ogg",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Minotaur.projnext.skill03.ogg"
+    },
+    {
+      "slot": "stomp",
+      "source": "Minotaur.projnext.skill01.ogg",
+      "sha256": "5d688bff2d28a6b262b64c6b71b1d07ada5a29e819a4564ba5b8fc69b6f1d463",
+      "url": "https://static.wikia.nocookie.net/mobile-legends/images/a/a9/Minotaur.projnext.skill01.ogg",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Minotaur.projnext.skill01.ogg"
+    },
+    {
+      "slot": "roar",
+      "source": "Minotaur.projnext.skill02.ogg",
+      "sha256": "299fb52518baed3f30314b8a32fd2ce5d452feb432a2b3c659e0161e081bd197",
+      "url": "https://static.wikia.nocookie.net/mobile-legends/images/e/ee/Minotaur.projnext.skill02.ogg",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Minotaur.projnext.skill02.ogg"
+    },
+    {
+      "slot": "fury",
+      "source": "Minotaur.projnext.ult01.ogg",
+      "sha256": "1c5ef1da379b5ab33c027b00b0aa95b81ea1f0e6f834ea7c8c39f3b88bc962e7",
+      "url": "https://static.wikia.nocookie.net/mobile-legends/images/d/d0/Minotaur.projnext.ult01.ogg",
+      "wiki_file": "https://mobile-legends.fandom.com/wiki/File:Minotaur.projnext.ult01.ogg"
+    }
+  ],
+  "basic_voice_note": "The default list has no dedicated basic grunt. Basic uses the separate default S1 alternate effort take skill03. The listed dedicated basic grunts belong to Taurus."
+}

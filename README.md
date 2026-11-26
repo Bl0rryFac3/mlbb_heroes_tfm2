@@ -1,10 +1,10 @@
 # MLBB Heroes — Teamfight Manager 2
 
-Adds 31 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, skill effects, and voice lines.
+Adds 32 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, skill effects, and voice lines.
 
-**New in v3.1.0 — X.Borg.** X.Borg has armored and armorless forms and an overhead Firaga gauge. Fire Missiles builds heat and restores HP and Firaga, and Last Insanity deals more blast damage to overheated targets.
+**New in v3.2.0 — Minotaur.** Minotaur is a tank support with a landing shockwave, a healing roar, and a three-hit ultimate. Minoan Fury triggers 12 seconds of Enraged. His champion-select idle, combat animations, official ability icons, and four English voice cues are included.
 
-This release also updates Fanny's cable routing, Aldous's animations, and Balmond's Cyclone Sweep visuals. The Windows package was playtested on Teamfight Manager 2 0.7.4. The Mods menu shows build **1.1.201**.
+The compact voice bank keeps one recording per retained cue and preserves combat sound effects. The Windows package was playtested on Teamfight Manager 2 0.7.4. The Mods menu shows build **1.1.204**.
 
 ---
 
@@ -43,6 +43,7 @@ This release also updates Fanny's cable routing, Aldous's animations, and Balmon
 | **Valir** *(Son of Flames)* | `mlbb_valir` | Magician | Data + native Rust | **Ashing** detonates at three stacks. **Searing Torrent** pushes back enemies, and **Vengeance Flame** cleanses crowd control and empowers four casts. |
 | **Sun** *(Monkey King)* | `mlbb_sun` | Melee Fighter | Data + native Rust | **Simian God** reduces Defense. **Endless Variety / Swift Exchange** and **Clone Techniques** each summon a clone. **Instantaneous Move** brings all three together. |
 | **X.Borg** *(Firaga Armor)* | `mlbb_xborg` | Melee Fighter | Data + native Rust | A separate Firaga reserve controls armor. **Fire Missiles** builds heat while moving, **Fire Stake** pulls targets, and **Last Insanity** has a stronger blast against overheated enemies. |
+| **Minotaur** *(Son of Minos)* | `mlbb_minotaur` | Tank / Support | Data + native Rust | **Despair Stomp** leaps and empowers two basics. **Motivation Roar** heals allies. **Minoan Fury** lands three slams and triggers Enraged. |
 
 ---
 
@@ -372,14 +373,23 @@ This release also updates Fanny's cable routing, Aldous's animations, and Balmon
 - **Last Insanity.** Charges and spins for up to 3 seconds. Detonation deals 100 + 6% target max HP as true damage, with a 50% bonus against overheated targets and a cap of 150 against epic monsters. An armor break triggers a weaker blast.
 - X.Borg has official skill icons, default English voice clips, and a nine-frame selection idle.
 
+---
+
+### Minotaur — Son of Minos (`mlbb_minotaur`)
+
+- **Rage Incarnate.** Skill casts grant three seconds of Motivation. Minotaur recovers a portion of HP lost to enemy champions, doubled while Enraged.
+- **Despair Stomp.** Leaps to a landing point, knocking enemies airborne and slowing them. The next two eligible basic hits deal bonus physical damage. Enraged widens the landing area. Structure attacks preserve the bonus charges.
+- **Motivation Roar.** Heals Minotaur and the nearby ally with the lowest HP percentage for 220 + 60% Magic Power. Minotaur also recovers 8% of his missing HP. While Enraged, the heal reaches every nearby allied champion.
+- **Minoan Fury.** Slams three times. The first two hits each deal 65 + 40% Attack physical damage and slow. The final blow deals 100 + 55% Attack true damage and knocks enemies airborne. Enraged lasts 12 seconds.
+
 ## Installation
 
-1. Download the Windows ZIP (`mlbb_heroes_v3.1.0.zip`) from the release assets and extract the `mlbb_heroes` folder into the **Teamfight Manager 2** `mods/` directory.
+1. Move any existing `mlbb_heroes` folder out of `mods/`, then download the Windows ZIP (`mlbb_heroes_v3.2.0.zip`) from the release assets and extract the `mlbb_heroes` folder into the **Teamfight Manager 2** `mods/` directory.
    ```text
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
 2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, Estes, or Gusion mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
-3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.201**.
+3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.204**.
 4. See `Install_Guide.html` for the screenshot guide. The optional MLBB Champ Info companion adds basic attack and passive cards.
 
 ---
@@ -397,7 +407,7 @@ mlbb_heroes/
 │   ├── fanny.data_champion
 │   ├── mlbb_lancelot.data_champion
 │   ├── mlbb_estes.data_champion
-│   └── …                            # 31 hero definitions
+│   └── …                            # 32 hero definitions
 ├── champions/                       # Aldous champion animation
 ├── sprite/                          # Fanny, Lancelot, Estes, and Gusion atlases
 ├── effects/                         # Hero skill effects, including Estes tether and Gusion VFX
@@ -412,6 +422,11 @@ mlbb_heroes/
 ```
 
 ---
+
+## v3.2.0
+
+- Minotaur joins as hero 32 with a landing shockwave, team healing, and a three-hit ultimate.
+- The Windows ZIP is about 38 MB, down from about 84 MB in v3.1.0. The voice bank keeps one recording per retained cue.
 
 ## v3.1.0
 
@@ -492,4 +507,4 @@ Run `cargo test --locked --manifest-path sdk/candidate/Cargo.toml` to test the n
 ## Credits & Disclaimer
 
 - **Author**: `Bl0rryFac3`
-- **Disclaimer**: Non-commercial fan-made mod for *Teamfight Manager 2*. *Mobile Legends: Bang Bang* characters and names are property of Moonton.
+- **Disclaimer**: Non-commercial fan-made mod for *Teamfight Manager 2*. *Mobile Legends: Bang Bang* characters, names, icons, and voice recordings belong to Moonton.

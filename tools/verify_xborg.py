@@ -52,6 +52,7 @@ def main():
     audio = (ROOT / "sdk/candidate/audio.rs").read_text()
     voice = "\n".join((ROOT / "sdk/candidate" / path).read_text()
                       for path in ("xborg.rs", "xborg/combat.rs", "xborg/voice.rs"))
+    retained_clips = set()
     for entry in media:
         original = source / "media" / entry["source_file"]
         assert hashlib.sha256(original.read_bytes()).hexdigest() == entry["source_sha256"]
@@ -62,14 +63,18 @@ def main():
                 assert icon.convert("RGBA").tobytes() == raw.convert("RGBA").tobytes()
         else:
             event = f"mlbb_xborg_voice_{slot}"
-            clip = f"mlbb_heroes_clip_{event}"
+            plays = load(f"sound/sfx/{event}.sound_info")["plays"]
+            assert len(plays) == 1
+            clip = plays[0]["clip"]
+            assert clip.startswith("mlbb_heroes_clip_mlbb_xborg_voice_")
+            retained_clips.add(clip)
             assert f'"{event}"' in voice
             assert f'("xborg_{slot}", "{event}",' in audio and f'"{event}" =>' in audio
-            assert load(f"sound/sfx/{event}.sound_info")["plays"][0]["clip"] == clip
             for name in (event, clip):
                 assert routes[f"asset/base/sound/sfx/{name}"]["remapping"] == f"asset/mlbb_heroes/sound/sfx/{name}"
             with wave.open(str(ROOT / f"sound/sfx/{clip}.wav")) as wav:
                 assert wav.getnchannels() == 1 and wav.getframerate() == 44100 and wav.getnframes() > 0
+    assert len(retained_clips) == 11
     for locale in load("text/champion.i18n").values():
         tooltips = locale["description"]["mlbb_xborg"]
         for slot in ("attack", "passive", "skill", "skill2", "ult"):

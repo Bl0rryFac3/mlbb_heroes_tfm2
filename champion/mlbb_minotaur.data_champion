@@ -1,0 +1,210 @@
+{
+  "id": "mlbb_minotaur",
+  "category": "Tank",
+  "tags": [
+    "AD",
+    "AP",
+    "Melee",
+    "CC",
+    "Heal",
+    "Tank"
+  ],
+  "sprite": "asset/mlbb_heroes/sprite/minotaur",
+  "anim_prefix": "",
+  "stat": {
+    "hp": 1000,
+    "attack": 84,
+    "magic_power": 20,
+    "defence": 38,
+    "magic_resistance": 30,
+    "move_speed": 1020,
+    "hp_regen": 7,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "growth": {
+    "hp": 110,
+    "attack": 7,
+    "magic_power": 6,
+    "defence": 5,
+    "magic_resistance": 4,
+    "move_speed": 0,
+    "hp_regen": 0,
+    "stack": 0,
+    "crit_chance": 0
+  },
+  "skill_icons": [
+    "asset/mlbb_heroes/icons/mlbb_minotaur_skill",
+    "asset/mlbb_heroes/icons/mlbb_minotaur_skill2",
+    "asset/mlbb_heroes/icons/mlbb_minotaur_ult"
+  ],
+  "passive": {
+    "passive_ref": "mlbb_heroes:minotaur_passive"
+  },
+  "view_buffs": [
+    {
+      "type": "Animated",
+      "name": "mlbb_minotaur_enraged",
+      "anim": "asset/mlbb_heroes/effects/minotaur_enraged",
+      "tag": "play",
+      "z": -1
+    },
+    {
+      "type": "Animated",
+      "name": "mlbb_minotaur_fury",
+      "anim": "asset/mlbb_heroes/effects/minotaur_fury",
+      "tag": "play",
+      "z": -1
+    }
+  ],
+  "view_effects": [
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_stomp",
+      "anim": "asset/mlbb_heroes/effects/minotaur_stomp",
+      "tag": "play",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_stomp_enraged",
+      "anim": "asset/mlbb_heroes/effects/minotaur_stomp_enraged",
+      "tag": "play",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_stomp_wave",
+      "anim": "asset/mlbb_heroes/effects/minotaur_stomp_wave",
+      "tag": "play",
+      "z": 2
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_stomp_wave_enraged",
+      "anim": "asset/mlbb_heroes/effects/minotaur_stomp_wave_enraged",
+      "tag": "play",
+      "z": 2
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_roar_wave",
+      "anim": "asset/mlbb_heroes/effects/minotaur_roar_wave",
+      "tag": "play",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_heal",
+      "anim": "asset/mlbb_heroes/effects/minotaur_heal",
+      "tag": "play",
+      "z": 2
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_slam",
+      "anim": "asset/mlbb_heroes/effects/minotaur_slam",
+      "tag": "play",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_finisher",
+      "anim": "asset/mlbb_heroes/effects/minotaur_finisher",
+      "tag": "play",
+      "z": -1
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_motivation",
+      "anim": "asset/mlbb_heroes/effects/minotaur_motivation",
+      "tag": "play",
+      "z": 1
+    },
+    {
+      "type": "Animation",
+      "is_follow": false,
+      "name": "mlbb_minotaur_basic_bonus",
+      "anim": "asset/mlbb_heroes/effects/minotaur_basic_bonus",
+      "tag": "play",
+      "z": 2
+    }
+  ],
+  "attack": {
+    "action_name": "attack",
+    "description": "#asset/base/text/champion?description.mlbb_minotaur.attack",
+    "duration": 24,
+    "start_timing": 15,
+    "cooltime": 72,
+    "cancelable": true,
+    "range": 24000,
+    "casting_type": "Targeting",
+    "casting_target": "Enemy",
+    "can_use_with_move": false,
+    "attack_type": "BaseAttack",
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:minotaur_attack"
+    }
+  },
+  "skill": {
+    "action_name": "skill",
+    "description": "#asset/base/text/champion?description.mlbb_minotaur.skill",
+    "duration": 40,
+    "start_timing": 0,
+    "cooltime": 450,
+    "cancelable": false,
+    "range": 48000,
+    "casting_type": "Position",
+    "casting_target": "EnemyChampion",
+    "can_use_with_move": false,
+    "attack_type": "Skill",
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:minotaur_skill"
+    }
+  },
+  "skill2": {
+    "action_name": "skill2",
+    "description": "#asset/base/text/champion?description.mlbb_minotaur.skill2",
+    "duration": 28,
+    "start_timing": 12,
+    "cooltime": 540,
+    "cancelable": false,
+    "range": 58000,
+    "casting_type": "None",
+    "casting_target": "AllyOnlySelf",
+    "can_use_with_move": false,
+    "attack_type": "Skill",
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:minotaur_skill2"
+    }
+  },
+  "ult": {
+    "action_name": "ult",
+    "description": "#asset/base/text/champion?description.mlbb_minotaur.ult",
+    "duration": 84,
+    "start_timing": 0,
+    "cooltime": 3480,
+    "cancelable": false,
+    "range": 36000,
+    "casting_type": "None",
+    "casting_target": "EnemyChampion",
+    "can_use_with_move": false,
+    "attack_type": "Skill",
+    "effect": {
+      "type": "Native",
+      "effect_ref": "mlbb_heroes:minotaur_ult"
+    }
+  }
+}

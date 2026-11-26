@@ -3,6 +3,9 @@
 //! per-clip SFX gates only collapse duplicate bursts, not ordinary combat audio.
 use mod_api_stable::*;
 
+#[path = "voice_clips.rs"]
+mod voice_clips;
+
 const RUN_REPEAT_TICKS: usize = 480; // 8 s
 const IDLE_REPEAT_TICKS: usize = 1_200; // 20 s
 const IDLE_AFTER_TICKS: usize = 720; // 12 s stationary
@@ -264,7 +267,8 @@ impl StableExtension for VoicePathExtension {
             return;
         }
         if let Some(request) = next {
-            let path = format!("asset/mlbb_heroes/sound/sfx/{}", request.line);
+            let clip = voice_clips::direct_voice_clip(&request.line);
+            let path = format!("asset/mlbb_heroes/sound/sfx/{clip}");
             let ok = ctx.play_sound(&path, PATH_VOLUME);
             if ok {
                 if let Ok(mut playback) = PATH_PLAYBACK.lock() {
@@ -286,6 +290,10 @@ impl StableExtension for VoicePathExtension {
 }
 
 pub(crate) const VOICE_CUES: &[(&str, &str, bool, bool)] = &[
+    ("minotaur_basic", "mlbb_minotaur_voice_basic", false, false),
+    ("minotaur_stomp", "mlbb_minotaur_voice_stomp", true, true),
+    ("minotaur_roar", "mlbb_minotaur_voice_roar", true, true),
+    ("minotaur_fury", "mlbb_minotaur_voice_fury", true, true),
     // SUN_CUES_BEGIN
     ("sun_select", "mlbb_sun_voice_select", false, false),
     ("sun_move01", "mlbb_sun_voice_move01", false, false),
@@ -1163,6 +1171,17 @@ fn global_voice_remaining(sim: &StableSim<'_>) -> Option<usize> {
 /// plus any sequential delays in their .sound_info files.
 pub(crate) fn voice_lock_ticks(line: &str) -> usize {
     match line {
+        "mlbb_minotaur_voice_basic" => 61,
+        "mlbb_minotaur_voice_stomp" => 67,
+        "mlbb_minotaur_voice_roar" => 57,
+        "mlbb_minotaur_voice_fury" => 180,
+        // The compact bank shares one recording across the numbered cues.
+        "mlbb_johnson_voice_move01"
+        | "mlbb_johnson_voice_move02"
+        | "mlbb_johnson_voice_move03"
+        | "mlbb_johnson_voice_move04"
+        | "mlbb_johnson_voice_move05" => 202,
+        "mlbb_alpha_ult_cast" => 221,
         // SUN_DURATIONS_BEGIN
         "mlbb_sun_voice_select" => 125,
         "mlbb_sun_voice_move01" => 134,
@@ -1312,7 +1331,7 @@ pub(crate) fn voice_lock_ticks(line: &str) -> usize {
         "mlbb_aldous_voice_idle" => 226,
         "mlbb_aldous_voice_run" => 250,
         "mlbb_aldous_voice_ult" => 162,
-        "mlbb_aldous_voice_ult_phase2" => 152,
+        "mlbb_aldous_voice_ult_phase2" => 171,
         "mlbb_estes_voice_death01" => 164,
         "mlbb_estes_voice_death02" => 78,
         "mlbb_estes_voice_death03" => 80,
@@ -1332,7 +1351,7 @@ pub(crate) fn voice_lock_ticks(line: &str) -> usize {
         "mlbb_gusion_voice_skill1" => 61,
         "mlbb_gusion_voice_skill2" => 80,
         "mlbb_gusion_voice_ult" => 144,
-        "mlbb_gusion_voice_ult_recast" => 80,
+        "mlbb_gusion_voice_ult_recast" => 153,
         "mlbb_karrie_voice_death01" => 133,
         "mlbb_karrie_voice_death02" => 136,
         "mlbb_karrie_voice_move01" => 218,
@@ -2156,7 +2175,7 @@ mod path_audio_tests {
         assert_eq!(
             host.played,
             vec![(
-                "asset/mlbb_heroes/sound/sfx/mlbb_julian_voice_ult01".into(),
+                "asset/mlbb_heroes/sound/sfx/mlbb_heroes_clip_mlbb_julian_voice_ult01".into(),
                 0.68
             )]
         );
@@ -2193,6 +2212,25 @@ mod path_audio_tests {
 #[cfg(test)]
 mod popol_path_audio_tests {
     use super::*;
+    #[test]
+    fn direct_voice_paths_use_the_clip_named_by_each_sound_event() {
+        let sound = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../sound/sfx");
+        let mut checked = 0;
+        for &(_, event, _, _) in VOICE_CUES {
+            if !is_path_voice(event) {
+                continue;
+            }
+            let clip = voice_clips::direct_voice_clip(event);
+            let definition = std::fs::read_to_string(sound.join(format!("{event}.sound_info")))
+                .expect("direct voice sound event");
+            assert_ne!(clip, event, "voice clip must have a distinct ID");
+            assert!(definition.contains(&format!("\"{clip}\"")), "{event} -> {clip}");
+            assert!(sound.join(format!("{clip}.wav")).is_file(), "{clip}");
+            checked += 1;
+        }
+        assert!(checked > 0);
+    }
+
     #[test]
     fn popol_and_julian_use_the_same_frame_gated_path() {
         assert!(is_path_voice("mlbb_popol_voice_intro"));

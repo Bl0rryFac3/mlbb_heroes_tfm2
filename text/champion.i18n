@@ -1,6 +1,14 @@
 {
   "en": {
     "description": {
+      "mlbb_minotaur": {
+        "name": "Minotaur",
+        "attack": "Swings his hammer for <#ff9028ff>100% Attack<> physical damage. The first two landed basics after Despair Stomp within <#ffb900ff>2s<> deal <#ff9028ff>10 + 2% max HP<> extra physical damage. Hits on structures deal the regular damage and preserve charges.",
+        "passive": "<#5ad0e6ff>Rage Incarnate<>. Skill releases grant <#ffb900ff>Motivation for 3s<>. Recover <#76df9cff>5% + 1% per level, capped at 12%<> of HP lost to enemy champions. Enraged doubles recovery.",
+        "skill": "<#5ad0e6ff>Despair Stomp<>. Leaps to the target area and deals <#ff9028ff>55 + 45% Attack<> physical damage, <#ef5350ff>knocking up for 0.4s and slowing by 40% for 1.4s<>. Enraged widens the stomp and adds <#ff9028ff>10 + 2% max HP<> damage. Cooldown <#ffb900ff>7.5s<>.",
+        "skill2": "<#5ad0e6ff>Motivation Roar<>. Heals Minotaur and the lowest-percentage-HP nearby allied champion for <#76df9cff>220 + 60% Magic Power<>. Minotaur gains an additional <#76df9cff>8% of his missing HP<>. Enraged heals every nearby allied champion. Cooldown <#ffb900ff>9s<>.",
+        "ult": "<#e64a6aff>Minoan Fury<>. Enters <#ffb900ff>Enraged for 12s<> and slams three times while control-immune. The first two hits each deal <#ff9028ff>65 + 40% Attack<> physical damage and <#ef5350ff>slow by 45% for 0.65s<>. The last deals <#ef5350ff>100 + 55% Attack true damage<> and knocks enemies airborne for <#ef5350ff>0.7s<>. Cooldown <#ffb900ff>58s<>."
+      },
       "mlbb_xborg": {
         "name": "X.Borg",
         "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",

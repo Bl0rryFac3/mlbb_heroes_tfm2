@@ -1,0 +1,613 @@
+{
+  "minotaur-idle": {
+    "sha256": "208a9ae1113ad178ec24ceef9c8d00a8c58b6d9a7313c6e9aa575317ae5a1fb8",
+    "sheet": [
+      216,
+      216
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "minotaur-walk": {
+    "sha256": "72c4f3ac5acea3d9e415c6dabea75bc99d30b41a1d6a9f7e615e8c8cfa7856ee",
+    "sheet": [
+      216,
+      216
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "minotaur-basic": {
+    "sha256": "391b4b682541391756ca5b9d56ed22f7aee12a0d25ab7243075818266957aa98",
+    "sheet": [
+      216,
+      216
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "minotaur-hit": {
+    "sha256": "84fb2f9ebb763dadade1ee970a0d8ef7f9cd0a329026e9a3174df7c5c2181bae",
+    "sheet": [
+      216,
+      216
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "minotaur-death": {
+    "sha256": "6d70930b511a100844b6fc4ea52fe23f18fe4ce20d257f70bf5aad5d35e49e0c",
+    "sheet": [
+      216,
+      216
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "minotaur_s1_despair_stomp": {
+    "sha256": "632b7167165913970a8638f0c4cb819c6e15d1e1d5b8923b1175da2d40a1d202",
+    "sheet": [
+      288,
+      288
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 13,
+    "blank": 3
+  },
+  "minotaur_s2_motivation_roar": {
+    "sha256": "201124e3f88c4d610de209a8d0544ec4347ae88df52faa216284d4f2d291e265",
+    "sheet": [
+      216,
+      216
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "minotaur_ult_first_two_smashes": {
+    "sha256": "1df087866c0fb3492b508d5e9b733647628e9b85d0ff0f2feb8f67666efc930b",
+    "sheet": [
+      360,
+      288
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 17,
+    "blank": 3
+  },
+  "minotaur_ult_final_smash": {
+    "sha256": "b926e9be822826dd885b15b029985f351dea77b36d65eb694a51975493477bfd",
+    "sheet": [
+      288,
+      288
+    ],
+    "cell": [
+      72,
+      72
+    ],
+    "occupied": 13,
+    "blank": 3
+  },
+  "runtime_body": {
+    "canvas": [
+      96,
+      88
+    ],
+    "pivot": [
+      48,
+      66
+    ],
+    "standing_height": 48,
+    "source_marks": {
+      "attack": 6,
+      "S1": 7,
+      "S2": 5,
+      "R early": [
+        7,
+        15
+      ],
+      "R final": 7
+    },
+    "S2_source_frames": [
+      0,
+      1,
+      2,
+      5,
+      6,
+      7,
+      8,
+      "idle:0"
+    ],
+    "R_source_frames": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+      ]
+    ],
+    "frame_ticks": {
+      "idle": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "run": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "attack": [
+        3,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "hit": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "dead": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        22
+      ],
+      "skill": [
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3
+      ],
+      "skill2": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "ult": [
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        3,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "s1_stomp": {
+    "sha256": "0f9f925a481b9ee596af363118eb35a2ca9c8a23c74425cada3589f7360fc805",
+    "sheet": [
+      372,
+      276
+    ],
+    "cell": [
+      124,
+      92
+    ],
+    "occupied": 8,
+    "blank": 1
+  },
+  "r_slam_early": {
+    "sha256": "acb4b7b10c8ce96ca24f34ca8bfbe7beb7c96022ae5c737529302b493d6d89cf",
+    "sheet": [
+      372,
+      372
+    ],
+    "cell": [
+      124,
+      124
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "r_slam_final": {
+    "sha256": "f88a85e1d8462e068283c23bbaf3ebe19049b07362433da44a85c0d8650cac9a",
+    "sheet": [
+      512,
+      512
+    ],
+    "cell": [
+      128,
+      128
+    ],
+    "occupied": 13,
+    "blank": 3
+  },
+  "s2_roar_wave": {
+    "sha256": "e02abeb0163dcdf5cbeac32e2d35b1d99df2aea7de8dfa195ed5b481b04df56c",
+    "sheet": [
+      288,
+      288
+    ],
+    "cell": [
+      96,
+      96
+    ],
+    "occupied": 7,
+    "blank": 2
+  },
+  "s2_recipient_heal": {
+    "sha256": "6e39efb002904b59d6f64a1e8650b6c22f03b4d9523c57829695c8517bd06f2a",
+    "sheet": [
+      96,
+      144
+    ],
+    "cell": [
+      32,
+      48
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "enraged_aura": {
+    "sha256": "8040d91a79845f3a01ea7e166415e42c2daf2b3f28e43f08f4aad28548c0bf28",
+    "sheet": [
+      192,
+      192
+    ],
+    "cell": [
+      64,
+      64
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "motivation": {
+    "sha256": "f58fdc8612e4f25b3cd24e32a5a040b249e14778873b653ef5676898dfa4b661",
+    "sheet": [
+      96,
+      96
+    ],
+    "cell": [
+      32,
+      32
+    ],
+    "occupied": 9,
+    "blank": 0
+  },
+  "effects": {
+    "stomp": {
+      "scale": 0.39,
+      "source_pivot": [
+        62,
+        49
+      ],
+      "ticks": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "stomp_enraged": {
+      "scale": 0.5,
+      "source_pivot": [
+        62,
+        49
+      ],
+      "ticks": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "stomp_wave": {
+      "scale": 1,
+      "source_pivot": [
+        44,
+        25
+      ],
+      "ticks": [
+        2,
+        3,
+        3,
+        4,
+        4,
+        4,
+        5,
+        5
+      ]
+    },
+    "stomp_wave_enraged": {
+      "scale": 1,
+      "source_pivot": [
+        44,
+        25
+      ],
+      "ticks": [
+        2,
+        3,
+        3,
+        4,
+        4,
+        4,
+        5,
+        5
+      ]
+    },
+    "roar_wave": {
+      "scale": 1.28,
+      "source_pivot": [
+        48,
+        61
+      ],
+      "ticks": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "heal": {
+      "scale": 0.8,
+      "source_pivot": [
+        16,
+        41
+      ],
+      "ticks": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "slam": {
+      "scale": 0.61,
+      "source_pivot": [
+        62,
+        66
+      ],
+      "ticks": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "finisher": {
+      "scale": 0.62,
+      "source_pivot": [
+        64,
+        90
+      ],
+      "ticks": [
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ]
+    },
+    "enraged": {
+      "scale": 0.8,
+      "source_pivot": [
+        32,
+        53
+      ],
+      "ticks": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "fury": {
+      "scale": 0.8,
+      "source_pivot": [
+        32,
+        53
+      ],
+      "ticks": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    "motivation": {
+      "scale": 0.7,
+      "source_pivot": [
+        16,
+        28
+      ],
+      "ticks": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3
+      ]
+    },
+    "basic_bonus": {
+      "scale": 0.65,
+      "source_pivot": [
+        16,
+        18
+      ],
+      "ticks": [
+        2,
+        2,
+        2,
+        2
+      ]
+    }
+  },
+  "basic_impact_source": "5a56fea09a1516e7af0b837607fec07be3918bc4af9641dcd7cca9a1aa7e8f8a",
+  "voices": {
+    "mlbb_minotaur_voice_basic": {
+      "source": "Minotaur.projnext.skill03.ogg",
+      "clip": "mlbb_heroes_clip_mlbb_minotaur_voice_basic",
+      "duration_seconds": 0.9751473922902494,
+      "lock_ticks": 61
+    },
+    "mlbb_minotaur_voice_stomp": {
+      "source": "Minotaur.projnext.skill01.ogg",
+      "clip": "mlbb_heroes_clip_mlbb_minotaur_voice_stomp",
+      "duration_seconds": 1.08,
+      "lock_ticks": 67
+    },
+    "mlbb_minotaur_voice_roar": {
+      "source": "Minotaur.projnext.skill02.ogg",
+      "clip": "mlbb_heroes_clip_mlbb_minotaur_voice_roar",
+      "duration_seconds": 0.9100226757369615,
+      "lock_ticks": 57
+    },
+    "mlbb_minotaur_voice_fury": {
+      "source": "Minotaur.projnext.ult01.ogg",
+      "clip": "mlbb_heroes_clip_mlbb_minotaur_voice_fury",
+      "duration_seconds": 2.96,
+      "lock_ticks": 180
+    }
+  }
+}

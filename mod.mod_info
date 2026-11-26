@@ -2,11 +2,11 @@
  "mod_id": "mlbb_heroes",
  "name": "MLBB Heroes",
  "author": "Bl0rryFac3",
- "version": "1.1.201",
+ "version": "1.1.204",
  "mod_type": "native",
  "contains_code": true,
- "last_updated": "2026-11-26",
- "description": "Adds 31 Mobile Legends heroes to Teamfight Manager 2. X.Borg joins with armored and armorless forms, Firaga Guard, and Last Insanity.",
+ "last_updated": "2026-11-27",
+ "description": "Adds 32 Mobile Legends heroes to Teamfight Manager 2. Minotaur joins as a tank support with Despair Stomp, Motivation Roar, and Minoan Fury.",
  "dependencies": [
   {
    "mod_id": "base",

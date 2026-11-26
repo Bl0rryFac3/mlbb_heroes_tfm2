@@ -1144,7 +1144,7 @@ mod tests {
     }
 
     #[test]
-    fn every_voice_line_AND_its_clip_twin_have_an_override_entry() {
+    fn voice_events_and_their_wavs_have_override_entries() {
         // This test previously asserted the OPPOSITE and would have shipped
         // Franco silent. Corrected by the owner: Arlott's lines have been
         // inaudible in game since release, and he is the only hero in the pack
@@ -1157,7 +1157,7 @@ mod tests {
         //
         // Each line needs TWO entries, and the second one is easy to miss:
         //   asset/base/sound/sfx/<line>                       — the cue speak() names
-        //   asset/base/sound/sfx/mlbb_heroes_clip_<clip>      — the audio the cue plays
+        //   asset/base/sound/sfx/<clip>                       — the WAV named by the event
         // Balmond carries 28 lines as 56 entries for exactly this reason.
         use std::path::{Path, PathBuf};
         let mut roots: Vec<PathBuf> = Vec::new();
@@ -1186,9 +1186,8 @@ mod tests {
                  exactly like Arlott's voice has been"
             );
             assert!(
-                body.contains(&format!("asset/base/sound/sfx/mlbb_heroes_clip_{clip}")),
-                "the clip {clip} has no `mlbb_heroes_clip_` override twin — that is the \
-                 second half of the Balmond pattern and the half that is easy to drop"
+                body.contains(&format!("\"asset/base/sound/sfx/{clip}\"")),
+                "the clip named by the event, {clip}, has no mod.override_info entry"
             );
         }
     }
