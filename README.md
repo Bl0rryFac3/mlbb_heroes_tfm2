@@ -1,12 +1,10 @@
 # MLBB Heroes — Teamfight Manager 2
 
-Adds 30 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, skill effects, and voice lines.
+Adds 31 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, skill effects, and voice lines.
 
-**New in v3.0.1 — Sun, the Monkey King.** Throw the Golden Staff, fight alongside two doppelgangers, and bring them together for Instantaneous Move.
+**New in v3.1.0 — X.Borg.** X.Borg has armored and armorless forms and an overhead Firaga gauge. Fire Missiles builds heat and restores HP and Firaga, and Last Insanity deals more blast damage to overheated targets.
 
-**Fanny revamp — Blade Dancer.** Fanny gets new sprites and effects, 10 Steel Cable charges, midair redirects, and escape cables. Lesley’s Ultimate Snipe is easier to see, and Lesley and Valir have their default English voices.
-
-[Download v3.0.1 and read the patch notes](https://github.com/Bl0rryFac3/mlbb_heroes_tfm2/releases/tag/v3.0.1)
+This release also updates Fanny's cable routing, Aldous's animations, and Balmond's Cyclone Sweep visuals. The Windows package was playtested on Teamfight Manager 2 0.7.4. The Mods menu shows build **1.1.201**.
 
 ---
 
@@ -15,7 +13,7 @@ Adds 30 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, sk
 | Hero | ID | Role / Category | Implementation | Key Mechanics |
 | :--- | :--- | :--- | :--- | :--- |
 | **Aldous** *(Soul Contractor)* | `mlbb_aldous` | Melee (`AD`, `Tank`, `Shield`, `CC`) | Data-Driven + Native Companion (`v4.3.0`) | **Soul Steal** stacks (max `1,000`) add `+2.5` raw damage each to Skill 1 (`+2,500` at cap), **3D Crimson Shield** passive, AoE stun barrier, and global **Chase Fate** spiral drill dash. |
-| **Fanny** *(Blade Dancer)* | `mlbb_fanny` | Assassin (`Melee`, `AD`) | Native Rust Wall-Cable Engine (`v0.2.0`) | Raycasted **Steel Cable** wall-grappling (`165,000` range, 2-hop lookahead chaining, outer lane + jungle walls), **10 Steel Cable charges** on Skill 2 badge, mid-flight **Tornado Strike**, **Prey Marks**, and **Cut Throat** finisher. |
+| **Fanny** *(Blade Dancer)* | `mlbb_fanny` | Assassin (`Melee`, `AD`) | Native Rust Wall-Cable Engine (`v0.2.0`) | **Steel Cable** hooks reach 165,000 units and can chain with three-anchor lookahead. Fanny has 10 charges, mid-flight **Tornado Strike**, **Prey Marks**, and **Cut Throat**. |
 | **Lancelot** | `mlbb_lancelot` | Assassin (`Melee`, `AD`) | Data-Driven + Native AI/Effects | **Soul Cutter** timed stacks (`+7.5%` damage each, up to `+30%`); target-following **Puncture** and **Phantom Execution**; three-wave **Thorned Rose**. |
 | **Estes** *(Moon Elf King)* | `mlbb_estes` | Support (`AP`, `Heal`, `Shield`, `Range`) | Data-Driven + Native Tether Renderer | **Moonlight Immersion** healing link, **Domain of Moon Goddess** area effect, and **Blessing of Moon Goddess** team healing. |
 | **Gusion** *(Dagger Specialist)* | `mlbb_gusion` | Assassin (`AP`, `Melee`) | Data-Driven + Native Rust Passive/Effects | Four-rune empowered hit; **Sword Spike** mark and recast dash; five-dagger **Shadowblade Slaughter**; two-phase **Incandescence**. |
@@ -44,6 +42,7 @@ Adds 30 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, sk
 | **Lesley** *(Deadly Sniper)* | `mlbb_lesley` | Range | Data + native Rust | **Lethal Shot** primes after every skill. **Master of Camouflage** conceals her, **Tactical Grenade** creates space, and **Ultimate Snipe** fires four rounds. |
 | **Valir** *(Son of Flames)* | `mlbb_valir` | Magician | Data + native Rust | **Ashing** detonates at three stacks. **Searing Torrent** pushes back enemies, and **Vengeance Flame** cleanses crowd control and empowers four casts. |
 | **Sun** *(Monkey King)* | `mlbb_sun` | Melee Fighter | Data + native Rust | **Simian God** reduces Defense. **Endless Variety / Swift Exchange** and **Clone Techniques** each summon a clone. **Instantaneous Move** brings all three together. |
+| **X.Borg** *(Firaga Armor)* | `mlbb_xborg` | Melee Fighter | Data + native Rust | A separate Firaga reserve controls armor. **Fire Missiles** builds heat while moving, **Fire Stake** pulls targets, and **Last Insanity** has a stronger blast against overheated enemies. |
 
 ---
 
@@ -70,7 +69,7 @@ Adds 30 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, sk
 - **Skill 2 — `Steel Cable` (`mlbb_heroes:cable` + `mlbb_heroes:cable_ai`)**:
   - Fires a grappling claw hook (`"hook"`) and directional thin steel wire (`"wire_0".."wire_11"`) into arena obstacles or outer lane walls within `165,000` range and pulls Fanny at `5,200` speed.
   - **Steel Cable charges**. Holds up to **10 charges**, visible on the skill icon. Charges return one at a time while grounded.
-  - **2-Hop Lookahead AI**: Evaluates 72 raycast angles and 2-hop wall chains (`Priority 1`: visible Enemy Champions; `Priority 2`: nearby Jungle Monsters when no enemy champions are visible).
+  - **Cable routing.** Fanny can plan up to three anchors ahead, including sideways hooks. Steel Cable can target movement waypoints during rotations and retreats.
 - **Ultimate — `Cut Throat` (`mlbb_heroes:cut_throat`)**:
   - Dashes to an enemy for `100 + 125% AD` physical damage. Each Prey Mark adds `35% AD`, up to two marks, and the hit consumes them.
 
@@ -365,14 +364,22 @@ Adds 30 Mobile Legends heroes to Teamfight Manager 2, with pixel-art sprites, sk
 
 ---
 
+### X.Borg — Firaga Armor (`mlbb_xborg`)
+
+- **Firaga Guard.** Armor reduces incoming damage by 20% and uses a separate reserve. A bar above X.Borg shows the reserve or recharge. Attacks and skills build heat on champions and monsters. Skill hits deal true damage to targets already at four stacks.
+- **Fire Missiles.** Fires up to six pulses in a moving cone. The armorless cone is narrower, reaches farther, and deals 60% damage. Hits on champions and monsters restore body HP and Firaga reserve or recharge.
+- **Fire Stake.** Launches five stakes that return after 1.2 seconds. The returning stakes pull enemies and collect supplies.
+- **Last Insanity.** Charges and spins for up to 3 seconds. Detonation deals 100 + 6% target max HP as true damage, with a 50% bonus against overheated targets and a cap of 150 against epic monsters. An armor break triggers a weaker blast.
+- X.Borg has official skill icons, default English voice clips, and a nine-frame selection idle.
+
 ## Installation
 
-1. Download the Windows ZIP (`mlbb_heroes_v3.0.1.zip`) and extract the `mlbb_heroes` folder into your **Teamfight Manager 2** `mods/` directory so the path is:
+1. Download the Windows ZIP (`mlbb_heroes_v3.1.0.zip`) from the release assets and extract the `mlbb_heroes` folder into the **Teamfight Manager 2** `mods/` directory.
    ```text
    Teamfight Manager 2/mods/mlbb_heroes/
    ```
 2. *(Important)* If you previously installed standalone Aldous, Fanny, Fanny Wall, Lancelot, Estes, or Gusion mods, remove or disable them so their champion IDs do not conflict with `mlbb_heroes`.
-3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.188**.
+3. Launch **Teamfight Manager 2** and enable **MLBB Heroes** in the in-game **Mod Manager**. Check for build **1.1.201**.
 4. See `Install_Guide.html` for the screenshot guide. The optional MLBB Champ Info companion adds basic attack and passive cards.
 
 ---
@@ -390,7 +397,7 @@ mlbb_heroes/
 │   ├── fanny.data_champion
 │   ├── mlbb_lancelot.data_champion
 │   ├── mlbb_estes.data_champion
-│   └── …                            # 29 hero definitions
+│   └── …                            # 31 hero definitions
 ├── champions/                       # Aldous champion animation
 ├── sprite/                          # Fanny, Lancelot, Estes, and Gusion atlases
 ├── effects/                         # Hero skill effects, including Estes tether and Gusion VFX
@@ -406,6 +413,12 @@ mlbb_heroes/
 
 ---
 
+## v3.1.0
+
+- X.Borg joins as hero 31 with both forms, the Firaga gauge, an animated selection idle, official skill icons, and default English voices.
+- Fanny's cable routing can plan up to three anchors ahead and use movement waypoints.
+- Aldous has new combat animations. Balmond has updated sprites and Cyclone Sweep visuals.
+
 ## v3.0.1
 
 - Sun joins as hero 30, with two doppelgangers, official skill icons, and default English voice lines.
@@ -417,7 +430,7 @@ mlbb_heroes/
 - Increased starting HP for 24 heroes and slowed basic attacks for five tanks, two supports, and four mages.
 - Reduced excess damage on Alpha, Balmond, Franco, and Lesley. Increased Johnson’s Impact Wrench damage.
 - Adjusted Angela’s basic reach and improved Eudora’s Forked Lightning targeting against minions.
-- Updated Lesley’s skill descriptions and original Mobile Legends skill icons. See the [complete changes and playtest checklist](docs/V3.0.0_BALANCE.md).
+- Updated Lesley’s skill descriptions and original Mobile Legends skill icons. The balance notes and checklist are in `docs/V3.0.0_BALANCE.md`.
 
 ## v2.10.0
 

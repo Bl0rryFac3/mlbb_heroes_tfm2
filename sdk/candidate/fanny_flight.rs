@@ -9,6 +9,11 @@ const MIN_ANCHOR_SPACING: f64 = 14_000.0;
 pub(super) const TOWER_ATTACK_RANGE: f64 = 75_000.0;
 const BODY_CLEARANCE: f64 = 4_000.0;
 const DRAW_EVERY: usize = 4;
+const ROUTE_CAST_GAP: usize = 7;
+const ROUTE_DEPTH: usize = 3;
+const ROUTE_BRANCHES: usize = 4;
+const ROUTE_TICK_COST: f64 = 900.0;
+const TRAVEL_DETOUR: f64 = 72_000.0;
 
 type Point = (f64, f64);
 
@@ -36,7 +41,7 @@ pub(super) struct Flight {
     velocity: Point,
     remaining: f64,
     target: Option<usize>,
-    retreating: bool,
+    travel_goal: Option<Point>,
 }
 
 static FLIGHTS: LazyLock<Mutex<HashMap<EntityKey, Flight>>> =
@@ -90,7 +95,7 @@ fn clear_step(grid: &Grid, here: Point, there: Point) -> bool {
             .into_iter()
             .all(|offset| {
                 let (x, y) = point_on_ray(center, side, offset);
-                grid.on_map(x, y) && !grid.solid(x, y)
+                !grid.solid(x, y)
             })
     })
 }
@@ -100,8 +105,8 @@ impl Flight {
         self.target
     }
 
-    pub(super) fn is_retreating(&self) -> bool {
-        self.retreating
+    pub(super) fn travel_goal(&self) -> Option<Point> {
+        self.travel_goal
     }
 
     fn new(grid: Grid, now: usize) -> Self {
@@ -114,7 +119,7 @@ impl Flight {
             velocity: (0.0, 0.0),
             remaining: 0.0,
             target: None,
-            retreating: false,
+            travel_goal: None,
         }
     }
 
@@ -272,38 +277,184 @@ fn closest_anchor(
     tower.or_else(|| wall.map(|hit| Anchor { hit, tower: None }))
 }
 
-fn enters_hostile_tower(all: &[UnitSnap], caster: &UnitSnap, from: Point, to: Point) -> bool {
-    all.iter()
-        .filter(|tower| tower.tower && tower.alive && tower.team != caster.team)
-        .any(|tower| {
-            let start = distance(from, tower.pos);
-            let closest = segment_distance(tower.pos, from, to);
-            let outward = start < TOWER_ATTACK_RANGE
-                && closest + 1.0 >= start
-                && distance(to, tower.pos) > start;
-            closest < TOWER_ATTACK_RANGE
-                && !outward
-                && !tower_has_allied_tankers(all, caster, tower)
-        })
+fn unsheltered_towers<'a>(
+    all: &'a [UnitSnap],
+    caster: &'a UnitSnap,
+) -> impl Iterator<Item = &'a UnitSnap> {
+    all.iter().filter(move |tower| {
+        tower.tower
+            && tower.alive
+            && tower.team != caster.team
+            && !tower_has_allied_tankers(all, caster, tower)
+    })
+}
+
+fn enters_tower_range(tower: &UnitSnap, from: Point, to: Point) -> bool {
+    let start = distance(from, tower.pos);
+    let closest = segment_distance(tower.pos, from, to);
+    let outward =
+        start < TOWER_ATTACK_RANGE && closest + 1.0 >= start && distance(to, tower.pos) > start;
+    closest < TOWER_ATTACK_RANGE && !outward
 }
 
 #[derive(Clone, Copy)]
 pub(super) enum CableAim<'a> {
     Engage(&'a UnitSnap),
-    Retreat(Point),
+    Travel(Point),
 }
 
-fn retreat_score(hit: WallHit, here: Point, goal: Point, enemies: &[&UnitSnap]) -> Option<f64> {
-    choose_escape_hit(&[hit], here, enemies)?;
-    if enemies.iter().any(|enemy| {
-        segment_distance(enemy.pos, here, hit.pos()) + 3_000.0 < distance(here, enemy.pos)
-    }) {
-        return None;
+fn route_anchors<'a>(
+    grid: &'a Grid,
+    all: &'a [UnitSnap],
+    here: Point,
+) -> impl Iterator<Item = Anchor> + 'a {
+    let wall_anchors = wall_hits(grid, here, CABLE_RANGE)
+        .into_iter()
+        .filter_map(move |wall| {
+            let dir = unit_vector(here, wall.anchor())?;
+            closest_anchor(grid, all, here, dir, Some(wall))
+        });
+    let tower_anchors = all
+        .iter()
+        .filter(|unit| unit.tower && unit.alive)
+        .filter(move |tower| distance(here, tower.pos) <= CABLE_RANGE + tower.radius)
+        .filter_map(move |tower| aimed_anchor(grid, all, here, tower.pos));
+    wall_anchors.chain(tower_anchors)
+}
+
+#[derive(Clone)]
+struct RouteState {
+    flight: Flight,
+    pos: Point,
+    tick: usize,
+    crossed_target: bool,
+}
+
+struct Route<'a> {
+    all: &'a [UnitSnap],
+    caster: &'a UnitSnap,
+    aim: CableAim<'a>,
+    start: usize,
+    goal: Point,
+    threats: Vec<(&'a UnitSnap, f64)>,
+    towers: Vec<&'a UnitSnap>,
+}
+
+struct RouteOption {
+    first: Anchor,
+    score: f64,
+    recast: Option<RouteState>,
+}
+
+impl Route<'_> {
+    fn safe_step(&self, from: Point, to: Point) -> bool {
+        if self
+            .towers
+            .iter()
+            .any(|tower| enters_tower_range(tower, from, to))
+        {
+            return false;
+        }
+        if let CableAim::Travel(_) = self.aim {
+            let start = self.caster.pos;
+            if segment_distance(to, start, self.goal) > TRAVEL_DETOUR
+                || self.threats.iter().any(|(enemy, initial)| {
+                    segment_distance(enemy.pos, from, to) < (initial - 3_000.0).min(55_000.0)
+                })
+            {
+                return false;
+            }
+        }
+        true
     }
-    let heading = unit_vector(here, goal)?;
-    let guide = point_on_ray(here, heading, distance(here, goal).max(60_000.0));
-    let progress = distance(here, guide) - distance(hit.pos(), guide);
-    (progress >= 6_000.0).then_some(progress)
+
+    fn score(&self, state: &RouteState) -> f64 {
+        let from_goal = distance(state.pos, self.goal);
+        let time = state.tick.saturating_sub(self.start) as f64 * ROUTE_TICK_COST;
+        let pass_bonus = if state.crossed_target {
+            TARGET_PASS_BONUS
+        } else {
+            0.0
+        };
+        -from_goal - time + pass_bonus
+    }
+
+    fn preview(
+        &self,
+        start: &RouteState,
+        anchor: Option<Anchor>,
+        windup: usize,
+    ) -> Option<(f64, Option<RouteState>)> {
+        let mut state = start.clone();
+        let ready = state.tick + ROUTE_CAST_GAP + windup;
+        let mut recast = None;
+        let mut latched = anchor.is_none();
+        let new_latch = anchor.map(|anchor| {
+            let fire_at = state.tick + windup;
+            let latch_at = state.flight.next_latch(state.pos, anchor, fire_at);
+            state.flight.fire(state.pos, anchor, fire_at);
+            latch_at
+        });
+        let timeout = state.flight.start + MAX_FLIGHT_TICKS;
+        while state.tick + 1 < timeout {
+            state.tick += 1;
+            while state
+                .flight
+                .pending
+                .front()
+                .is_some_and(|shot| shot.latch <= state.tick)
+            {
+                let shot = state.flight.pending.pop_front().unwrap();
+                if !state.flight.latch(state.pos, shot.anchor) {
+                    return None;
+                }
+                latched |= new_latch == Some(shot.latch);
+            }
+            if let Some(there) = state.flight.step(state.pos) {
+                if !self.safe_step(state.pos, there) {
+                    return None;
+                }
+                if let CableAim::Engage(target) = self.aim {
+                    state.crossed_target |= segment_distance(target.pos, state.pos, there)
+                        <= target.radius + TARGET_PASS_BUFFER;
+                }
+                state.pos = (world_u64(there.0) as f64, world_u64(there.1) as f64);
+            } else if state.flight.pending.is_empty() || state.flight.velocity != (0.0, 0.0) {
+                break;
+            }
+            if state.tick >= ready && recast.is_none() && state.flight.can_fire(state.tick) {
+                recast = Some(state.clone());
+            }
+        }
+        let score = if latched {
+            self.score(&state)
+        } else {
+            f64::NEG_INFINITY
+        };
+        (score.is_finite() || recast.is_some()).then_some((score, recast))
+    }
+
+    fn options(
+        &self,
+        state: &RouteState,
+        first: Option<Anchor>,
+        windup: usize,
+    ) -> Vec<RouteOption> {
+        if !state.flight.can_fire(state.tick + windup) {
+            return Vec::new();
+        }
+        route_anchors(&state.flight.grid, self.all, state.pos)
+            .filter(|&anchor| state.flight.distinct(anchor))
+            .filter_map(|anchor| {
+                let (score, recast) = self.preview(state, Some(anchor), windup)?;
+                Some(RouteOption {
+                    first: first.unwrap_or(anchor),
+                    score,
+                    recast,
+                })
+            })
+            .collect()
+    }
 }
 
 pub(super) fn planned_anchor(
@@ -314,144 +465,134 @@ pub(super) fn planned_anchor(
     aim: CableAim<'_>,
     now: usize,
 ) -> Option<Anchor> {
-    let here = caster.pos;
-    if flight.is_some_and(|f| !f.can_fire(now)) {
-        return None;
-    }
-    let wall_anchors = wall_hits(grid, here, CABLE_RANGE)
-        .into_iter()
-        .filter_map(|wall| {
-            let dir = unit_vector(here, wall.anchor())?;
-            closest_anchor(grid, all, here, dir, Some(wall))
-        });
-    let tower_aims = all
-        .iter()
-        .filter(|unit| unit.tower && unit.alive)
-        .filter(|tower| distance(here, tower.pos) <= CABLE_RANGE + tower.radius)
-        .map(|tower| tower.pos);
-    let enemies: Vec<_> = all
-        .iter()
-        .filter(|unit| {
-            unit.alive
-                && unit.team != caster.team
-                && (unit.champion || unit.tower)
-                && distance(here, unit.pos) <= ESCAPE_ROUTE_RADIUS
-        })
-        .collect();
-    let hostile_towers: Vec<_> = all
-        .iter()
-        .filter(|unit| unit.tower && unit.alive && unit.team != caster.team)
-        .cloned()
-        .collect();
-    let anchors: Vec<_> = wall_anchors
-        .chain(tower_aims.filter_map(|aim| aimed_anchor(grid, all, here, aim)))
-        .collect();
-    if let Some(flight) = flight {
-        return anchors
-            .into_iter()
-            .filter_map(|anchor| {
-                if !flight.distinct(anchor) {
-                    return None;
-                }
-                // Include the host's one-tick cast windup when predicting where a
-                // new anchor will take hold. Score the *redirected* segment.
-                let until = flight.next_latch(here, anchor, now + 1);
-                let (turn_at, mut redirected) = flight.predict(here, now, until)?;
-                let mut straight = redirected.clone();
-                let old_heading = redirected.velocity;
-                if !redirected.latch(turn_at, anchor) {
-                    return None;
-                }
-                if distance(old_heading, redirected.velocity) < CABLE_SPEED * 0.20 {
-                    return None;
-                }
-                let end = projected_end(&mut redirected, turn_at);
-                if distance(turn_at, end) < 2.0 * CABLE_SPEED
-                    || enters_hostile_tower(all, caster, turn_at, end)
-                {
-                    return None;
-                }
-                let preview = WallHit {
-                    x: end.0,
-                    y: end.1,
-                    distance: distance(turn_at, end),
-                    ..anchor.hit
-                };
-                let score = match aim {
-                    CableAim::Retreat(goal) => {
-                        let score = retreat_score(preview, turn_at, goal, &enemies)?;
-                        let straight_end = projected_end(&mut straight, turn_at);
-                        let straight_hit = WallHit {
-                            x: straight_end.0,
-                            y: straight_end.1,
-                            ..preview
-                        };
-                        if retreat_score(straight_hit, turn_at, goal, &enemies)
-                            .is_some_and(|previous| score < previous + 4_000.0)
-                        {
-                            return None;
-                        }
-                        score
-                    }
-                    CableAim::Engage(target) => {
-                        choose_engage_hit_with_grid(
-                            None,
-                            &[preview],
-                            turn_at,
-                            target.pos,
-                            target.radius,
-                            &hostile_towers,
-                        )?;
-                        let passes = segment_distance(target.pos, turn_at, end)
-                            <= target.radius + TARGET_PASS_BUFFER;
-                        let straight_end = projected_end(&mut straight, turn_at);
-                        let new_dist = distance(end, target.pos);
-                        let crossed = segment_distance(target.pos, turn_at, straight_end)
-                            <= target.radius + TARGET_PASS_BUFFER;
-                        if (crossed || !passes)
-                            && new_dist + 6_000.0 >= distance(straight_end, target.pos)
-                        {
-                            return None;
-                        }
-                        -new_dist + if passes { TARGET_PASS_BONUS } else { 0.0 }
-                    }
-                };
-                Some((score, anchor))
-            })
-            .max_by(|a, b| a.0.total_cmp(&b.0))
-            .map(|(_, anchor)| anchor);
-    }
-    let hits: Vec<_> = anchors
-        .iter()
-        .filter(|anchor| {
-            clear_step(grid, here, anchor.hit.pos())
-                && !enters_hostile_tower(all, caster, here, anchor.hit.pos())
-        })
-        .map(|anchor| anchor.hit)
-        .collect();
-    let hit = match aim {
-        CableAim::Retreat(goal) => hits
-            .into_iter()
-            .filter_map(|hit| retreat_score(hit, here, goal, &enemies).map(|score| (score, hit)))
-            .max_by(|a, b| a.0.total_cmp(&b.0))
-            .map(|(_, hit)| hit),
-        CableAim::Engage(target) => choose_engage_hit_with_grid(
-            Some(grid),
-            &hits,
-            here,
-            target.pos,
-            target.radius,
-            &hostile_towers,
-        ),
-    }?;
-    anchors.into_iter().find(|anchor| anchor.hit == hit)
+    plan(grid, flight, all, caster, aim, now, 1)
 }
 
-fn projected_end(flight: &mut Flight, mut here: Point) -> Point {
-    while let Some(there) = flight.step(here) {
-        here = there;
+pub(super) fn planned_cast_anchor(
+    grid: &Grid,
+    flight: Option<&Flight>,
+    all: &[UnitSnap],
+    caster: &UnitSnap,
+    aim: CableAim<'_>,
+    now: usize,
+) -> Option<Anchor> {
+    plan(grid, flight, all, caster, aim, now, 0)
+}
+
+fn plan(
+    grid: &Grid,
+    flight: Option<&Flight>,
+    all: &[UnitSnap],
+    caster: &UnitSnap,
+    aim: CableAim<'_>,
+    now: usize,
+    windup: usize,
+) -> Option<Anchor> {
+    if caster.stack == 0 || flight.is_some_and(|flight| !flight.can_fire(now + windup)) {
+        return None;
     }
-    here
+    let goal = match aim {
+        CableAim::Engage(target) => target.pos,
+        CableAim::Travel(goal) => goal,
+    };
+    let initial_distance = distance(caster.pos, goal);
+    let minimum_distance = match aim {
+        CableAim::Engage(_) => 17_000.0,
+        CableAim::Travel(_) => 32_000.0,
+    };
+    if initial_distance < minimum_distance {
+        return None;
+    }
+    let route = Route {
+        all,
+        caster,
+        aim,
+        start: now,
+        goal,
+        towers: unsheltered_towers(all, caster).collect(),
+        threats: if matches!(aim, CableAim::Travel(_)) {
+            all.iter()
+                .filter(|unit| {
+                    unit.alive
+                        && unit.team != caster.team
+                        && unit.champion
+                        && distance(caster.pos, unit.pos) <= ESCAPE_ROUTE_RADIUS
+                })
+                .map(|unit| (unit, distance(caster.pos, unit.pos)))
+                .collect()
+        } else {
+            Vec::new()
+        },
+    };
+    let state = RouteState {
+        flight: flight
+            .cloned()
+            .unwrap_or_else(|| Flight::new(grid.clone(), now)),
+        pos: caster.pos,
+        tick: now,
+        crossed_target: false,
+    };
+    let mut best_score = if flight.is_some() {
+        route
+            .preview(&state, None, 0)
+            .map(|(score, _)| score)
+            .filter(|score| score.is_finite())
+            .unwrap_or(-initial_distance)
+    } else {
+        -initial_distance
+    } + 6_000.0;
+
+    let mut best = None;
+    let mut options = route.options(&state, None, windup);
+    // Compare a continuous sequence against the hook already in flight and the
+    // single-cast options. A side anchor is useful when the sequence it opens
+    // makes progress even if its own landing point does not.
+    let depth = ROUTE_DEPTH.min(caster.stack);
+    for step in 1..=depth {
+        options.sort_by(|a, b| b.score.total_cmp(&a.score));
+        if let Some(choice) = options.first().filter(|choice| choice.score > best_score) {
+            best_score = choice.score;
+            best = Some(choice.first);
+        }
+        if options.is_empty() || step == depth {
+            break;
+        }
+        // Spread the search across redirect setups. Nearby rays hitting the
+        // same wall face often yield almost identical trajectories.
+        options.sort_by(|a, b| {
+            let branch_score = |choice: &RouteOption| {
+                choice.recast.as_ref().map_or(f64::NEG_INFINITY, |state| {
+                    choice.score.max(route.score(state) - 24_000.0)
+                })
+            };
+            branch_score(b).total_cmp(&branch_score(a))
+        });
+        let mut chosen_positions = Vec::new();
+        options = options
+            .into_iter()
+            .filter_map(|option| option.recast.map(|state| (option.first, state)))
+            .filter(|(_, state)| {
+                let anchor = state
+                    .flight
+                    .pending
+                    .back()
+                    .map(|shot| shot.anchor)
+                    .or(state.flight.anchors[1])
+                    .map_or(state.pos, |anchor| anchor.hit.anchor());
+                if chosen_positions.iter().any(|&(pos, heading)| {
+                    distance(pos, state.pos) < MIN_ANCHOR_SPACING
+                        && distance(heading, anchor) < 2.0 * MIN_ANCHOR_SPACING
+                }) {
+                    return false;
+                }
+                chosen_positions.push((state.pos, anchor));
+                true
+            })
+            .take(ROUTE_BRANCHES)
+            .flat_map(|(first, state)| route.options(&state, Some(first), 1))
+            .collect();
+    }
+    best
 }
 
 pub(super) fn blocked(sim: &StableSim<'_>, id: usize) -> bool {
@@ -479,8 +620,7 @@ pub(super) fn launch(
     id: usize,
     here: Point,
     anchor: Anchor,
-    target: Option<usize>,
-    retreat: bool,
+    aim: CableAim<'_>,
 ) -> bool {
     let now = sim.tick();
     let mut flight = existing.unwrap_or_else(|| Flight::new(grid, now));
@@ -499,15 +639,23 @@ pub(super) fn launch(
     if !forecast.latch(turn_at, anchor) {
         return false;
     }
-    if retreat {
-        flight.retreating = true;
-        flight.target = None;
-    } else if flight.casts == 0 {
-        flight.target = target;
+    match aim {
+        CableAim::Travel(goal) => {
+            flight.travel_goal = Some(goal);
+            flight.target = None;
+        }
+        CableAim::Engage(target) => {
+            flight.travel_goal = None;
+            flight.target = Some(target.id);
+        }
     }
     flight.fire(here, anchor, now);
+    let intent = match aim {
+        CableAim::Engage(target) => format!("engage target={}", target.id),
+        CableAim::Travel((x, y)) => format!("travel goal=({x:.0},{y:.0})"),
+    };
     wlog(format!(
-        "{} CABLE FIRE #{} ({:.0},{:.0}) tower={:?}",
+        "{} CABLE FIRE #{} ({:.0},{:.0}) tower={:?} mode={intent}",
         sim_head(sim, id),
         flight.casts,
         anchor.hit.anchor_x,
@@ -765,29 +913,25 @@ mod tests {
     #[test]
     fn hostile_tower_safety_checks_the_segment_and_allows_escape() {
         let tower = tower();
-        let mut caster = tower.clone();
-        caster.team = 1;
-        let all = [tower];
-        assert!(enters_hostile_tower(
-            &all,
-            &caster,
+        assert!(enters_tower_range(
+            &tower,
             (5_000.0, 85_000.0),
             (170_000.0, 85_000.0)
         ));
-        assert!(!enters_hostile_tower(
-            &all,
-            &caster,
+        assert!(!enters_tower_range(
+            &tower,
             (100_000.0, 80_000.0),
             (170_000.0, 80_000.0)
         ));
     }
 
     #[test]
-    fn retreat_cable_follows_the_stock_goal_and_moves_away_from_danger() {
+    fn travel_cable_follows_the_stock_goal_and_moves_away_from_danger() {
         let grid = Grid::from_rows(&[".........#"; 10]);
         let mut caster = tower();
         caster.pos = (150_000.0, 150_000.0);
         caster.team = 1;
+        caster.stack = MAX_CABLE_CHARGES;
         let mut foe = tower();
         foe.tower = false;
         foe.champion = true;
@@ -798,63 +942,89 @@ mod tests {
             None,
             &[foe.clone()],
             &caster,
-            CableAim::Retreat(goal),
+            CableAim::Travel(goal),
             0,
         )
         .expect("an open route toward the right wall");
         assert!(anchor.hit.x > caster.pos.0);
         assert!(distance(anchor.hit.pos(), goal) < distance(caster.pos, goal));
         assert!(distance(anchor.hit.pos(), foe.pos) > distance(caster.pos, foe.pos));
-        assert!(planned_anchor(&grid, None, &[], &caster, CableAim::Retreat(goal), 0).is_none());
+        assert!(planned_anchor(&grid, None, &[], &caster, CableAim::Travel(goal), 0).is_some());
+    }
+
+    fn assert_continuous_route(
+        grid: &Grid,
+        mut caster: UnitSnap,
+        all: &[UnitSnap],
+        aim: CableAim<'_>,
+    ) {
+        let mut flight = Flight::new(grid.clone(), 0);
+        let mut last_fire = None;
+        let mut headings = Vec::new();
+        for now in 0..MAX_FLIGHT_TICKS {
+            while flight.pending.front().is_some_and(|shot| shot.latch <= now) {
+                let shot = flight.pending.pop_front().unwrap();
+                assert!(flight.latch(caster.pos, shot.anchor));
+                headings.push(flight.velocity);
+            }
+            if headings.len() == 3 {
+                assert!(distance(headings[0], headings[1]) > CABLE_SPEED * 0.10);
+                assert!(distance(headings[1], headings[2]) > CABLE_SPEED * 0.10);
+                return;
+            }
+            if now != 0 {
+                if let Some(next) = flight.step(caster.pos) {
+                    caster.pos = next;
+                } else if !headings.is_empty() {
+                    panic!(
+                        "flight ended after {} latches ({} casts)",
+                        headings.len(),
+                        flight.casts
+                    );
+                }
+            }
+            if flight.casts < 3 && last_fire.is_none_or(|tick| now >= tick + ROUTE_CAST_GAP) {
+                let existing = (flight.casts > 0).then_some(&flight);
+                if let Some(anchor) = planned_cast_anchor(grid, existing, all, &caster, aim, now) {
+                    flight.fire(caster.pos, anchor, now);
+                    caster.stack -= 1;
+                    last_fire = Some(now);
+                }
+            }
+        }
+        panic!("the planner did not land three cables in a single flight");
     }
 
     #[test]
-    fn the_moba_route_planner_can_choose_an_airborne_recast() {
+    fn the_moba_route_planner_redirects_twice_before_landing() {
         let grid = Grid::builtin(GameModeKindV1::Moba);
-        let mut caster = tower();
-        caster.tower = false;
-        caster.champion = true;
-        caster.pos = (180_000.0, 780_000.0);
-        let mut target = caster.clone();
-        target.id += 1;
-        target.team = 1;
-        target.pos = (780_000.0, 180_000.0);
-        let all = [target.clone()];
-        let first =
-            planned_anchor(&grid, None, &all, &caster, CableAim::Engage(&target), 0).unwrap();
-        let mut flight = Flight::new(grid.clone(), 0);
-        flight.fire(caster.pos, first, 0);
-        let mut recast = None;
-        for now in 1..45 {
-            if let Some(shot) = flight
-                .pending
-                .front()
-                .filter(|shot| shot.latch == now)
-                .copied()
-            {
-                flight.pending.pop_front();
-                assert!(flight.latch(caster.pos, shot.anchor));
-            }
-            if now >= 6 && flight.velocity != (0.0, 0.0) {
-                recast = planned_anchor(
-                    &grid,
-                    Some(&flight),
-                    &all,
-                    &caster,
-                    CableAim::Engage(&target),
-                    now,
-                );
-                if recast.is_some() {
-                    break;
-                }
-            }
-            if let Some(there) = flight.step(caster.pos) {
-                caster.pos = there;
-            }
-        }
-        assert!(
-            recast.is_some(),
-            "AI should find a useful new hook before landing"
-        );
+        let caster = UnitSnap {
+            pos: (180_000.0, 780_000.0),
+            tower: false,
+            champion: true,
+            stack: MAX_CABLE_CHARGES,
+            ..tower()
+        };
+        let target = UnitSnap {
+            id: caster.id + 1,
+            team: 1,
+            pos: (780_000.0, 180_000.0),
+            ..caster.clone()
+        };
+        assert_continuous_route(&grid, caster, &[target.clone()], CableAim::Engage(&target));
+    }
+
+    #[test]
+    fn the_moba_route_planner_chains_along_a_stock_lane_waypoint() {
+        let mut grid = Grid::builtin(GameModeKindV1::Moba);
+        grid.bounds = Some((0.0, 0.0, 960_000.0, 960_000.0));
+        let caster = UnitSnap {
+            pos: (310_000.0, 64_000.0),
+            tower: false,
+            champion: true,
+            stack: MAX_CABLE_CHARGES,
+            ..tower()
+        };
+        assert_continuous_route(&grid, caster, &[], CableAim::Travel((690_000.0, 64_000.0)));
     }
 }

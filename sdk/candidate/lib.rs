@@ -36,6 +36,7 @@ mod lancelot;
 mod obsidia;
 mod sun;
 mod uranus;
+mod xborg;
 mod zhask;
 
 pub mod maps;
@@ -55,7 +56,6 @@ const MOD_ID: &str = "mlbb_heroes";
 const CELL: f64 = 32_000.0;
 const CABLE_RANGE: f64 = 165_000.0; // Reaches across MOBA wall clusters (median gap 91k, max 145k) and lane outer walls.
 const CABLE_SPEED: f64 = 5_200.0; // Fast pro-Fanny cable flight speed.
-const MIN_ENGAGE_CABLE_DISTANCE: f64 = 24_000.0;
 const TARGET_PASS_BUFFER: f64 = FLIGHT_TORNADO_RADIUS;
 const TARGET_PASS_BONUS: f64 = 65_000.0;
 const WALL_GAP: f64 = 1_000.0;
@@ -70,8 +70,8 @@ const CABLE_IMPACT_EFFECT: &str = "mlbb_heroes:cable_impact";
 const CABLE_DRAW_EFFECT: &str = "mlbb_heroes:cable_draw";
 const FLYING: &str = "mlbb_fanny_flying";
 
-// Only the stock-selected local target can initiate a combat cable.
-const SKILL2_RANGE: f64 = CABLE_RANGE;
+// Stock target acquisition may look farther than a single physical hook can travel.
+const SKILL2_RANGE: f64 = 1_350_000.0;
 const TOWER_DANGER_RADIUS: f64 = 52_000.0;
 const ESCAPE_ROUTE_RADIUS: f64 = 180_000.0;
 const PREY_1: &str = "mlbb_fanny_prey_1";
@@ -881,134 +881,27 @@ fn stock_target<'a>(
     })
 }
 
-fn choose_engage_hit(
-    hits: &[WallHit],
-    here: (f64, f64),
-    target: (f64, f64),
-    target_radius: f64,
-    hostile_towers: &[UnitSnap],
-) -> Option<WallHit> {
-    choose_engage_hit_with_grid(None, hits, here, target, target_radius, hostile_towers)
-}
-
-/// 2-hop lookahead route planner: scores each first-cable candidate both by its
-/// direct progress/slash through `target` and by the best second-cable chain
-/// reachable from its landing position.
-fn choose_engage_hit_with_grid(
-    grid: Option<&Grid>,
-    hits: &[WallHit],
-    here: (f64, f64),
-    target: (f64, f64),
-    target_radius: f64,
-    hostile_towers: &[UnitSnap],
-) -> Option<WallHit> {
-    let current_distance = distance(here, target);
-    if current_distance < 17_000.0 {
-        return None;
-    }
-    hits.iter()
-        .copied()
-        .filter_map(|hit| {
-            let destination = hit.pos();
-            let after = distance(destination, target);
-            let progress = current_distance - after;
-            let path_miss = segment_distance(target, here, destination);
-            let passes_target = path_miss <= target_radius + TARGET_PASS_BUFFER;
-            if progress < 2_500.0
-                || (after < 12_000.0 && !passes_target)
-                || (hit.distance < MIN_ENGAGE_CABLE_DISTANCE && !passes_target)
-            {
-                return None;
-            }
-            let move_vec = (destination.0 - here.0, destination.1 - here.1);
-            let target_vec = (target.0 - here.0, target.1 - here.1);
-            let move_len = distance(here, destination).max(1.0);
-            let denom = (move_len * current_distance).max(1.0);
-            let alignment =
-                ((move_vec.0 * target_vec.0 + move_vec.1 * target_vec.1) / denom).clamp(-1.0, 1.0);
-            if alignment < 0.05 && !passes_target {
-                return None;
-            }
-            let tower_penalty = hostile_towers
-                .iter()
-                .filter(|tower| tower.alive)
-                .map(|tower| {
-                    (TOWER_DANGER_RADIUS - distance(destination, tower.pos)).max(0.0) * 3.5
-                })
-                .sum::<f64>();
-            let pass_bonus = if passes_target {
-                TARGET_PASS_BONUS
-            } else {
-                0.0
-            };
-
-            // 2-hop lookahead: if the target is still far after hop 1, evaluate
-            // whether hop 1's landing spot has a strong second wall cable toward `target`.
-            let lookahead_adjustment = if let Some(g) = grid {
-                if !passes_target && after > 32_000.0 {
-                    let next_hits = wall_hits(g, destination, CABLE_RANGE);
-                    let best_second_gain = next_hits
-                        .iter()
-                        .filter_map(|h2| {
-                            let d2 = h2.pos();
-                            let after2 = distance(d2, target);
-                            let gain2 = after - after2;
-                            let pass2 = segment_distance(target, destination, d2)
-                                <= target_radius + TARGET_PASS_BUFFER;
-                            if gain2 >= 8_000.0 || pass2 {
-                                Some(gain2 + if pass2 { 35_000.0 } else { 0.0 })
-                            } else {
-                                None
-                            }
-                        })
-                        .fold(0.0_f64, f64::max);
-                    if best_second_gain > 0.0 {
-                        -best_second_gain * 0.55
-                    } else {
-                        95_000.0 // Dead-end wall penalty so Fanny picks chainable walls instead.
-                    }
-                } else {
-                    0.0
-                }
-            } else {
-                0.0
-            };
-
-            let score = after
-                + hit.distance * 0.10
-                + (1.0 - alignment) * 18_000.0
-                + tower_penalty
-                + lookahead_adjustment
-                - pass_bonus;
-            Some((score, hit))
+fn cable_goal_target<'a>(
+    all: &'a [UnitSnap],
+    caster: &UnitSnap,
+    goal: (f64, f64),
+    prior: Option<usize>,
+    visible: impl Fn(&UnitSnap) -> bool,
+) -> Option<&'a UnitSnap> {
+    // A native combat order can lead a moving unit by one cast-windup tick.
+    // Match only the unit at the ordered point, never search around the caster.
+    all.iter()
+        .filter(|unit| {
+            unit.alive
+                && unit.targetable
+                && unit.team != caster.team
+                && !unit.tower
+                && prior.is_none_or(|id| unit.id == id)
         })
-        .min_by(|a, b| a.0.total_cmp(&b.0))
-        .map(|(_, hit)| hit)
-}
-
-fn choose_escape_hit(hits: &[WallHit], here: (f64, f64), enemies: &[&UnitSnap]) -> Option<WallHit> {
-    if enemies.is_empty() {
-        return None;
-    }
-    let nearest_before = enemies
-        .iter()
-        .map(|enemy| distance(here, enemy.pos))
-        .fold(f64::INFINITY, f64::min);
-    hits.iter()
-        .copied()
-        .filter_map(|hit| {
-            let nearest_after = enemies
-                .iter()
-                .map(|enemy| distance(hit.pos(), enemy.pos))
-                .fold(f64::INFINITY, f64::min);
-            if nearest_after < nearest_before + 3_000.0 {
-                return None;
-            }
-            let score = -nearest_after + hit.distance * 0.08;
-            Some((score, hit))
-        })
-        .min_by(|a, b| a.0.total_cmp(&b.0))
-        .map(|(_, hit)| hit)
+        .map(|unit| (distance(unit.pos, goal), unit))
+        .filter(|(gap, unit)| *gap <= 3_000.0 && visible(unit))
+        .min_by(|(gap_a, a), (gap_b, b)| gap_a.total_cmp(gap_b).then(a.id.cmp(&b.id)))
+        .map(|(_, unit)| unit)
 }
 
 fn force_move(
@@ -1166,30 +1059,35 @@ impl StableEffectType for SteelCable {
         let flight = fanny_flight::read(key);
         let grid = fanny_flight::grid(sim, flight.as_ref(), &all);
         use fanny_flight::CableAim;
-        let retreat = input.kind == InputTargetKindV1::Pos.code();
-        let aim = if retreat {
-            CableAim::Retreat((input.x as f64, input.y as f64))
-        } else {
-            if flight.as_ref().is_some_and(fanny_flight::Flight::is_retreating) {
+        let prior = flight.as_ref().and_then(fanny_flight::Flight::target);
+        let traveling = flight.as_ref().and_then(fanny_flight::Flight::travel_goal).is_some();
+        let aim = if input.kind == InputTargetKindV1::Pos.code() {
+            let goal = (input.x as f64, input.y as f64);
+            if distance(caster.pos, goal) > SKILL2_RANGE {
                 return;
             }
-            let prior = flight.as_ref().and_then(fanny_flight::Flight::target);
+            let target = if traveling {
+                None
+            } else {
+                cable_goal_target(&all, caster, goal, prior, |unit| {
+                    is_unit_visible(sim, caster.team, unit)
+                })
+            };
+            target.map_or(CableAim::Travel(goal), CableAim::Engage)
+        } else {
+            if traveling {
+                return;
+            }
             let Some(target) = stock_target(sim, &all, caster, input)
                 .filter(|target| prior.is_none_or(|id| id == target.id))
                 .filter(|target| distance(caster.pos, target.pos) <= SKILL2_RANGE)
             else { return; };
             CableAim::Engage(target)
         };
-        let Some(anchor) = fanny_flight::planned_anchor(
+        let Some(anchor) = fanny_flight::planned_cast_anchor(
             &grid, flight.as_ref(), &all, caster, aim, sim.tick(),
         ) else { return; };
-        let target = match aim {
-            CableAim::Engage(unit) => Some(unit.id),
-            CableAim::Retreat(_) => None,
-        };
-        if !fanny_flight::launch(
-            sim, key, flight, grid, caster_id, caster.pos, anchor, target, retreat,
-        ) {
+        if !fanny_flight::launch(sim, key, flight, grid, caster_id, caster.pos, anchor, aim) {
             return;
         }
         let remaining_charges = caster.stack - 1;
@@ -1222,7 +1120,7 @@ impl StableEffectType for SteelCable {
     }
 
     fn expected_move_distance(&self) -> Option<(usize, u64)> {
-        Some((28, 165_000))
+        Some((28, CABLE_RANGE as u64))
     }
 
     fn can_move(&self) -> bool {
@@ -1493,9 +1391,8 @@ impl StablePassive for AirSuperiority {
 #[derive(Clone, Default)]
 struct FannyCableAi;
 
-fn stock_retreat_goal(base: InputV1, retreat: Option<InputV1>) -> Option<(u64, u64)> {
-    // Walking toward a wave or camp must never become a native cable command.
-    (base.kind == InputKindV1::Move.code() && retreat == Some(base)).then_some((base.x, base.y))
+fn stock_move_goal(base: InputV1) -> Option<(f64, f64)> {
+    (base.kind == InputKindV1::Move.code()).then_some((base.x as f64, base.y as f64))
 }
 
 impl StablePlayerAi for FannyCableAi {
@@ -1521,14 +1418,11 @@ impl StablePlayerAi for FannyCableAi {
         base_input: Option<InputV1>,
     ) -> Option<InputV1> {
         use fanny_flight::CableAim;
-        let retreat = if let Some(base) = base_input.filter(|i| i.kind == InputKindV1::Move.code()) {
-            stock_retreat_goal(base, ctx.run_away_without_skill_input())
-        } else {
-            None
+        let stock_goal = match base_input {
+            Some(input) => Some(stock_move_goal(input)?),
+            None => None,
         };
-        if base_input.is_some_and(|input| input.kind == InputKindV1::Return.code()) {
-            return None;
-        }
+        let retreat = stock_goal.is_some() && ctx.run_away_without_skill_input() == base_input;
         let player = ctx.player_id();
         let candidate = {
             let sim = ctx.sim()?;
@@ -1541,31 +1435,32 @@ impl StablePlayerAi for FannyCableAi {
             {
                 return None;
             }
+            // Stagger idle movement searches, where the exact cast tick is flexible.
+            if flight.is_none() && (!sim.tick().is_multiple_of(4) || stock_goal.is_none()) {
+                return None;
+            }
             let all = units(&sim);
             let caster = all.iter().find(|unit| unit.id == id && unit.alive)?;
-            let (input, aim) = if let Some((x, y)) = retreat {
-                // A position keeps retreat intent in the submitted action, including replays.
-                let goal = (x as f64, y as f64);
-                let span = distance(caster.pos, goal);
-                if span <= 1.0 {
-                    return None;
-                }
-                let ratio = ((SKILL2_RANGE - 12_000.0) / span).min(1.0);
-                let x = world_u64(caster.pos.0 + (goal.0 - caster.pos.0) * ratio);
-                let y = world_u64(caster.pos.1 + (goal.1 - caster.pos.1) * ratio);
-                (InputTargetV1::pos(x, y), CableAim::Retreat((x as f64, y as f64)))
+            let prior = flight.as_ref().and_then(fanny_flight::Flight::target);
+            let toward_target = prior
+                .filter(|_| !retreat)
+                .and_then(|target| stock_target(&sim, &all, caster, InputTargetV1::target(target)))
+                .filter(|target| stock_goal.is_none_or(|goal| {
+                    distance(goal, target.pos) + 6_000.0 < distance(caster.pos, target.pos)
+                }));
+            let (goal, aim) = if let Some(target) = toward_target {
+                (target.pos, CableAim::Engage(target))
             } else {
-                let target_id = flight.as_ref()?.target()?;
-                let target_input = InputTargetV1::target(target_id);
-                let target = stock_target(&sim, &all, caster, target_input)?;
-                if distance(caster.pos, target.pos) > SKILL2_RANGE {
-                    return None;
-                }
-                (target_input, CableAim::Engage(target))
+                let goal = stock_goal.or_else(|| flight.as_ref()?.travel_goal())?;
+                (goal, CableAim::Travel(goal))
             };
+            if distance(caster.pos, goal) > SKILL2_RANGE {
+                return None;
+            }
             let grid = fanny_flight::grid(&sim, flight.as_ref(), &all);
             fanny_flight::planned_anchor(&grid, flight.as_ref(), &all, caster, aim, sim.tick())?;
-            InputV1::action(InputKindV1::Skill2, input)
+            let point = InputTargetV1::pos(world_u64(goal.0), world_u64(goal.1));
+            InputV1::action(InputKindV1::Skill2, point)
         };
         ctx.is_valid_input(&candidate).then_some(candidate)
     }
@@ -1921,6 +1816,7 @@ fn init(host: &StableHost) -> StableMod {
     hanzo::register(&mut module);
     atlas::register(&mut module);
     yu_zhong::register(&mut module);
+    xborg::register(&mut module);
     module.set_extension(hanzo::Extension);
     franco::register(&mut module);
     balmond::register(&mut module);
@@ -2022,118 +1918,20 @@ mod tests {
     }
 
     #[test]
-    fn multi_cable_chain_reaches_distant_target_across_moba_walls() {
-        let grid = Grid::builtin(GameModeKindV1::Moba);
-        let mut pos = (180_000.0, 780_000.0);
-        let target = (780_000.0, 180_000.0);
-        let initial_dist = distance(pos, target);
-        let mut hops = 0;
-        for _ in 0..4 {
-            let hits = wall_hits(&grid, pos, CABLE_RANGE);
-            let Some(next) =
-                choose_engage_hit_with_grid(Some(&grid), &hits, pos, target, 10_000.0, &[])
-            else {
-                break;
-            };
-            pos = next.pos();
-            hops += 1;
+    fn cable_movement_uses_the_stock_waypoint_and_preserves_other_orders() {
+        let move_order = InputV1::move_to(120_000, 380_000);
+        assert_eq!(stock_move_goal(move_order), Some((120_000.0, 380_000.0)));
+        assert_eq!(stock_move_goal(InputV1::return_home()), None);
+        for action in [InputKindV1::Attack, InputKindV1::Skill, InputKindV1::Skill2, InputKindV1::Ult] {
+            assert_eq!(stock_move_goal(InputV1::action(action, InputTargetV1::target(7))), None);
         }
-        assert!(
-            hops >= 3,
-            "expected at least 3 chained wall cables, got {hops}"
-        );
-        assert!(distance(pos, target) < initial_dist * 0.45);
     }
 
     #[test]
-    fn outer_lane_boundary_allows_cabling_along_top_and_bottom_lanes() {
-        let grid = Grid::builtin(GameModeKindV1::Moba);
-        let top_lane_pos = (480_000.0, 112_000.0);
-        let top_lane_target = (720_000.0, 112_000.0);
-        let hits = wall_hits(&grid, top_lane_pos, CABLE_RANGE);
-        let best = choose_engage_hit_with_grid(
-            Some(&grid),
-            &hits,
-            top_lane_pos,
-            top_lane_target,
-            10_000.0,
-            &[],
-        )
-        .expect("outer boundary wall cable in top lane");
-        assert!(best.x > top_lane_pos.0 + 40_000.0);
-    }
-
-    #[test]
-    fn engage_route_progresses_toward_the_ai_target() {
-        let here = (160_000.0, 160_000.0);
-        let target = (260_000.0, 160_000.0);
-        let hits = vec![
-            WallHit {
-                x: 190_000.0,
-                y: 160_000.0,
-                distance: 30_000.0,
-                anchor_x: 190_000.0,
-                anchor_y: 160_000.0,
-            },
-            WallHit {
-                x: 160_000.0,
-                y: 210_000.0,
-                distance: 50_000.0,
-                anchor_x: 160_000.0,
-                anchor_y: 210_000.0,
-            },
-            WallHit {
-                x: 120_000.0,
-                y: 160_000.0,
-                distance: 40_000.0,
-                anchor_x: 120_000.0,
-                anchor_y: 160_000.0,
-            },
-        ];
-        let result = choose_engage_hit(&hits, here, target, 10_000.0, &[]).expect("forward hook");
-        assert_eq!(result, hits[0]);
-    }
-
-    #[test]
-    fn engage_route_prefers_a_cable_that_passes_through_the_target() {
-        let here = (160_000.0, 160_000.0);
-        let target = (220_000.0, 160_000.0);
-        let hits = vec![
-            WallHit {
-                x: 185_000.0,
-                y: 160_000.0,
-                distance: 25_000.0,
-                anchor_x: 185_000.0,
-                anchor_y: 160_000.0,
-            },
-            WallHit {
-                x: 245_000.0,
-                y: 160_000.0,
-                distance: 85_000.0,
-                anchor_x: 245_000.0,
-                anchor_y: 160_000.0,
-            },
-        ];
-        let result =
-            choose_engage_hit(&hits, here, target, 10_000.0, &[]).expect("target-crossing hook");
-        assert_eq!(result, hits[1]);
-    }
-
-    #[test]
-    fn cables_only_replace_the_stock_retreat_move() {
-        let flee = InputV1::move_to(120_000, 380_000);
-        assert_eq!(stock_retreat_goal(flee, Some(flee)), Some((120_000, 380_000)));
-        assert_eq!(stock_retreat_goal(InputV1::move_to(130_000, 380_000), Some(flee)), None);
-        assert_eq!(stock_retreat_goal(flee, None), None);
-        assert_eq!(stock_retreat_goal(InputV1::return_home(), Some(InputV1::return_home())), None);
-    }
-
-    #[test]
-    fn escape_route_increases_the_nearest_enemy_distance() {
-        let here = (160_000.0, 160_000.0);
-        let enemies = [UnitSnap {
-            id: 5,
-            pos: (160_000.0, 120_000.0),
+    fn cable_aim_does_not_pick_a_target_nearby_or_retarget_a_chain() {
+        let caster = UnitSnap {
+            id: 1,
+            pos: (40_000.0, 50_000.0),
             team: 1,
             alive: true,
             targetable: true,
@@ -2141,29 +1939,26 @@ mod tests {
             tower: false,
             monster: false,
             radius: 10_000.0,
-            hp: 500,
-            max_hp: 1_000,
-            stack: 0,
-        }];
-        let refs: Vec<&UnitSnap> = enemies.iter().collect();
-        let hits = vec![
-            WallHit {
-                x: 160_000.0,
-                y: 220_000.0,
-                distance: 60_000.0,
-                anchor_x: 160_000.0,
-                anchor_y: 220_000.0,
-            },
-            WallHit {
-                x: 220_000.0,
-                y: 160_000.0,
-                distance: 60_000.0,
-                anchor_x: 220_000.0,
-                anchor_y: 160_000.0,
-            },
-        ];
-        let result = choose_escape_hit(&hits, here, &refs).expect("away route");
-        assert!(distance(result.pos(), enemies[0].pos) > distance(here, enemies[0].pos));
+            hp: 750,
+            max_hp: 750,
+            stack: 10,
+        };
+        let mut target = caster.clone();
+        target.id = 2;
+        target.team = 2;
+        target.pos = (102_500.0, 50_000.0);
+        let mut closer = target.clone();
+        closer.id = 3;
+        closer.pos.0 = 100_000.0;
+        let all = [target, closer];
+        let selected = |goal, prior, hidden| {
+            cable_goal_target(&all, &caster, goal, prior, |unit| unit.id != hidden)
+                .map(|unit| unit.id)
+        };
+        assert_eq!(selected((100_000.0, 50_000.0), None, 0), Some(3));
+        assert_eq!(selected((100_000.0, 50_000.0), Some(2), 0), Some(2));
+        assert_eq!(selected((100_000.0, 50_000.0), Some(2), 2), None);
+        assert_eq!(selected((100_000.0, 60_000.0), None, 0), None);
     }
 
     #[test]

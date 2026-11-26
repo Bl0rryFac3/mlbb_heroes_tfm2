@@ -42,8 +42,9 @@ def compile_hero(hero, overrides, code):
             raise ValueError(f"Source hash mismatch for {source.name}")
         cue = entry["cue"]
         if entry["kind"] == "icon":
+            icon_prefix = "mlbb_xborg" if hero == "xborg" else hero
             with Image.open(source) as image:
-                image.save(ROOT / f"icons/{hero}_{cue}.png")
+                image.save(ROOT / f"icons/{icon_prefix}_{cue}.png")
             continue
         event = f"mlbb_{hero}_voice_{cue}"
         clip = f"mlbb_heroes_clip_{event}"
@@ -82,7 +83,7 @@ def main():
     rust = ROOT / "sdk/candidate/audio.rs"
     code = rust.read_text()
     for hero in args.heroes:
-        if hero not in ("sun", "lesley", "valir"):
+        if hero not in ("sun", "lesley", "valir", "xborg"):
             parser.error(f"unsupported hero: {hero}")
         code = compile_hero(hero, overrides, code)
     overrides_path.write_text(json.dumps(overrides, indent=2) + "\n")

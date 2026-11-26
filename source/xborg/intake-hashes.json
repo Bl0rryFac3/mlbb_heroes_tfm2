@@ -1,0 +1,233 @@
+[
+  {
+    "file": "xborg_armor_break.png",
+    "bytes": 26658,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKSA",
+    "sha256": "dca89f4060cf8a1ceb0a6dd090beddc26e945cac04fa2fb1e60d7ec5d46cb5f2",
+    "dropbox_content_hash": "c81816e94a216ee48b8940c4e93642a029329819de92d4249178a6ab24a7cf4a"
+  },
+  {
+    "file": "xborg_armor_restore.png",
+    "bytes": 26312,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKQg",
+    "sha256": "dd473189eda5a7f643ba3b5ca3804c9d7de4e77be7cd2b0852b3499b622fe521",
+    "dropbox_content_hash": "8a5bdf8922e1d72de12ec66933ace6297019f3a7c0f6097350a41a6e370c762b"
+  },
+  {
+    "file": "xborg_armored_basic_attack.png",
+    "bytes": 16129,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKWQ",
+    "sha256": "415ae1b562dbc97b38e734c7599c9126b5058b25cf0ce0fd1a17d72cdf05b704",
+    "dropbox_content_hash": "0cc0efd53e750f0b11a993366fca5e9673a667be73f66cd826e7e9e54918b9a3"
+  },
+  {
+    "file": "xborg_armored_hurt.png",
+    "bytes": 9637,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKTQ",
+    "sha256": "34ceb1ad2bd231c9c0ee0f88e65a8410e1428759bf7200b886768918f9b6eea6",
+    "dropbox_content_hash": "9a79a1ebc54320a50a38abcfb56bcc8509c5249289e744790c4b1ea25c59fe0d"
+  },
+  {
+    "file": "xborg_armored_idle.png",
+    "bytes": 12812,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKWg",
+    "sha256": "509a9432dda04a71265de8f5d4b19d75478af8d325a90a6c49fbda3223ea4ee3",
+    "dropbox_content_hash": "7e96800974501871430fc468495f66b5803deb03da46b16cadb3dc5250ca036d"
+  },
+  {
+    "file": "xborg_armored_run.png",
+    "bytes": 14313,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKWw",
+    "sha256": "0346bac2e17439363719a37ff1ed6e249ab486c19bb13f09a8df32c6f633f0f6",
+    "dropbox_content_hash": "4abe3bd940ab488c8c06a102b4b46e6dcb87ea2d7e1303b23fd600ec70221755"
+  },
+  {
+    "file": "xborg_armored_s1_loop.png",
+    "bytes": 17794,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKUw",
+    "sha256": "93abe559c6e70c386649c4db158905c47c60f9a8c119b2a910e6503302f5311c",
+    "dropbox_content_hash": "c790501c5d44aede73838027abdc20364a7a8c5d0fa7f83d58f585d8ad45af13"
+  },
+  {
+    "file": "xborg_armored_s1_start.png",
+    "bytes": 12095,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKXA",
+    "sha256": "a5a8ef518df67eafb5382f6575d03065e2a4f8ce240c223535c0ef8f73fbb009",
+    "dropbox_content_hash": "a1c501a76f7e67fd5e565b35efb6155459873a829ac230bd3849bfc48d57887c"
+  },
+  {
+    "file": "xborg_armored_s2_cast.png",
+    "bytes": 10475,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKVA",
+    "sha256": "e6e901ea4baff1f163c276eeb646b448a015ec41074a3f55453f1612e9e150c4",
+    "dropbox_content_hash": "68681ad8cdacff7de6d35a7c6fa5fc4ad076b28de19038e64de64816529e1bec"
+  },
+  {
+    "file": "xborg_armored_s2_recall.png",
+    "bytes": 12620,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKVQ",
+    "sha256": "1a5027205687195bd79b644d15e4dc4d131bbbcbbddc1091c8ef5e544b57a3e6",
+    "dropbox_content_hash": "ad36044030f7cdd43eecf99afcbe5933e62c8926882f2e5a9cc425fc989a8e92"
+  },
+  {
+    "file": "xborg_armored_ult_charge.png",
+    "bytes": 21903,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKVg",
+    "sha256": "a71b6894eafada268e92ff734f8a10da1a2b9b9625cf8a82a1e2521b819f769e",
+    "dropbox_content_hash": "cc331713dc1311fa8e6f98fd2a26718794ffedf6f2a76e493db7fa1369d0534d"
+  },
+  {
+    "file": "xborg_armored_ult_explosion.png",
+    "bytes": 38050,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKVw",
+    "sha256": "55ab13ce14ff6817217e8843dbeda9da75f91ab0c2c8671bd418c5a5f38e9a8d",
+    "dropbox_content_hash": "eb0ae6991a96ca8a488f63b51b2eeb88e85eec9b79a2c07a2b7a794d94ca8c81"
+  },
+  {
+    "file": "xborg_armored_ult_spin.png",
+    "bytes": 26039,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKWA",
+    "sha256": "cbcfefe975938f51b1dced1cfb41b7ac27a82354a1b87af04087e86f203df6f2",
+    "dropbox_content_hash": "7db3682cd877ae446ce5d99a749c132e2604322c6acc93fa2680fa6e96e8c00f"
+  },
+  {
+    "file": "xborg_armorless_basic_attack.png",
+    "bytes": 13467,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKTg",
+    "sha256": "e78751bca7addde1b4741a512bdb941d9a5af3b6605f76d22813dd91c51f1584",
+    "dropbox_content_hash": "6f1c7f22440a2a19e383a9851b9113616af908b5d089d05e77d7b48e071e30e9"
+  },
+  {
+    "file": "xborg_armorless_death.png",
+    "bytes": 12669,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKSQ",
+    "sha256": "383b4527007f567aecd8b10846da940c015eb4074126de6d88bd9efcfda0ce0f",
+    "dropbox_content_hash": "fff529871f7636488c155b8b3da81ac55faadf10ac3272c44fc477af7f6a23a6"
+  },
+  {
+    "file": "xborg_armorless_hurt.png",
+    "bytes": 9527,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKSg",
+    "sha256": "62466918e7f766d13090db7a42b0aaa11eb10ab74718fcc4e11e8eb332901a5f",
+    "dropbox_content_hash": "4b9966ea278d372c9e399da76eb21c1c22561db6b4a8206dd5f438728cc44ea7"
+  },
+  {
+    "file": "xborg_armorless_idle.png",
+    "bytes": 11471,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKTw",
+    "sha256": "36c6b9760b6221a9e0b2c3068c455169e3eadf15f950f142a3fcde00d398ec21",
+    "dropbox_content_hash": "1b5fc0525c1b6a846893f704b2d7987f02cf433f431985f6e352e95b74305a8e"
+  },
+  {
+    "file": "xborg_armorless_s1_loop.png",
+    "bytes": 9141,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKUA",
+    "sha256": "5d142c4f43971f232b6a578a6861962a542914148fabb131ba4421d0f22c71f0",
+    "dropbox_content_hash": "ba79c78c43fd385d47d75c255fd0ece2091197011e0e70ce44649f4175efe3b9"
+  },
+  {
+    "file": "xborg_armorless_s1_start.png",
+    "bytes": 13431,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKUQ",
+    "sha256": "d623be94a1f131864bec02949e98c42d8292f009f123d7412d5f7ef2f35a23ea",
+    "dropbox_content_hash": "8bda386ec87f6b2e097b55eb5d848e8e345e8a107c5185c319c49237fe570e33"
+  },
+  {
+    "file": "xborg_armorless_s2_cast.png",
+    "bytes": 10546,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKSw",
+    "sha256": "d1664a44ec742802780f73077056b1cb24e3110de2186cf38f4e578c52c6e9a8",
+    "dropbox_content_hash": "797fed351730d52b5195038a1f890ce49f5cc61a3e346d9da077095870a48e67"
+  },
+  {
+    "file": "xborg_armorless_s2_recall.png",
+    "bytes": 7964,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKTA",
+    "sha256": "5ad4192699eda5d45a06d504e7ccf5886698145b9c02fb93ef25633d6e48cc82",
+    "dropbox_content_hash": "7fc95eba4c637c97d47f78f63fa89cce41e8494001dedf9f634b78c322d05b48"
+  },
+  {
+    "file": "xborg_armorless_walk.png",
+    "bytes": 13956,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKUg",
+    "sha256": "5b8778fb4435bcf8f66620ba1fdbe53dbf9fec55a640953dffd34908a39652e1",
+    "dropbox_content_hash": "ed42c894d3589b10eb799dcdad2920922035a6ebedf5fd45d5f6386b9884aed9"
+  },
+  {
+    "file": "xborg_vfx_armor_break.png",
+    "bytes": 19693,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKPQ",
+    "sha256": "0516c2dd4aeeb1de7da0e1f031445dad4dfce5546268e39fefaad1fc47e77f30",
+    "dropbox_content_hash": "674f17918fd99be3124bfbecace03dec485bd0aa216255bd87225f944cbe02fe"
+  },
+  {
+    "file": "xborg_vfx_basic_projectile.png",
+    "bytes": 795,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKQw",
+    "sha256": "ff3002dc180ec40bd8bc3300ba0f408e0a73c773f4fd46421dc505935bc02344",
+    "dropbox_content_hash": "d8ce5a69b6017a3106f8eb89711853c76ddfcc9c92cc810bcbc48cb1b960bdf3"
+  },
+  {
+    "file": "xborg_vfx_firaga_supply.png",
+    "bytes": 2619,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKPg",
+    "sha256": "02c2b613f1e56c66a0d401a9338f850be62c501cbdbacff0fef175fcd2b52c53",
+    "dropbox_content_hash": "60ed316586f6fef02aa95e0f9da066431d38d31e9dbfd06d17a0bef7f2954d17"
+  },
+  {
+    "file": "xborg_vfx_projectile_impact.png",
+    "bytes": 1413,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKRA",
+    "sha256": "a30a96e6f7c16c8fec3e869cea13ba27af93e69f2ce49ed2039a9ff250febe7b",
+    "dropbox_content_hash": "2cb553f18d89a73363d658dadd25a3a79a7867b7e3e5092c608cbe6b4d048ce8"
+  },
+  {
+    "file": "xborg_vfx_s1_armored_flame.png",
+    "bytes": 24827,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKRQ",
+    "sha256": "3e355210b382bac867ca115623a903360fbad0b43abb79a0b5c08adf96d6254c",
+    "dropbox_content_hash": "fbb23519d765937618866298668f0449132c5137d98b30f811172e3141edb18d"
+  },
+  {
+    "file": "xborg_vfx_s1_armorless_flame.png",
+    "bytes": 32978,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKRg",
+    "sha256": "978d796f086bf02ac2296790ae21e0d3f0313bfd208860b1e9aa1f72d639f814",
+    "dropbox_content_hash": "e8a02de124cb70373d4a2022e753f1f294e0a35b42f78efbafbbb006c31e9522"
+  },
+  {
+    "file": "xborg_vfx_s2_fire_stake.png",
+    "bytes": 4711,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKRw",
+    "sha256": "fe9f9e0e7c9c04148c77dab703ad0cc84c49908f24cfd5eddb30a39fd6048327",
+    "dropbox_content_hash": "04d70aca504cc49b852ed15257994fffad310101c5acce99cffd1a0c42a5d8e1"
+  },
+  {
+    "file": "xborg_vfx_s2_recall_trail.png",
+    "bytes": 6168,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKPw",
+    "sha256": "4b1aaf85476c24122df76ea4e268719bbcd81a9af7ce28b90c6188d8ecbdfc22",
+    "dropbox_content_hash": "8fa9771a2843615e76647535028697d9f0dce8adcf8f468ea27aa071f00322da"
+  },
+  {
+    "file": "xborg_vfx_ult_explosion.png",
+    "bytes": 64573,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKPA",
+    "sha256": "c26081ab1258f99b00cc280d20cdae1d8c8050ea74cfc084b44e9e1b8d968ec9",
+    "dropbox_content_hash": "6f00ea325503b7a2d9c834bd36170d183098cefaa090044a7cab47cc4cf7a031"
+  },
+  {
+    "file": "xborg_vfx_ult_fire_loop.png",
+    "bytes": 94032,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKQA",
+    "sha256": "1bc421b56a227a3147499bc5b1b986deb2224032b75570967d8c5f1812b24fcd",
+    "dropbox_content_hash": "414ea2a20fe9785a079e7ed4abfcbdc0c67a16758e81fb4df3a79b7e589e2d0a"
+  },
+  {
+    "file": "xborg_vfx_ult_overheat.png",
+    "bytes": 17858,
+    "dropbox_id": "id:Q9oGy_InWt8AAAAAAAAKQQ",
+    "sha256": "310e34979467c58771308ab58c2bf730c6bdbc6f5b9be96b642860cb5865aed0",
+    "dropbox_content_hash": "af0f264c20c506bde306e49dc59745e9b687ba860f3784f10bdf5172f71a2aa8"
+  }
+]

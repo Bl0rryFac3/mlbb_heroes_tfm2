@@ -11,12 +11,13 @@ const SCAN_INTERVAL: u64 = 250_000;
 const NODE_LIMIT: usize = 640;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-enum Hero {
+pub(crate) enum Hero {
     Popol,
     Granger,
     Hanzo,
     Atlas,
     YuZhong,
+    Xborg,
 }
 
 impl Hero {
@@ -27,11 +28,12 @@ impl Hero {
             "Hanzo" | "mlbb_hanzo" => Some(Self::Hanzo),
             "Atlas" | "mlbb_atlas" => Some(Self::Atlas),
             "Yu Zhong" | "mlbb_yu_zhong" => Some(Self::YuZhong),
+            "X.Borg" | "mlbb_xborg" => Some(Self::Xborg),
             _ => None,
         }
     }
 
-    fn art(self, elapsed_us: u64) -> (String, f32) {
+    pub(crate) fn art(self, elapsed_us: u64) -> (String, f32) {
         let elapsed_us = elapsed_us % 1_200_000;
         let frame = elapsed_us * 9 / 1_200_000;
         let (name, frame, aspect) = match self {
@@ -40,6 +42,7 @@ impl Hero {
             Self::Hanzo => ("hanzo_draft_idle", elapsed_us / 240_000, 96. / 72.),
             Self::Atlas => ("atlas_draft_idle", frame, 96. / 88.),
             Self::YuZhong => ("yu_zhong_draft_idle", frame, 1.),
+            Self::Xborg => ("xborg_draft_idle", frame, 96. / 80.),
         };
         (format!("asset/mlbb_heroes/icons/{name}_{frame}"), aspect)
     }
@@ -444,7 +447,13 @@ mod tests {
     #[test]
     fn cropped_art_is_kept_inside_the_grid_and_above_the_caption() {
         let tile = (1456., 119., 133., 132.);
-        for hero in [Hero::Atlas, Hero::Hanzo, Hero::Granger, Hero::Popol] {
+        for hero in [
+            Hero::Atlas,
+            Hero::Hanzo,
+            Hero::Granger,
+            Hero::Popol,
+            Hero::Xborg,
+        ] {
             let (first, aspect) = hero.art(0);
             assert_ne!(first, hero.art(300_000).0);
             assert_eq!(first, hero.art(1_200_000).0);

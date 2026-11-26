@@ -1,35 +1,25 @@
-# MLBB Heroes v3.0.1
+# MLBB Heroes v3.1.0
 
-Requires **Teamfight Manager 2 0.7.3 or newer** on Windows. Unzip and copy the single `mlbb_heroes` folder into `mods`. Replace the previous installation if you have one. Enable MLBB Heroes and check that the Mods menu shows **1.1.188**.
+MLBB Heroes adds 31 Mobile Legends heroes to Teamfight Manager 2. This Windows release was playtested on Teamfight Manager 2 0.7.4. The Mods menu shows build 1.1.201.
 
-## New hero — Sun, the Monkey King
+## X.Borg
 
-Sun joins the roster as hero **30**. He’s a melee Fighter who wears down enemies with his Golden Staff and can fight alongside two doppelgangers at once. He comes with animated sprites, skill effects, official skill icons, and his default English voice.
+X.Borg switches between armored and armorless forms. His overhead bar shows Firaga reserve or recharge. Fire Missiles hits a cone and restores HP and Firaga when it damages enemy champions or monsters. Fire Stake pulls targets and collects supplies. Last Insanity spins for up to 3 seconds and deals increased blast damage to overheated targets. Both forms can attack enemy structures.
 
-| Level-one stat | Value | Growth per level |
-| --- | ---: | ---: |
-| HP | 930 | +96 |
-| Attack | 100 | +8 |
-| Defense | 32 | +6 |
-| Magic Resistance | 23 | +3 |
-| Move Speed | 1,040 | +5 |
-| HP Regeneration | 7 | — |
+X.Borg has an animated champion-selection idle, official skill icons, and 29 default English voice clips.
 
-**Golden Staff** deals **100% Attack** as physical damage every **1s** at **22,000** range. Sun and his clones deal **12 bonus physical damage** to regular jungle monsters with basic attacks.
+## Other changes
 
-**Passive — Simian God.** Sun’s hits and his clones’ hits reduce the target’s Defense by **5% per stack** for **4s**, up to **30%**. Clone basics and primary Instantaneous Move hits heal Sun for **10 + 8% of the clone’s Attack**. Hitting structures grants neither healing nor Defense reduction.
+- Fanny's Steel Cable can plan up to three anchors ahead and target movement waypoints.
+- Aldous has updated idle and combat animations, including a rotating drill and arrival recovery for Chase Fate.
+- Balmond has updated sprites and a visible Cyclone Sweep effect.
 
-**S1 — Endless Variety / Swift Exchange.** Sun throws his staff up to **54,000** range for **52 + 45% Attack** physical damage. Endless Variety summons a clone when the staff hits a champion or regular jungle monster, or reaches the end of its throw. With a clear approach to an enemy champion, Swift Exchange lets Sun travel concealed with the staff and leave the clone behind. The clone lasts up to **5s**, has **55% of Sun’s max HP**, deals **42% damage**, and takes **50% more damage**. The shared **6.5s cooldown** starts when it disappears.
+## Install on Windows
 
-**S2 — Instantaneous Move.** Sun and nearby clones converge on an enemy at up to **46,000** range. Sun deals **60 + 50% Attack** physical damage. Each clone deals its own share. Enemies behind the target take **55%** of the corresponding strike. Each hit slows by **12% for 1.5s**, up to **36%**. Cooldown **6s**.
+1. Open `mlbb_heroes_v3.1.0.zip`.
+2. Move the `mlbb_heroes` folder into the Teamfight Manager 2 `mods` folder.
+3. Enable MLBB Heroes in the Mods menu and check for build `1.1.201`.
 
-**Ult — Clone Techniques.** Summons a stronger copy that can fight alongside the staff clone. It lasts up to **8s**, has **75% of Sun’s max HP**, deals **65% damage**, and takes **20% more damage**. The **32s cooldown** starts when it disappears.
+The screenshot guide is included as `Install_Guide.html`.
 
-## Fanny revamp — Blade Dancer
-
-**Steel Cable.** Fanny now stores **10 charges**, spends one per launch, and can chain up to **10 casts** in a flight. Fresh hooks can redirect her while she’s airborne, and she can latch onto walls, map edges, and standing towers. Charges recover one at a time on the ground. Fanny follows her assigned lane or jungle role and can use a safe cable to retreat. The revamp also brings new character animations, cable wires and hooks, Tornado Strike effects, and Prey Marks.
-## Lesley, Valir, and roster fixes
-
-- **Lesley — Ultimate Snipe.** Fired rounds have a brighter muzzle flash and a longer tracer. An interrupted volley clears its target marker. Lesley also gets her default English voice lines for attacks, abilities, movement, kills, death, and respawn.
-- **Valir** gets his default English voice lines for movement, Burst Fireball, Searing Torrent, Vengeance Flame, and death.
-- **Fanny’s roster entry** now consistently lists her **750 base HP**. The [v3.0.0 roster balance](https://github.com/Bl0rryFac3/mlbb_heroes_tfm2/releases/tag/v3.0.0) carries forward, including **900 base HP for Belerick**.
+Mod by Bl0rryFac3. Mobile Legends characters and names belong to Moonton.

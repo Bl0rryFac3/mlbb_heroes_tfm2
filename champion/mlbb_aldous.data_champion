@@ -244,10 +244,24 @@
      "name": "mlbb_aldous_ult_trail"
     },
     {
+     "type": "CasterAnimation",
+     "name": "ult",
+     "tick": 120
+    },
+    {
      "type": "MoveToTarget",
      "speed": 6200,
      "range": 500000,
      "end_effects": [
+      {
+       "type": "RemoveCasterAnimation",
+       "name": "ult"
+      },
+      {
+       "type": "CasterAnimation",
+       "name": "ult_recover",
+       "tick": 12
+      },
       {
        "type": "Native",
        "effect_ref": "mlbb_heroes:audio_voice_aldous_ult_phase2"

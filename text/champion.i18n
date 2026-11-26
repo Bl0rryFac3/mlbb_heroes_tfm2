@@ -1,6 +1,14 @@
 {
   "en": {
     "description": {
+      "mlbb_xborg": {
+        "name": "X.Borg",
+        "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",
+        "passive": "<#5ad0e6ff>Firaga Guard<>. While armored, take <#ffb900ff>20% less damage<> until Firaga reserve runs out. At <#ffb900ff>four heat stacks<>, later skills deal <#ef5350ff>true damage<> to that target. Hot champions and regular camps can drop supplies for <#76df9cff>12% reserve or 12 recharge energy<>.",
+        "skill": "<#5ad0e6ff>Fire Missiles<>. Spray a moving cone for <#ffb900ff>1.5s<>, hitting each enemy unit up to six times. Heal for <#76df9cff>10% of champion HP damage or 5% of monster HP damage<>, up to 12 HP per pulse. Also restore <#76df9cff>up to 6 Firaga reserve or 3 recharge energy<> per pulse. Armorless fire is narrower and longer at <#ff9028ff>60% damage<>. Cooldown <#ffb900ff>5s<>.",
+        "skill2": "<#5ad0e6ff>Fire Stake<>. Throw five stakes and recall them after <#ffb900ff>1.2s<>. Returning stakes damage and pull each enemy once, <#ffb900ff>add one heat stack<> to champions and monsters, and collect supplies. Armorless stakes reach farther. Cooldown <#ffb900ff>10s<>.",
+        "ult": "<#5ad0e6ff>Last Insanity<>. Charge and spin while armored, hitting up to <#ffb900ff>six times over 3s<>. Detonate for <#ef5350ff>100 + 6% target max HP true damage<>, increased by <#ef5350ff>50% against overheated targets<>. Epic blast damage is capped at 150. Armor break forces a half-strength blast. Cooldown <#ffb900ff>44s<>."
+      },
       "mlbb_sun": {
         "name": "Sun",
         "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
@@ -421,6 +429,14 @@
   },
   "zh-hans": {
     "description": {
+      "mlbb_xborg": {
+        "name": "X.Borg",
+        "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",
+        "passive": "<#5ad0e6ff>Firaga Guard<>. While armored, take <#ffb900ff>20% less damage<> until Firaga reserve runs out. At <#ffb900ff>four heat stacks<>, later skills deal <#ef5350ff>true damage<> to that target. Hot champions and regular camps can drop supplies for <#76df9cff>12% reserve or 12 recharge energy<>.",
+        "skill": "<#5ad0e6ff>Fire Missiles<>. Spray a moving cone for <#ffb900ff>1.5s<>, hitting each enemy unit up to six times. Heal for <#76df9cff>10% of champion HP damage or 5% of monster HP damage<>, up to 12 HP per pulse. Also restore <#76df9cff>up to 6 Firaga reserve or 3 recharge energy<> per pulse. Armorless fire is narrower and longer at <#ff9028ff>60% damage<>. Cooldown <#ffb900ff>5s<>.",
+        "skill2": "<#5ad0e6ff>Fire Stake<>. Throw five stakes and recall them after <#ffb900ff>1.2s<>. Returning stakes damage and pull each enemy once, <#ffb900ff>add one heat stack<> to champions and monsters, and collect supplies. Armorless stakes reach farther. Cooldown <#ffb900ff>10s<>.",
+        "ult": "<#5ad0e6ff>Last Insanity<>. Charge and spin while armored, hitting up to <#ffb900ff>six times over 3s<>. Detonate for <#ef5350ff>100 + 6% target max HP true damage<>, increased by <#ef5350ff>50% against overheated targets<>. Epic blast damage is capped at 150. Armor break forces a half-strength blast. Cooldown <#ffb900ff>44s<>."
+      },
       "mlbb_sun": {
         "name": "Sun",
         "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
@@ -841,6 +857,14 @@
   },
   "zh-hant": {
     "description": {
+      "mlbb_xborg": {
+        "name": "X.Borg",
+        "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",
+        "passive": "<#5ad0e6ff>Firaga Guard<>. While armored, take <#ffb900ff>20% less damage<> until Firaga reserve runs out. At <#ffb900ff>four heat stacks<>, later skills deal <#ef5350ff>true damage<> to that target. Hot champions and regular camps can drop supplies for <#76df9cff>12% reserve or 12 recharge energy<>.",
+        "skill": "<#5ad0e6ff>Fire Missiles<>. Spray a moving cone for <#ffb900ff>1.5s<>, hitting each enemy unit up to six times. Heal for <#76df9cff>10% of champion HP damage or 5% of monster HP damage<>, up to 12 HP per pulse. Also restore <#76df9cff>up to 6 Firaga reserve or 3 recharge energy<> per pulse. Armorless fire is narrower and longer at <#ff9028ff>60% damage<>. Cooldown <#ffb900ff>5s<>.",
+        "skill2": "<#5ad0e6ff>Fire Stake<>. Throw five stakes and recall them after <#ffb900ff>1.2s<>. Returning stakes damage and pull each enemy once, <#ffb900ff>add one heat stack<> to champions and monsters, and collect supplies. Armorless stakes reach farther. Cooldown <#ffb900ff>10s<>.",
+        "ult": "<#5ad0e6ff>Last Insanity<>. Charge and spin while armored, hitting up to <#ffb900ff>six times over 3s<>. Detonate for <#ef5350ff>100 + 6% target max HP true damage<>, increased by <#ef5350ff>50% against overheated targets<>. Epic blast damage is capped at 150. Armor break forces a half-strength blast. Cooldown <#ffb900ff>44s<>."
+      },
       "mlbb_sun": {
         "name": "Sun",
         "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
@@ -1261,6 +1285,14 @@
   },
   "ko": {
     "description": {
+      "mlbb_xborg": {
+        "name": "X.Borg",
+        "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",
+        "passive": "<#5ad0e6ff>Firaga Guard<>. While armored, take <#ffb900ff>20% less damage<> until Firaga reserve runs out. At <#ffb900ff>four heat stacks<>, later skills deal <#ef5350ff>true damage<> to that target. Hot champions and regular camps can drop supplies for <#76df9cff>12% reserve or 12 recharge energy<>.",
+        "skill": "<#5ad0e6ff>Fire Missiles<>. Spray a moving cone for <#ffb900ff>1.5s<>, hitting each enemy unit up to six times. Heal for <#76df9cff>10% of champion HP damage or 5% of monster HP damage<>, up to 12 HP per pulse. Also restore <#76df9cff>up to 6 Firaga reserve or 3 recharge energy<> per pulse. Armorless fire is narrower and longer at <#ff9028ff>60% damage<>. Cooldown <#ffb900ff>5s<>.",
+        "skill2": "<#5ad0e6ff>Fire Stake<>. Throw five stakes and recall them after <#ffb900ff>1.2s<>. Returning stakes damage and pull each enemy once, <#ffb900ff>add one heat stack<> to champions and monsters, and collect supplies. Armorless stakes reach farther. Cooldown <#ffb900ff>10s<>.",
+        "ult": "<#5ad0e6ff>Last Insanity<>. Charge and spin while armored, hitting up to <#ffb900ff>six times over 3s<>. Detonate for <#ef5350ff>100 + 6% target max HP true damage<>, increased by <#ef5350ff>50% against overheated targets<>. Epic blast damage is capped at 150. Armor break forces a half-strength blast. Cooldown <#ffb900ff>44s<>."
+      },
       "mlbb_sun": {
         "name": "Sun",
         "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
@@ -1681,6 +1713,14 @@
   },
   "ja": {
     "description": {
+      "mlbb_xborg": {
+        "name": "X.Borg",
+        "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",
+        "passive": "<#5ad0e6ff>Firaga Guard<>. While armored, take <#ffb900ff>20% less damage<> until Firaga reserve runs out. At <#ffb900ff>four heat stacks<>, later skills deal <#ef5350ff>true damage<> to that target. Hot champions and regular camps can drop supplies for <#76df9cff>12% reserve or 12 recharge energy<>.",
+        "skill": "<#5ad0e6ff>Fire Missiles<>. Spray a moving cone for <#ffb900ff>1.5s<>, hitting each enemy unit up to six times. Heal for <#76df9cff>10% of champion HP damage or 5% of monster HP damage<>, up to 12 HP per pulse. Also restore <#76df9cff>up to 6 Firaga reserve or 3 recharge energy<> per pulse. Armorless fire is narrower and longer at <#ff9028ff>60% damage<>. Cooldown <#ffb900ff>5s<>.",
+        "skill2": "<#5ad0e6ff>Fire Stake<>. Throw five stakes and recall them after <#ffb900ff>1.2s<>. Returning stakes damage and pull each enemy once, <#ffb900ff>add one heat stack<> to champions and monsters, and collect supplies. Armorless stakes reach farther. Cooldown <#ffb900ff>10s<>.",
+        "ult": "<#5ad0e6ff>Last Insanity<>. Charge and spin while armored, hitting up to <#ffb900ff>six times over 3s<>. Detonate for <#ef5350ff>100 + 6% target max HP true damage<>, increased by <#ef5350ff>50% against overheated targets<>. Epic blast damage is capped at 150. Armor break forces a half-strength blast. Cooldown <#ffb900ff>44s<>."
+      },
       "mlbb_sun": {
         "name": "Sun",
         "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
@@ -2101,6 +2141,14 @@
   },
   "fr": {
     "description": {
+      "mlbb_xborg": {
+        "name": "X.Borg",
+        "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",
+        "passive": "<#5ad0e6ff>Firaga Guard<>. While armored, take <#ffb900ff>20% less damage<> until Firaga reserve runs out. At <#ffb900ff>four heat stacks<>, later skills deal <#ef5350ff>true damage<> to that target. Hot champions and regular camps can drop supplies for <#76df9cff>12% reserve or 12 recharge energy<>.",
+        "skill": "<#5ad0e6ff>Fire Missiles<>. Spray a moving cone for <#ffb900ff>1.5s<>, hitting each enemy unit up to six times. Heal for <#76df9cff>10% of champion HP damage or 5% of monster HP damage<>, up to 12 HP per pulse. Also restore <#76df9cff>up to 6 Firaga reserve or 3 recharge energy<> per pulse. Armorless fire is narrower and longer at <#ff9028ff>60% damage<>. Cooldown <#ffb900ff>5s<>.",
+        "skill2": "<#5ad0e6ff>Fire Stake<>. Throw five stakes and recall them after <#ffb900ff>1.2s<>. Returning stakes damage and pull each enemy once, <#ffb900ff>add one heat stack<> to champions and monsters, and collect supplies. Armorless stakes reach farther. Cooldown <#ffb900ff>10s<>.",
+        "ult": "<#5ad0e6ff>Last Insanity<>. Charge and spin while armored, hitting up to <#ffb900ff>six times over 3s<>. Detonate for <#ef5350ff>100 + 6% target max HP true damage<>, increased by <#ef5350ff>50% against overheated targets<>. Epic blast damage is capped at 150. Armor break forces a half-strength blast. Cooldown <#ffb900ff>44s<>."
+      },
       "mlbb_sun": {
         "name": "Sun",
         "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
@@ -2521,6 +2569,14 @@
   },
   "ru": {
     "description": {
+      "mlbb_xborg": {
+        "name": "X.Borg",
+        "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",
+        "passive": "<#5ad0e6ff>Firaga Guard<>. While armored, take <#ffb900ff>20% less damage<> until Firaga reserve runs out. At <#ffb900ff>four heat stacks<>, later skills deal <#ef5350ff>true damage<> to that target. Hot champions and regular camps can drop supplies for <#76df9cff>12% reserve or 12 recharge energy<>.",
+        "skill": "<#5ad0e6ff>Fire Missiles<>. Spray a moving cone for <#ffb900ff>1.5s<>, hitting each enemy unit up to six times. Heal for <#76df9cff>10% of champion HP damage or 5% of monster HP damage<>, up to 12 HP per pulse. Also restore <#76df9cff>up to 6 Firaga reserve or 3 recharge energy<> per pulse. Armorless fire is narrower and longer at <#ff9028ff>60% damage<>. Cooldown <#ffb900ff>5s<>.",
+        "skill2": "<#5ad0e6ff>Fire Stake<>. Throw five stakes and recall them after <#ffb900ff>1.2s<>. Returning stakes damage and pull each enemy once, <#ffb900ff>add one heat stack<> to champions and monsters, and collect supplies. Armorless stakes reach farther. Cooldown <#ffb900ff>10s<>.",
+        "ult": "<#5ad0e6ff>Last Insanity<>. Charge and spin while armored, hitting up to <#ffb900ff>six times over 3s<>. Detonate for <#ef5350ff>100 + 6% target max HP true damage<>, increased by <#ef5350ff>50% against overheated targets<>. Epic blast damage is capped at 150. Armor break forces a half-strength blast. Cooldown <#ffb900ff>44s<>."
+      },
       "mlbb_sun": {
         "name": "Sun",
         "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",
@@ -2941,6 +2997,14 @@
   },
   "vi": {
     "description": {
+      "mlbb_xborg": {
+        "name": "X.Borg",
+        "attack": "Armored melee or armorless ember for <#ff9028ff>100% Attack<> physical damage. Basic hits add <#ffb900ff>one heat stack<> to champions and monsters.",
+        "passive": "<#5ad0e6ff>Firaga Guard<>. While armored, take <#ffb900ff>20% less damage<> until Firaga reserve runs out. At <#ffb900ff>four heat stacks<>, later skills deal <#ef5350ff>true damage<> to that target. Hot champions and regular camps can drop supplies for <#76df9cff>12% reserve or 12 recharge energy<>.",
+        "skill": "<#5ad0e6ff>Fire Missiles<>. Spray a moving cone for <#ffb900ff>1.5s<>, hitting each enemy unit up to six times. Heal for <#76df9cff>10% of champion HP damage or 5% of monster HP damage<>, up to 12 HP per pulse. Also restore <#76df9cff>up to 6 Firaga reserve or 3 recharge energy<> per pulse. Armorless fire is narrower and longer at <#ff9028ff>60% damage<>. Cooldown <#ffb900ff>5s<>.",
+        "skill2": "<#5ad0e6ff>Fire Stake<>. Throw five stakes and recall them after <#ffb900ff>1.2s<>. Returning stakes damage and pull each enemy once, <#ffb900ff>add one heat stack<> to champions and monsters, and collect supplies. Armorless stakes reach farther. Cooldown <#ffb900ff>10s<>.",
+        "ult": "<#5ad0e6ff>Last Insanity<>. Charge and spin while armored, hitting up to <#ffb900ff>six times over 3s<>. Detonate for <#ef5350ff>100 + 6% target max HP true damage<>, increased by <#ef5350ff>50% against overheated targets<>. Epic blast damage is capped at 150. Armor break forces a half-strength blast. Cooldown <#ffb900ff>44s<>."
+      },
       "mlbb_sun": {
         "name": "Sun",
         "attack": "Swings his staff for <#ff9028ff>100% Attack<> physical damage. Basic attacks from Sun and his clones deal <#ff9028ff>12 bonus physical damage<> to regular jungle monsters.",

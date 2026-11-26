@@ -223,6 +223,15 @@ impl StablePassive for BalmondBloodthirst {
         let _ = audio::play_voice(sim, owner, line);
     }
     fn on_dead(&mut self, sim: &mut StableSim<'_>, player: usize) {
+        self.cyclone_started = None;
+        self.next_s2_hit = 0;
+        if let Some(owner) = sim
+            .get_player(player)
+            .and_then(|player| player.champion().map(|champion| champion.id()))
+        {
+            let _ = sim.entity_remove_buff(owner, S2_ACTIVE);
+            let _ = sim.entity_remove_buff(owner, S2_SPEED);
+        }
         self.voice.on_dead(sim, player, DEATH_LINES);
     }
     fn on_update(&mut self, sim: &mut StableSim<'_>, _: u64, _: usize, owner: usize) {

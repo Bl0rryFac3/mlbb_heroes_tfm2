@@ -1,22 +1,35 @@
 //! Card-only preview in starting selection and draft. Gameplay carriers stay transparent.
+use crate::draft_preview::Hero;
 use mod_api_stable::*;
 use std::sync::{LazyLock, Mutex};
+
+const FIRST_SCAN: u64 = 500_000;
+const SCAN_INTERVAL: u64 = 1_500_000;
+
 #[derive(Clone, Debug, PartialEq, Eq)]
 struct Card {
     path: String,
     identity: String,
+    hero: Hero,
 }
 #[derive(Default)]
 struct Cache {
     scene: Option<(SceneKindV1, Option<ClientSceneKindV1>)>,
     elapsed: u64,
-    scanned: bool,
+    next_scan: u64,
     cards: Vec<Card>,
     draw_logged: bool,
 }
 static CACHE: LazyLock<Mutex<Cache>> = LazyLock::new(|| Mutex::new(Cache::default()));
-fn is_name(text: &str) -> bool {
-    text.contains("mlbb_popol_kupa") || (text.contains("Popol") && text.contains("Kupa"))
+fn card_hero(text: &str) -> Option<Hero> {
+    if text.contains("mlbb_popol_kupa") || (text.contains("Popol") && text.contains("Kupa")) {
+        Some(Hero::Popol)
+    } else if text.contains("mlbb_xborg") || text.trim() == "X.Borg" || text.contains(r#""X.Borg""#)
+    {
+        Some(Hero::Xborg)
+    } else {
+        None
+    }
 }
 fn child(parent: &str, name: &str) -> String {
     if parent.is_empty() {
@@ -53,21 +66,21 @@ impl ReadUi for StableClient<'_> {
         self.ui_visible(p)
     }
 }
-fn identity(ui: &impl ReadUi, path: &str) -> bool {
+fn identity(ui: &impl ReadUi, path: &str) -> Option<Hero> {
     // Template item IDs can identify a card even if its caption is custom-drawn.
-    if path
-        .rsplit('.')
-        .next()
-        .is_some_and(|id| id == "mlbb_popol_kupa")
-    {
-        return true;
+    if let Some(id) = path.rsplit('.').next() {
+        match id.strip_prefix("champion_").unwrap_or(id) {
+            "mlbb_popol_kupa" => return Some(Hero::Popol),
+            "mlbb_xborg" => return Some(Hero::Xborg),
+            _ => {}
+        }
     }
     match ui.kind(path).as_deref() {
-        Some("label") => ui.label(path).is_some_and(|s| is_name(&s)),
+        Some("label") => ui.label(path).as_deref().and_then(card_hero),
         Some("selectable" | "color_selectable" | "button") => {
-            ui.state(path).is_some_and(|s| is_name(&s))
+            ui.state(path).as_deref().and_then(card_hero)
         }
-        _ => false,
+        _ => None,
     }
 }
 fn visible(ui: &impl ReadUi, path: &str) -> bool {
@@ -109,7 +122,7 @@ fn scan(ui: &impl ReadUi) -> Vec<Card> {
         if !path.is_empty() && ui.shown(&path) == Some(false) {
             continue;
         }
-        if identity(ui, &path) {
+        if let Some(hero) = identity(ui, &path) {
             // Selectable cards own their caption. Labels instead identify an ancestor.
             let mut parent = path.as_str();
             for _ in 0..5 {
@@ -118,6 +131,7 @@ fn scan(ui: &impl ReadUi) -> Vec<Card> {
                         result.push(Card {
                             path: parent.to_string(),
                             identity: path.clone(),
+                            hero,
                         });
                     }
                     break;
@@ -137,7 +151,7 @@ fn scan(ui: &impl ReadUi) -> Vec<Card> {
     result
 }
 fn live_card(ui: &impl ReadUi, card: &Card) -> bool {
-    visible(ui, &card.path) && identity(ui, &card.identity)
+    visible(ui, &card.path) && identity(ui, &card.identity) == Some(card.hero)
 }
 fn clipped(ui: &impl ReadUi, path: &str, rect: (f32, f32, f32, f32)) -> bool {
     let mut p = path;
@@ -157,7 +171,7 @@ fn eligible(ctx: &StableClient<'_>) -> Option<(SceneKindV1, Option<ClientSceneKi
     let scene = ctx.scene_kind()?;
     let screen = ctx.client_scene_kind();
     match (scene, screen) {
-        (SceneKindV1::NewGame, _)
+        (SceneKindV1::NewGame | SceneKindV1::DatabaseEdit, _)
         | (
             SceneKindV1::InGame,
             Some(ClientSceneKindV1::Lineup | ClientSceneKindV1::StadiumEntrance),
@@ -178,18 +192,21 @@ pub(crate) fn update(ctx: &StableClient<'_>, dt: u64) {
     if scene.is_none() {
         return;
     }
-    let started = cache.elapsed;
     cache.elapsed = cache.elapsed.saturating_add(dt.min(250_000));
-    let ready = started < 500_000 && cache.elapsed >= 500_000;
-    // F8 requests one new search after navigation or filtering inside the same screen.
-    if (!cache.scanned && ready) || ctx.key_pressed("F8") {
-        cache.cards = scan(ctx);
-        cache.scanned = true;
-        cache.draw_logged = false;
-        crate::wlog(format!(
-            "[POPOL preview] scene={scene:?} cards={:?}",
-            cache.cards
-        ));
+    let probe = ctx.key_pressed("F8");
+    if cache.elapsed >= cache.next_scan.max(FIRST_SCAN) || probe {
+        let mut cards = scan(ctx);
+        if scene.is_some_and(|(kind, _)| kind == SceneKindV1::DatabaseEdit) {
+            cards.retain(|card| card.hero == Hero::Xborg);
+        }
+        if cache.next_scan == 0 || cache.cards != cards || probe {
+            cache.draw_logged = false;
+            crate::wlog(format!(
+                "[champion preview] scene={scene:?} cards={cards:?}"
+            ));
+        }
+        cache.cards = cards;
+        cache.next_scan = cache.elapsed + SCAN_INTERVAL;
     }
 }
 
@@ -202,7 +219,6 @@ pub(crate) fn render(ctx: &mut StableClient<'_>) {
     if cache.scene != Some(scene) {
         return;
     }
-    let frame = (cache.elapsed.saturating_mul(15) / 2_000_000) % 9;
     let mut submitted = false;
     for card in &cache.cards {
         if !live_card(ctx, card) {
@@ -211,18 +227,18 @@ pub(crate) fn render(ctx: &mut StableClient<'_>) {
         let Some((x, y, w, h)) = ctx.ui_node_rect(&card.path).and_then(image_rect) else {
             continue;
         };
-        let height = w * 72. / 120.;
+        let (asset, aspect) = card.hero.art(cache.elapsed);
+        let height = w / aspect;
         let rect = (x, y + (h - height) / 2., w, height);
         if clipped(ctx, &card.path, rect) {
             continue;
         }
-        let asset = format!("asset/mlbb_heroes/icons/popol_menu_idle_{frame}");
         submitted = true;
         let ok = ctx.draw_svg("UI", &asset, rect, 100, 0xffffffff);
         if !cache.draw_logged {
             crate::wlog(format!(
-                "[POPOL preview] draw path={} rect={rect:?} submitted={ok}",
-                card.path
+                "[champion preview] draw hero={:?} path={} rect={rect:?} submitted={ok}",
+                card.hero, card.path
             ));
         }
     }
@@ -296,7 +312,8 @@ mod tests {
             cards,
             vec![Card {
                 path: "draft.pool.item_14".into(),
-                identity: "draft.pool.item_14".into()
+                identity: "draft.pool.item_14".into(),
+                hero: Hero::Popol,
             }]
         );
     }
@@ -343,6 +360,30 @@ mod tests {
             },
         );
         assert!(scan(&ui).is_empty());
+    }
+    #[test]
+    fn xborg_caption_resolves_to_matching_idle_art_and_rejects_reused_cards() {
+        let mut ui = fixture();
+        let path = "draft.pool.item_15";
+        ui.0.insert(
+            path.into(),
+            Node {
+                kind: "color_selectable",
+                state: Some(r#"{"text":"X.Borg"}"#),
+                rect: Some((460., 540., 134., 130.)),
+                ..Default::default()
+            },
+        );
+        let cards = scan(&ui);
+        let card = cards.iter().find(|card| card.hero == Hero::Xborg).unwrap();
+        assert_eq!(card.path, path);
+        assert_eq!(
+            card.hero.art(300_000).0,
+            "asset/mlbb_heroes/icons/xborg_draft_idle_2"
+        );
+        assert!(live_card(&ui, card));
+        ui.0.get_mut(path).unwrap().state = Some(r#"{"text":"Popol & Kupa"}"#);
+        assert!(!live_card(&ui, card));
     }
     #[test]
     fn template_item_id_works_with_a_custom_drawn_caption() {

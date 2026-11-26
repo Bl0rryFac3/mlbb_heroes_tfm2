@@ -48,7 +48,7 @@ EXCLUDED_SUFFIXES = {".pyc"}
 EXCLUDED_NAMES = {"mlbb_heroes.log"}
 OPTIONAL_ARCHIVE_DIRS = {"reports", "src"}
 
-EXPECTED_CHAMPIONS = 30
+EXPECTED_CHAMPIONS = 31
 
 
 def collect() -> list[Path]:

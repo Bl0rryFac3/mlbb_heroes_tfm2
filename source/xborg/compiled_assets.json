@@ -1,0 +1,863 @@
+{
+  "armored_idle": {
+    "sha256": "509a9432dda04a71265de8f5d4b19d75478af8d325a90a6c49fbda3223ea4ee3",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 72,
+    "muzzle_cuts": {}
+  },
+  "armored_run": {
+    "sha256": "0346bac2e17439363719a37ff1ed6e249ab486c19bb13f09a8df32c6f633f0f6",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 42,
+    "muzzle_cuts": {}
+  },
+  "armored_basic_attack": {
+    "sha256": "415ae1b562dbc97b38e734c7599c9126b5058b25cf0ce0fd1a17d72cdf05b704",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 24,
+    "muzzle_cuts": {}
+  },
+  "armored_hurt": {
+    "sha256": "34ceb1ad2bd231c9c0ee0f88e65a8410e1428759bf7200b886768918f9b6eea6",
+    "source_dimensions": [
+      216,
+      144
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 5,
+    "empty_padding": 1,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 15,
+    "muzzle_cuts": {}
+  },
+  "armored_s1_start": {
+    "sha256": "a5a8ef518df67eafb5382f6575d03065e2a4f8ce240c223535c0ef8f73fbb009",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 12,
+    "muzzle_cuts": {}
+  },
+  "armored_s1_loop": {
+    "sha256": "93abe559c6e70c386649c4db158905c47c60f9a8c119b2a910e6503302f5311c",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 32,
+    "muzzle_cuts": {
+      "2": 49,
+      "3": 49,
+      "4": 50,
+      "5": 49,
+      "6": 49,
+      "7": 50,
+      "8": 49
+    }
+  },
+  "armored_s2_cast": {
+    "sha256": "e6e901ea4baff1f163c276eeb646b448a015ec41074a3f55453f1612e9e150c4",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 22,
+    "muzzle_cuts": {}
+  },
+  "armored_s2_recall": {
+    "sha256": "1a5027205687195bd79b644d15e4dc4d131bbbcbbddc1091c8ef5e544b57a3e6",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 18,
+    "muzzle_cuts": {}
+  },
+  "armored_ult_charge": {
+    "sha256": "a71b6894eafada268e92ff734f8a10da1a2b9b9625cf8a82a1e2521b819f769e",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 13,
+    "muzzle_cuts": {}
+  },
+  "armored_ult_spin": {
+    "sha256": "cbcfefe975938f51b1dced1cfb41b7ac27a82354a1b87af04087e86f203df6f2",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 36,
+    "muzzle_cuts": {}
+  },
+  "armored_ult_explosion": {
+    "sha256": "55ab13ce14ff6817217e8843dbeda9da75f91ab0c2c8671bd418c5a5f38e9a8d",
+    "source_dimensions": [
+      288,
+      288
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 13,
+    "empty_padding": 3,
+    "selected": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 30,
+    "muzzle_cuts": {}
+  },
+  "armorless_idle": {
+    "sha256": "36c6b9760b6221a9e0b2c3068c455169e3eadf15f950f142a3fcde00d398ec21",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 72,
+    "muzzle_cuts": {}
+  },
+  "armorless_walk": {
+    "sha256": "5b8778fb4435bcf8f66620ba1fdbe53dbf9fec55a640953dffd34908a39652e1",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 36,
+    "muzzle_cuts": {}
+  },
+  "armorless_basic_attack": {
+    "sha256": "e78751bca7addde1b4741a512bdb941d9a5af3b6605f76d22813dd91c51f1584",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 24,
+    "muzzle_cuts": {
+      "2": 59,
+      "3": 59,
+      "4": 59,
+      "5": 62
+    }
+  },
+  "armorless_hurt": {
+    "sha256": "62466918e7f766d13090db7a42b0aaa11eb10ab74718fcc4e11e8eb332901a5f",
+    "source_dimensions": [
+      216,
+      144
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 5,
+    "empty_padding": 1,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 15,
+    "muzzle_cuts": {}
+  },
+  "armorless_death": {
+    "sha256": "383b4527007f567aecd8b10846da940c015eb4074126de6d88bd9efcfda0ce0f",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 44,
+    "muzzle_cuts": {}
+  },
+  "armorless_s1_start": {
+    "sha256": "d623be94a1f131864bec02949e98c42d8292f009f123d7412d5f7ef2f35a23ea",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 12,
+    "muzzle_cuts": {
+      "1": 59,
+      "2": 55,
+      "3": 60
+    }
+  },
+  "armorless_s1_loop": {
+    "sha256": "5d142c4f43971f232b6a578a6861962a542914148fabb131ba4421d0f22c71f0",
+    "source_dimensions": [
+      216,
+      144
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 5,
+    "empty_padding": 1,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 24,
+    "muzzle_cuts": {
+      "1": 55,
+      "2": 53,
+      "3": 56,
+      "4": 60
+    }
+  },
+  "armorless_s2_cast": {
+    "sha256": "d1664a44ec742802780f73077056b1cb24e3110de2186cf38f4e578c52c6e9a8",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 22,
+    "muzzle_cuts": {}
+  },
+  "armorless_s2_recall": {
+    "sha256": "5ad4192699eda5d45a06d504e7ccf5886698145b9c02fb93ef25633d6e48cc82",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 18,
+    "muzzle_cuts": {}
+  },
+  "armor_break": {
+    "sha256": "dca89f4060cf8a1ceb0a6dd090beddc26e945cac04fa2fb1e60d7ec5d46cb5f2",
+    "source_dimensions": [
+      288,
+      288
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 13,
+    "empty_padding": 3,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      12
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 33,
+    "muzzle_cuts": {}
+  },
+  "armor_restore": {
+    "sha256": "dd473189eda5a7f643ba3b5ca3804c9d7de4e77be7cd2b0852b3499b622fe521",
+    "source_dimensions": [
+      288,
+      288
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 13,
+    "empty_padding": 3,
+    "selected": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      9,
+      10,
+      11,
+      12
+    ],
+    "output_cell": [
+      96,
+      80
+    ],
+    "ticks": 33,
+    "muzzle_cuts": {}
+  },
+  "armored_s1_move": {
+    "derived_from": [
+      "armored_s1_loop",
+      "armored_run"
+    ],
+    "leg_splice_row": 50,
+    "frames": 9
+  },
+  "armored_s1_recover": {
+    "derived_from": [
+      "armored_s1_start"
+    ],
+    "selected_reverse": [
+      2,
+      1,
+      0
+    ]
+  },
+  "armorless_s1_move": {
+    "derived_from": [
+      "armorless_s1_loop",
+      "armorless_walk"
+    ],
+    "leg_splice_row": 50,
+    "frames": 9
+  },
+  "armorless_s1_recover": {
+    "derived_from": [
+      "armorless_s1_start"
+    ],
+    "selected_reverse": [
+      2,
+      1,
+      0
+    ]
+  },
+  "vfx_basic_projectile": {
+    "sha256": "ff3002dc180ec40bd8bc3300ba0f408e0a73c773f4fd46421dc505935bc02344",
+    "source_dimensions": [
+      72,
+      32
+    ],
+    "source_cell": [
+      24,
+      16
+    ],
+    "source_frames": 5,
+    "empty_padding": 1
+  },
+  "vfx_projectile_impact": {
+    "sha256": "a30a96e6f7c16c8fec3e869cea13ba27af93e69f2ce49ed2039a9ff250febe7b",
+    "source_dimensions": [
+      72,
+      48
+    ],
+    "source_cell": [
+      24,
+      24
+    ],
+    "source_frames": 5,
+    "empty_padding": 1
+  },
+  "vfx_firaga_supply": {
+    "sha256": "02c2b613f1e56c66a0d401a9338f850be62c501cbdbacff0fef175fcd2b52c53",
+    "source_dimensions": [
+      48,
+      48
+    ],
+    "source_cell": [
+      16,
+      16
+    ],
+    "source_frames": 9,
+    "empty_padding": 0
+  },
+  "vfx_armor_break": {
+    "sha256": "0516c2dd4aeeb1de7da0e1f031445dad4dfce5546268e39fefaad1fc47e77f30",
+    "source_dimensions": [
+      240,
+      240
+    ],
+    "source_cell": [
+      60,
+      60
+    ],
+    "source_frames": 15,
+    "empty_padding": 1
+  },
+  "vfx_s1_armored_flame": {
+    "sha256": "3e355210b382bac867ca115623a903360fbad0b43abb79a0b5c08adf96d6254c",
+    "source_dimensions": [
+      512,
+      512
+    ],
+    "source_cell": [
+      128,
+      128
+    ],
+    "source_frames": 13,
+    "empty_padding": 3,
+    "output_width": 48
+  },
+  "vfx_s1_armorless_flame": {
+    "sha256": "978d796f086bf02ac2296790ae21e0d3f0313bfd208860b1e9aa1f72d639f814",
+    "source_dimensions": [
+      384,
+      144
+    ],
+    "source_cell": [
+      128,
+      48
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "output_width": 64
+  },
+  "vfx_s2_fire_stake": {
+    "sha256": "fe9f9e0e7c9c04148c77dab703ad0cc84c49908f24cfd5eddb30a39fd6048327",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "output_width": 16
+  },
+  "vfx_s2_recall_trail": {
+    "sha256": "4b1aaf85476c24122df76ea4e268719bbcd81a9af7ce28b90c6188d8ecbdfc22",
+    "source_dimensions": [
+      216,
+      216
+    ],
+    "source_cell": [
+      72,
+      72
+    ],
+    "source_frames": 9,
+    "empty_padding": 0,
+    "output_width": 28
+  },
+  "vfx_ult_fire_loop": {
+    "sha256": "1bc421b56a227a3147499bc5b1b986deb2224032b75570967d8c5f1812b24fcd",
+    "source_dimensions": [
+      384,
+      384
+    ],
+    "source_cell": [
+      128,
+      128
+    ],
+    "source_frames": 9,
+    "empty_padding": 0
+  },
+  "vfx_ult_overheat": {
+    "sha256": "310e34979467c58771308ab58c2bf730c6bdbc6f5b9be96b642860cb5865aed0",
+    "source_dimensions": [
+      192,
+      192
+    ],
+    "source_cell": [
+      64,
+      64
+    ],
+    "source_frames": 9,
+    "empty_padding": 0
+  },
+  "vfx_ult_explosion": {
+    "sha256": "c26081ab1258f99b00cc280d20cdae1d8c8050ea74cfc084b44e9e1b8d968ec9",
+    "source_dimensions": [
+      384,
+      384
+    ],
+    "source_cell": [
+      128,
+      128
+    ],
+    "source_frames": 9,
+    "empty_padding": 0
+  },
+  "standing": {
+    "armored": [
+      30,
+      17,
+      78,
+      62
+    ],
+    "armorless": [
+      31,
+      17,
+      80,
+      62
+    ]
+  },
+  "effect_layers": {
+    "spin": "owner body ring only",
+    "detonation": "owner blast at damage event plus body recovery",
+    "alternate_ring_and_overheat": "registered for inspection",
+    "firaga_break": "owner body with late debris only"
+  }
+}

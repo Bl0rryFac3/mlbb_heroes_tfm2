@@ -2,11 +2,11 @@
  "mod_id": "mlbb_heroes",
  "name": "MLBB Heroes",
  "author": "Bl0rryFac3",
- "version": "1.1.188",
+ "version": "1.1.198",
  "mod_type": "native",
  "contains_code": true,
- "last_updated": "2026-11-24",
- "description": "Adds 30 Mobile Legends heroes to Teamfight Manager 2. Sun, the Monkey King, joins with his Golden Staff and doppelgangers.",
+ "last_updated": "2026-11-26",
+ "description": "Adds 31 heroes to Teamfight Manager 2. X.Borg is included as an experimental Firaga Guard and animation playtest.",
  "dependencies": [
   {
    "mod_id": "base",

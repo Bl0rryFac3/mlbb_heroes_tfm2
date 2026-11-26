@@ -108,11 +108,137 @@
     {
      "type": "CasterAnimation",
      "name": "skill2",
-     "tick": 12
+     "tick": 180
     },
     {
      "type": "Native",
      "effect_ref": "mlbb_heroes:balmond_cyclone_start"
+    },
+    {
+     "type": "MoveToTarget",
+     "speed": 1242,
+     "range": 36000,
+     "end_effects": []
+    },
+    {
+     "type": "Delayed",
+     "tick": 24,
+     "effects": [
+      {
+       "type": "SwitchByBuff",
+       "buff_name": "mlbb_heroes_balmond_s2_active",
+       "effect_buff": {
+        "type": "MoveToTarget",
+        "speed": 1242,
+        "range": 36000,
+        "end_effects": []
+       },
+       "effect_none": {
+        "type": "Combine",
+        "effects": []
+       }
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 48,
+     "effects": [
+      {
+       "type": "SwitchByBuff",
+       "buff_name": "mlbb_heroes_balmond_s2_active",
+       "effect_buff": {
+        "type": "MoveToTarget",
+        "speed": 1242,
+        "range": 36000,
+        "end_effects": []
+       },
+       "effect_none": {
+        "type": "Combine",
+        "effects": []
+       }
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 72,
+     "effects": [
+      {
+       "type": "SwitchByBuff",
+       "buff_name": "mlbb_heroes_balmond_s2_active",
+       "effect_buff": {
+        "type": "MoveToTarget",
+        "speed": 1242,
+        "range": 36000,
+        "end_effects": []
+       },
+       "effect_none": {
+        "type": "Combine",
+        "effects": []
+       }
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 96,
+     "effects": [
+      {
+       "type": "SwitchByBuff",
+       "buff_name": "mlbb_heroes_balmond_s2_active",
+       "effect_buff": {
+        "type": "MoveToTarget",
+        "speed": 1242,
+        "range": 36000,
+        "end_effects": []
+       },
+       "effect_none": {
+        "type": "Combine",
+        "effects": []
+       }
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 120,
+     "effects": [
+      {
+       "type": "SwitchByBuff",
+       "buff_name": "mlbb_heroes_balmond_s2_active",
+       "effect_buff": {
+        "type": "MoveToTarget",
+        "speed": 1242,
+        "range": 36000,
+        "end_effects": []
+       },
+       "effect_none": {
+        "type": "Combine",
+        "effects": []
+       }
+      }
+     ]
+    },
+    {
+     "type": "Delayed",
+     "tick": 144,
+     "effects": [
+      {
+       "type": "SwitchByBuff",
+       "buff_name": "mlbb_heroes_balmond_s2_active",
+       "effect_buff": {
+        "type": "MoveToTarget",
+        "speed": 1242,
+        "range": 36000,
+        "end_effects": []
+       },
+       "effect_none": {
+        "type": "Combine",
+        "effects": []
+       }
+      }
+     ]
     }
    ]
   }
